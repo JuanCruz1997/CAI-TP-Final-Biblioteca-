@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2Clientes : Form
+    public partial class txtTelefono : Form
     {
-        public frm2Clientes()
+        public txtTelefono()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Form_Biblioteca
 {
-    partial class frm2Clientes
+    partial class txtTelefono
     {
         /// <summary>
         /// Required designer variable.
@@ -34,8 +34,8 @@
             this.btbAlta = new System.Windows.Forms.Button();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.lstClientes = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigoCl = new System.Windows.Forms.Label();
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
@@ -44,9 +44,9 @@
             this.lblMail = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -102,23 +102,23 @@
             this.lstClientes.Size = new System.Drawing.Size(477, 420);
             this.lstClientes.TabIndex = 88;
             // 
-            // label5
+            // lblApellido
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(30, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 80;
-            this.label5.Text = "Apellido";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(30, 209);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
+            this.lblApellido.TabIndex = 80;
+            this.lblApellido.Text = "Apellido";
             // 
-            // label4
+            // lblNombre
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 79;
-            this.label4.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(30, 137);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 79;
+            this.lblNombre.Text = "Nombre";
             // 
             // lblCodigoCl
             // 
@@ -142,7 +142,6 @@
             // 
             this.txtApellidoCliente.Location = new System.Drawing.Point(40, 236);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.ReadOnly = true;
             this.txtApellidoCliente.Size = new System.Drawing.Size(167, 20);
             this.txtApellidoCliente.TabIndex = 76;
             // 
@@ -150,7 +149,6 @@
             // 
             this.txtNombreCliente.Location = new System.Drawing.Point(40, 165);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
             this.txtNombreCliente.Size = new System.Drawing.Size(167, 20);
             this.txtNombreCliente.TabIndex = 75;
             // 
@@ -188,30 +186,28 @@
             this.lblDireccion.TabIndex = 104;
             this.lblDireccion.Text = "Dirección";
             // 
-            // textBox1
+            // txtMail
             // 
-            this.textBox1.Location = new System.Drawing.Point(40, 450);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(167, 20);
-            this.textBox1.TabIndex = 103;
+            this.txtMail.Location = new System.Drawing.Point(40, 450);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(167, 20);
+            this.txtMail.TabIndex = 103;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(40, 379);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(167, 20);
             this.textBox2.TabIndex = 102;
             // 
-            // textBox3
+            // txtDireccion
             // 
-            this.textBox3.Location = new System.Drawing.Point(40, 301);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(167, 20);
-            this.textBox3.TabIndex = 101;
+            this.txtDireccion.Location = new System.Drawing.Point(40, 301);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(167, 20);
+            this.txtDireccion.TabIndex = 101;
             // 
-            // frm2Clientes
+            // txtTelefono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,24 +215,24 @@
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btbAlta);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.lstClientes);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigoCl);
             this.Controls.Add(this.lblDatosCliente);
             this.Controls.Add(this.txtApellidoCliente);
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.txtCodigoCliente);
-            this.Name = "frm2Clientes";
-            this.Text = "frm3ListarPrestamos";
+            this.Name = "txtTelefono";
+            this.Text = "Gestionar clientes";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,8 +245,8 @@
         private System.Windows.Forms.Button btbAlta;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.ListBox lstClientes;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigoCl;
         private System.Windows.Forms.Label lblDatosCliente;
         private System.Windows.Forms.TextBox txtApellidoCliente;
@@ -259,8 +255,8 @@
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDireccion;
     }
 }

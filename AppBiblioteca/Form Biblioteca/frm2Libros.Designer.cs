@@ -28,71 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblMail = new System.Windows.Forms.Label();
-            this.lblTelefono = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lblCantidadPáginas = new System.Windows.Forms.Label();
+            this.lblEditorial = new System.Windows.Forms.Label();
+            this.txtPaginas = new System.Windows.Forms.TextBox();
+            this.txtEditorial = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btbAlta = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.btnBuscarPorCliente = new System.Windows.Forms.Button();
             this.lstLibros = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblAutor = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCodigoCl = new System.Windows.Forms.Label();
             this.lblDatosLibro = new System.Windows.Forms.Label();
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblDireccion = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.lblDisponibilidad = new System.Windows.Forms.Label();
+            this.lblStockPermanente = new System.Windows.Forms.Label();
+            this.lblTema = new System.Windows.Forms.Label();
+            this.txtStockPermantente = new System.Windows.Forms.TextBox();
+            this.lblAño = new System.Windows.Forms.Label();
+            this.txtAno = new System.Windows.Forms.TextBox();
+            this.cmbTema = new System.Windows.Forms.ComboBox();
+            this.lblEdicion = new System.Windows.Forms.Label();
+            this.txtEdicion = new System.Windows.Forms.TextBox();
+            this.txtDisponibilidad = new System.Windows.Forms.TextBox();
+            this.txtCantidadAAgregar = new System.Windows.Forms.TextBox();
+            this.lblCantidadAAgregar = new System.Windows.Forms.Label();
+            this.btnBuscarPorTítulo = new System.Windows.Forms.Button();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.btnBuscarPorAutor = new System.Windows.Forms.Button();
+            this.txtAutor = new System.Windows.Forms.TextBox();
+            this.btnVerEjemplares = new System.Windows.Forms.Button();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // lblMail
+            // lblCantidadPáginas
             // 
-            this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(334, 159);
-            this.lblMail.Name = "lblMail";
-            this.lblMail.Size = new System.Drawing.Size(45, 13);
-            this.lblMail.TabIndex = 125;
-            this.lblMail.Text = "Páginas";
+            this.lblCantidadPáginas.AutoSize = true;
+            this.lblCantidadPáginas.Location = new System.Drawing.Point(334, 159);
+            this.lblCantidadPáginas.Name = "lblCantidadPáginas";
+            this.lblCantidadPáginas.Size = new System.Drawing.Size(45, 13);
+            this.lblCantidadPáginas.TabIndex = 125;
+            this.lblCantidadPáginas.Text = "Páginas";
             // 
-            // lblTelefono
+            // lblEditorial
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(504, 52);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(44, 13);
-            this.lblTelefono.TabIndex = 124;
-            this.lblTelefono.Text = "Editorial";
+            this.lblEditorial.AutoSize = true;
+            this.lblEditorial.Location = new System.Drawing.Point(504, 52);
+            this.lblEditorial.Name = "lblEditorial";
+            this.lblEditorial.Size = new System.Drawing.Size(44, 13);
+            this.lblEditorial.TabIndex = 124;
+            this.lblEditorial.Text = "Editorial";
             // 
-            // textBox1
+            // txtPaginas
             // 
-            this.textBox1.Location = new System.Drawing.Point(385, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(57, 20);
-            this.textBox1.TabIndex = 122;
+            this.txtPaginas.Location = new System.Drawing.Point(385, 156);
+            this.txtPaginas.Name = "txtPaginas";
+            this.txtPaginas.Size = new System.Drawing.Size(57, 20);
+            this.txtPaginas.TabIndex = 122;
             // 
-            // textBox2
+            // txtEditorial
             // 
-            this.textBox2.Location = new System.Drawing.Point(582, 48);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(190, 20);
-            this.textBox2.TabIndex = 121;
+            this.txtEditorial.Location = new System.Drawing.Point(582, 48);
+            this.txtEditorial.Name = "txtEditorial";
+            this.txtEditorial.Size = new System.Drawing.Size(190, 20);
+            this.txtEditorial.TabIndex = 121;
             // 
             // btnSalir
             // 
@@ -112,14 +111,14 @@
             this.btbAlta.Text = "Alta";
             this.btbAlta.UseVisualStyleBackColor = true;
             // 
-            // btnBuscarCliente
+            // btnBuscarPorCliente
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(227, 48);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(53, 20);
-            this.btnBuscarCliente.TabIndex = 115;
-            this.btnBuscarCliente.Text = "Buscar";
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarPorCliente.Location = new System.Drawing.Point(227, 48);
+            this.btnBuscarPorCliente.Name = "btnBuscarPorCliente";
+            this.btnBuscarPorCliente.Size = new System.Drawing.Size(53, 20);
+            this.btnBuscarPorCliente.TabIndex = 115;
+            this.btnBuscarPorCliente.Text = "Buscar";
+            this.btnBuscarPorCliente.UseVisualStyleBackColor = true;
             // 
             // lstLibros
             // 
@@ -129,23 +128,23 @@
             this.lstLibros.Size = new System.Drawing.Size(773, 251);
             this.lstLibros.TabIndex = 114;
             // 
-            // label5
+            // lblAutor
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 113;
-            this.label5.Text = "Autor";
+            this.lblAutor.AutoSize = true;
+            this.lblAutor.Location = new System.Drawing.Point(16, 155);
+            this.lblAutor.Name = "lblAutor";
+            this.lblAutor.Size = new System.Drawing.Size(32, 13);
+            this.lblAutor.TabIndex = 113;
+            this.lblAutor.Text = "Autor";
             // 
-            // label4
+            // lblTitulo
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 102);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 112;
-            this.label4.Text = "Título";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(15, 102);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(35, 13);
+            this.lblTitulo.TabIndex = 112;
+            this.lblTitulo.Text = "Título";
             // 
             // lblCodigoCl
             // 
@@ -172,194 +171,193 @@
             this.txtCodigoCliente.Size = new System.Drawing.Size(165, 20);
             this.txtCodigoCliente.TabIndex = 107;
             // 
-            // label1
+            // lblDisponibilidad
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 489);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 13);
-            this.label1.TabIndex = 133;
-            this.label1.Text = "Disponibilidad";
+            this.lblDisponibilidad.AutoSize = true;
+            this.lblDisponibilidad.Location = new System.Drawing.Point(25, 489);
+            this.lblDisponibilidad.Name = "lblDisponibilidad";
+            this.lblDisponibilidad.Size = new System.Drawing.Size(72, 13);
+            this.lblDisponibilidad.TabIndex = 133;
+            this.lblDisponibilidad.Text = "Disponibilidad";
             // 
-            // label2
+            // lblStockPermanente
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 522);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 132;
-            this.label2.Text = "Stock permanente";
+            this.lblStockPermanente.AutoSize = true;
+            this.lblStockPermanente.Location = new System.Drawing.Point(25, 522);
+            this.lblStockPermanente.Name = "lblStockPermanente";
+            this.lblStockPermanente.Size = new System.Drawing.Size(94, 13);
+            this.lblStockPermanente.TabIndex = 132;
+            this.lblStockPermanente.Text = "Stock permanente";
             // 
-            // label3
+            // lblTema
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(504, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 131;
-            this.label3.Text = "Tema";
+            this.lblTema.AutoSize = true;
+            this.lblTema.Location = new System.Drawing.Point(504, 102);
+            this.lblTema.Name = "lblTema";
+            this.lblTema.Size = new System.Drawing.Size(34, 13);
+            this.lblTema.TabIndex = 131;
+            this.lblTema.Text = "Tema";
             // 
-            // textBox5
+            // txtStockPermantente
             // 
-            this.textBox5.Location = new System.Drawing.Point(125, 519);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(42, 20);
-            this.textBox5.TabIndex = 129;
+            this.txtStockPermantente.Enabled = false;
+            this.txtStockPermantente.Location = new System.Drawing.Point(125, 519);
+            this.txtStockPermantente.Name = "txtStockPermantente";
+            this.txtStockPermantente.Size = new System.Drawing.Size(42, 20);
+            this.txtStockPermantente.TabIndex = 129;
             // 
-            // label6
+            // lblAño
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(334, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 13);
-            this.label6.TabIndex = 127;
-            this.label6.Text = "Año";
+            this.lblAño.AutoSize = true;
+            this.lblAño.Location = new System.Drawing.Point(334, 51);
+            this.lblAño.Name = "lblAño";
+            this.lblAño.Size = new System.Drawing.Size(26, 13);
+            this.lblAño.TabIndex = 127;
+            this.lblAño.Text = "Año";
             // 
-            // textBox7
+            // txtAno
             // 
-            this.textBox7.Location = new System.Drawing.Point(385, 44);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(57, 20);
-            this.textBox7.TabIndex = 126;
+            this.txtAno.Location = new System.Drawing.Point(385, 44);
+            this.txtAno.Name = "txtAno";
+            this.txtAno.Size = new System.Drawing.Size(57, 20);
+            this.txtAno.TabIndex = 126;
             // 
-            // comboBox1
+            // cmbTema
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(582, 102);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(190, 21);
-            this.comboBox1.TabIndex = 134;
+            this.cmbTema.FormattingEnabled = true;
+            this.cmbTema.Location = new System.Drawing.Point(582, 102);
+            this.cmbTema.Name = "cmbTema";
+            this.cmbTema.Size = new System.Drawing.Size(190, 21);
+            this.cmbTema.TabIndex = 134;
             // 
-            // lblDireccion
+            // lblEdicion
             // 
-            this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(334, 102);
-            this.lblDireccion.Name = "lblDireccion";
-            this.lblDireccion.Size = new System.Drawing.Size(42, 13);
-            this.lblDireccion.TabIndex = 123;
-            this.lblDireccion.Text = "Edición";
+            this.lblEdicion.AutoSize = true;
+            this.lblEdicion.Location = new System.Drawing.Point(334, 102);
+            this.lblEdicion.Name = "lblEdicion";
+            this.lblEdicion.Size = new System.Drawing.Size(42, 13);
+            this.lblEdicion.TabIndex = 123;
+            this.lblEdicion.Text = "Edición";
             // 
-            // textBox6
+            // txtEdicion
             // 
-            this.textBox6.Location = new System.Drawing.Point(385, 102);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(57, 20);
-            this.textBox6.TabIndex = 135;
+            this.txtEdicion.Location = new System.Drawing.Point(385, 102);
+            this.txtEdicion.Name = "txtEdicion";
+            this.txtEdicion.Size = new System.Drawing.Size(57, 20);
+            this.txtEdicion.TabIndex = 135;
             // 
-            // textBox3
+            // txtDisponibilidad
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 486);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(42, 20);
-            this.textBox3.TabIndex = 136;
+            this.txtDisponibilidad.Enabled = false;
+            this.txtDisponibilidad.Location = new System.Drawing.Point(125, 486);
+            this.txtDisponibilidad.Name = "txtDisponibilidad";
+            this.txtDisponibilidad.Size = new System.Drawing.Size(42, 20);
+            this.txtDisponibilidad.TabIndex = 136;
             // 
-            // textBox4
+            // txtCantidadAAgregar
             // 
-            this.textBox4.Location = new System.Drawing.Point(582, 156);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(67, 20);
-            this.textBox4.TabIndex = 138;
+            this.txtCantidadAAgregar.Location = new System.Drawing.Point(582, 156);
+            this.txtCantidadAAgregar.Name = "txtCantidadAAgregar";
+            this.txtCantidadAAgregar.Size = new System.Drawing.Size(67, 20);
+            this.txtCantidadAAgregar.TabIndex = 138;
             // 
-            // label7
+            // lblCantidadAAgregar
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(504, 159);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
-            this.label7.TabIndex = 137;
-            this.label7.Text = "Cant a agregar";
+            this.lblCantidadAAgregar.AutoSize = true;
+            this.lblCantidadAAgregar.Location = new System.Drawing.Point(504, 159);
+            this.lblCantidadAAgregar.Name = "lblCantidadAAgregar";
+            this.lblCantidadAAgregar.Size = new System.Drawing.Size(77, 13);
+            this.lblCantidadAAgregar.TabIndex = 137;
+            this.lblCantidadAAgregar.Text = "Cant a agregar";
             // 
-            // button1
+            // btnBuscarPorTítulo
             // 
-            this.button1.Location = new System.Drawing.Point(227, 103);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 20);
-            this.button1.TabIndex = 140;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscarPorTítulo.Location = new System.Drawing.Point(227, 103);
+            this.btnBuscarPorTítulo.Name = "btnBuscarPorTítulo";
+            this.btnBuscarPorTítulo.Size = new System.Drawing.Size(53, 20);
+            this.btnBuscarPorTítulo.TabIndex = 140;
+            this.btnBuscarPorTítulo.Text = "Buscar";
+            this.btnBuscarPorTítulo.UseVisualStyleBackColor = true;
             // 
-            // textBox8
+            // txtTitulo
             // 
-            this.textBox8.Location = new System.Drawing.Point(56, 103);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(165, 20);
-            this.textBox8.TabIndex = 139;
+            this.txtTitulo.Location = new System.Drawing.Point(56, 103);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(165, 20);
+            this.txtTitulo.TabIndex = 139;
             // 
-            // button2
+            // btnBuscarPorAutor
             // 
-            this.button2.Location = new System.Drawing.Point(227, 152);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(53, 20);
-            this.button2.TabIndex = 142;
-            this.button2.Text = "Buscar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBuscarPorAutor.Location = new System.Drawing.Point(227, 152);
+            this.btnBuscarPorAutor.Name = "btnBuscarPorAutor";
+            this.btnBuscarPorAutor.Size = new System.Drawing.Size(53, 20);
+            this.btnBuscarPorAutor.TabIndex = 142;
+            this.btnBuscarPorAutor.Text = "Buscar";
+            this.btnBuscarPorAutor.UseVisualStyleBackColor = true;
             // 
-            // textBox9
+            // txtAutor
             // 
-            this.textBox9.Location = new System.Drawing.Point(56, 152);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(165, 20);
-            this.textBox9.TabIndex = 141;
+            this.txtAutor.Location = new System.Drawing.Point(56, 152);
+            this.txtAutor.Name = "txtAutor";
+            this.txtAutor.Size = new System.Drawing.Size(165, 20);
+            this.txtAutor.TabIndex = 141;
             // 
-            // button3
+            // btnVerEjemplares
             // 
-            this.button3.Location = new System.Drawing.Point(197, 489);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(182, 46);
-            this.button3.TabIndex = 143;
-            this.button3.Text = "Ver ejemplares";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnVerEjemplares.Location = new System.Drawing.Point(197, 489);
+            this.btnVerEjemplares.Name = "btnVerEjemplares";
+            this.btnVerEjemplares.Size = new System.Drawing.Size(182, 46);
+            this.btnVerEjemplares.TabIndex = 143;
+            this.btnVerEjemplares.Text = "Ver ejemplares";
+            this.btnVerEjemplares.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnLimpiarCampos
             // 
-            this.button4.Location = new System.Drawing.Point(685, 152);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(88, 28);
-            this.button4.TabIndex = 144;
-            this.button4.Text = "Limpiar campos";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(685, 152);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(88, 28);
+            this.btnLimpiarCampos.TabIndex = 144;
+            this.btnLimpiarCampos.Text = "Limpiar campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             // 
             // frm2Libros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 557);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.lblMail);
-            this.Controls.Add(this.lblTelefono);
-            this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.btnLimpiarCampos);
+            this.Controls.Add(this.btnVerEjemplares);
+            this.Controls.Add(this.btnBuscarPorAutor);
+            this.Controls.Add(this.txtAutor);
+            this.Controls.Add(this.btnBuscarPorTítulo);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.txtCantidadAAgregar);
+            this.Controls.Add(this.lblCantidadAAgregar);
+            this.Controls.Add(this.txtDisponibilidad);
+            this.Controls.Add(this.txtEdicion);
+            this.Controls.Add(this.cmbTema);
+            this.Controls.Add(this.lblDisponibilidad);
+            this.Controls.Add(this.lblStockPermanente);
+            this.Controls.Add(this.lblTema);
+            this.Controls.Add(this.txtStockPermantente);
+            this.Controls.Add(this.lblAño);
+            this.Controls.Add(this.txtAno);
+            this.Controls.Add(this.lblCantidadPáginas);
+            this.Controls.Add(this.lblEditorial);
+            this.Controls.Add(this.lblEdicion);
+            this.Controls.Add(this.txtPaginas);
+            this.Controls.Add(this.txtEditorial);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btbAlta);
-            this.Controls.Add(this.btnBuscarCliente);
+            this.Controls.Add(this.btnBuscarPorCliente);
             this.Controls.Add(this.lstLibros);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblAutor);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblCodigoCl);
             this.Controls.Add(this.lblDatosLibro);
             this.Controls.Add(this.txtCodigoCliente);
             this.Name = "frm2Libros";
-            this.Text = "frm3NuevoPrestamo";
+            this.Text = "Gestionar libros";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -367,36 +365,36 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblMail;
-        private System.Windows.Forms.Label lblTelefono;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label lblCantidadPáginas;
+        private System.Windows.Forms.Label lblEditorial;
+        private System.Windows.Forms.TextBox txtPaginas;
+        private System.Windows.Forms.TextBox txtEditorial;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btbAlta;
-        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button btnBuscarPorCliente;
         private System.Windows.Forms.ListBox lstLibros;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblAutor;
+        private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCodigoCl;
         private System.Windows.Forms.Label lblDatosLibro;
         private System.Windows.Forms.TextBox txtCodigoCliente;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label lblDisponibilidad;
+        private System.Windows.Forms.Label lblStockPermanente;
+        private System.Windows.Forms.Label lblTema;
+        private System.Windows.Forms.TextBox txtStockPermantente;
+        private System.Windows.Forms.Label lblAño;
+        private System.Windows.Forms.TextBox txtAno;
+        private System.Windows.Forms.ComboBox cmbTema;
+        private System.Windows.Forms.Label lblEdicion;
+        private System.Windows.Forms.TextBox txtEdicion;
+        private System.Windows.Forms.TextBox txtDisponibilidad;
+        private System.Windows.Forms.TextBox txtCantidadAAgregar;
+        private System.Windows.Forms.Label lblCantidadAAgregar;
+        private System.Windows.Forms.Button btnBuscarPorTítulo;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.Button btnBuscarPorAutor;
+        private System.Windows.Forms.TextBox txtAutor;
+        private System.Windows.Forms.Button btnVerEjemplares;
+        private System.Windows.Forms.Button btnLimpiarCampos;
     }
 }

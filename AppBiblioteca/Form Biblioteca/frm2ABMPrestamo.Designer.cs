@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblNombre = new System.Windows.Forms.Label();
             this.lblCodigoCl = new System.Windows.Forms.Label();
             this.lblDatosCliente = new System.Windows.Forms.Label();
             this.txtApellidoCliente = new System.Windows.Forms.TextBox();
@@ -39,46 +39,46 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblCodigoEj = new System.Windows.Forms.Label();
             this.lblDatosEjemplar = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtAutor = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.txtCodigoEjemplar = new System.Windows.Forms.TextBox();
             this.lstPrestamos = new System.Windows.Forms.ListBox();
             this.lblPlazoRestante = new System.Windows.Forms.Label();
             this.lblFechaAlta = new System.Windows.Forms.Label();
-            this.lblPrestamo = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.lblDatosPrestamo = new System.Windows.Forms.Label();
+            this.txtPlazoRestante = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnBuscarEjemplar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.lblFechaTentativaDevolucion = new System.Windows.Forms.Label();
+            this.lblFechaDevolucion = new System.Windows.Forms.Label();
+            this.btnConfirmarDevolución = new System.Windows.Forms.Button();
+            this.btnListarPrestamos = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dtpFechaAlta = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaDevolucion = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaTentativaDevolucion = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
-            // label5
+            // lblApellido
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(29, 197);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(44, 13);
-            this.label5.TabIndex = 36;
-            this.label5.Text = "Apellido";
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(29, 197);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(44, 13);
+            this.lblApellido.TabIndex = 36;
+            this.lblApellido.Text = "Apellido";
             // 
-            // label4
+            // lblNombre
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(29, 125);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
-            this.label4.TabIndex = 35;
-            this.label4.Text = "Nombre";
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(29, 125);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
+            this.lblNombre.TabIndex = 35;
+            this.lblNombre.Text = "Nombre";
             // 
             // lblCodigoCl
             // 
@@ -100,17 +100,17 @@
             // 
             // txtApellidoCliente
             // 
+            this.txtApellidoCliente.Enabled = false;
             this.txtApellidoCliente.Location = new System.Drawing.Point(39, 224);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.ReadOnly = true;
             this.txtApellidoCliente.Size = new System.Drawing.Size(167, 20);
             this.txtApellidoCliente.TabIndex = 31;
             // 
             // txtNombreCliente
             // 
+            this.txtNombreCliente.Enabled = false;
             this.txtNombreCliente.Location = new System.Drawing.Point(39, 153);
             this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.ReadOnly = true;
             this.txtNombreCliente.Size = new System.Drawing.Size(167, 20);
             this.txtNombreCliente.TabIndex = 30;
             // 
@@ -157,19 +157,19 @@
             this.lblDatosEjemplar.TabIndex = 45;
             this.lblDatosEjemplar.Text = "Datos ejemplar";
             // 
-            // textBox3
+            // txtAutor
             // 
-            this.textBox3.Location = new System.Drawing.Point(312, 224);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(167, 20);
-            this.textBox3.TabIndex = 43;
+            this.txtAutor.Enabled = false;
+            this.txtAutor.Location = new System.Drawing.Point(312, 224);
+            this.txtAutor.Name = "txtAutor";
+            this.txtAutor.Size = new System.Drawing.Size(167, 20);
+            this.txtAutor.TabIndex = 43;
             // 
             // textBox4
             // 
+            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(312, 153);
             this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(167, 20);
             this.textBox4.TabIndex = 42;
             // 
@@ -177,7 +177,6 @@
             // 
             this.txtCodigoEjemplar.Location = new System.Drawing.Point(312, 75);
             this.txtCodigoEjemplar.Name = "txtCodigoEjemplar";
-            this.txtCodigoEjemplar.ReadOnly = true;
             this.txtCodigoEjemplar.Size = new System.Drawing.Size(167, 20);
             this.txtCodigoEjemplar.TabIndex = 41;
             // 
@@ -207,22 +206,22 @@
             this.lblFechaAlta.TabIndex = 57;
             this.lblFechaAlta.Text = "Fecha Alta";
             // 
-            // lblPrestamo
+            // lblDatosPrestamo
             // 
-            this.lblPrestamo.AutoSize = true;
-            this.lblPrestamo.Location = new System.Drawing.Point(29, 276);
-            this.lblPrestamo.Name = "lblPrestamo";
-            this.lblPrestamo.Size = new System.Drawing.Size(87, 13);
-            this.lblPrestamo.TabIndex = 56;
-            this.lblPrestamo.Text = "Datos Préstamos";
+            this.lblDatosPrestamo.AutoSize = true;
+            this.lblDatosPrestamo.Location = new System.Drawing.Point(29, 276);
+            this.lblDatosPrestamo.Name = "lblDatosPrestamo";
+            this.lblDatosPrestamo.Size = new System.Drawing.Size(87, 13);
+            this.lblDatosPrestamo.TabIndex = 56;
+            this.lblDatosPrestamo.Text = "Datos Préstamos";
             // 
-            // textBox7
+            // txtPlazoRestante
             // 
-            this.textBox7.Location = new System.Drawing.Point(312, 335);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(167, 20);
-            this.textBox7.TabIndex = 54;
+            this.txtPlazoRestante.Enabled = false;
+            this.txtPlazoRestante.Location = new System.Drawing.Point(312, 335);
+            this.txtPlazoRestante.Name = "txtPlazoRestante";
+            this.txtPlazoRestante.Size = new System.Drawing.Size(167, 20);
+            this.txtPlazoRestante.TabIndex = 54;
             // 
             // btnBuscarCliente
             // 
@@ -248,140 +247,143 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(182, 46);
             this.button1.TabIndex = 61;
-            this.button1.Text = "Confirmar devolución";
+            this.button1.Text = "Confirmar Nuevo Préstamo";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnCancelar
+            // btnLimpiarCampos
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(679, 461);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(169, 46);
-            this.btnCancelar.TabIndex = 62;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(679, 461);
+            this.btnLimpiarCampos.Name = "btnLimpiarCampos";
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(169, 46);
+            this.btnLimpiarCampos.TabIndex = 62;
+            this.btnLimpiarCampos.Text = "Limpiar Campos";
+            this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblFechaTentativaDevolucion
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 378);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Fecha Tentativa de devolución";
+            this.lblFechaTentativaDevolucion.AutoSize = true;
+            this.lblFechaTentativaDevolucion.Location = new System.Drawing.Point(29, 378);
+            this.lblFechaTentativaDevolucion.Name = "lblFechaTentativaDevolucion";
+            this.lblFechaTentativaDevolucion.Size = new System.Drawing.Size(155, 13);
+            this.lblFechaTentativaDevolucion.TabIndex = 64;
+            this.lblFechaTentativaDevolucion.Text = "Fecha Tentativa de devolución";
             // 
-            // label2
+            // lblFechaDevolucion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(302, 378);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 13);
-            this.label2.TabIndex = 66;
-            this.label2.Text = "Fecha Devolución";
+            this.lblFechaDevolucion.AutoSize = true;
+            this.lblFechaDevolucion.Location = new System.Drawing.Point(302, 378);
+            this.lblFechaDevolucion.Name = "lblFechaDevolucion";
+            this.lblFechaDevolucion.Size = new System.Drawing.Size(94, 13);
+            this.lblFechaDevolucion.TabIndex = 66;
+            this.lblFechaDevolucion.Text = "Fecha Devolución";
             // 
-            // button2
+            // btnConfirmarDevolución
             // 
-            this.button2.Location = new System.Drawing.Point(462, 461);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 46);
-            this.button2.TabIndex = 67;
-            this.button2.Text = "Confirmar devolución";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnConfirmarDevolución.Location = new System.Drawing.Point(462, 461);
+            this.btnConfirmarDevolución.Name = "btnConfirmarDevolución";
+            this.btnConfirmarDevolución.Size = new System.Drawing.Size(182, 46);
+            this.btnConfirmarDevolución.TabIndex = 67;
+            this.btnConfirmarDevolución.Text = "Confirmar Devolución";
+            this.btnConfirmarDevolución.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnListarPrestamos
             // 
-            this.button3.Location = new System.Drawing.Point(249, 461);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(182, 46);
-            this.button3.TabIndex = 68;
-            this.button3.Text = "Confirmar devolución";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnListarPrestamos.Location = new System.Drawing.Point(249, 461);
+            this.btnListarPrestamos.Name = "btnListarPrestamos";
+            this.btnListarPrestamos.Size = new System.Drawing.Size(182, 46);
+            this.btnListarPrestamos.TabIndex = 68;
+            this.btnListarPrestamos.Text = "Listar préstamos";
+            this.btnListarPrestamos.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnSalir
             // 
-            this.button4.Location = new System.Drawing.Point(864, 461);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(169, 46);
-            this.button4.TabIndex = 69;
-            this.button4.Text = "Cancelar";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnSalir.Location = new System.Drawing.Point(864, 461);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(169, 46);
+            this.btnSalir.TabIndex = 69;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Red;
             this.label3.Location = new System.Drawing.Point(553, 407);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(295, 13);
+            this.label3.Size = new System.Drawing.Size(355, 13);
             this.label3.TabIndex = 70;
             this.label3.Text = "El préstamo indicado no fue devuelto en la fecha establecida";
             // 
             // dtpFechaAlta
             // 
+            this.dtpFechaAlta.Enabled = false;
             this.dtpFechaAlta.Location = new System.Drawing.Point(39, 335);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(167, 20);
             this.dtpFechaAlta.TabIndex = 71;
             // 
-            // dateTimePicker2
+            // dtpFechaDevolucion
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(312, 401);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker2.TabIndex = 72;
+            this.dtpFechaDevolucion.Location = new System.Drawing.Point(312, 401);
+            this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(167, 20);
+            this.dtpFechaDevolucion.TabIndex = 72;
             // 
-            // dateTimePicker3
+            // dtpFechaTentativaDevolucion
             // 
-            this.dateTimePicker3.Location = new System.Drawing.Point(39, 404);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(167, 20);
-            this.dateTimePicker3.TabIndex = 73;
+            this.dtpFechaTentativaDevolucion.Location = new System.Drawing.Point(39, 404);
+            this.dtpFechaTentativaDevolucion.Name = "dtpFechaTentativaDevolucion";
+            this.dtpFechaTentativaDevolucion.Size = new System.Drawing.Size(167, 20);
+            this.dtpFechaTentativaDevolucion.TabIndex = 73;
             // 
-            // frm3ABMPrestamo
+            // frm2ABMPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1055, 528);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dtpFechaTentativaDevolucion);
+            this.Controls.Add(this.dtpFechaDevolucion);
             this.Controls.Add(this.dtpFechaAlta);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.btnListarPrestamos);
+            this.Controls.Add(this.btnConfirmarDevolución);
+            this.Controls.Add(this.lblFechaDevolucion);
+            this.Controls.Add(this.lblFechaTentativaDevolucion);
+            this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscarEjemplar);
             this.Controls.Add(this.btnBuscarCliente);
             this.Controls.Add(this.lblPlazoRestante);
             this.Controls.Add(this.lblFechaAlta);
-            this.Controls.Add(this.lblPrestamo);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.lblDatosPrestamo);
+            this.Controls.Add(this.txtPlazoRestante);
             this.Controls.Add(this.lstPrestamos);
             this.Controls.Add(this.lblAutor);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblCodigoEj);
             this.Controls.Add(this.lblDatosEjemplar);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtAutor);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.txtCodigoEjemplar);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigoCl);
             this.Controls.Add(this.lblDatosCliente);
             this.Controls.Add(this.txtApellidoCliente);
             this.Controls.Add(this.txtNombreCliente);
             this.Controls.Add(this.txtCodigoCliente);
-            this.Name = "frm3ABMPrestamo";
-            this.Text = "frm3Devolucion";
+            this.Name = "frm2ABMPrestamo";
+            this.Text = "Gestionar préstamos";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblCodigoCl;
         private System.Windows.Forms.Label lblDatosCliente;
         private System.Windows.Forms.TextBox txtApellidoCliente;
@@ -391,26 +393,26 @@
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label lblCodigoEj;
         private System.Windows.Forms.Label lblDatosEjemplar;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtAutor;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox txtCodigoEjemplar;
         private System.Windows.Forms.ListBox lstPrestamos;
         private System.Windows.Forms.Label lblPlazoRestante;
         private System.Windows.Forms.Label lblFechaAlta;
-        private System.Windows.Forms.Label lblPrestamo;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label lblDatosPrestamo;
+        private System.Windows.Forms.TextBox txtPlazoRestante;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnBuscarEjemplar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.Label lblFechaTentativaDevolucion;
+        private System.Windows.Forms.Label lblFechaDevolucion;
+        private System.Windows.Forms.Button btnConfirmarDevolución;
+        private System.Windows.Forms.Button btnListarPrestamos;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dtpFechaAlta;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker dtpFechaDevolucion;
+        private System.Windows.Forms.DateTimePicker dtpFechaTentativaDevolucion;
     }
 }

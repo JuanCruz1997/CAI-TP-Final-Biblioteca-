@@ -33,9 +33,9 @@
             this.lstEjemplares = new System.Windows.Forms.ListBox();
             this.lblTDatositulo = new System.Windows.Forms.Label();
             this.lblISBN = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtCodigoEjemplar = new System.Windows.Forms.TextBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.lblDisponible = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSalir
@@ -69,59 +69,60 @@
             this.lblTDatositulo.AutoSize = true;
             this.lblTDatositulo.Location = new System.Drawing.Point(17, 21);
             this.lblTDatositulo.Name = "lblTDatositulo";
-            this.lblTDatositulo.Size = new System.Drawing.Size(35, 13);
+            this.lblTDatositulo.Size = new System.Drawing.Size(79, 13);
             this.lblTDatositulo.TabIndex = 121;
-            this.lblTDatositulo.Text = "label1";
+            this.lblTDatositulo.Text = "Titulo a asignar";
             // 
             // lblISBN
             // 
             this.lblISBN.AutoSize = true;
             this.lblISBN.Location = new System.Drawing.Point(17, 54);
             this.lblISBN.Name = "lblISBN";
-            this.lblISBN.Size = new System.Drawing.Size(35, 13);
+            this.lblISBN.Size = new System.Drawing.Size(78, 13);
             this.lblISBN.TabIndex = 122;
-            this.lblISBN.Text = "label2";
+            this.lblISBN.Text = "ISBN a asignar";
             // 
-            // textBox3
+            // txtCodigoEjemplar
             // 
-            this.textBox3.Location = new System.Drawing.Point(81, 349);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(42, 20);
-            this.textBox3.TabIndex = 140;
+            this.txtCodigoEjemplar.Enabled = false;
+            this.txtCodigoEjemplar.Location = new System.Drawing.Point(70, 349);
+            this.txtCodigoEjemplar.Name = "txtCodigoEjemplar";
+            this.txtCodigoEjemplar.Size = new System.Drawing.Size(42, 20);
+            this.txtCodigoEjemplar.TabIndex = 140;
             // 
-            // label1
+            // lblCodigo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 352);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 13);
-            this.label1.TabIndex = 139;
-            this.label1.Text = "Código";
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(12, 352);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(40, 13);
+            this.lblCodigo.TabIndex = 139;
+            this.lblCodigo.Text = "Código";
             // 
-            // label2
+            // lblDisponible
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(166, 352);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
-            this.label2.TabIndex = 138;
-            this.label2.Text = "Disponible";
+            this.lblDisponible.AutoSize = true;
+            this.lblDisponible.Location = new System.Drawing.Point(166, 352);
+            this.lblDisponible.Name = "lblDisponible";
+            this.lblDisponible.Size = new System.Drawing.Size(56, 13);
+            this.lblDisponible.TabIndex = 138;
+            this.lblDisponible.Text = "Disponible";
             // 
             // frm3Ejemplares
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(403, 456);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtCodigoEjemplar);
+            this.Controls.Add(this.lblCodigo);
+            this.Controls.Add(this.lblDisponible);
             this.Controls.Add(this.lblISBN);
             this.Controls.Add(this.lblTDatositulo);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btbAceptar);
             this.Controls.Add(this.lstEjemplares);
             this.Name = "frm3Ejemplares";
-            this.Text = "frm3Ejemplares";
+            this.Text = "Ejemplares";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,8 +135,8 @@
         private System.Windows.Forms.ListBox lstEjemplares;
         private System.Windows.Forms.Label lblTDatositulo;
         private System.Windows.Forms.Label lblISBN;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtCodigoEjemplar;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Label lblDisponible;
     }
 }
