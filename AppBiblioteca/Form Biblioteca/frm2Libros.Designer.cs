@@ -203,6 +203,7 @@
             this.txtStockPermantente.Enabled = false;
             this.txtStockPermantente.Location = new System.Drawing.Point(125, 519);
             this.txtStockPermantente.Name = "txtStockPermantente";
+            this.txtStockPermantente.ReadOnly = true;
             this.txtStockPermantente.Size = new System.Drawing.Size(42, 20);
             this.txtStockPermantente.TabIndex = 129;
             // 
@@ -251,6 +252,7 @@
             this.txtDisponibilidad.Enabled = false;
             this.txtDisponibilidad.Location = new System.Drawing.Point(125, 486);
             this.txtDisponibilidad.Name = "txtDisponibilidad";
+            this.txtDisponibilidad.ReadOnly = true;
             this.txtDisponibilidad.Size = new System.Drawing.Size(42, 20);
             this.txtDisponibilidad.TabIndex = 136;
             // 
