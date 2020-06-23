@@ -12,17 +12,7 @@ namespace Entidades
         private DateTime _fechaAlta;
         private bool _activo;
         private List<Cliente> _clientes;
-        public int Codigo
-        {
-            set
-            {
-                this._codigo = value;
-            }
-            get
-            {
-                return this._codigo;
-            }
-        }
+        public int Codigo { set; get; }
         public DateTime FechaAlta
         {
             set
@@ -52,5 +42,7 @@ namespace Entidades
                 return this._clientes;
             }
         }
+
+        
     }
 }

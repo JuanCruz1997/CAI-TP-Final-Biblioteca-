@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2Libros : Form
+    public partial class sa : Form
     {
-        public frm2Libros()
+        public sa()
         {
             InitializeComponent();
         }

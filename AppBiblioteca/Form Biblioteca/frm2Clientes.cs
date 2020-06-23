@@ -16,5 +16,10 @@ namespace Form_Biblioteca
         {
             InitializeComponent();
         }
+
+        private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
