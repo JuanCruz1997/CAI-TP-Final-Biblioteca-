@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Entidades
 {
@@ -13,60 +14,11 @@ namespace Entidades
         private string _direccion;
         private long _telefono;
         private string _mail;
-        public string Nombre
-        {
-            set
-            {
-                this._nombre = value;
-            }
-            get
-            {
-                return this._nombre;
-            }
-        }
-        public string Apellido
-        {
-            set
-            {
-                this._apellido = value;
-            }
-            get
-            {
-                return this._apellido;
-            }
-        }
-        public string Direccion
-        {
-            set
-            {
-                this._direccion = value;
-            }
-            get
-            {
-                return this._direccion;
-            }
-        }
-        public long Telefono
-        {
-            set
-            {
-                this._telefono = value;
-            }
-            get
-            {
-                return this._telefono;
-            }
-        }
-        public string Mail
-        {
-            set
-            {
-                this._mail = value;
-            }
-            get
-            {
-                return this._mail;
-            }
-        }
+
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string Apellido { get => _apellido; set => _apellido = value; }
+        public string Direccion { get => _direccion; set => _direccion = value; }
+        public long Telefono { get => _telefono; set => _telefono = value; }
+        public string Mail { get => _mail; set => _mail = value; }
     }
 }

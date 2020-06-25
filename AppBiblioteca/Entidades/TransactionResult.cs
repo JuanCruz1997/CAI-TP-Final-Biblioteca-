@@ -13,6 +13,7 @@ namespace Entidades
         private bool _isOk;
         private int _id;
         private string _error;
+
         [DataMember]
         public bool IsOk { get => _isOk; set => _isOk = value; }
         [DataMember]

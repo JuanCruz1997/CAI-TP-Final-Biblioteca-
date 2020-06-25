@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Entidades
 {
@@ -12,45 +13,10 @@ namespace Entidades
         private Libro _libro;
         private bool _estaPrestado;
         private List<Ejemplar> _ejemplares;
-        public int Codigo
-        {
-            set
-            {
-                this._codigo = value;
-            }
-            get
-            {
-                return this._codigo;
-            }
-        }
-        public Libro Libro
-        {
-            set
-            {
-                this._libro = value;
-            }
-            get
-            {
-                return this._libro;
-            }
-        }
-        public Boolean EstaPrestado
-        {
-            set
-            {
-                this._estaPrestado = value;
-            }
-            get
-            {
-                return this._estaPrestado;
-            }
-        }
-        public List<Ejemplar> Ejemplares
-        {
-            get
-            {
-                return this._ejemplares;
-            }
-        }
+
+        public int Codigo { get => _codigo; set => _codigo = value; }
+        public Libro Libro { get => _libro; set => _libro = value; }
+        public bool EstaPrestado { get => _estaPrestado; set => _estaPrestado = value; }
+        public List<Ejemplar> Ejemplares { get => _ejemplares; set => _ejemplares = value; }
     }
 }

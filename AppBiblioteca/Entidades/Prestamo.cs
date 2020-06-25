@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Entidades
 {
@@ -16,85 +17,14 @@ namespace Entidades
         private DateTime _fechaDevolucionReal;
         private List<Prestamo> _prestamos;
         private List<Prestamo> _prestamosHistoricos;
-        public Cliente Nombre
-        {
-            set
-            {
-                this._cliente = value;
-            }
-            get
-            {
-                return this._cliente;
-            }
-        }
-        public Ejemplar Ejemplar
-        {
-            set
-            {
-                this._ejemplar = value;
-            }
-            get
-            {
-                return this._ejemplar;
-            }
-        }
-        public int PlazoPrestamo
-        {
-            set
-            {
-                this._plazoPrestamo = value;
-            }
-            get
-            {
-                return this._plazoPrestamo;
-            }
-        }
-        public DateTime FechaHoraPrestamo
-        {
-            set
-            {
-                this._fechaHoraPrestamo = value;
-            }
-            get
-            {
-                return this._fechaHoraPrestamo;
-            }
-        }
-        public DateTime FechaDevolucionTentativa
-        {
-            set
-            {
-                this._fechaDevolucionTentativa = value;
-            }
-            get
-            {
-                return this._fechaDevolucionTentativa;
-            }
-        }
-        public DateTime FechaDevolucionReal
-        {
-            set
-            {
-                this._fechaDevolucionReal = value;
-            }
-            get
-            {
-                return this._fechaDevolucionReal;
-            }
-        }
-        public List<Prestamo> Prestamos
-        {
-            get
-            {
-                return this._prestamos;
-            }
-        }
-        public List<Prestamo> PrestamosHistoricos
-        {
-            get
-            {
-                return this._prestamosHistoricos;
-            }
-        }
+
+        public Cliente Cliente { get => _cliente; set => _cliente = value; }
+        public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
+        public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
+        public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
+        public DateTime FechaDevolucionTentativa { get => _fechaDevolucionTentativa; set => _fechaDevolucionTentativa = value; }
+        public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
+        public List<Prestamo> Prestamos { get => _prestamos; set => _prestamos = value; }
+        public List<Prestamo> PrestamosHistoricos { get => _prestamosHistoricos; set => _prestamosHistoricos = value; }
     }
 }

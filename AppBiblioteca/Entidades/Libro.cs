@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Entidades
 {
@@ -19,122 +20,17 @@ namespace Entidades
         private int _stockPermanente;
         private int _stockDisponible;
         private List<Libro> _libros;
-        public long ISBN
-        {
-            set
-            {
-                this._isbn = value;
-            }
-            get
-            {
-                return this._isbn;
-            }
-        }
-        public string Titulo
-        {
-            set
-            {
-                this._titulo = value;
-            }
-            get
-            {
-                return this._titulo;
-            }
-        }
-        public string Autor
-        {
-            set
-            {
-                this._autor = value;
-            }
-            get
-            {
-                return this._autor;
-            }
-        }
-        public int Edicion
-        {
-            set
-            {
-                this._edicion = value;
-            }
-            get
-            {
-                return this._edicion;
-            }
-        }
-        public string Editorial
-        {
-            set
-            {
-                this._editorial = value;
-            }
-            get
-            {
-                return this._editorial;
-            }
-        }
-        public int CantidadPaginas
-        {
-            set
-            {
-                this._cantPaginas = value;
-            }
-            get
-            {
-                return this._cantPaginas;
-            }
-        }
-        public int Año
-        {
-            set
-            {
-                this._año = value;
-            }
-            get
-            {
-                return this._año;
-            }
-        }
-        public string Tema
-        {
-            set
-            {
-                this._tema = value;
-            }
-            get
-            {
-                return this._tema;
-            }
-        }
-        public int StockPermanente
-        {
-            set
-            {
-                this._stockPermanente = value;
-            }
-            get
-            {
-                return this._stockPermanente;
-            }
-        }
-        public int StockDisponible
-        {
-            set
-            {
-                this._stockDisponible = value;
-            }
-            get
-            {
-                return this._stockDisponible;
-            }
-        }
-        public List<Libro> ListaLibros
-        {
-            get
-            {
-                return this._libros;
-            }
-        }
+
+        public long Isbn { get => _isbn; set => _isbn = value; }
+        public string Titulo { get => _titulo; set => _titulo = value; }
+        public string Autor { get => _autor; set => _autor = value; }
+        public int Edicion { get => _edicion; set => _edicion = value; }
+        public string Editorial { get => _editorial; set => _editorial = value; }
+        public int CantPaginas { get => _cantPaginas; set => _cantPaginas = value; }
+        public int Año { get => _año; set => _año = value; }
+        public string Tema { get => _tema; set => _tema = value; }
+        public int StockPermanente { get => _stockPermanente; set => _stockPermanente = value; }
+        public int StockDisponible { get => _stockDisponible; set => _stockDisponible = value; }
+        public List<Libro> Libros { get => _libros; set => _libros = value; }
     }
 }
