@@ -17,6 +17,9 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
-        
+        private void lstPrestamos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

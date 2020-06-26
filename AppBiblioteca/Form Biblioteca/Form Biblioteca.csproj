@@ -69,12 +69,6 @@
     <Compile Include="frm2Libros.Designer.cs">
       <DependentUpon>frm2Libros.cs</DependentUpon>
     </Compile>
-    <Compile Include="frm3Ejemplares.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm3Ejemplares.Designer.cs">
-      <DependentUpon>frm3Ejemplares.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm1MenuPrincipal.resx">
@@ -88,9 +82,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm2Libros.resx">
       <DependentUpon>frm2Libros.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm3Ejemplares.resx">
-      <DependentUpon>frm3Ejemplares.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

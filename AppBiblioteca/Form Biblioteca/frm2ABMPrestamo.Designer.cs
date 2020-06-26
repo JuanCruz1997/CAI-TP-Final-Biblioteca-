@@ -61,6 +61,12 @@
             this.gbDatosPrestamo = new System.Windows.Forms.GroupBox();
             this.gbDatosEjemplar = new System.Windows.Forms.GroupBox();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
+            this.lblBuscarCodEjemplar = new System.Windows.Forms.Label();
+            this.lblBuscarCodCliente = new System.Windows.Forms.Label();
+            this.txtBuscarCodEjemplar = new System.Windows.Forms.TextBox();
+            this.txtBuscarCodCliente = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.gbBuscarPrestamos.SuspendLayout();
             this.gbDatosPrestamo.SuspendLayout();
             this.gbDatosEjemplar.SuspendLayout();
@@ -70,7 +76,7 @@
             // lblAutor
             // 
             this.lblAutor.AutoSize = true;
-            this.lblAutor.Location = new System.Drawing.Point(14, 213);
+            this.lblAutor.Location = new System.Drawing.Point(14, 176);
             this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAutor.Name = "lblAutor";
             this.lblAutor.Size = new System.Drawing.Size(42, 17);
@@ -80,7 +86,7 @@
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(13, 166);
+            this.lblTitulo.Location = new System.Drawing.Point(14, 130);
             this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(43, 17);
@@ -90,7 +96,7 @@
             // lblCodigoEj
             // 
             this.lblCodigoEj.AutoSize = true;
-            this.lblCodigoEj.Location = new System.Drawing.Point(10, 38);
+            this.lblCodigoEj.Location = new System.Drawing.Point(14, 45);
             this.lblCodigoEj.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoEj.Name = "lblCodigoEj";
             this.lblCodigoEj.Size = new System.Drawing.Size(52, 17);
@@ -100,7 +106,7 @@
             // txtAutor
             // 
             this.txtAutor.Enabled = false;
-            this.txtAutor.Location = new System.Drawing.Point(75, 213);
+            this.txtAutor.Location = new System.Drawing.Point(75, 176);
             this.txtAutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtAutor.Name = "txtAutor";
             this.txtAutor.ReadOnly = true;
@@ -110,7 +116,7 @@
             // textBox4
             // 
             this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(75, 161);
+            this.textBox4.Location = new System.Drawing.Point(75, 127);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4);
             this.textBox4.Name = "textBox4";
             this.textBox4.ReadOnly = true;
@@ -119,7 +125,7 @@
             // 
             // txtCodigoEjemplar
             // 
-            this.txtCodigoEjemplar.Location = new System.Drawing.Point(75, 38);
+            this.txtCodigoEjemplar.Location = new System.Drawing.Point(75, 45);
             this.txtCodigoEjemplar.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoEjemplar.Name = "txtCodigoEjemplar";
             this.txtCodigoEjemplar.Size = new System.Drawing.Size(221, 22);
@@ -129,11 +135,12 @@
             // 
             this.lstPrestamos.FormattingEnabled = true;
             this.lstPrestamos.ItemHeight = 16;
-            this.lstPrestamos.Location = new System.Drawing.Point(772, 28);
+            this.lstPrestamos.Location = new System.Drawing.Point(712, 124);
             this.lstPrestamos.Margin = new System.Windows.Forms.Padding(4);
             this.lstPrestamos.Name = "lstPrestamos";
-            this.lstPrestamos.Size = new System.Drawing.Size(604, 420);
+            this.lstPrestamos.Size = new System.Drawing.Size(604, 324);
             this.lstPrestamos.TabIndex = 52;
+            this.lstPrestamos.SelectedIndexChanged += new System.EventHandler(this.lstPrestamos_SelectedIndexChanged);
             // 
             // lblPlazoRestante
             // 
@@ -167,7 +174,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(42, 490);
+            this.button1.Location = new System.Drawing.Point(30, 490);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(243, 57);
@@ -177,7 +184,7 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(887, 490);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(839, 490);
             this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
@@ -208,7 +215,7 @@
             // 
             // btnConfirmarDevolución
             // 
-            this.btnConfirmarDevolución.Location = new System.Drawing.Point(331, 490);
+            this.btnConfirmarDevolución.Location = new System.Drawing.Point(305, 490);
             this.btnConfirmarDevolución.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmarDevolución.Name = "btnConfirmarDevolución";
             this.btnConfirmarDevolución.Size = new System.Drawing.Size(243, 57);
@@ -218,7 +225,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(1151, 490);
+            this.btnSalir.Location = new System.Drawing.Point(1091, 490);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(225, 57);
@@ -256,7 +263,7 @@
             this.dtpFechaDevolucion.Location = new System.Drawing.Point(484, 39);
             this.dtpFechaDevolucion.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            this.dtpFechaDevolucion.Size = new System.Drawing.Size(199, 22);
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(164, 22);
             this.dtpFechaDevolucion.TabIndex = 72;
             this.dtpFechaDevolucion.Visible = false;
             // 
@@ -276,7 +283,7 @@
             this.chkAbiertos.AutoSize = true;
             this.chkAbiertos.Checked = true;
             this.chkAbiertos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAbiertos.Location = new System.Drawing.Point(772, 452);
+            this.chkAbiertos.Location = new System.Drawing.Point(712, 454);
             this.chkAbiertos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAbiertos.Name = "chkAbiertos";
             this.chkAbiertos.Size = new System.Drawing.Size(233, 21);
@@ -286,7 +293,7 @@
             // 
             // btnBuscarPrestamo
             // 
-            this.btnBuscarPrestamo.Location = new System.Drawing.Point(626, 68);
+            this.btnBuscarPrestamo.Location = new System.Drawing.Point(526, 57);
             this.btnBuscarPrestamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarPrestamo.Name = "btnBuscarPrestamo";
             this.btnBuscarPrestamo.Size = new System.Drawing.Size(71, 25);
@@ -297,7 +304,7 @@
             // lblApellido
             // 
             this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(15, 213);
+            this.lblApellido.Location = new System.Drawing.Point(15, 179);
             this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(58, 17);
@@ -307,7 +314,7 @@
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(15, 166);
+            this.lblNombre.Location = new System.Drawing.Point(15, 127);
             this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(58, 17);
@@ -317,7 +324,7 @@
             // lblCodigoCl
             // 
             this.lblCodigoCl.AutoSize = true;
-            this.lblCodigoCl.Location = new System.Drawing.Point(360, 36);
+            this.lblCodigoCl.Location = new System.Drawing.Point(15, 45);
             this.lblCodigoCl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoCl.Name = "lblCodigoCl";
             this.lblCodigoCl.Size = new System.Drawing.Size(52, 17);
@@ -327,7 +334,7 @@
             // txtApellidoCliente
             // 
             this.txtApellidoCliente.Enabled = false;
-            this.txtApellidoCliente.Location = new System.Drawing.Point(81, 213);
+            this.txtApellidoCliente.Location = new System.Drawing.Point(81, 173);
             this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellidoCliente.Name = "txtApellidoCliente";
             this.txtApellidoCliente.ReadOnly = true;
@@ -337,7 +344,7 @@
             // txtNombreCliente
             // 
             this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.Location = new System.Drawing.Point(81, 161);
+            this.txtNombreCliente.Location = new System.Drawing.Point(81, 124);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
@@ -346,7 +353,7 @@
             // 
             // txtCodigoCliente
             // 
-            this.txtCodigoCliente.Location = new System.Drawing.Point(426, 35);
+            this.txtCodigoCliente.Location = new System.Drawing.Point(81, 45);
             this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.Size = new System.Drawing.Size(221, 22);
@@ -354,7 +361,7 @@
             // 
             // btnEliminarPréstamo
             // 
-            this.btnEliminarPréstamo.Location = new System.Drawing.Point(620, 490);
+            this.btnEliminarPréstamo.Location = new System.Drawing.Point(581, 490);
             this.btnEliminarPréstamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarPréstamo.Name = "btnEliminarPréstamo";
             this.btnEliminarPréstamo.Size = new System.Drawing.Size(225, 57);
@@ -364,16 +371,17 @@
             // 
             // gbBuscarPrestamos
             // 
-            this.gbBuscarPrestamos.Controls.Add(this.lblCodigoEj);
+            this.gbBuscarPrestamos.Controls.Add(this.txtBuscarCodCliente);
+            this.gbBuscarPrestamos.Controls.Add(this.txtBuscarCodEjemplar);
+            this.gbBuscarPrestamos.Controls.Add(this.lblBuscarCodCliente);
+            this.gbBuscarPrestamos.Controls.Add(this.lblBuscarCodEjemplar);
             this.gbBuscarPrestamos.Controls.Add(this.btnBuscarPrestamo);
-            this.gbBuscarPrestamos.Controls.Add(this.txtCodigoEjemplar);
-            this.gbBuscarPrestamos.Controls.Add(this.lblCodigoCl);
-            this.gbBuscarPrestamos.Controls.Add(this.txtCodigoCliente);
-            this.gbBuscarPrestamos.Location = new System.Drawing.Point(30, 67);
+            this.gbBuscarPrestamos.Location = new System.Drawing.Point(712, 8);
             this.gbBuscarPrestamos.Name = "gbBuscarPrestamos";
-            this.gbBuscarPrestamos.Size = new System.Drawing.Size(704, 100);
+            this.gbBuscarPrestamos.Size = new System.Drawing.Size(604, 109);
             this.gbBuscarPrestamos.TabIndex = 86;
             this.gbBuscarPrestamos.TabStop = false;
+            this.gbBuscarPrestamos.Text = "Buscar";
             // 
             // gbDatosPrestamo
             // 
@@ -386,44 +394,100 @@
             this.gbDatosPrestamo.Controls.Add(this.lblPlazoRestante);
             this.gbDatosPrestamo.Controls.Add(this.lblFechaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.dtpFechaDevolucion);
-            this.gbDatosPrestamo.Location = new System.Drawing.Point(30, 300);
+            this.gbDatosPrestamo.Location = new System.Drawing.Point(30, 275);
             this.gbDatosPrestamo.Name = "gbDatosPrestamo";
-            this.gbDatosPrestamo.Size = new System.Drawing.Size(704, 173);
+            this.gbDatosPrestamo.Size = new System.Drawing.Size(675, 173);
             this.gbDatosPrestamo.TabIndex = 87;
             this.gbDatosPrestamo.TabStop = false;
             this.gbDatosPrestamo.Text = "Datos Préstamo";
             // 
             // gbDatosEjemplar
             // 
+            this.gbDatosEjemplar.Controls.Add(this.button3);
+            this.gbDatosEjemplar.Controls.Add(this.lblCodigoEj);
             this.gbDatosEjemplar.Controls.Add(this.lblTitulo);
+            this.gbDatosEjemplar.Controls.Add(this.txtCodigoEjemplar);
             this.gbDatosEjemplar.Controls.Add(this.textBox4);
             this.gbDatosEjemplar.Controls.Add(this.lblAutor);
             this.gbDatosEjemplar.Controls.Add(this.txtAutor);
-            this.gbDatosEjemplar.Location = new System.Drawing.Point(30, 28);
+            this.gbDatosEjemplar.Location = new System.Drawing.Point(30, 12);
             this.gbDatosEjemplar.Name = "gbDatosEjemplar";
-            this.gbDatosEjemplar.Size = new System.Drawing.Size(316, 266);
+            this.gbDatosEjemplar.Size = new System.Drawing.Size(316, 229);
             this.gbDatosEjemplar.TabIndex = 88;
             this.gbDatosEjemplar.TabStop = false;
             this.gbDatosEjemplar.Text = "Datos Ejemplar";
             // 
             // gbDatosCliente
             // 
+            this.gbDatosCliente.Controls.Add(this.button2);
             this.gbDatosCliente.Controls.Add(this.lblNombre);
+            this.gbDatosCliente.Controls.Add(this.lblCodigoCl);
+            this.gbDatosCliente.Controls.Add(this.txtCodigoCliente);
             this.gbDatosCliente.Controls.Add(this.txtApellidoCliente);
             this.gbDatosCliente.Controls.Add(this.lblApellido);
             this.gbDatosCliente.Controls.Add(this.txtNombreCliente);
-            this.gbDatosCliente.Location = new System.Drawing.Point(375, 28);
+            this.gbDatosCliente.Location = new System.Drawing.Point(375, 12);
             this.gbDatosCliente.Name = "gbDatosCliente";
-            this.gbDatosCliente.Size = new System.Drawing.Size(359, 266);
+            this.gbDatosCliente.Size = new System.Drawing.Size(330, 229);
             this.gbDatosCliente.TabIndex = 89;
             this.gbDatosCliente.TabStop = false;
             this.gbDatosCliente.Text = "Datos Cliente";
+            // 
+            // lblBuscarCodEjemplar
+            // 
+            this.lblBuscarCodEjemplar.AutoSize = true;
+            this.lblBuscarCodEjemplar.Location = new System.Drawing.Point(7, 39);
+            this.lblBuscarCodEjemplar.Name = "lblBuscarCodEjemplar";
+            this.lblBuscarCodEjemplar.Size = new System.Drawing.Size(130, 17);
+            this.lblBuscarCodEjemplar.TabIndex = 85;
+            this.lblBuscarCodEjemplar.Text = "Código de ejemplar";
+            // 
+            // lblBuscarCodCliente
+            // 
+            this.lblBuscarCodCliente.AutoSize = true;
+            this.lblBuscarCodCliente.Location = new System.Drawing.Point(7, 77);
+            this.lblBuscarCodCliente.Name = "lblBuscarCodCliente";
+            this.lblBuscarCodCliente.Size = new System.Drawing.Size(117, 17);
+            this.lblBuscarCodCliente.TabIndex = 86;
+            this.lblBuscarCodCliente.Text = "Código de cliente";
+            // 
+            // txtBuscarCodEjemplar
+            // 
+            this.txtBuscarCodEjemplar.Location = new System.Drawing.Point(143, 36);
+            this.txtBuscarCodEjemplar.Name = "txtBuscarCodEjemplar";
+            this.txtBuscarCodEjemplar.Size = new System.Drawing.Size(376, 22);
+            this.txtBuscarCodEjemplar.TabIndex = 87;
+            // 
+            // txtBuscarCodCliente
+            // 
+            this.txtBuscarCodCliente.Location = new System.Drawing.Point(143, 77);
+            this.txtBuscarCodCliente.Name = "txtBuscarCodCliente";
+            this.txtBuscarCodCliente.Size = new System.Drawing.Size(376, 22);
+            this.txtBuscarCodCliente.TabIndex = 88;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(212, 73);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(90, 36);
+            this.button2.TabIndex = 84;
+            this.button2.Text = "Clientes...";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(191, 74);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(105, 35);
+            this.button3.TabIndex = 49;
+            this.button3.Text = "Ejemplares...";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // frm2ABMPrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1407, 566);
+            this.ClientSize = new System.Drawing.Size(1332, 566);
             this.Controls.Add(this.btnEliminarPréstamo);
             this.Controls.Add(this.chkAbiertos);
             this.Controls.Add(this.btnSalir);
@@ -485,5 +549,11 @@
         private System.Windows.Forms.GroupBox gbDatosPrestamo;
         private System.Windows.Forms.GroupBox gbDatosEjemplar;
         private System.Windows.Forms.GroupBox gbDatosCliente;
+        private System.Windows.Forms.TextBox txtBuscarCodCliente;
+        private System.Windows.Forms.TextBox txtBuscarCodEjemplar;
+        private System.Windows.Forms.Label lblBuscarCodCliente;
+        private System.Windows.Forms.Label lblBuscarCodEjemplar;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }

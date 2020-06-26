@@ -35,11 +35,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btbAlta = new System.Windows.Forms.Button();
             this.lstLibros = new System.Windows.Forms.ListBox();
-            this.lblAutor = new System.Windows.Forms.Label();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.lblCodigoCl = new System.Windows.Forms.Label();
             this.lblDatosLibro = new System.Windows.Forms.Label();
-            this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.lblDisponibles = new System.Windows.Forms.Label();
             this.lblInventario = new System.Windows.Forms.Label();
             this.lblTema = new System.Windows.Forms.Label();
@@ -52,12 +48,25 @@
             this.txtDisponibles = new System.Windows.Forms.TextBox();
             this.txtCantidadAAgregar = new System.Windows.Forms.TextBox();
             this.lblCantidadAAgregar = new System.Windows.Forms.Label();
-            this.txtTitulo = new System.Windows.Forms.TextBox();
-            this.btnBuscarLibro = new System.Windows.Forms.Button();
-            this.txtAutor = new System.Windows.Forms.TextBox();
             this.btnVerEjemplares = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
+            this.lstEjemplares = new System.Windows.Forms.ListBox();
+            this.lblCodigo = new System.Windows.Forms.Label();
+            this.btnComprimir = new System.Windows.Forms.Button();
+            this.btnBuscarLibro = new System.Windows.Forms.Button();
+            this.txtCodigoCliente = new System.Windows.Forms.TextBox();
+            this.lblCodigoCl = new System.Windows.Forms.Label();
+            this.txtAutor = new System.Windows.Forms.TextBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
+            this.lblAutor = new System.Windows.Forms.Label();
             this.gbBuscarLibros = new System.Windows.Forms.GroupBox();
+            this.lblBuscarISBN = new System.Windows.Forms.Label();
+            this.txtBuscarISBN = new System.Windows.Forms.TextBox();
+            this.lblBuscarTítulo = new System.Windows.Forms.Label();
+            this.lblBuscarAutor = new System.Windows.Forms.Label();
+            this.txtBuscarTítulo = new System.Windows.Forms.TextBox();
+            this.txtBuscarAutor = new System.Windows.Forms.TextBox();
             this.gbBuscarLibros.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +93,7 @@
             // txtPaginas
             // 
             this.txtPaginas.Location = new System.Drawing.Point(334, 245);
-            this.txtPaginas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPaginas.Margin = new System.Windows.Forms.Padding(4);
             this.txtPaginas.Name = "txtPaginas";
             this.txtPaginas.Size = new System.Drawing.Size(49, 22);
             this.txtPaginas.TabIndex = 122;
@@ -92,7 +101,7 @@
             // txtEditorial
             // 
             this.txtEditorial.Location = new System.Drawing.Point(131, 298);
-            this.txtEditorial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEditorial.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditorial.Name = "txtEditorial";
             this.txtEditorial.Size = new System.Drawing.Size(252, 22);
             this.txtEditorial.TabIndex = 121;
@@ -100,7 +109,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(804, 559);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(225, 57);
             this.btnSalir.TabIndex = 117;
@@ -110,7 +119,7 @@
             // btbAlta
             // 
             this.btbAlta.Location = new System.Drawing.Point(31, 559);
-            this.btbAlta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btbAlta.Margin = new System.Windows.Forms.Padding(4);
             this.btbAlta.Name = "btbAlta";
             this.btbAlta.Size = new System.Drawing.Size(243, 57);
             this.btbAlta.TabIndex = 116;
@@ -121,41 +130,11 @@
             // 
             this.lstLibros.FormattingEnabled = true;
             this.lstLibros.ItemHeight = 16;
-            this.lstLibros.Location = new System.Drawing.Point(433, 30);
-            this.lstLibros.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstLibros.Location = new System.Drawing.Point(433, 126);
+            this.lstLibros.Margin = new System.Windows.Forms.Padding(4);
             this.lstLibros.Name = "lstLibros";
-            this.lstLibros.Size = new System.Drawing.Size(597, 500);
+            this.lstLibros.Size = new System.Drawing.Size(597, 420);
             this.lstLibros.TabIndex = 114;
-            // 
-            // lblAutor
-            // 
-            this.lblAutor.AutoSize = true;
-            this.lblAutor.Location = new System.Drawing.Point(17, 111);
-            this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(42, 17);
-            this.lblAutor.TabIndex = 113;
-            this.lblAutor.Text = "Autor";
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(17, 66);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(43, 17);
-            this.lblTitulo.TabIndex = 112;
-            this.lblTitulo.Text = "Título";
-            // 
-            // lblCodigoCl
-            // 
-            this.lblCodigoCl.AutoSize = true;
-            this.lblCodigoCl.Location = new System.Drawing.Point(17, 22);
-            this.lblCodigoCl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCodigoCl.Name = "lblCodigoCl";
-            this.lblCodigoCl.Size = new System.Drawing.Size(39, 17);
-            this.lblCodigoCl.TabIndex = 111;
-            this.lblCodigoCl.Text = "ISBN";
             // 
             // lblDatosLibro
             // 
@@ -166,14 +145,6 @@
             this.lblDatosLibro.Size = new System.Drawing.Size(81, 17);
             this.lblDatosLibro.TabIndex = 110;
             this.lblDatosLibro.Text = "Datos Libro";
-            // 
-            // txtCodigoCliente
-            // 
-            this.txtCodigoCliente.Location = new System.Drawing.Point(119, 22);
-            this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtCodigoCliente.Name = "txtCodigoCliente";
-            this.txtCodigoCliente.Size = new System.Drawing.Size(252, 22);
-            this.txtCodigoCliente.TabIndex = 107;
             // 
             // lblDisponibles
             // 
@@ -209,7 +180,7 @@
             // 
             this.txtInventario.Enabled = false;
             this.txtInventario.Location = new System.Drawing.Point(240, 407);
-            this.txtInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInventario.Margin = new System.Windows.Forms.Padding(4);
             this.txtInventario.Name = "txtInventario";
             this.txtInventario.ReadOnly = true;
             this.txtInventario.Size = new System.Drawing.Size(55, 22);
@@ -228,7 +199,7 @@
             // txtAno
             // 
             this.txtAno.Location = new System.Drawing.Point(77, 245);
-            this.txtAno.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAno.Margin = new System.Windows.Forms.Padding(4);
             this.txtAno.Name = "txtAno";
             this.txtAno.Size = new System.Drawing.Size(49, 22);
             this.txtAno.TabIndex = 126;
@@ -237,7 +208,7 @@
             // 
             this.cmbTema.FormattingEnabled = true;
             this.cmbTema.Location = new System.Drawing.Point(131, 349);
-            this.cmbTema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTema.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTema.Name = "cmbTema";
             this.cmbTema.Size = new System.Drawing.Size(252, 24);
             this.cmbTema.TabIndex = 134;
@@ -255,7 +226,7 @@
             // txtEdicion
             // 
             this.txtEdicion.Location = new System.Drawing.Point(205, 245);
-            this.txtEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEdicion.Margin = new System.Windows.Forms.Padding(4);
             this.txtEdicion.Name = "txtEdicion";
             this.txtEdicion.Size = new System.Drawing.Size(49, 22);
             this.txtEdicion.TabIndex = 135;
@@ -264,7 +235,7 @@
             // 
             this.txtDisponibles.Enabled = false;
             this.txtDisponibles.Location = new System.Drawing.Point(240, 454);
-            this.txtDisponibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDisponibles.Margin = new System.Windows.Forms.Padding(4);
             this.txtDisponibles.Name = "txtDisponibles";
             this.txtDisponibles.ReadOnly = true;
             this.txtDisponibles.Size = new System.Drawing.Size(55, 22);
@@ -273,7 +244,7 @@
             // txtCantidadAAgregar
             // 
             this.txtCantidadAAgregar.Location = new System.Drawing.Point(240, 499);
-            this.txtCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadAAgregar.Name = "txtCantidadAAgregar";
             this.txtCantidadAAgregar.Size = new System.Drawing.Size(55, 22);
             this.txtCantidadAAgregar.TabIndex = 138;
@@ -288,36 +259,10 @@
             this.lblCantidadAAgregar.TabIndex = 137;
             this.lblCantidadAAgregar.Text = "Cantidad ejemplares a agregar";
             // 
-            // txtTitulo
-            // 
-            this.txtTitulo.Location = new System.Drawing.Point(119, 66);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(252, 22);
-            this.txtTitulo.TabIndex = 139;
-            // 
-            // btnBuscarLibro
-            // 
-            this.btnBuscarLibro.Location = new System.Drawing.Point(302, 150);
-            this.btnBuscarLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnBuscarLibro.Name = "btnBuscarLibro";
-            this.btnBuscarLibro.Size = new System.Drawing.Size(71, 25);
-            this.btnBuscarLibro.TabIndex = 142;
-            this.btnBuscarLibro.Text = "Buscar";
-            this.btnBuscarLibro.UseVisualStyleBackColor = true;
-            // 
-            // txtAutor
-            // 
-            this.txtAutor.Location = new System.Drawing.Point(119, 111);
-            this.txtAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(252, 22);
-            this.txtAutor.TabIndex = 141;
-            // 
             // btnVerEjemplares
             // 
             this.btnVerEjemplares.Location = new System.Drawing.Point(296, 559);
-            this.btnVerEjemplares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerEjemplares.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerEjemplares.Name = "btnVerEjemplares";
             this.btnVerEjemplares.Size = new System.Drawing.Size(243, 57);
             this.btnVerEjemplares.TabIndex = 143;
@@ -327,34 +272,192 @@
             // btnLimpiarCampos
             // 
             this.btnLimpiarCampos.Location = new System.Drawing.Point(560, 559);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
             this.btnLimpiarCampos.TabIndex = 144;
             this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             // 
+            // lstEjemplares
+            // 
+            this.lstEjemplares.FormattingEnabled = true;
+            this.lstEjemplares.ItemHeight = 16;
+            this.lstEjemplares.Location = new System.Drawing.Point(1046, 78);
+            this.lstEjemplares.Margin = new System.Windows.Forms.Padding(4);
+            this.lstEjemplares.Name = "lstEjemplares";
+            this.lstEjemplares.Size = new System.Drawing.Size(496, 468);
+            this.lstEjemplares.TabIndex = 146;
+            // 
+            // lblCodigo
+            // 
+            this.lblCodigo.AutoSize = true;
+            this.lblCodigo.Location = new System.Drawing.Point(1043, 43);
+            this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigo.Name = "lblCodigo";
+            this.lblCodigo.Size = new System.Drawing.Size(56, 17);
+            this.lblCodigo.TabIndex = 147;
+            this.lblCodigo.Text = "Código:";
+            // 
+            // btnComprimir
+            // 
+            this.btnComprimir.Location = new System.Drawing.Point(1046, 559);
+            this.btnComprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnComprimir.Name = "btnComprimir";
+            this.btnComprimir.Size = new System.Drawing.Size(60, 57);
+            this.btnComprimir.TabIndex = 148;
+            this.btnComprimir.Text = "<<";
+            this.btnComprimir.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscarLibro
+            // 
+            this.btnBuscarLibro.Location = new System.Drawing.Point(477, 71);
+            this.btnBuscarLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarLibro.Name = "btnBuscarLibro";
+            this.btnBuscarLibro.Size = new System.Drawing.Size(71, 25);
+            this.btnBuscarLibro.TabIndex = 142;
+            this.btnBuscarLibro.Text = "Buscar";
+            this.btnBuscarLibro.UseVisualStyleBackColor = true;
+            // 
+            // txtCodigoCliente
+            // 
+            this.txtCodigoCliente.Location = new System.Drawing.Point(99, 68);
+            this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigoCliente.Name = "txtCodigoCliente";
+            this.txtCodigoCliente.Size = new System.Drawing.Size(252, 22);
+            this.txtCodigoCliente.TabIndex = 107;
+            // 
+            // lblCodigoCl
+            // 
+            this.lblCodigoCl.AutoSize = true;
+            this.lblCodigoCl.Location = new System.Drawing.Point(29, 68);
+            this.lblCodigoCl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigoCl.Name = "lblCodigoCl";
+            this.lblCodigoCl.Size = new System.Drawing.Size(39, 17);
+            this.lblCodigoCl.TabIndex = 111;
+            this.lblCodigoCl.Text = "ISBN";
+            // 
+            // txtAutor
+            // 
+            this.txtAutor.Location = new System.Drawing.Point(99, 152);
+            this.txtAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAutor.Name = "txtAutor";
+            this.txtAutor.Size = new System.Drawing.Size(252, 22);
+            this.txtAutor.TabIndex = 141;
+            // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Location = new System.Drawing.Point(28, 107);
+            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(43, 17);
+            this.lblTitulo.TabIndex = 112;
+            this.lblTitulo.Text = "Título";
+            // 
+            // txtTitulo
+            // 
+            this.txtTitulo.Location = new System.Drawing.Point(99, 107);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(252, 22);
+            this.txtTitulo.TabIndex = 139;
+            // 
+            // lblAutor
+            // 
+            this.lblAutor.AutoSize = true;
+            this.lblAutor.Location = new System.Drawing.Point(28, 152);
+            this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAutor.Name = "lblAutor";
+            this.lblAutor.Size = new System.Drawing.Size(42, 17);
+            this.lblAutor.TabIndex = 113;
+            this.lblAutor.Text = "Autor";
+            // 
             // gbBuscarLibros
             // 
-            this.gbBuscarLibros.Controls.Add(this.lblAutor);
-            this.gbBuscarLibros.Controls.Add(this.txtTitulo);
-            this.gbBuscarLibros.Controls.Add(this.lblTitulo);
-            this.gbBuscarLibros.Controls.Add(this.txtAutor);
-            this.gbBuscarLibros.Controls.Add(this.lblCodigoCl);
-            this.gbBuscarLibros.Controls.Add(this.txtCodigoCliente);
+            this.gbBuscarLibros.Controls.Add(this.txtBuscarAutor);
+            this.gbBuscarLibros.Controls.Add(this.txtBuscarTítulo);
+            this.gbBuscarLibros.Controls.Add(this.lblBuscarAutor);
+            this.gbBuscarLibros.Controls.Add(this.lblBuscarTítulo);
+            this.gbBuscarLibros.Controls.Add(this.txtBuscarISBN);
+            this.gbBuscarLibros.Controls.Add(this.lblBuscarISBN);
             this.gbBuscarLibros.Controls.Add(this.btnBuscarLibro);
-            this.gbBuscarLibros.Location = new System.Drawing.Point(12, 42);
+            this.gbBuscarLibros.Location = new System.Drawing.Point(433, 12);
             this.gbBuscarLibros.Name = "gbBuscarLibros";
-            this.gbBuscarLibros.Size = new System.Drawing.Size(389, 186);
+            this.gbBuscarLibros.Size = new System.Drawing.Size(596, 107);
             this.gbBuscarLibros.TabIndex = 145;
             this.gbBuscarLibros.TabStop = false;
+            this.gbBuscarLibros.Text = "Buscar";
+            // 
+            // lblBuscarISBN
+            // 
+            this.lblBuscarISBN.AutoSize = true;
+            this.lblBuscarISBN.Location = new System.Drawing.Point(11, 75);
+            this.lblBuscarISBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarISBN.Name = "lblBuscarISBN";
+            this.lblBuscarISBN.Size = new System.Drawing.Size(39, 17);
+            this.lblBuscarISBN.TabIndex = 143;
+            this.lblBuscarISBN.Text = "ISBN";
+            // 
+            // txtBuscarISBN
+            // 
+            this.txtBuscarISBN.Location = new System.Drawing.Point(62, 75);
+            this.txtBuscarISBN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarISBN.Name = "txtBuscarISBN";
+            this.txtBuscarISBN.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarISBN.TabIndex = 144;
+            // 
+            // lblBuscarTítulo
+            // 
+            this.lblBuscarTítulo.AutoSize = true;
+            this.lblBuscarTítulo.Location = new System.Drawing.Point(11, 28);
+            this.lblBuscarTítulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarTítulo.Name = "lblBuscarTítulo";
+            this.lblBuscarTítulo.Size = new System.Drawing.Size(43, 17);
+            this.lblBuscarTítulo.TabIndex = 145;
+            this.lblBuscarTítulo.Text = "Título";
+            // 
+            // lblBuscarAutor
+            // 
+            this.lblBuscarAutor.AutoSize = true;
+            this.lblBuscarAutor.Location = new System.Drawing.Point(284, 31);
+            this.lblBuscarAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarAutor.Name = "lblBuscarAutor";
+            this.lblBuscarAutor.Size = new System.Drawing.Size(42, 17);
+            this.lblBuscarAutor.TabIndex = 146;
+            this.lblBuscarAutor.Text = "Autor";
+            // 
+            // txtBuscarTítulo
+            // 
+            this.txtBuscarTítulo.Location = new System.Drawing.Point(62, 28);
+            this.txtBuscarTítulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarTítulo.Name = "txtBuscarTítulo";
+            this.txtBuscarTítulo.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarTítulo.TabIndex = 147;
+            // 
+            // txtBuscarAutor
+            // 
+            this.txtBuscarAutor.Location = new System.Drawing.Point(334, 28);
+            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarAutor.Name = "txtBuscarAutor";
+            this.txtBuscarAutor.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarAutor.TabIndex = 148;
             // 
             // sa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1055, 633);
+            this.ClientSize = new System.Drawing.Size(1555, 633);
+            this.Controls.Add(this.txtAutor);
+            this.Controls.Add(this.txtTitulo);
+            this.Controls.Add(this.lblAutor);
+            this.Controls.Add(this.btnComprimir);
+            this.Controls.Add(this.lblCodigo);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.lstEjemplares);
             this.Controls.Add(this.btnLimpiarCampos);
+            this.Controls.Add(this.txtCodigoCliente);
+            this.Controls.Add(this.lblCodigoCl);
             this.Controls.Add(this.btnVerEjemplares);
             this.Controls.Add(this.txtCantidadAAgregar);
             this.Controls.Add(this.lblCantidadAAgregar);
@@ -377,7 +480,7 @@
             this.Controls.Add(this.lstLibros);
             this.Controls.Add(this.lblDatosLibro);
             this.Controls.Add(this.gbBuscarLibros);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "sa";
             this.Text = "Gestionar libros";
             this.gbBuscarLibros.ResumeLayout(false);
@@ -396,11 +499,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btbAlta;
         private System.Windows.Forms.ListBox lstLibros;
-        private System.Windows.Forms.Label lblAutor;
-        private System.Windows.Forms.Label lblTitulo;
-        private System.Windows.Forms.Label lblCodigoCl;
         private System.Windows.Forms.Label lblDatosLibro;
-        private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Label lblDisponibles;
         private System.Windows.Forms.Label lblInventario;
         private System.Windows.Forms.Label lblTema;
@@ -413,11 +512,24 @@
         private System.Windows.Forms.TextBox txtDisponibles;
         private System.Windows.Forms.TextBox txtCantidadAAgregar;
         private System.Windows.Forms.Label lblCantidadAAgregar;
-        private System.Windows.Forms.TextBox txtTitulo;
-        private System.Windows.Forms.Button btnBuscarLibro;
-        private System.Windows.Forms.TextBox txtAutor;
         private System.Windows.Forms.Button btnVerEjemplares;
         private System.Windows.Forms.Button btnLimpiarCampos;
+        private System.Windows.Forms.ListBox lstEjemplares;
+        private System.Windows.Forms.Label lblCodigo;
+        private System.Windows.Forms.Button btnComprimir;
+        private System.Windows.Forms.Button btnBuscarLibro;
+        private System.Windows.Forms.TextBox txtCodigoCliente;
+        private System.Windows.Forms.Label lblCodigoCl;
+        private System.Windows.Forms.TextBox txtAutor;
+        private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.TextBox txtTitulo;
+        private System.Windows.Forms.Label lblAutor;
         private System.Windows.Forms.GroupBox gbBuscarLibros;
+        private System.Windows.Forms.TextBox txtBuscarAutor;
+        private System.Windows.Forms.TextBox txtBuscarTítulo;
+        private System.Windows.Forms.Label lblBuscarAutor;
+        private System.Windows.Forms.Label lblBuscarTítulo;
+        private System.Windows.Forms.TextBox txtBuscarISBN;
+        private System.Windows.Forms.Label lblBuscarISBN;
     }
 }

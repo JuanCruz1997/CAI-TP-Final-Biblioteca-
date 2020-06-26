@@ -33,12 +33,12 @@
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.btbAlta = new System.Windows.Forms.Button();
             this.lstClientes = new System.Windows.Forms.ListBox();
-            this.lblApellido = new System.Windows.Forms.Label();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblBuscarApellido = new System.Windows.Forms.Label();
+            this.lblBuscarNombre = new System.Windows.Forms.Label();
             this.lblCodigoCl = new System.Windows.Forms.Label();
             this.lblDatosCliente = new System.Windows.Forms.Label();
-            this.txtApellidoCliente = new System.Windows.Forms.TextBox();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.txtBuscarApellido = new System.Windows.Forms.TextBox();
+            this.txtBuscarNombre = new System.Windows.Forms.TextBox();
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.lblMail = new System.Windows.Forms.Label();
             this.lblTelefono = new System.Windows.Forms.Label();
@@ -49,6 +49,10 @@
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.gbBuscarClientes = new System.Windows.Forms.GroupBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblApellido = new System.Windows.Forms.Label();
+            this.txtApellido = new System.Windows.Forms.TextBox();
             this.gbBuscarClientes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,7 +83,7 @@
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
             this.btnLimpiarCampos.TabIndex = 96;
-            this.btnLimpiarCampos.Text = "Limpiar Campos/\r\nActualizar Préstamos";
+            this.btnLimpiarCampos.Text = "Limpiar Campos/\r\nActualizar Clientes";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             // 
             // btbAlta
@@ -96,36 +100,36 @@
             // 
             this.lstClientes.FormattingEnabled = true;
             this.lstClientes.ItemHeight = 16;
-            this.lstClientes.Location = new System.Drawing.Point(411, 48);
+            this.lstClientes.Location = new System.Drawing.Point(411, 96);
             this.lstClientes.Margin = new System.Windows.Forms.Padding(4);
             this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(926, 388);
+            this.lstClientes.Size = new System.Drawing.Size(926, 340);
             this.lstClientes.TabIndex = 88;
             // 
-            // lblApellido
+            // lblBuscarApellido
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Location = new System.Drawing.Point(12, 84);
-            this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(58, 17);
-            this.lblApellido.TabIndex = 80;
-            this.lblApellido.Text = "Apellido";
+            this.lblBuscarApellido.AutoSize = true;
+            this.lblBuscarApellido.Location = new System.Drawing.Point(438, 27);
+            this.lblBuscarApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarApellido.Name = "lblBuscarApellido";
+            this.lblBuscarApellido.Size = new System.Drawing.Size(58, 17);
+            this.lblBuscarApellido.TabIndex = 80;
+            this.lblBuscarApellido.Text = "Apellido";
             // 
-            // lblNombre
+            // lblBuscarNombre
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(12, 39);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(58, 17);
-            this.lblNombre.TabIndex = 79;
-            this.lblNombre.Text = "Nombre";
+            this.lblBuscarNombre.AutoSize = true;
+            this.lblBuscarNombre.Location = new System.Drawing.Point(7, 29);
+            this.lblBuscarNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarNombre.Name = "lblBuscarNombre";
+            this.lblBuscarNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblBuscarNombre.TabIndex = 79;
+            this.lblBuscarNombre.Text = "Nombre";
             // 
             // lblCodigoCl
             // 
             this.lblCodigoCl.AutoSize = true;
-            this.lblCodigoCl.Location = new System.Drawing.Point(33, 240);
+            this.lblCodigoCl.Location = new System.Drawing.Point(32, 79);
             this.lblCodigoCl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCodigoCl.Name = "lblCodigoCl";
             this.lblCodigoCl.Size = new System.Drawing.Size(52, 17);
@@ -142,25 +146,25 @@
             this.lblDatosCliente.TabIndex = 77;
             this.lblDatosCliente.Text = "Datos Cliente";
             // 
-            // txtApellidoCliente
+            // txtBuscarApellido
             // 
-            this.txtApellidoCliente.Location = new System.Drawing.Point(89, 84);
-            this.txtApellidoCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApellidoCliente.Name = "txtApellidoCliente";
-            this.txtApellidoCliente.Size = new System.Drawing.Size(221, 22);
-            this.txtApellidoCliente.TabIndex = 76;
+            this.txtBuscarApellido.Location = new System.Drawing.Point(502, 26);
+            this.txtBuscarApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarApellido.Name = "txtBuscarApellido";
+            this.txtBuscarApellido.Size = new System.Drawing.Size(338, 22);
+            this.txtBuscarApellido.TabIndex = 76;
             // 
-            // txtNombreCliente
+            // txtBuscarNombre
             // 
-            this.txtNombreCliente.Location = new System.Drawing.Point(89, 39);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(221, 22);
-            this.txtNombreCliente.TabIndex = 75;
+            this.txtBuscarNombre.Location = new System.Drawing.Point(73, 26);
+            this.txtBuscarNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarNombre.Name = "txtBuscarNombre";
+            this.txtBuscarNombre.Size = new System.Drawing.Size(338, 22);
+            this.txtBuscarNombre.TabIndex = 75;
             // 
             // txtCodigoCliente
             // 
-            this.txtCodigoCliente.Location = new System.Drawing.Point(110, 240);
+            this.txtCodigoCliente.Location = new System.Drawing.Point(129, 79);
             this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.ReadOnly = true;
@@ -170,7 +174,7 @@
             // lblMail
             // 
             this.lblMail.AutoSize = true;
-            this.lblMail.Location = new System.Drawing.Point(33, 414);
+            this.lblMail.Location = new System.Drawing.Point(32, 341);
             this.lblMail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMail.Name = "lblMail";
             this.lblMail.Size = new System.Drawing.Size(33, 17);
@@ -180,7 +184,7 @@
             // lblTelefono
             // 
             this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Location = new System.Drawing.Point(33, 361);
+            this.lblTelefono.Location = new System.Drawing.Point(32, 286);
             this.lblTelefono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(64, 17);
@@ -190,7 +194,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(33, 301);
+            this.lblDireccion.Location = new System.Drawing.Point(32, 228);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(67, 17);
@@ -199,7 +203,7 @@
             // 
             // txtMail
             // 
-            this.txtMail.Location = new System.Drawing.Point(110, 414);
+            this.txtMail.Location = new System.Drawing.Point(129, 341);
             this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(221, 22);
@@ -207,7 +211,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 359);
+            this.textBox2.Location = new System.Drawing.Point(129, 286);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 22);
@@ -215,7 +219,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(110, 301);
+            this.txtDireccion.Location = new System.Drawing.Point(129, 228);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(221, 22);
@@ -223,7 +227,7 @@
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(285, 116);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(848, 23);
             this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(71, 25);
@@ -244,22 +248,63 @@
             // 
             // gbBuscarClientes
             // 
-            this.gbBuscarClientes.Controls.Add(this.txtNombreCliente);
-            this.gbBuscarClientes.Controls.Add(this.lblNombre);
+            this.gbBuscarClientes.Controls.Add(this.txtBuscarNombre);
+            this.gbBuscarClientes.Controls.Add(this.lblBuscarNombre);
             this.gbBuscarClientes.Controls.Add(this.btnBuscarCliente);
-            this.gbBuscarClientes.Controls.Add(this.lblApellido);
-            this.gbBuscarClientes.Controls.Add(this.txtApellidoCliente);
-            this.gbBuscarClientes.Location = new System.Drawing.Point(21, 59);
+            this.gbBuscarClientes.Controls.Add(this.lblBuscarApellido);
+            this.gbBuscarClientes.Controls.Add(this.txtBuscarApellido);
+            this.gbBuscarClientes.Location = new System.Drawing.Point(411, 12);
             this.gbBuscarClientes.Name = "gbBuscarClientes";
-            this.gbBuscarClientes.Size = new System.Drawing.Size(363, 154);
+            this.gbBuscarClientes.Size = new System.Drawing.Size(926, 66);
             this.gbBuscarClientes.TabIndex = 110;
             this.gbBuscarClientes.TabStop = false;
+            this.gbBuscarClientes.Text = "Buscar";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(129, 120);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(221, 22);
+            this.txtNombre.TabIndex = 111;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Location = new System.Drawing.Point(32, 120);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(58, 17);
+            this.lblNombre.TabIndex = 113;
+            this.lblNombre.Text = "Nombre";
+            // 
+            // lblApellido
+            // 
+            this.lblApellido.AutoSize = true;
+            this.lblApellido.Location = new System.Drawing.Point(32, 171);
+            this.lblApellido.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblApellido.Name = "lblApellido";
+            this.lblApellido.Size = new System.Drawing.Size(58, 17);
+            this.lblApellido.TabIndex = 114;
+            this.lblApellido.Text = "Apellido";
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(129, 168);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(221, 22);
+            this.txtApellido.TabIndex = 112;
             // 
             // txtTelefono
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1373, 545);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.txtApellido);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.lblMail);
             this.Controls.Add(this.lblTelefono);
@@ -292,12 +337,12 @@
         private System.Windows.Forms.Button btnLimpiarCampos;
         private System.Windows.Forms.Button btbAlta;
         private System.Windows.Forms.ListBox lstClientes;
-        private System.Windows.Forms.Label lblApellido;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblBuscarApellido;
+        private System.Windows.Forms.Label lblBuscarNombre;
         private System.Windows.Forms.Label lblCodigoCl;
         private System.Windows.Forms.Label lblDatosCliente;
-        private System.Windows.Forms.TextBox txtApellidoCliente;
-        private System.Windows.Forms.TextBox txtNombreCliente;
+        private System.Windows.Forms.TextBox txtBuscarApellido;
+        private System.Windows.Forms.TextBox txtBuscarNombre;
         private System.Windows.Forms.TextBox txtCodigoCliente;
         private System.Windows.Forms.Label lblMail;
         private System.Windows.Forms.Label lblTelefono;
@@ -308,5 +353,9 @@
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.GroupBox gbBuscarClientes;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.TextBox txtApellido;
     }
 }
