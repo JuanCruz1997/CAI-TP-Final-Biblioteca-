@@ -19,7 +19,6 @@ namespace Entidades
         private string _tema;
         private int _stockPermanente;
         private int _stockDisponible;
-        private List<Libro> _libros;
 
         public long Isbn { get => _isbn; set => _isbn = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }
@@ -31,6 +30,5 @@ namespace Entidades
         public string Tema { get => _tema; set => _tema = value; }
         public int StockPermanente { get => _stockPermanente; set => _stockPermanente = value; }
         public int StockDisponible { get => _stockDisponible; set => _stockDisponible = value; }
-        public List<Libro> Libros { get => _libros; set => _libros = value; }
     }
 }

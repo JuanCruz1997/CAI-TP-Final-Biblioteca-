@@ -12,11 +12,9 @@ namespace Entidades
         private int _codigo;
         private Libro _libro;
         private bool _estaPrestado;
-        private List<Ejemplar> _ejemplares;
 
         public int Codigo { get => _codigo; set => _codigo = value; }
         public Libro Libro { get => _libro; set => _libro = value; }
         public bool EstaPrestado { get => _estaPrestado; set => _estaPrestado = value; }
-        public List<Ejemplar> Ejemplares { get => _ejemplares; set => _ejemplares = value; }
     }
 }

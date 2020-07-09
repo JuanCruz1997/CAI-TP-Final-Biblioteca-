@@ -11,10 +11,8 @@ namespace Entidades
     {
         private int _codigo;
         private bool _activo;
-        private List<Cliente> _clientes;
 
         public int Codigo { get => _codigo; set => _codigo = value; }
         public bool Activo { get => _activo; set => _activo = value; }
-        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
     }
 }
