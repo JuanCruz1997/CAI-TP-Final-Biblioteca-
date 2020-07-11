@@ -1,0 +1,16 @@
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.exe.config
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.exe
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.pdb
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Entidades.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Entidades.pdb
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csprojAssemblyReference.cache
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm1MenuPrincipal.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2ABMPrestamo.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2GestionarPrestamo.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.txtTelefono.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.sa.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.Properties.Resources.resources
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csproj.GenerateResource.cache
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csproj.CopyComplete
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.exe
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.pdb
