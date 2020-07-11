@@ -46,7 +46,6 @@
     <Compile Include="ServicioLibro.cs" />
     <Compile Include="ServicioPrestamo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValidacionHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Datos\Datos.csproj">
