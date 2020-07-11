@@ -10,36 +10,36 @@ namespace Entidades
     [DataContract]
     public class Prestamo
     {
+        [DataMember(Name = "id")]
+        private int _numeroOperacion;
         [DataMember]
-        private int id;
+        private int _idCliente;
         [DataMember]
-        private int idCliente;
-        [DataMember]
-        private int idEjemplar;
+        private int _idEjemplar;
         [DataMember]
         private int _plazoPrestamo;
         [DataMember]
         private DateTime _fechaHoraPrestamo;
+        //[DataMember]
+        //private DateTime _fechaDevolucionTentativa;
         [DataMember]
         private DateTime _fechaDevolucionReal;
-
-        //[DataMember]
-        //        private DateTime _fechaDevolucionTentativa;
 
         private Cliente _cliente;
         private Ejemplar _ejemplar;
 
-        public Cliente Cliente { get => _cliente; set => _cliente = value; }
-        public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
-
-        public int Id { get => id; set => id = value; }
-        public int IdCliente { get => idCliente; set => idCliente = value; }
-        public int IdEjemplar { get => idEjemplar; set => idEjemplar = value; }
+        
+        public int NumeroOperacion { get => _numeroOperacion; set => _numeroOperacion = value; }
+        public int IdCliente { get => _idCliente; set => _idCliente = value; }
+        public int IdEjemplar { get => _idEjemplar; set => _idEjemplar = value; }
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
         public DateTime FechaDevolucionTentativa { get => _fechaHoraPrestamo.AddDays(_plazoPrestamo); }
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
-       
+
+        public Cliente Cliente { get => _cliente; set => _cliente = value; }
+        public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
+
         public int DiasDeAtraso 
         {
             get

@@ -11,8 +11,8 @@ namespace Entidades
     public class Libro
     {
         //private long _isbn;
-        [DataMember]
-        private int id;
+        [DataMember(Name = "id")]
+        private int _ISBN;
         [DataMember]
         private string _titulo;
         [DataMember]
@@ -31,10 +31,10 @@ namespace Entidades
         private int _stockPermanente;
         private int _stockDisponible;
 
-        
+        //private List<Libros> ver xq silvio lo puso en agregacion
 
         // public long Isbn { get => _isbn; set => _isbn = value; }
-        public int Id { get => id; set => id = value; }
+        public int ISBN { get => _ISBN; set => _ISBN = value; }
 
         public string Titulo { get => _titulo; set => _titulo = value; }
         public string Autor { get => _autor; set => _autor = value; }
