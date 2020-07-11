@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mapperCliente.cs" />
-    <Compile Include="mapperEjemplares.cs" />
-    <Compile Include="mapperLibros.cs" />
-    <Compile Include="mapperPrestamos.cs" />
+    <Compile Include="MapperCliente.cs" />
+    <Compile Include="MapperEjemplares.cs" />
+    <Compile Include="MapperLibros.cs" />
+    <Compile Include="MapperPrestamos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebHelper.cs" />
   </ItemGroup>

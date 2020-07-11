@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Negocio;
 
 namespace Form_Biblioteca
 {
@@ -17,7 +18,7 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void frm1MenuPrincipal_Load(object sender, EventArgs e)
         {
 
         }
@@ -35,6 +36,14 @@ namespace Form_Biblioteca
         private void btnSalir_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            frm2Clientes f = new frm2Clientes(new ServicioCliente());
+            f.Owner = this;
+            f.Show();
+            this.Hide();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Form_Biblioteca
 {
-    partial class txtTelefono
+    partial class frm2Clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
-            this.btbAlta = new System.Windows.Forms.Button();
-            this.lstClientes = new System.Windows.Forms.ListBox();
+            this.btnAlta = new System.Windows.Forms.Button();
             this.lblBuscarApellido = new System.Windows.Forms.Label();
             this.lblBuscarNombre = new System.Windows.Forms.Label();
             this.lblCodigoCl = new System.Windows.Forms.Label();
@@ -44,7 +44,7 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.txtMail = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -53,7 +53,20 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
+            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.prestamoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbBuscarClientes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
@@ -65,6 +78,7 @@
             this.btnModificar.TabIndex = 100;
             this.btnModificar.Text = "Guardar cambios";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -75,6 +89,7 @@
             this.btnEliminar.TabIndex = 99;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnLimpiarCampos
             // 
@@ -85,26 +100,18 @@
             this.btnLimpiarCampos.TabIndex = 96;
             this.btnLimpiarCampos.Text = "Limpiar Campos/\r\nActualizar Clientes";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
+            this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
-            // btbAlta
+            // btnAlta
             // 
-            this.btbAlta.Location = new System.Drawing.Point(36, 468);
-            this.btbAlta.Margin = new System.Windows.Forms.Padding(4);
-            this.btbAlta.Name = "btbAlta";
-            this.btbAlta.Size = new System.Drawing.Size(243, 57);
-            this.btbAlta.TabIndex = 95;
-            this.btbAlta.Text = "Alta";
-            this.btbAlta.UseVisualStyleBackColor = true;
-            // 
-            // lstClientes
-            // 
-            this.lstClientes.FormattingEnabled = true;
-            this.lstClientes.ItemHeight = 16;
-            this.lstClientes.Location = new System.Drawing.Point(411, 96);
-            this.lstClientes.Margin = new System.Windows.Forms.Padding(4);
-            this.lstClientes.Name = "lstClientes";
-            this.lstClientes.Size = new System.Drawing.Size(926, 340);
-            this.lstClientes.TabIndex = 88;
+            this.btnAlta.Location = new System.Drawing.Point(36, 468);
+            this.btnAlta.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAlta.Name = "btnAlta";
+            this.btnAlta.Size = new System.Drawing.Size(243, 57);
+            this.btnAlta.TabIndex = 95;
+            this.btnAlta.Text = "Alta";
+            this.btnAlta.UseVisualStyleBackColor = true;
+            this.btnAlta.Click += new System.EventHandler(this.btnAlta_Click);
             // 
             // lblBuscarApellido
             // 
@@ -209,13 +216,13 @@
             this.txtMail.Size = new System.Drawing.Size(221, 22);
             this.txtMail.TabIndex = 103;
             // 
-            // textBox2
+            // txtTelefono
             // 
-            this.textBox2.Location = new System.Drawing.Point(129, 286);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 22);
-            this.textBox2.TabIndex = 102;
+            this.txtTelefono.Location = new System.Drawing.Point(129, 286);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(221, 22);
+            this.txtTelefono.TabIndex = 102;
             // 
             // txtDireccion
             // 
@@ -245,6 +252,7 @@
             this.btnSalir.TabIndex = 109;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // gbBuscarClientes
             // 
@@ -296,11 +304,107 @@
             this.txtApellido.Size = new System.Drawing.Size(221, 22);
             this.txtApellido.TabIndex = 112;
             // 
-            // txtTelefono
+            // dgvClientes
+            // 
+            this.dgvClientes.AllowUserToAddRows = false;
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AutoGenerateColumns = false;
+            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.codigoDataGridViewTextBoxColumn,
+            this.activoDataGridViewCheckBoxColumn,
+            this.nombreDataGridViewTextBoxColumn,
+            this.apellidoDataGridViewTextBoxColumn,
+            this.direccionDataGridViewTextBoxColumn,
+            this.telefonoDataGridViewTextBoxColumn,
+            this.mailDataGridViewTextBoxColumn});
+            this.dgvClientes.DataSource = this.clienteBindingSource;
+            this.dgvClientes.Location = new System.Drawing.Point(411, 85);
+            this.dgvClientes.Name = "dgvClientes";
+            this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersWidth = 51;
+            this.dgvClientes.RowTemplate.Height = 24;
+            this.dgvClientes.Size = new System.Drawing.Size(926, 376);
+            this.dgvClientes.TabIndex = 115;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
+            // 
+            // prestamoBindingSource
+            // 
+            this.prestamoBindingSource.DataSource = typeof(Entidades.Prestamo);
+            // 
+            // clienteBindingSource
+            // 
+            this.clienteBindingSource.DataSource = typeof(Entidades.Cliente);
+            // 
+            // codigoDataGridViewTextBoxColumn
+            // 
+            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            this.codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codigoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "Activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "Activo";
+            this.activoDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.activoDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nombreDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.apellidoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // direccionDataGridViewTextBoxColumn
+            // 
+            this.direccionDataGridViewTextBoxColumn.DataPropertyName = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.HeaderText = "Direccion";
+            this.direccionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
+            this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.direccionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telefonoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // mailDataGridViewTextBoxColumn
+            // 
+            this.mailDataGridViewTextBoxColumn.DataPropertyName = "Mail";
+            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
+            this.mailDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
+            this.mailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mailDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // frm2Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1373, 545);
+            this.Controls.Add(this.dgvClientes);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblApellido);
@@ -310,22 +414,25 @@
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.lblDireccion);
             this.Controls.Add(this.txtMail);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnLimpiarCampos);
-            this.Controls.Add(this.btbAlta);
-            this.Controls.Add(this.lstClientes);
+            this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.lblCodigoCl);
             this.Controls.Add(this.lblDatosCliente);
             this.Controls.Add(this.txtCodigoCliente);
             this.Controls.Add(this.gbBuscarClientes);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "txtTelefono";
+            this.Name = "frm2Clientes";
             this.Text = "Gestionar clientes";
+            this.Load += new System.EventHandler(this.frm2Clientes_Load);
             this.gbBuscarClientes.ResumeLayout(false);
             this.gbBuscarClientes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,8 +442,7 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnLimpiarCampos;
-        private System.Windows.Forms.Button btbAlta;
-        private System.Windows.Forms.ListBox lstClientes;
+        private System.Windows.Forms.Button btnAlta;
         private System.Windows.Forms.Label lblBuscarApellido;
         private System.Windows.Forms.Label lblBuscarNombre;
         private System.Windows.Forms.Label lblCodigoCl;
@@ -348,7 +454,7 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.Button btnBuscarCliente;
         private System.Windows.Forms.Button btnSalir;
@@ -357,5 +463,15 @@
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.BindingSource prestamoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn direccionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource clienteBindingSource;
     }
 }

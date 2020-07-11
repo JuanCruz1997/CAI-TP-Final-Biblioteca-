@@ -14,3 +14,14 @@ C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz199
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csproj.CopyComplete
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.exe
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csprojAssemblyReference.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm1MenuPrincipal.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2ABMPrestamo.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2GestionarPrestamo.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2Clientes.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.sa.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.Properties.Resources.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csproj.GenerateResource.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.exe
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.pdb

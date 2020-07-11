@@ -36,8 +36,8 @@ namespace Entidades
 
 
         //revisar
-        public Libro Libro { get => _libro; set => _libro = value; }
-        public bool EstaPrestado { get => _estaPrestado; set => _estaPrestado = value; }
+        /*public Libro Libro { get => _libro; set => _libro = value; }
+        public bool EstaPrestado { get => _estaPrestado; set => _estaPrestado = value; }*/
           }
 
 }

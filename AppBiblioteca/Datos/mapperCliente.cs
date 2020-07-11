@@ -9,9 +9,9 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    public class mapperCliente
+    public class MapperCliente
     {
-        public List<Cliente> TraerTodos()
+        public List<Cliente> Traer()
         {
             string json = WebHelper.Get("/api/v1/cliente");
             List<Cliente> lst = MapList(json);
