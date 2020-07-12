@@ -35,6 +35,9 @@ namespace Form_Biblioteca
             txtDireccion.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             txtMail.Text = string.Empty;
+            btnAlta.Enabled = true;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
         private Boolean ValidarCampos()
         {
@@ -73,7 +76,7 @@ namespace Form_Biblioteca
             txtNombre.Text = seleccionado.Nombre;
             txtApellido.Text = seleccionado.Apellido;
             txtDireccion.Text = seleccionado.Direccion;
-            txtTelefono.Text = seleccionado.Telefono.ToString();
+            txtTelefono.Text = seleccionado.Telefono;
             txtMail.Text = seleccionado.Mail;
         }
         private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
@@ -82,6 +85,7 @@ namespace Form_Biblioteca
             {
                 if (txtBuscarNombre.Text == string.Empty && txtBuscarApellido.Text == string.Empty)
                 {
+                    MessageBox.Show("Debe ingresar al menos un criterio de búsqueda.");
                     CargarDGVClientes(this._clienteServicio.TraerTodos());
                 }
                 else
@@ -102,21 +106,23 @@ namespace Form_Biblioteca
             CargarDGVClientes(this._clienteServicio.TraerTodos());
         }
 
-        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Buscar cómo convertir en objeto Cliente una fila seleccionada
-            Cliente seleccionado = new Cliente(); //Reemplazar new Cliente por la conversión correcta.
+            DataGridViewRow row = dgvClientes.CurrentRow;
+            Cliente seleccionado = row.DataBoundItem as Cliente;
             if (seleccionado != null)
             {
                 CompletarFormulario(seleccionado);
+                btnAlta.Enabled = false;
+                btnModificar.Enabled = true;
+                btnEliminar.Enabled = true;
             }
-            btnAlta.Enabled = false;
         }
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            btnAlta.Enabled = true;
+            CargarDGVClientes(this._clienteServicio.TraerTodos());
         }
 
         private void btnAlta_Click(object sender, EventArgs e)
@@ -125,7 +131,7 @@ namespace Form_Biblioteca
             {
                 if (ValidarCampos())
                 {
-                    int codigo = this._clienteServicio.AltaCliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), txtMail.Text);
+                    int codigo = this._clienteServicio.AltaCliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
                     MessageBox.Show("Alta de cliente exitosa." + codigo.ToString());
                     CargarDGVClientes(this._clienteServicio.TraerTodos());
                     LimpiarCampos();
@@ -156,7 +162,7 @@ namespace Form_Biblioteca
                 {
                     if (ValidarCampos())
                     {
-                        this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, Convert.ToInt32(txtTelefono.Text), txtMail.Text);
+                        this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
                         MessageBox.Show("El cliente se ha modificado exitosamente.");
                         CargarDGVClientes(this._clienteServicio.TraerTodos());
                         LimpiarCampos();

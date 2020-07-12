@@ -20,16 +20,15 @@ namespace Datos
             client.Encoding = Encoding.UTF8;
             //rutaBase = "https://cai-api.azurewebsites.net/api/v1";
             rutaBase = ConfigurationManager.AppSettings["URL_API"];
-
             client.Headers.Add("ContentType", "application/json");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
         public static string Get(string url)
         {
-            var uri = rutaBase + url;
+            string uri = rutaBase + url;
 
-            var responseString = client.DownloadString(uri);
+            string responseString = client.DownloadString(uri);
 
             return responseString;
         }

@@ -24,7 +24,7 @@ namespace Negocio
         public List<Cliente> BuscarClientes(string nombre, string apellido)
         {
             List<Cliente> resultado = new List<Cliente>();
-            if (Validaciones.ValidarString(nombre) == "" || Validaciones.ValidarString(apellido) == "")
+            if (Validaciones.ValidarString(nombre) == "" && Validaciones.ValidarString(apellido) == "")
             {
                 throw new Exception("La búsqueda requiere que se ingrese una cadena de texto válida.");
             }
@@ -32,15 +32,26 @@ namespace Negocio
             {
                 foreach(Cliente c in this.TraerTodos())
                 {
-                    if(c.Nombre==nombre || c.Apellido == apellido)
+                    if (c.Nombre != null || c.Apellido != null)
                     {
-                        resultado.Add(c);
+                        if (c.Nombre.ToLower().Contains(nombre.ToLower()) && apellido == string.Empty)
+                        {
+                            resultado.Add(c);
+                        }
+                        else if (nombre == string.Empty && c.Apellido.ToLower().Contains(apellido.ToLower()))
+                        {
+                            resultado.Add(c);
+                        }
+                        else if (c.Nombre.ToLower().Contains(nombre.ToLower()) && c.Apellido.ToLower().Contains(apellido.ToLower()))
+                        {
+                            resultado.Add(c);
+                        }
                     }
                 }
             }
             return resultado;
         }
-        public int AltaCliente(string nombre,string apellido,string direccion,int telefono,string mail)
+        public int AltaCliente(string nombre,string apellido,string direccion,string telefono,string mail)
         {
             Cliente alta = new Cliente();
             alta.Nombre = nombre;
@@ -58,7 +69,7 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
-        public void ModificarCliente(int codigo,string nombre, string apellido, string direccion, int telefono, string mail)
+        public void ModificarCliente(int codigo,string nombre, string apellido, string direccion, string telefono, string mail)
         {
             Cliente c = TraerPorCodigo(codigo);
             if (c != null)
