@@ -42,8 +42,8 @@ namespace Datos
         private NameValueCollection ReverseMap (Ejemplar ejemplar)
         {
             NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("idLibro", ejemplar.IdLibro.ToString());
-            nvc.Add("observaciones", ejemplar.Observaciones);
+            nvc.Add("idLibro", ejemplar.CodigoLibro.ToString());
+            nvc.Add("observaciones", ejemplar.Descripcion);
             nvc.Add("precio", ejemplar.Precio.ToString());
             nvc.Add("fechaAlta", ejemplar.FechaAlta.ToString());
             return nvc;

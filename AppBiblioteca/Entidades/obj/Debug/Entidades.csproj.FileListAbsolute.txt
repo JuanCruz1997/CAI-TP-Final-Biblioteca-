@@ -7,3 +7,5 @@ C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\App
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Entidades\obj\Debug\Entidades.dll
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Entidades\bin\Debug\Entidades.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Entidades\bin\Debug\Entidades.pdb
