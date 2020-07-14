@@ -104,6 +104,7 @@
     <None Include="Properties\DataSources\Entidades.Cliente.datasource" />
     <None Include="Properties\DataSources\Entidades.Libro.datasource" />
     <None Include="Properties\DataSources\Entidades.Prestamo.datasource" />
+    <None Include="Properties\DataSources\Entidades.PrestamoAdapter.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

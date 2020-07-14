@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
@@ -310,8 +311,18 @@
             // 
             this.dgvClientes.AllowUserToAddRows = false;
             this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToOrderColumns = true;
+            this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.AutoGenerateColumns = false;
-            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoDataGridViewTextBoxColumn,
@@ -325,6 +336,7 @@
             this.dgvClientes.Location = new System.Drawing.Point(411, 85);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.RowHeadersVisible = false;
             this.dgvClientes.RowHeadersWidth = 51;
             this.dgvClientes.RowTemplate.Height = 24;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -339,7 +351,6 @@
             this.codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
             this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.codigoDataGridViewTextBoxColumn.Width = 81;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -348,7 +359,6 @@
             this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nombreDataGridViewTextBoxColumn.Width = 87;
             // 
             // apellidoDataGridViewTextBoxColumn
             // 
@@ -357,7 +367,6 @@
             this.apellidoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.apellidoDataGridViewTextBoxColumn.Width = 87;
             // 
             // activoDataGridViewCheckBoxColumn
             // 
@@ -366,7 +375,6 @@
             this.activoDataGridViewCheckBoxColumn.MinimumWidth = 6;
             this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
             this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
-            this.activoDataGridViewCheckBoxColumn.Width = 52;
             // 
             // mailDataGridViewTextBoxColumn
             // 
@@ -375,7 +383,6 @@
             this.mailDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
             this.mailDataGridViewTextBoxColumn.ReadOnly = true;
-            this.mailDataGridViewTextBoxColumn.Width = 62;
             // 
             // telefonoDataGridViewTextBoxColumn
             // 
@@ -384,7 +391,6 @@
             this.telefonoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.telefonoDataGridViewTextBoxColumn.Width = 93;
             // 
             // direccionDataGridViewTextBoxColumn
             // 
@@ -393,7 +399,6 @@
             this.direccionDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.direccionDataGridViewTextBoxColumn.Width = 96;
             // 
             // clienteBindingSource
             // 

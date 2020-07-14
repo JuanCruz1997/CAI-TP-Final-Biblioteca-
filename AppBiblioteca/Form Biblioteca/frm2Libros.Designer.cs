@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCantidadPáginas = new System.Windows.Forms.Label();
             this.lblEditorial = new System.Windows.Forms.Label();
             this.txtPaginas = new System.Windows.Forms.TextBox();
             this.txtEditorial = new System.Windows.Forms.TextBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btbAlta = new System.Windows.Forms.Button();
-            this.lstLibros = new System.Windows.Forms.ListBox();
             this.lblDatosLibro = new System.Windows.Forms.Label();
             this.lblDisponibles = new System.Windows.Forms.Label();
             this.lblInventario = new System.Windows.Forms.Label();
@@ -61,13 +62,26 @@
             this.txtTitulo = new System.Windows.Forms.TextBox();
             this.lblAutor = new System.Windows.Forms.Label();
             this.gbBuscarLibros = new System.Windows.Forms.GroupBox();
-            this.lblBuscarISBN = new System.Windows.Forms.Label();
-            this.txtBuscarISBN = new System.Windows.Forms.TextBox();
-            this.lblBuscarTítulo = new System.Windows.Forms.Label();
-            this.lblBuscarAutor = new System.Windows.Forms.Label();
-            this.txtBuscarTítulo = new System.Windows.Forms.TextBox();
             this.txtBuscarAutor = new System.Windows.Forms.TextBox();
+            this.txtBuscarTítulo = new System.Windows.Forms.TextBox();
+            this.lblBuscarAutor = new System.Windows.Forms.Label();
+            this.lblBuscarTítulo = new System.Windows.Forms.Label();
+            this.txtBuscarISBN = new System.Windows.Forms.TextBox();
+            this.lblBuscarISBN = new System.Windows.Forms.Label();
+            this.dgvLibros = new System.Windows.Forms.DataGridView();
+            this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantPaginasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockPermanenteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDisponibleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbBuscarLibros.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCantidadPáginas
@@ -125,16 +139,6 @@
             this.btbAlta.TabIndex = 116;
             this.btbAlta.Text = "Alta";
             this.btbAlta.UseVisualStyleBackColor = true;
-            // 
-            // lstLibros
-            // 
-            this.lstLibros.FormattingEnabled = true;
-            this.lstLibros.ItemHeight = 16;
-            this.lstLibros.Location = new System.Drawing.Point(433, 126);
-            this.lstLibros.Margin = new System.Windows.Forms.Padding(4);
-            this.lstLibros.Name = "lstLibros";
-            this.lstLibros.Size = new System.Drawing.Size(597, 420);
-            this.lstLibros.TabIndex = 114;
             // 
             // lblDatosLibro
             // 
@@ -389,33 +393,21 @@
             this.gbBuscarLibros.TabStop = false;
             this.gbBuscarLibros.Text = "Buscar";
             // 
-            // lblBuscarISBN
+            // txtBuscarAutor
             // 
-            this.lblBuscarISBN.AutoSize = true;
-            this.lblBuscarISBN.Location = new System.Drawing.Point(11, 75);
-            this.lblBuscarISBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBuscarISBN.Name = "lblBuscarISBN";
-            this.lblBuscarISBN.Size = new System.Drawing.Size(39, 17);
-            this.lblBuscarISBN.TabIndex = 143;
-            this.lblBuscarISBN.Text = "ISBN";
+            this.txtBuscarAutor.Location = new System.Drawing.Point(334, 28);
+            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarAutor.Name = "txtBuscarAutor";
+            this.txtBuscarAutor.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarAutor.TabIndex = 148;
             // 
-            // txtBuscarISBN
+            // txtBuscarTítulo
             // 
-            this.txtBuscarISBN.Location = new System.Drawing.Point(62, 75);
-            this.txtBuscarISBN.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarISBN.Name = "txtBuscarISBN";
-            this.txtBuscarISBN.Size = new System.Drawing.Size(214, 22);
-            this.txtBuscarISBN.TabIndex = 144;
-            // 
-            // lblBuscarTítulo
-            // 
-            this.lblBuscarTítulo.AutoSize = true;
-            this.lblBuscarTítulo.Location = new System.Drawing.Point(11, 28);
-            this.lblBuscarTítulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblBuscarTítulo.Name = "lblBuscarTítulo";
-            this.lblBuscarTítulo.Size = new System.Drawing.Size(43, 17);
-            this.lblBuscarTítulo.TabIndex = 145;
-            this.lblBuscarTítulo.Text = "Título";
+            this.txtBuscarTítulo.Location = new System.Drawing.Point(62, 28);
+            this.txtBuscarTítulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarTítulo.Name = "txtBuscarTítulo";
+            this.txtBuscarTítulo.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarTítulo.TabIndex = 147;
             // 
             // lblBuscarAutor
             // 
@@ -427,27 +419,152 @@
             this.lblBuscarAutor.TabIndex = 146;
             this.lblBuscarAutor.Text = "Autor";
             // 
-            // txtBuscarTítulo
+            // lblBuscarTítulo
             // 
-            this.txtBuscarTítulo.Location = new System.Drawing.Point(62, 28);
-            this.txtBuscarTítulo.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarTítulo.Name = "txtBuscarTítulo";
-            this.txtBuscarTítulo.Size = new System.Drawing.Size(214, 22);
-            this.txtBuscarTítulo.TabIndex = 147;
+            this.lblBuscarTítulo.AutoSize = true;
+            this.lblBuscarTítulo.Location = new System.Drawing.Point(11, 28);
+            this.lblBuscarTítulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarTítulo.Name = "lblBuscarTítulo";
+            this.lblBuscarTítulo.Size = new System.Drawing.Size(43, 17);
+            this.lblBuscarTítulo.TabIndex = 145;
+            this.lblBuscarTítulo.Text = "Título";
             // 
-            // txtBuscarAutor
+            // txtBuscarISBN
             // 
-            this.txtBuscarAutor.Location = new System.Drawing.Point(334, 28);
-            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarAutor.Name = "txtBuscarAutor";
-            this.txtBuscarAutor.Size = new System.Drawing.Size(214, 22);
-            this.txtBuscarAutor.TabIndex = 148;
+            this.txtBuscarISBN.Location = new System.Drawing.Point(62, 75);
+            this.txtBuscarISBN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarISBN.Name = "txtBuscarISBN";
+            this.txtBuscarISBN.Size = new System.Drawing.Size(214, 22);
+            this.txtBuscarISBN.TabIndex = 144;
+            // 
+            // lblBuscarISBN
+            // 
+            this.lblBuscarISBN.AutoSize = true;
+            this.lblBuscarISBN.Location = new System.Drawing.Point(11, 75);
+            this.lblBuscarISBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarISBN.Name = "lblBuscarISBN";
+            this.lblBuscarISBN.Size = new System.Drawing.Size(39, 17);
+            this.lblBuscarISBN.TabIndex = 143;
+            this.lblBuscarISBN.Text = "ISBN";
+            // 
+            // dgvLibros
+            // 
+            this.dgvLibros.AllowUserToAddRows = false;
+            this.dgvLibros.AllowUserToDeleteRows = false;
+            this.dgvLibros.AllowUserToResizeRows = false;
+            this.dgvLibros.AutoGenerateColumns = false;
+            this.dgvLibros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.iSBNDataGridViewTextBoxColumn,
+            this.tituloDataGridViewTextBoxColumn,
+            this.autorDataGridViewTextBoxColumn,
+            this.edicionDataGridViewTextBoxColumn,
+            this.editorialDataGridViewTextBoxColumn,
+            this.cantPaginasDataGridViewTextBoxColumn,
+            this.temaDataGridViewTextBoxColumn,
+            this.stockPermanenteDataGridViewTextBoxColumn,
+            this.stockDisponibleDataGridViewTextBoxColumn});
+            this.dgvLibros.DataSource = this.libroBindingSource;
+            this.dgvLibros.Location = new System.Drawing.Point(433, 126);
+            this.dgvLibros.Name = "dgvLibros";
+            this.dgvLibros.ReadOnly = true;
+            this.dgvLibros.RowHeadersVisible = false;
+            this.dgvLibros.RowHeadersWidth = 51;
+            this.dgvLibros.RowTemplate.Height = 24;
+            this.dgvLibros.Size = new System.Drawing.Size(596, 420);
+            this.dgvLibros.TabIndex = 149;
+            // 
+            // iSBNDataGridViewTextBoxColumn
+            // 
+            this.iSBNDataGridViewTextBoxColumn.DataPropertyName = "ISBN";
+            this.iSBNDataGridViewTextBoxColumn.HeaderText = "ISBN";
+            this.iSBNDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
+            this.iSBNDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // tituloDataGridViewTextBoxColumn
+            // 
+            this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
+            this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // autorDataGridViewTextBoxColumn
+            // 
+            this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
+            this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
+            this.autorDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
+            this.autorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // edicionDataGridViewTextBoxColumn
+            // 
+            this.edicionDataGridViewTextBoxColumn.DataPropertyName = "Edicion";
+            this.edicionDataGridViewTextBoxColumn.HeaderText = "Edicion";
+            this.edicionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.edicionDataGridViewTextBoxColumn.Name = "edicionDataGridViewTextBoxColumn";
+            this.edicionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // editorialDataGridViewTextBoxColumn
+            // 
+            this.editorialDataGridViewTextBoxColumn.DataPropertyName = "Editorial";
+            this.editorialDataGridViewTextBoxColumn.HeaderText = "Editorial";
+            this.editorialDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.editorialDataGridViewTextBoxColumn.Name = "editorialDataGridViewTextBoxColumn";
+            this.editorialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cantPaginasDataGridViewTextBoxColumn
+            // 
+            this.cantPaginasDataGridViewTextBoxColumn.DataPropertyName = "CantPaginas";
+            this.cantPaginasDataGridViewTextBoxColumn.HeaderText = "CantPaginas";
+            this.cantPaginasDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.cantPaginasDataGridViewTextBoxColumn.Name = "cantPaginasDataGridViewTextBoxColumn";
+            this.cantPaginasDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // temaDataGridViewTextBoxColumn
+            // 
+            this.temaDataGridViewTextBoxColumn.DataPropertyName = "Tema";
+            this.temaDataGridViewTextBoxColumn.HeaderText = "Tema";
+            this.temaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.temaDataGridViewTextBoxColumn.Name = "temaDataGridViewTextBoxColumn";
+            this.temaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockPermanenteDataGridViewTextBoxColumn
+            // 
+            this.stockPermanenteDataGridViewTextBoxColumn.DataPropertyName = "StockPermanente";
+            this.stockPermanenteDataGridViewTextBoxColumn.HeaderText = "StockPermanente";
+            this.stockPermanenteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stockPermanenteDataGridViewTextBoxColumn.Name = "stockPermanenteDataGridViewTextBoxColumn";
+            this.stockPermanenteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockDisponibleDataGridViewTextBoxColumn
+            // 
+            this.stockDisponibleDataGridViewTextBoxColumn.DataPropertyName = "StockDisponible";
+            this.stockDisponibleDataGridViewTextBoxColumn.HeaderText = "StockDisponible";
+            this.stockDisponibleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.stockDisponibleDataGridViewTextBoxColumn.Name = "stockDisponibleDataGridViewTextBoxColumn";
+            this.stockDisponibleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // libroBindingSource
+            // 
+            this.libroBindingSource.DataSource = typeof(Entidades.Libro);
             // 
             // sa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 633);
+            this.Controls.Add(this.dgvLibros);
             this.Controls.Add(this.txtAutor);
             this.Controls.Add(this.txtTitulo);
             this.Controls.Add(this.lblAutor);
@@ -477,7 +594,6 @@
             this.Controls.Add(this.txtEditorial);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btbAlta);
-            this.Controls.Add(this.lstLibros);
             this.Controls.Add(this.lblDatosLibro);
             this.Controls.Add(this.gbBuscarLibros);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -485,6 +601,8 @@
             this.Text = "Gestionar libros";
             this.gbBuscarLibros.ResumeLayout(false);
             this.gbBuscarLibros.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,7 +616,6 @@
         private System.Windows.Forms.TextBox txtEditorial;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btbAlta;
-        private System.Windows.Forms.ListBox lstLibros;
         private System.Windows.Forms.Label lblDatosLibro;
         private System.Windows.Forms.Label lblDisponibles;
         private System.Windows.Forms.Label lblInventario;
@@ -531,5 +648,16 @@
         private System.Windows.Forms.Label lblBuscarTítulo;
         private System.Windows.Forms.TextBox txtBuscarISBN;
         private System.Windows.Forms.Label lblBuscarISBN;
+        private System.Windows.Forms.DataGridView dgvLibros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edicionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn editorialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantPaginasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockPermanenteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn stockDisponibleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource libroBindingSource;
     }
 }

@@ -10,35 +10,34 @@ namespace Entidades
     [DataContract]
     public class Prestamo
     {
-        [DataMember(Name = "id")]
         private int _numeroOperacion;
-        [DataMember]
         private int _idCliente;
-        [DataMember]
         private int _idEjemplar;
-        [DataMember]
         private int _plazoPrestamo;
-        [DataMember]
         private DateTime _fechaHoraPrestamo;
-        //[DataMember]
         //private DateTime _fechaDevolucionTentativa;
-        [DataMember]
         private DateTime _fechaDevolucionReal;
-
         private Cliente _cliente;
         private Ejemplar _ejemplar;
+        private Libro _libro;
 
-        
+        [DataMember(Name = "id")]
         public int NumeroOperacion { get => _numeroOperacion; set => _numeroOperacion = value; }
+        [DataMember]
         public int IdCliente { get => _idCliente; set => _idCliente = value; }
+        [DataMember]
         public int IdEjemplar { get => _idEjemplar; set => _idEjemplar = value; }
+        [DataMember(Name ="Plazo")]
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
+        [DataMember(Name ="FechaPrestamo")]
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
+        [DataMember]
         public DateTime FechaDevolucionTentativa { get => _fechaHoraPrestamo.AddDays(_plazoPrestamo); }
+        [DataMember]
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
-
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
         public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
+        public Libro Libro { get => _libro; set => _libro = value; }
 
         public int DiasDeAtraso 
         {

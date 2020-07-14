@@ -10,28 +10,25 @@ namespace Entidades
     [DataContract]
     public class Ejemplar
     {
-        [DataMember(Name = "id")]
         private int _codigo;
-        [DataMember(Name = "idLibro")]
         private int _codigoLibro;
-        [DataMember(Name = "observaciones")]
         private string _descripcion;
-        [DataMember]
         private double _precio;
-        [DataMember]
         private DateTime fechaAlta;
-
-
         private Libro _libro;
 
         //revisar [DataMember]
         //private bool _estaPrestado;
-        
 
+        [DataMember(Name = "id")]
         public int Codigo { get => _codigo; set => _codigo = value; }
+        [DataMember(Name = "idLibro")]
         public int CodigoLibro { get => _codigoLibro; set => _codigoLibro = value; }
+        [DataMember(Name = "Observaciones")]
         public string Descripcion { get => _descripcion; set => _descripcion = value; }
+        [DataMember]
         public double Precio { get => _precio; set => _precio = value; }
+        [DataMember]
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta = value; }
 
 
