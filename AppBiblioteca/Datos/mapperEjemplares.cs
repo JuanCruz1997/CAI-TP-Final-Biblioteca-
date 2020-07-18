@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    class MapperEjemplares
+    public class MapperEjemplares
     {
         public List<Ejemplar> TraerTodos()
         {

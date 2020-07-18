@@ -29,21 +29,41 @@ namespace Form_Biblioteca
         private void LimpiarCampos()
         {
             dgvClientes.CurrentCell = null;
+
             txtCodigoCliente.Text = string.Empty;
             txtNombre.Text = string.Empty;
             txtApellido.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtTelefono.Text = string.Empty;
             txtMail.Text = string.Empty;
+
+            txtBuscarNombre.Text = string.Empty;
+            txtBuscarApellido.Text = string.Empty;
+
+
             btnAlta.Enabled = true;
             btnEliminar.Enabled = false;
             btnModificar.Enabled = false;
         }
+
+        public void FormatearCampos(string condicion)
+        {
+            throw new NotImplementedException();
+        }
         private Boolean ValidarCampos()
         {
             bool valido = true;
-            string msg = string.Empty;
-            if (Validaciones.ValidarString(txtNombre.Text) == "")
+            //string msg = string.Empty;
+
+            txtNombre.Text = Validaciones.StringValidation(txtNombre.Text, lblNombre.Text);
+            txtApellido.Text = Validaciones.StringValidation(txtApellido.Text, lblApellido.Text);
+            txtDireccion.Text = Validaciones.StringValidation(txtDireccion.Text, lblDireccion.Text);
+            txtTelefono.Text = Validaciones.LongValidation(txtTelefono.Text, 10000000, 999999999999 ,lblTelefono.Text).ToString();
+            txtMail.Text = Validaciones.StringValidation(txtMail.Text, lblMail.Text);
+             
+            //fijate que de esta forma, no hace falta tanto código
+
+            /*if (Validaciones.ValidarString(txtNombre.Text) == "")
             {
                 msg = "El nombre ingresado no es válido.";
             }
@@ -67,7 +87,7 @@ namespace Form_Biblioteca
             {
                 valido = false;
                 MessageBox.Show(msg);
-            }
+            }*/
             return valido;
         }
         private void CompletarFormulario(Cliente seleccionado)
@@ -78,6 +98,13 @@ namespace Form_Biblioteca
             txtDireccion.Text = seleccionado.Direccion;
             txtTelefono.Text = seleccionado.Telefono;
             txtMail.Text = seleccionado.Mail;
+
+            
+        }
+
+        private void frm2Clientes_Load(object sender, EventArgs e)
+        {
+            CargarDGVClientes(this._clienteServicio.Cliente);
         }
         private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
         {
@@ -86,12 +113,14 @@ namespace Form_Biblioteca
                 if (txtBuscarNombre.Text == string.Empty && txtBuscarApellido.Text == string.Empty)
                 {
                     MessageBox.Show("Debe ingresar al menos un criterio de búsqueda.");
-                    CargarDGVClientes(this._clienteServicio.TraerTodos());
+                    CargarDGVClientes(_clienteServicio.Clientes);
                 }
                 else
                 {
-                    CargarDGVClientes(this._clienteServicio.BuscarClientes(txtBuscarNombre.Text, txtBuscarApellido.Text));
+                    CargarDGVClientes(this._clienteServicio.BuscarClientes(Validaciones.StringValidation(txtBuscarNombre.Text, lblBuscarNombre.Text), Validaciones.StringValidation(txtBuscarApellido.Text, lblBuscarApellido.Text));
                 }
+
+                //no sería mejor limpiar campos directamente?
                 txtBuscarNombre.Text = string.Empty;
                 txtBuscarApellido.Text = string.Empty;
             }
@@ -101,10 +130,7 @@ namespace Form_Biblioteca
             }
         }
 
-        private void frm2Clientes_Load(object sender, EventArgs e)
-        {
-            CargarDGVClientes(this._clienteServicio.TraerTodos());
-        }
+        
 
         private void dgvClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -119,11 +145,7 @@ namespace Form_Biblioteca
             }
         }
 
-        private void btnLimpiarCampos_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            CargarDGVClientes(this._clienteServicio.TraerTodos());
-        }
+        
 
         private void btnAlta_Click(object sender, EventArgs e)
         {
@@ -132,8 +154,8 @@ namespace Form_Biblioteca
                 if (ValidarCampos())
                 {
                     int codigo = this._clienteServicio.AltaCliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
-                    MessageBox.Show("Alta de cliente exitosa." + codigo.ToString());
-                    CargarDGVClientes(this._clienteServicio.TraerTodos());
+                    MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
+                    CargarDGVClientes(this._clienteServicio.Clientes);
                     LimpiarCampos();
                 }
             }
@@ -143,12 +165,7 @@ namespace Form_Biblioteca
             }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            //Agregar advertencia para que no se pierdan datos.
-            this.Owner.Show();
-            this.Hide();
-        }
+        
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -199,6 +216,19 @@ namespace Form_Biblioteca
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            CargarDGVClientes(this._clienteServicio.Clientes);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            //Agregar advertencia para que no se pierdan datos.
+            this.Owner.Show();
+            this.Hide();
         }
     }
 }

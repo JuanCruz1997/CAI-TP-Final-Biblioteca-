@@ -1,0 +1,3 @@
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csprojAssemblyReference.cache
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.pdb

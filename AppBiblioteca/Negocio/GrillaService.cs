@@ -14,18 +14,36 @@ namespace Negocio
         {
             this._prestamoServicio = new ServicioPrestamo();
         }
-        public List<PrestamoAdapter> GetListaPrestamos(List<Cliente> clientes)
+        public List<PrestamoAdapter> GetListaPrestamosCompleta(int idCodigoCliente, int idCodigoEjemplar)
         {
-            List<PrestamoAdapter> lista = new List<PrestamoAdapter>();
-            foreach(Cliente c in clientes)
+            List<Prestamo> listaPrestamo = new List<Prestamo>();
+            List<PrestamoAdapter> listaPrestamoAdapter = new List<PrestamoAdapter>();
+
+            listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
+            foreach (Prestamo p in listaPrestamo)
             {
-                List<Prestamo> prestamosXCliente = _prestamoServicio.TraerPorCliente(c.Codigo);
-                foreach(Prestamo p in prestamosXCliente)
-                {
-                    lista.Add(new PrestamoAdapter(c, p));
-                }
+                listaPrestamoAdapter.Add(new PrestamoAdapter(p));
             }
-            return lista;
+
+            return listaPrestamoAdapter;
         }
+        public List<PrestamoAdapter> GetListaPrestamosAbiertos(int idCodigoCliente, int idCodigoEjemplar)
+        {
+            List<Prestamo> listaPrestamo = new List<Prestamo>();
+
+            List<PrestamoAdapter> listaPrestamoAdapter = new List<PrestamoAdapter>();
+
+            listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
+            foreach (Prestamo p in listaPrestamo)
+            {
+                if(p.FechaDevolucionReal == null)
+                {
+                    listaPrestamoAdapter.Add(new PrestamoAdapter(p));
+                }
+                
+            }
+            return listaPrestamoAdapter;
+        }
+
     }
 }

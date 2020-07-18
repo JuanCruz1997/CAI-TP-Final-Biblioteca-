@@ -16,6 +16,7 @@ namespace Entidades
         private double _precio;
         private DateTime fechaAlta;
         private Libro _libro;
+        private bool disponible;
 
         //revisar [DataMember]
         //private bool _estaPrestado;
@@ -30,11 +31,10 @@ namespace Entidades
         public double Precio { get => _precio; set => _precio = value; }
         [DataMember]
         public DateTime FechaAlta { get => fechaAlta; set => fechaAlta = value; }
+        public Libro Libro { get => _libro; set => _libro = value; }
+        public bool Disponible { get => disponible; set => disponible = value; }
 
 
-        //revisar
-        /*public Libro Libro { get => _libro; set => _libro = value; }
-        public bool EstaPrestado { get => _estaPrestado; set => _estaPrestado = value; }*/
-          }
+    }
 
 }

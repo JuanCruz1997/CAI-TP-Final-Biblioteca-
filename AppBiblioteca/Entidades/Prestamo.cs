@@ -19,7 +19,7 @@ namespace Entidades
         private DateTime _fechaDevolucionReal;
         private Cliente _cliente;
         private Ejemplar _ejemplar;
-        private Libro _libro;
+        //private Libro _libro;
 
         [DataMember(Name = "id")]
         public int NumeroOperacion { get => _numeroOperacion; set => _numeroOperacion = value; }
@@ -37,7 +37,8 @@ namespace Entidades
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
         public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
-        public Libro Libro { get => _libro; set => _libro = value; }
+
+
 
         public int DiasDeAtraso 
         {
@@ -45,7 +46,7 @@ namespace Entidades
             {
                 if(FechaDevolucionTentativa>= DateTime.Today)
                 {
-                    return (int)(FechaDevolucionTentativa - DateTime.Today).TotalDays;
+                    return (int)(FechaDevolucionTentativa - DateTime.Today).Days;
                 } else
                 {
                     return 0;
@@ -53,5 +54,11 @@ namespace Entidades
             }
         }
         public double Deuda { get => Ejemplar.Precio * DiasDeAtraso; }
+
+        public Prestamo(int idCliente, int idEjemplar, int plazo)
+        {
+
+        }
     }
+
 }

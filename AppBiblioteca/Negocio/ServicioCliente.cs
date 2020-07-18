@@ -11,25 +11,37 @@ namespace Negocio
 {
     public class ServicioCliente
     {
-        private MapperCliente mapper;
+        private MapperCliente _mapper;
+        private List<Cliente> _clientes;
+
+        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
+
         public ServicioCliente()
         {
-            this.mapper = new MapperCliente();
+            this._mapper = new MapperCliente();
+            this.Clientes = new List<Cliente>();
+            this.Clientes = _mapper.Traer();
         }
         public List<Cliente> TraerTodos()
         {
-            List<Cliente> resultado = mapper.Traer();
+            List<Cliente> resultado = new List<Cliente>();
+            resultado = Clientes;
             return resultado;
         }
+
+
         public List<Cliente> BuscarClientes(string nombre, string apellido)
         {
             List<Cliente> resultado = new List<Cliente>();
-            if (Validaciones.ValidarString(nombre) == "" && Validaciones.ValidarString(apellido) == "")
+            if(nombre == string.Empty && apellido == string.Empty)
             {
-                throw new Exception("La búsqueda requiere que se ingrese una cadena de texto válida.");
+                return resultado = this.TraerTodos();
             }
             else
             {
+
+            
+            
                 foreach(Cliente c in this.TraerTodos())
                 {
                     if (c.Nombre != null || c.Apellido != null)
@@ -53,12 +65,8 @@ namespace Negocio
         }
         public int AltaCliente(string nombre,string apellido,string direccion,string telefono,string mail)
         {
-            Cliente alta = new Cliente();
-            alta.Nombre = nombre;
-            alta.Apellido = apellido;
-            alta.Direccion = direccion;
-            alta.Telefono = telefono;
-            alta.Mail = mail;
+            Cliente alta = new Cliente(nombre, apellido, direccion, telefono, mail);
+            
             TransactionResult resultado = mapper.Insert(alta);
             if (resultado.IsOk)
             {
@@ -83,12 +91,25 @@ namespace Negocio
             }
             else
             {
-                throw new Exception("Cliente inexistente.");
+                throw new Exception("Cliente inexistente");
             }
         }
+        public void EliminarCliente(int codigo)
+        {
+            Cliente c = this.TraerPorCodigo(codigo);
+            if (c != null)
+            {
+                //Lógica de eliminar el cliente en servidor
+            }
+            else
+            {
+                throw new Exception("El cliente no existe");
+            }
+        }
+
         public Cliente TraerPorCodigo(int codigo)
         {
-            foreach(Cliente c in this.TraerTodos())
+            foreach (Cliente c in this.TraerTodos())
             {
                 if (codigo == c.Codigo)
                 {
@@ -96,18 +117,6 @@ namespace Negocio
                 }
             }
             return null;
-        }
-        public void EliminarCliente(int codigo)
-        {
-            Cliente c = this.TraerPorCodigo(codigo);
-            if (c != null)
-            {
-                //Lógica de eliminar el empleado en servidor
-            }
-            else
-            {
-                throw new Exception("El cliente no existe.");
-            }
         }
     }
 }

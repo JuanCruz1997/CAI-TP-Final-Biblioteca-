@@ -17,6 +17,22 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
+        public bool ValidarCampos()
+        {
+
+        }
+
+        public void LimpiarCampos()
+        {
+
+        }
+
+        public void FormatearCampos(string condicion)
+        {
+
+        }
+       
+
         private void lstPrestamos_SelectedIndexChanged(object sender, EventArgs e)
         {
 

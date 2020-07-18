@@ -17,6 +17,7 @@ namespace Entidades
         private string _telefono;
         private string _mail;
         private bool _activo;
+
         [DataMember(Name ="id")]
         public int Codigo { get => _codigo; set => _codigo = value; }
         [DataMember]
@@ -31,5 +32,16 @@ namespace Entidades
         public string Mail { get => _mail; set => _mail = value; }
         [DataMember]
         public bool Activo { get => _activo; set => _activo = value; }
+        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
+
+        public Cliente(string nombre, string apellido, string direccion, string telefono, string mail)
+        {
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this._direccion = direccion;
+            this._telefono = telefono;
+            this._mail = mail;
+            
+        }
     }
 }

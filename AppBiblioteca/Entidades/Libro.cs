@@ -19,12 +19,9 @@ namespace Entidades
         private int _cantPaginas;
         //private int _año;
         private string _tema;
-
-        //Calculable, necesitan set y variable? 
         private int _stockPermanente;
         private int _stockDisponible;
-
-        //private List<Libros> ver xq silvio lo puso en agregacion
+        //private List<Libro> list; 
 
         // public long Isbn { get => _isbn; set => _isbn = value; }
         [DataMember(Name = "id")]
@@ -44,5 +41,16 @@ namespace Entidades
         public string Tema { get => _tema; set => _tema = value; }
         public int StockPermanente { get => _stockPermanente; set => _stockPermanente = value; }
         public int StockDisponible { get => _stockDisponible; set => _stockDisponible = value; }
+
+        public Libro(string titulo, string autor, int edicion, string editorial, int pags, string tema)
+        {
+            this.Titulo = titulo ;
+            this.Autor = autor;
+            this.Edicion = edicion;
+            this.Editorial = editorial;
+            this.CantPaginas = pags;
+            this.Tema = tema;
+
         }
+    }
 }

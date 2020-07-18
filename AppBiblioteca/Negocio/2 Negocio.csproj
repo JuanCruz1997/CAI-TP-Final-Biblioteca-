@@ -50,9 +50,9 @@
     <Compile Include="Validaciones.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos\Datos.csproj">
+    <ProjectReference Include="..\Datos\1 Datos.csproj">
       <Project>{bf921e70-5d17-4e49-bb14-002ae85d9ca2}</Project>
-      <Name>Datos</Name>
+      <Name>1 Datos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{4b0aa250-b9db-4fc0-afde-3017431aabbe}</Project>

@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form Biblioteca", "Form Biblioteca\Form Biblioteca.csproj", "{A0886F80-C3F2-42C4-B73D-E3BE2F3AE758}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3 Form Biblioteca", "Form Biblioteca\3 Form Biblioteca.csproj", "{A0886F80-C3F2-42C4-B73D-E3BE2F3AE758}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{4B0AA250-B9DB-4FC0-AFDE-3017431AABBE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{BF921E70-5D17-4E49-BB14-002AE85D9CA2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1 Datos", "Datos\1 Datos.csproj", "{BF921E70-5D17-4E49-BB14-002AE85D9CA2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocio", "Negocio\Negocio.csproj", "{ECF884DE-6A4C-4E15-9287-A729F34291C5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2 Negocio", "Negocio\2 Negocio.csproj", "{ECF884DE-6A4C-4E15-9287-A729F34291C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

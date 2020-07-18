@@ -10,11 +10,40 @@ using System.Windows.Forms;
 
 namespace Form_Biblioteca
 {
-    public partial class sa : Form
+    public partial class frm2Libros : Form
     {
-        public sa()
+        public frm2Libros()
         {
             InitializeComponent();
+        }
+
+        public bool ValidarCampos()
+        {
+
+        }
+
+        public void LimpiarCampos()
+        {
+
+        }
+
+        public void FormatearCampos(string condicion)
+        {
+
+        }
+
+        public void CompletarCampos()
+        {
+
+        }
+        public void CargarDGVLibros()
+        {
+
+        }
+
+        public void CargarListaEjemplares()
+        {
+
         }
     }
 }
