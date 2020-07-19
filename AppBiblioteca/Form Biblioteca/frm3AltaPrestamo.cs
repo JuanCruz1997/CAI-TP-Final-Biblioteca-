@@ -10,17 +10,17 @@ using System.Windows.Forms;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2ABMPrestamo : Form
+    public partial class frm3AltaPrestamo : Form
     {
-        public frm2ABMPrestamo()
+        public frm3AltaPrestamo()
         {
             InitializeComponent();
         }
 
-        public bool ValidarCampos()
+        /*public bool ValidarCampos()
         {
 
-        }
+        }*/
 
         public void LimpiarCampos()
         {
@@ -34,6 +34,11 @@ namespace Form_Biblioteca
        
 
         private void lstPrestamos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frm2ABMPrestamo_Load(object sender, EventArgs e)
         {
 
         }

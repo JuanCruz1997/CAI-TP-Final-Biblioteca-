@@ -77,5 +77,18 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
+        public List<Libro> TraerPorCodigo(int codLibro)
+        {
+            List<Libro> resultado = new List<Libro>();
+            foreach(Libro l in this.TraerTodos())
+            {
+                if (codLibro == l.ISBN)
+                {
+                    resultado.Add(l);
+                    break;
+                }
+            }
+            return resultado;
+        }
     }
 }

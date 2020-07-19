@@ -11,16 +11,9 @@ namespace Datos
 {
     public class MapperEjemplares
     {
-        public List<Ejemplar> TraerTodos()
-        {
-            string json = WebHelper.Get("api/v1/Biblioteca/Ejemplares");
-            List<Ejemplar> lst = MapList(json);
-            return lst;
-        }
-
         public List<Ejemplar> TraerPorLibro(int idLibro)
         {
-            string json = WebHelper.Get("api/v1/Biblioteca/Ejemplares/" + idLibro);
+            string json = WebHelper.Get("/api/v1/Biblioteca/Ejemplares/" + idLibro);
             List<Ejemplar> lst = MapList(json);
             return lst;
         }

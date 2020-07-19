@@ -17,10 +17,10 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
-        public bool ValidarCampos()
+        /*public bool ValidarCampos()
         {
 
-        }
+        }*/
 
         public void LimpiarCampos()
         {
@@ -84,6 +84,11 @@ namespace Form_Biblioteca
         private void chkAbiertos_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void frm2GestionarPrestamo_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

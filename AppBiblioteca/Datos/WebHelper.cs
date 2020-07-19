@@ -18,7 +18,6 @@ namespace Datos
         {
             client = new WebClient();
             client.Encoding = Encoding.UTF8;
-            //rutaBase = "https://cai-api.azurewebsites.net/api/v1";
             rutaBase = ConfigurationManager.AppSettings["URL_API"];
             client.Headers.Add("ContentType", "application/json");
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
@@ -27,22 +26,17 @@ namespace Datos
         public static string Get(string url)
         {
             string uri = rutaBase + url;
-
             string responseString = client.DownloadString(uri);
-
             return responseString;
         }
 
         public static string Post(string url, NameValueCollection parametros)
         {
             string uri = rutaBase + url;
-
             try
             {
                 var response = client.UploadValues(uri, parametros);
-
                 var responseString = Encoding.Default.GetString(response);
-
                 return responseString;
             }
             catch (Exception ex)

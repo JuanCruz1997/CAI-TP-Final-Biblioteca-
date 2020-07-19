@@ -67,7 +67,7 @@ namespace Negocio
         {
             Cliente alta = new Cliente(nombre, apellido, direccion, telefono, mail);
             
-            TransactionResult resultado = mapper.Insert(alta);
+            TransactionResult resultado = _mapper.Insert(alta);
             if (resultado.IsOk)
             {
                 return resultado.Id;

@@ -58,7 +58,7 @@ namespace Negocio
                 }
             }
         }
-
+        //Traer sólo por código de libro
         public List<Ejemplar> TraerTodos()
         {
             List<Ejemplar> ejemplares = new List<Ejemplar>();
@@ -86,6 +86,31 @@ namespace Negocio
                     }
                 }
             }
+        }
+        public int AltaEjemplar(int codLibro, double precio)
+        {
+            Ejemplar alta = new Ejemplar(codLibro, precio);
+
+            TransactionResult resultado = _ejemplarMapper.Insert(alta);
+
+            if (resultado.IsOk)
+            {
+                return resultado.Id;
+            }
+            else
+            {
+                throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
+            }
+        }
+        public String AltaMultiplesEjemplares(int cantidadAAgregar, int id, double precio)
+        {
+            int iteraciones = cantidadAAgregar;
+            String codigos = string.Empty;
+            for (int i = 0; i < iteraciones; i++)
+            {
+                codigos += (this.AltaEjemplar(id, precio)).ToString() + "\n";
+            }
+            return codigos;
         }
     }
 }

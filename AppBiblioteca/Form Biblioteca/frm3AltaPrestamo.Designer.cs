@@ -1,6 +1,6 @@
 ﻿namespace Form_Biblioteca
 {
-    partial class frm2ABMPrestamo
+    partial class frm3AltaPrestamo
     {
         /// <summary>
         /// Required designer variable.
@@ -321,7 +321,8 @@
             this.Controls.Add(this.gbDatosCliente);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm2ABMPrestamo";
-            this.Text = "Gestionar préstamos";
+            this.Text = "Alta de nuevo préstamo";
+            this.Load += new System.EventHandler(this.frm2ABMPrestamo_Load);
             this.gbDatosPrestamo.ResumeLayout(false);
             this.gbDatosPrestamo.PerformLayout();
             this.gbDatosEjemplar.ResumeLayout(false);

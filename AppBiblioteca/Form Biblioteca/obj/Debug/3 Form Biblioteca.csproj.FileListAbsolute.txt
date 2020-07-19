@@ -8,3 +8,26 @@ C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz199
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\3 Form Biblioteca.csproj.GenerateResource.cache
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.exe
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\3 Form Biblioteca.csprojAssemblyReference.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm1MenuPrincipal.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2GestionarPrestamo.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2Clientes.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm2Libros.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.Properties.Resources.resources
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\3 Form Biblioteca.csproj.GenerateResource.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\3 Form Biblioteca.csproj.CoreCompileInputs.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.exe
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form Biblioteca.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.exe.config
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.exe
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Form Biblioteca.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Entidades.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Negocio.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Datos.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Entidades.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Negocio.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Datos.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\3 Form Biblioteca.csproj.CopyComplete
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Form Biblioteca\obj\Debug\Form_Biblioteca.frm3AltaPrestamo.resources

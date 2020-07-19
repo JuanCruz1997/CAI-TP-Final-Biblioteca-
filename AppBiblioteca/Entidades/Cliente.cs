@@ -32,7 +32,7 @@ namespace Entidades
         public string Mail { get => _mail; set => _mail = value; }
         [DataMember]
         public bool Activo { get => _activo; set => _activo = value; }
-        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
+        //public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
 
         public Cliente(string nombre, string apellido, string direccion, string telefono, string mail)
         {

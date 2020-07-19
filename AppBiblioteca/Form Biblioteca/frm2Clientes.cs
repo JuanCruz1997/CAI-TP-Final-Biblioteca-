@@ -54,7 +54,7 @@ namespace Form_Biblioteca
         {
             bool valido = true;
             //string msg = string.Empty;
-
+            //Hay que revisarlo
             txtNombre.Text = Validaciones.StringValidation(txtNombre.Text, lblNombre.Text);
             txtApellido.Text = Validaciones.StringValidation(txtApellido.Text, lblApellido.Text);
             txtDireccion.Text = Validaciones.StringValidation(txtDireccion.Text, lblDireccion.Text);
@@ -98,13 +98,11 @@ namespace Form_Biblioteca
             txtDireccion.Text = seleccionado.Direccion;
             txtTelefono.Text = seleccionado.Telefono;
             txtMail.Text = seleccionado.Mail;
-
-            
         }
 
         private void frm2Clientes_Load(object sender, EventArgs e)
         {
-            CargarDGVClientes(this._clienteServicio.Cliente);
+            CargarDGVClientes(this._clienteServicio.TraerTodos());
         }
         private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
         {
@@ -117,12 +115,9 @@ namespace Form_Biblioteca
                 }
                 else
                 {
-                    CargarDGVClientes(this._clienteServicio.BuscarClientes(Validaciones.StringValidation(txtBuscarNombre.Text, lblBuscarNombre.Text), Validaciones.StringValidation(txtBuscarApellido.Text, lblBuscarApellido.Text));
+                    CargarDGVClientes(this._clienteServicio.BuscarClientes(Validaciones.StringValidation(txtBuscarNombre.Text, lblBuscarNombre.Text), Validaciones.StringValidation(txtBuscarApellido.Text, lblBuscarApellido.Text)));
                 }
-
-                //no sería mejor limpiar campos directamente?
-                txtBuscarNombre.Text = string.Empty;
-                txtBuscarApellido.Text = string.Empty;
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
@@ -229,6 +224,11 @@ namespace Form_Biblioteca
             //Agregar advertencia para que no se pierdan datos.
             this.Owner.Show();
             this.Hide();
+        }
+
+        private void frm2Clientes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

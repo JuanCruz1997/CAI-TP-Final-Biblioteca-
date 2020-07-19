@@ -30,7 +30,11 @@ namespace Form_Biblioteca
 
         private void btnLibro_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
+            f.Owner = this;
+            f.Size = new Size(800, f.Size.Height);
+            f.Show();
+            this.Hide();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

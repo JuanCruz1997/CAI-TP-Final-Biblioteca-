@@ -1,3 +1,16 @@
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csprojAssemblyReference.cache
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.dll
 C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csprojAssemblyReference.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csproj.CoreCompileInputs.cache
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Negocio.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Datos.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Entidades.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Datos.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csproj.CopyComplete

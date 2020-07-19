@@ -13,14 +13,14 @@ namespace Datos
     {
         public List<Prestamo> TraerTodos()
         {
-            string json = WebHelper.Get("api/v1/Biblioteca/Prestamos");
+            string json = WebHelper.Get("/api/v1/Biblioteca/Prestamos");
             List<Prestamo> lst = MapList(json);
             return lst;
         }
         public TransactionResult Insert (Prestamo prestamo)
         {
             NameValueCollection obj = ReverseMap(prestamo);
-            string json = WebHelper.Post("api/v1/Biblioteca/Prestamos", obj);
+            string json = WebHelper.Post("/api/v1/Biblioteca/Prestamos", obj);
             TransactionResult resultado = MapResult(json);
             return resultado;
         }

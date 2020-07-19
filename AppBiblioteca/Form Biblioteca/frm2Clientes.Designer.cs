@@ -447,6 +447,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm2Clientes";
             this.Text = "Gestionar clientes";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm2Clientes_FormClosed);
             this.Load += new System.EventHandler(this.frm2Clientes_Load);
             this.gbBuscarClientes.ResumeLayout(false);
             this.gbBuscarClientes.PerformLayout();
