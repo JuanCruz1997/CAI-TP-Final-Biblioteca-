@@ -13,42 +13,40 @@ namespace Negocio
         private MapperPrestamos _prestamoMapper;
         private ServicioEjemplar _ejemplarServicio;
         private ServicioCliente _clienteServicio;
-        //prueba
-        private List<Prestamo> _prestamos;
+       
 
-        public List<Prestamo> Prestamos { get => _prestamos; set => _prestamos = value; }
+        
 
         public ServicioPrestamo()
         {
             this._prestamoMapper = new MapperPrestamos();
             this._ejemplarServicio = new ServicioEjemplar();
             this._clienteServicio = new ServicioCliente();
-            this.Prestamos = new List<Prestamo>();
-            this.Prestamos = _prestamoMapper.TraerTodos();
         }
        
         public List<Prestamo> TraerTodos()
         {
             List<Prestamo> lista = new List<Prestamo>();
-            lista = _prestamos;
-
-            CargarEjemplares(lista, _ejemplarServicio.Ejemplares);
-            CargarClientes(lista, _clienteServicio.Clientes);
+            lista = _prestamoMapper.TraerTodos();
+            
+            CargarClientes(lista, _clienteServicio.TraerTodos());
+            CargarEjemplares(lista, _ejemplarServicio.ListaCompletaEjemplares());
 
             return lista;
         }
 
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
-            List<Prestamo> resultado = new List<Prestamo>();            
+            List<Prestamo> resultado = new List<Prestamo>();
+            resultado = _prestamoMapper.TraerTodos();
 
             if (idCodigoCliente == 0 && idCodigoEjemplar == 0)
             {
-                return resultado = _prestamos;
+                return resultado;
             }
             else
             {
-                foreach (Prestamo p in _prestamos)
+                foreach (Prestamo p in resultado)
                 {
                     if (p.IdCliente != 0 || p.IdEjemplar != 0)
                     {

@@ -12,20 +12,17 @@ namespace Negocio
     public class ServicioCliente
     {
         private MapperCliente _mapper;
-        private List<Cliente> _clientes;
-
-        public List<Cliente> Clientes { get => _clientes; set => _clientes = value; }
+        
 
         public ServicioCliente()
         {
             this._mapper = new MapperCliente();
-            this.Clientes = new List<Cliente>();
-            this.Clientes = _mapper.Traer();
+            
         }
         public List<Cliente> TraerTodos()
         {
             List<Cliente> resultado = new List<Cliente>();
-            resultado = Clientes;
+            resultado = _mapper.Traer();
             return resultado;
         }
 

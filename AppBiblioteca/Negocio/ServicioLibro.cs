@@ -11,21 +11,18 @@ namespace Negocio
     public class ServicioLibro
     {
         private MapperLibros _mapperLibros;
-        private List<Libro> _libros;
-
-        public List<Libro> Libros { get => _libros; set => _libros = value; }
+        
 
         public ServicioLibro()
         {
             this._mapperLibros = new MapperLibros();
-            this._libros = new List<Libro>();
-            this._libros = _mapperLibros.TraerTodos();
+           
         }
 
         public List<Libro> TraerTodos()
         {
             List<Libro> libros = new List<Libro>();
-            libros = this._libros;
+            libros = _mapperLibros.TraerTodos();
             return libros;
         }
 

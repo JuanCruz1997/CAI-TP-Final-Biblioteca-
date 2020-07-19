@@ -25,7 +25,10 @@ namespace Form_Biblioteca
 
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            frm2GestionarPrestamo f = new frm2GestionarPrestamo(new ServicioPrestamo());
+            f.Owner = this;
+            f.Show();
+            this.Hide();
         }
 
         private void btnLibro_Click(object sender, EventArgs e)

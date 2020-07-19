@@ -246,9 +246,9 @@
             this.gbBuscarClientes.Controls.Add(this.lblBuscarApellido);
             this.gbBuscarClientes.Controls.Add(this.txtBuscarApellido);
             this.gbBuscarClientes.Location = new System.Drawing.Point(308, 10);
-            this.gbBuscarClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarClientes.Margin = new System.Windows.Forms.Padding(2);
             this.gbBuscarClientes.Name = "gbBuscarClientes";
-            this.gbBuscarClientes.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarClientes.Padding = new System.Windows.Forms.Padding(2);
             this.gbBuscarClientes.Size = new System.Drawing.Size(694, 54);
             this.gbBuscarClientes.TabIndex = 110;
             this.gbBuscarClientes.TabStop = false;
@@ -313,7 +313,7 @@
             this.direccionDataGridViewTextBoxColumn});
             this.dgvClientes.DataSource = this.clienteBindingSource;
             this.dgvClientes.Location = new System.Drawing.Point(308, 69);
-            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvClientes.Margin = new System.Windows.Forms.Padding(2);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
             this.dgvClientes.RowHeadersVisible = false;
@@ -323,6 +323,7 @@
             this.dgvClientes.Size = new System.Drawing.Size(694, 306);
             this.dgvClientes.TabIndex = 115;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+            this.dgvClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellDoubleClick);
             // 
             // codigoDataGridViewTextBoxColumn
             // 

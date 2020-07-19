@@ -41,7 +41,7 @@ namespace Form_Biblioteca
             txtBuscarNombre.Text = string.Empty;
             txtBuscarApellido.Text = string.Empty;
 
-            FormatearCampos("menu");
+            
 
             /*btnAlta.Enabled = true;
             btnEliminar.Enabled = false;
@@ -53,25 +53,40 @@ namespace Form_Biblioteca
         {
             if(condicion == "prestamo")
             {
-                btnTraerCliente.Visible = true;
-                btnTraerCliente.Enabled = true;
+                this.Text = "Seleccionar cliente";
 
-                btnAlta.Visible = false;
-                btnEliminar.Visible = false;
-                btnModificar.Visible = false;
+                btnTraerCliente.Visible = true;
+                btnTraerCliente.Enabled = false;
+
+                btnAlta.Visible = false;                
 
                 btnAlta.Enabled = false;
                 btnEliminar.Enabled = false;
                 btnModificar.Enabled = false;
 
-                this.Text = "Seleccionar cliente";
+                txtNombre.Enabled = false;
+                txtApellido.Enabled = false;
+                txtDireccion.Enabled = false;
+                txtTelefono.Enabled = false;
+                txtMail.Enabled = false;
+
+                txtNombre.ReadOnly = true;
+                txtApellido.ReadOnly = true;
+                txtDireccion.ReadOnly = true;
+                txtTelefono.ReadOnly = true;
+                txtMail.ReadOnly = true;
+                
 
             }else if (condicion == "menu")
             {
-                btnAlta.Visible = true;
-                btnEliminar.Visible = true;
-                btnModificar.Visible = true;
+                this.Text = "Gestionar clientes";
 
+                btnTraerCliente.Visible = false;
+                btnTraerCliente.Enabled = false;
+
+                btnAlta.Visible = true;
+                
+                
                 btnAlta.Enabled = true;
                 btnEliminar.Enabled = false;
                 btnModificar.Enabled = false;
@@ -79,30 +94,40 @@ namespace Form_Biblioteca
                 btnTraerCliente.Visible = false;
                 btnTraerCliente.Enabled = false;
 
-            } else if(condicion == "modificar")
-            {
-                btnAlta.Visible = true;
-                btnEliminar.Visible = true;
-                btnModificar.Visible = true;
+                txtNombre.Enabled = true;
+                txtApellido.Enabled = true;
+                txtDireccion.Enabled = true;
+                txtTelefono.Enabled = true;
+                txtMail.Enabled = true;
 
+                txtNombre.ReadOnly = false;
+                txtApellido.ReadOnly = false;
+                txtDireccion.ReadOnly = false;
+                txtTelefono.ReadOnly = false;
+                txtMail.ReadOnly = false;
+
+            } else if(condicion == "seleccionado" && this.Owner is frm1MenuPrincipal)
+            {
                 btnAlta.Enabled = false;
                 btnEliminar.Enabled = true;
                 btnModificar.Enabled = true;
+
+            }
+            else if (condicion == "seleccionado" && this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
+            {
+                btnTraerCliente.Enabled = true;
+
             }
         }
-        private Boolean ValidarCampos()
-        {
-            bool valido = true;
-            //string msg = string.Empty;
-            //Hay que revisarlo
+        private void ValidarCampos()
+        {            
             txtNombre.Text = Validaciones.StringValidation(txtNombre.Text, lblNombre.Text);
             txtApellido.Text = Validaciones.StringValidation(txtApellido.Text, lblApellido.Text);
             txtDireccion.Text = Validaciones.StringValidation(txtDireccion.Text, lblDireccion.Text);
             txtTelefono.Text = Validaciones.LongValidation(txtTelefono.Text, 10000000, 999999999999 ,lblTelefono.Text).ToString();
             txtMail.Text = Validaciones.StringValidation(txtMail.Text, lblMail.Text);
-             
+                        
             
-            return valido;
         }
         private void CompletarFormulario(Cliente seleccionado)
         {
@@ -132,7 +157,7 @@ namespace Form_Biblioteca
                 if (txtBuscarNombre.Text == string.Empty && txtBuscarApellido.Text == string.Empty)
                 {
                     MessageBox.Show("Debe ingresar al menos un criterio de búsqueda.");
-                    CargarDGVClientes(_clienteServicio.Clientes);
+                    CargarDGVClientes(_clienteServicio.TraerTodos());
                 }
                 else
                 {
@@ -156,7 +181,7 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 CompletarFormulario(seleccionado);
-                FormatearCampos("modificar");
+                FormatearCampos("seleccionado");
             }
         }
 
@@ -166,14 +191,13 @@ namespace Form_Biblioteca
         {
             try
             {
-                if (ValidarCampos())
-                {
+                
+                    ValidarCampos();
                     int codigo = this._clienteServicio.AltaCliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
                     MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
-                    CargarDGVClientes(this._clienteServicio.Clientes);
+                    CargarDGVClientes(this._clienteServicio.TraerTodos());
                     LimpiarCampos();
-                   
-                }
+               
             }
             catch(Exception ex)
             {
@@ -193,14 +217,13 @@ namespace Form_Biblioteca
             {
                 try
                 {
-                    if (ValidarCampos())
-                    {
-                        this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
-                        MessageBox.Show("El cliente se ha modificado exitosamente.");
-                        CargarDGVClientes(this._clienteServicio.TraerTodos());
-                        LimpiarCampos();
+                    
+                    ValidarCampos();
+                    this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                    MessageBox.Show("El cliente se ha modificado exitosamente.");
+                    CargarDGVClientes(this._clienteServicio.TraerTodos());
+                    LimpiarCampos();
                         
-                    }
                 }
                 catch(Exception ex)
                 {
@@ -238,7 +261,7 @@ namespace Form_Biblioteca
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            CargarDGVClientes(this._clienteServicio.Clientes);
+            CargarDGVClientes(this._clienteServicio.TraerTodos()); ;
             LimpiarCampos();
         }
 
@@ -256,17 +279,45 @@ namespace Form_Biblioteca
 
         private void btnTraerCliente_Click(object sender, EventArgs e)
         {
-            if(txtCodigoCliente.Text == string.Empty)
+            if (txtCodigoCliente.Text == string.Empty)
             {
                 MessageBox.Show("Elija un cliente");
+            } 
+            else if (this.Owner is frm2GestionarPrestamo)
+            {
+                ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
+                this.Owner.Show();
+                this.Dispose();
+            } else if (this.Owner is frm3AltaPrestamo)
+            {
+                ((frm3AltaPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
+                this.Owner.Show();
+                this.Dispose();
+            }          
+            
+            
+        }
+
+        private void dgvClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvClientes.CurrentRow;
+            Cliente seleccionado = row.DataBoundItem as Cliente;
+            if (seleccionado != null)
+            {
+                CompletarFormulario(seleccionado);                
             }
-            else
+            if (this.Owner is frm2GestionarPrestamo)
             {
                 ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
                 this.Owner.Show();
                 this.Dispose();
             }
-            
+            else if (this.Owner is frm3AltaPrestamo)
+            {
+                ((frm3AltaPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
+                this.Owner.Show();
+                this.Dispose();
+            }
         }
     }
 }

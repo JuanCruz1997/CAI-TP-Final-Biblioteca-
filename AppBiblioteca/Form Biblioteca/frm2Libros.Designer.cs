@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCantidadPaginas = new System.Windows.Forms.Label();
             this.lblEditorial = new System.Windows.Forms.Label();
             this.txtPaginas = new System.Windows.Forms.TextBox();
@@ -63,6 +63,14 @@
             this.lblBuscarAutor = new System.Windows.Forms.Label();
             this.lblBuscarTitulo = new System.Windows.Forms.Label();
             this.dgvLibros = new System.Windows.Forms.DataGridView();
+            this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.edicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cantPaginasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.temaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbDatosLibro = new System.Windows.Forms.GroupBox();
             this.gbStock = new System.Windows.Forms.GroupBox();
             this.btnAgregarCantidad = new System.Windows.Forms.Button();
@@ -72,20 +80,13 @@
             this.lblPrecio = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.gbEjemplares = new System.Windows.Forms.GroupBox();
-            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edicionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantPaginasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.temaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnTraerEjemplar = new System.Windows.Forms.Button();
             this.gbBuscarLibros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.gbDatosLibro.SuspendLayout();
             this.gbStock.SuspendLayout();
             this.gbEjemplares.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCantidadPaginas
@@ -253,6 +254,7 @@
             this.lstEjemplares.Name = "lstEjemplares";
             this.lstEjemplares.Size = new System.Drawing.Size(308, 329);
             this.lstEjemplares.TabIndex = 146;
+            this.lstEjemplares.DoubleClick += new System.EventHandler(this.lstEjemplares_DoubleClick);
             // 
             // btnComprimir
             // 
@@ -332,9 +334,9 @@
             this.gbBuscarLibros.Controls.Add(this.lblBuscarTitulo);
             this.gbBuscarLibros.Controls.Add(this.btnBuscarLibro);
             this.gbBuscarLibros.Location = new System.Drawing.Point(238, 10);
-            this.gbBuscarLibros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarLibros.Margin = new System.Windows.Forms.Padding(2);
             this.gbBuscarLibros.Name = "gbBuscarLibros";
-            this.gbBuscarLibros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarLibros.Padding = new System.Windows.Forms.Padding(2);
             this.gbBuscarLibros.Size = new System.Drawing.Size(533, 55);
             this.gbBuscarLibros.TabIndex = 145;
             this.gbBuscarLibros.TabStop = false;
@@ -379,14 +381,14 @@
             this.dgvLibros.AllowUserToResizeRows = false;
             this.dgvLibros.AutoGenerateColumns = false;
             this.dgvLibros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iSBNDataGridViewTextBoxColumn,
@@ -398,7 +400,7 @@
             this.temaDataGridViewTextBoxColumn});
             this.dgvLibros.DataSource = this.libroBindingSource;
             this.dgvLibros.Location = new System.Drawing.Point(238, 70);
-            this.dgvLibros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvLibros.Margin = new System.Windows.Forms.Padding(2);
             this.dgvLibros.Name = "dgvLibros";
             this.dgvLibros.ReadOnly = true;
             this.dgvLibros.RowHeadersVisible = false;
@@ -409,123 +411,6 @@
             this.dgvLibros.TabIndex = 149;
             this.dgvLibros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellClick);
             this.dgvLibros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellDoubleClick);
-            // 
-            // gbDatosLibro
-            // 
-            this.gbDatosLibro.Controls.Add(this.lblISBN);
-            this.gbDatosLibro.Controls.Add(this.txtISBN);
-            this.gbDatosLibro.Controls.Add(this.txtAutor);
-            this.gbDatosLibro.Controls.Add(this.lblTitulo);
-            this.gbDatosLibro.Controls.Add(this.lblAutor);
-            this.gbDatosLibro.Controls.Add(this.txtTitulo);
-            this.gbDatosLibro.Controls.Add(this.txtEdicion);
-            this.gbDatosLibro.Controls.Add(this.lblEdicion);
-            this.gbDatosLibro.Controls.Add(this.cmbTema);
-            this.gbDatosLibro.Controls.Add(this.lblCantidadPaginas);
-            this.gbDatosLibro.Controls.Add(this.txtPaginas);
-            this.gbDatosLibro.Controls.Add(this.lblEditorial);
-            this.gbDatosLibro.Controls.Add(this.lblTema);
-            this.gbDatosLibro.Controls.Add(this.txtEditorial);
-            this.gbDatosLibro.Location = new System.Drawing.Point(9, 10);
-            this.gbDatosLibro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbDatosLibro.Name = "gbDatosLibro";
-            this.gbDatosLibro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbDatosLibro.Size = new System.Drawing.Size(225, 223);
-            this.gbDatosLibro.TabIndex = 150;
-            this.gbDatosLibro.TabStop = false;
-            this.gbDatosLibro.Text = "Datos libro";
-            // 
-            // gbStock
-            // 
-            this.gbStock.Controls.Add(this.lblInventario);
-            this.gbStock.Controls.Add(this.lblDisponibles);
-            this.gbStock.Controls.Add(this.txtInventario);
-            this.gbStock.Controls.Add(this.txtDisponibles);
-            this.gbStock.Location = new System.Drawing.Point(9, 354);
-            this.gbStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbStock.Name = "gbStock";
-            this.gbStock.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbStock.Size = new System.Drawing.Size(225, 89);
-            this.gbStock.TabIndex = 151;
-            this.gbStock.TabStop = false;
-            this.gbStock.Text = "Datos stock";
-            // 
-            // btnAgregarCantidad
-            // 
-            this.btnAgregarCantidad.Location = new System.Drawing.Point(997, 7);
-            this.btnAgregarCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnAgregarCantidad.Name = "btnAgregarCantidad";
-            this.btnAgregarCantidad.Size = new System.Drawing.Size(94, 23);
-            this.btnAgregarCantidad.TabIndex = 152;
-            this.btnAgregarCantidad.Text = "Agregar";
-            this.btnAgregarCantidad.UseVisualStyleBackColor = true;
-            this.btnAgregarCantidad.Click += new System.EventHandler(this.btnAgregarCantidad_Click);
-            // 
-            // lblObservaciones
-            // 
-            this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(5, 48);
-            this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
-            this.lblObservaciones.TabIndex = 153;
-            this.lblObservaciones.Text = "Observaciones";
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Location = new System.Drawing.Point(88, 48);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(110, 20);
-            this.txtObservaciones.TabIndex = 154;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(202, 19);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(94, 47);
-            this.btnModificar.TabIndex = 155;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(5, 19);
-            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
-            this.lblPrecio.TabIndex = 156;
-            this.lblPrecio.Text = "Precio";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(88, 19);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(110, 20);
-            this.txtPrecio.TabIndex = 157;
-            // 
-            // gbEjemplares
-            // 
-            this.gbEjemplares.Controls.Add(this.btnModificar);
-            this.gbEjemplares.Controls.Add(this.txtPrecio);
-            this.gbEjemplares.Controls.Add(this.txtObservaciones);
-            this.gbEjemplares.Controls.Add(this.lblPrecio);
-            this.gbEjemplares.Controls.Add(this.lblObservaciones);
-            this.gbEjemplares.Location = new System.Drawing.Point(784, 32);
-            this.gbEjemplares.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbEjemplares.Name = "gbEjemplares";
-            this.gbEjemplares.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.gbEjemplares.Size = new System.Drawing.Size(300, 80);
-            this.gbEjemplares.TabIndex = 158;
-            this.gbEjemplares.TabStop = false;
-            this.gbEjemplares.Text = "Datos ejemplar";
-            // 
-            // libroBindingSource
-            // 
-            this.libroBindingSource.DataSource = typeof(Entidades.Libro);
             // 
             // iSBNDataGridViewTextBoxColumn
             // 
@@ -584,11 +469,139 @@
             this.temaDataGridViewTextBoxColumn.Name = "temaDataGridViewTextBoxColumn";
             this.temaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // libroBindingSource
+            // 
+            this.libroBindingSource.DataSource = typeof(Entidades.Libro);
+            // 
+            // gbDatosLibro
+            // 
+            this.gbDatosLibro.Controls.Add(this.lblISBN);
+            this.gbDatosLibro.Controls.Add(this.txtISBN);
+            this.gbDatosLibro.Controls.Add(this.txtAutor);
+            this.gbDatosLibro.Controls.Add(this.lblTitulo);
+            this.gbDatosLibro.Controls.Add(this.lblAutor);
+            this.gbDatosLibro.Controls.Add(this.txtTitulo);
+            this.gbDatosLibro.Controls.Add(this.txtEdicion);
+            this.gbDatosLibro.Controls.Add(this.lblEdicion);
+            this.gbDatosLibro.Controls.Add(this.cmbTema);
+            this.gbDatosLibro.Controls.Add(this.lblCantidadPaginas);
+            this.gbDatosLibro.Controls.Add(this.txtPaginas);
+            this.gbDatosLibro.Controls.Add(this.lblEditorial);
+            this.gbDatosLibro.Controls.Add(this.lblTema);
+            this.gbDatosLibro.Controls.Add(this.txtEditorial);
+            this.gbDatosLibro.Location = new System.Drawing.Point(9, 10);
+            this.gbDatosLibro.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDatosLibro.Name = "gbDatosLibro";
+            this.gbDatosLibro.Padding = new System.Windows.Forms.Padding(2);
+            this.gbDatosLibro.Size = new System.Drawing.Size(225, 223);
+            this.gbDatosLibro.TabIndex = 150;
+            this.gbDatosLibro.TabStop = false;
+            this.gbDatosLibro.Text = "Datos libro";
+            // 
+            // gbStock
+            // 
+            this.gbStock.Controls.Add(this.lblInventario);
+            this.gbStock.Controls.Add(this.lblDisponibles);
+            this.gbStock.Controls.Add(this.txtInventario);
+            this.gbStock.Controls.Add(this.txtDisponibles);
+            this.gbStock.Location = new System.Drawing.Point(9, 354);
+            this.gbStock.Margin = new System.Windows.Forms.Padding(2);
+            this.gbStock.Name = "gbStock";
+            this.gbStock.Padding = new System.Windows.Forms.Padding(2);
+            this.gbStock.Size = new System.Drawing.Size(225, 89);
+            this.gbStock.TabIndex = 151;
+            this.gbStock.TabStop = false;
+            this.gbStock.Text = "Datos stock";
+            // 
+            // btnAgregarCantidad
+            // 
+            this.btnAgregarCantidad.Location = new System.Drawing.Point(997, 7);
+            this.btnAgregarCantidad.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAgregarCantidad.Name = "btnAgregarCantidad";
+            this.btnAgregarCantidad.Size = new System.Drawing.Size(94, 23);
+            this.btnAgregarCantidad.TabIndex = 152;
+            this.btnAgregarCantidad.Text = "Agregar";
+            this.btnAgregarCantidad.UseVisualStyleBackColor = true;
+            this.btnAgregarCantidad.Click += new System.EventHandler(this.btnAgregarCantidad_Click);
+            // 
+            // lblObservaciones
+            // 
+            this.lblObservaciones.AutoSize = true;
+            this.lblObservaciones.Location = new System.Drawing.Point(5, 48);
+            this.lblObservaciones.Name = "lblObservaciones";
+            this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
+            this.lblObservaciones.TabIndex = 153;
+            this.lblObservaciones.Text = "Observaciones";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Location = new System.Drawing.Point(88, 48);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(110, 20);
+            this.txtObservaciones.TabIndex = 154;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Location = new System.Drawing.Point(202, 19);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(94, 47);
+            this.btnModificar.TabIndex = 155;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(5, 19);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 156;
+            this.lblPrecio.Text = "Precio";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(88, 19);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(110, 20);
+            this.txtPrecio.TabIndex = 157;
+            // 
+            // gbEjemplares
+            // 
+            this.gbEjemplares.Controls.Add(this.btnModificar);
+            this.gbEjemplares.Controls.Add(this.txtPrecio);
+            this.gbEjemplares.Controls.Add(this.txtObservaciones);
+            this.gbEjemplares.Controls.Add(this.lblPrecio);
+            this.gbEjemplares.Controls.Add(this.lblObservaciones);
+            this.gbEjemplares.Location = new System.Drawing.Point(784, 32);
+            this.gbEjemplares.Margin = new System.Windows.Forms.Padding(2);
+            this.gbEjemplares.Name = "gbEjemplares";
+            this.gbEjemplares.Padding = new System.Windows.Forms.Padding(2);
+            this.gbEjemplares.Size = new System.Drawing.Size(300, 80);
+            this.gbEjemplares.TabIndex = 158;
+            this.gbEjemplares.TabStop = false;
+            this.gbEjemplares.Text = "Datos ejemplar";
+            // 
+            // btnTraerEjemplar
+            // 
+            this.btnTraerEjemplar.Location = new System.Drawing.Point(23, 454);
+            this.btnTraerEjemplar.Name = "btnTraerEjemplar";
+            this.btnTraerEjemplar.Size = new System.Drawing.Size(182, 46);
+            this.btnTraerEjemplar.TabIndex = 159;
+            this.btnTraerEjemplar.Text = "Aceptar";
+            this.btnTraerEjemplar.UseVisualStyleBackColor = true;
+            this.btnTraerEjemplar.Click += new System.EventHandler(this.btnTraerEjemplar_Click);
+            // 
             // frm2Libros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1104, 514);
+            this.Controls.Add(this.btnTraerEjemplar);
             this.Controls.Add(this.btnAgregarCantidad);
             this.Controls.Add(this.gbDatosLibro);
             this.Controls.Add(this.dgvLibros);
@@ -610,13 +623,13 @@
             this.gbBuscarLibros.ResumeLayout(false);
             this.gbBuscarLibros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.gbDatosLibro.ResumeLayout(false);
             this.gbDatosLibro.PerformLayout();
             this.gbStock.ResumeLayout(false);
             this.gbStock.PerformLayout();
             this.gbEjemplares.ResumeLayout(false);
             this.gbEjemplares.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -674,5 +687,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn editorialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cantPaginasDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn temaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnTraerEjemplar;
     }
 }

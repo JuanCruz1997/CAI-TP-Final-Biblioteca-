@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnNuevoPrestamo = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
             this.lblFechaTentativaDevolucion = new System.Windows.Forms.Label();
             this.lblFechaDevolucion = new System.Windows.Forms.Label();
             this.btnConfirmarDevolución = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblRojo = new System.Windows.Forms.Label();
             this.dtpFechaDevolucion = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaTentativaDevolucion = new System.Windows.Forms.DateTimePicker();
             this.chkAbiertos = new System.Windows.Forms.CheckBox();
@@ -124,16 +124,16 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // label3
+            // lblRojo
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Red;
-            this.label3.Location = new System.Drawing.Point(221, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(355, 13);
-            this.label3.TabIndex = 70;
-            this.label3.Text = "El préstamo indicado no fue devuelto en la fecha establecida";
+            this.lblRojo.AutoSize = true;
+            this.lblRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRojo.ForeColor = System.Drawing.Color.Red;
+            this.lblRojo.Location = new System.Drawing.Point(221, 24);
+            this.lblRojo.Name = "lblRojo";
+            this.lblRojo.Size = new System.Drawing.Size(355, 13);
+            this.lblRojo.TabIndex = 70;
+            this.lblRojo.Text = "El préstamo indicado no fue devuelto en la fecha establecida";
             // 
             // dtpFechaDevolucion
             // 
@@ -161,7 +161,7 @@
             this.chkAbiertos.Checked = true;
             this.chkAbiertos.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkAbiertos.Location = new System.Drawing.Point(8, 24);
-            this.chkAbiertos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkAbiertos.Margin = new System.Windows.Forms.Padding(2);
             this.chkAbiertos.Name = "chkAbiertos";
             this.chkAbiertos.Size = new System.Drawing.Size(174, 17);
             this.chkAbiertos.TabIndex = 74;
@@ -199,9 +199,9 @@
             this.gbBuscarPrestamos.Controls.Add(this.lblBuscarCodEjemplar);
             this.gbBuscarPrestamos.Controls.Add(this.btnBuscarPrestamo);
             this.gbBuscarPrestamos.Location = new System.Drawing.Point(9, 10);
-            this.gbBuscarPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarPrestamos.Margin = new System.Windows.Forms.Padding(2);
             this.gbBuscarPrestamos.Name = "gbBuscarPrestamos";
-            this.gbBuscarPrestamos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarPrestamos.Padding = new System.Windows.Forms.Padding(2);
             this.gbBuscarPrestamos.Size = new System.Drawing.Size(385, 97);
             this.gbBuscarPrestamos.TabIndex = 86;
             this.gbBuscarPrestamos.TabStop = false;
@@ -210,18 +210,18 @@
             // btnClientes
             // 
             this.btnClientes.Location = new System.Drawing.Point(200, 57);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(2);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(79, 29);
             this.btnClientes.TabIndex = 84;
             this.btnClientes.Text = "Clientes...";
             this.btnClientes.UseVisualStyleBackColor = true;
-            this.btnClientes.Click += new System.EventHandler(this.button2_Click);
+            this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
             // 
             // txtBuscarCodCliente
             // 
             this.txtBuscarCodCliente.Location = new System.Drawing.Point(107, 63);
-            this.txtBuscarCodCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscarCodCliente.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscarCodCliente.Name = "txtBuscarCodCliente";
             this.txtBuscarCodCliente.Size = new System.Drawing.Size(90, 20);
             this.txtBuscarCodCliente.TabIndex = 88;
@@ -229,7 +229,7 @@
             // txtBuscarCodEjemplar
             // 
             this.txtBuscarCodEjemplar.Location = new System.Drawing.Point(107, 29);
-            this.txtBuscarCodEjemplar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtBuscarCodEjemplar.Margin = new System.Windows.Forms.Padding(2);
             this.txtBuscarCodEjemplar.Name = "txtBuscarCodEjemplar";
             this.txtBuscarCodEjemplar.Size = new System.Drawing.Size(90, 20);
             this.txtBuscarCodEjemplar.TabIndex = 87;
@@ -237,12 +237,13 @@
             // btnEjemplares
             // 
             this.btnEjemplares.Location = new System.Drawing.Point(200, 24);
-            this.btnEjemplares.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEjemplares.Margin = new System.Windows.Forms.Padding(2);
             this.btnEjemplares.Name = "btnEjemplares";
             this.btnEjemplares.Size = new System.Drawing.Size(79, 28);
             this.btnEjemplares.TabIndex = 49;
             this.btnEjemplares.Text = "Ejemplares...";
             this.btnEjemplares.UseVisualStyleBackColor = true;
+            this.btnEjemplares.Click += new System.EventHandler(this.btnEjemplares_Click);
             // 
             // lblBuscarCodCliente
             // 
@@ -266,16 +267,16 @@
             // 
             // gbDatosPrestamo
             // 
-            this.gbDatosPrestamo.Controls.Add(this.label3);
+            this.gbDatosPrestamo.Controls.Add(this.lblRojo);
             this.gbDatosPrestamo.Controls.Add(this.chkAbiertos);
             this.gbDatosPrestamo.Controls.Add(this.lblFechaTentativaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.dtpFechaTentativaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.lblFechaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.dtpFechaDevolucion);
             this.gbDatosPrestamo.Location = new System.Drawing.Point(405, 10);
-            this.gbDatosPrestamo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbDatosPrestamo.Margin = new System.Windows.Forms.Padding(2);
             this.gbDatosPrestamo.Name = "gbDatosPrestamo";
-            this.gbDatosPrestamo.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbDatosPrestamo.Padding = new System.Windows.Forms.Padding(2);
             this.gbDatosPrestamo.Size = new System.Drawing.Size(582, 97);
             this.gbDatosPrestamo.TabIndex = 87;
             this.gbDatosPrestamo.TabStop = false;
@@ -288,14 +289,14 @@
             this.dgvPrestamos.AllowUserToResizeRows = false;
             this.dgvPrestamos.AutoGenerateColumns = false;
             this.dgvPrestamos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvPrestamos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPrestamos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
@@ -307,7 +308,7 @@
             this.estadoDataGridViewCheckBoxColumn});
             this.dgvPrestamos.DataSource = this.prestamoAdapterBindingSource;
             this.dgvPrestamos.Location = new System.Drawing.Point(10, 112);
-            this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPrestamos.Name = "dgvPrestamos";
             this.dgvPrestamos.ReadOnly = true;
             this.dgvPrestamos.RowHeadersVisible = false;
@@ -315,6 +316,7 @@
             this.dgvPrestamos.RowTemplate.Height = 24;
             this.dgvPrestamos.Size = new System.Drawing.Size(977, 280);
             this.dgvPrestamos.TabIndex = 88;
+            this.dgvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamos_CellClick);
             // 
             // nombreDataGridViewTextBoxColumn
             // 
@@ -409,7 +411,7 @@
         private System.Windows.Forms.Label lblFechaDevolucion;
         private System.Windows.Forms.Button btnConfirmarDevolución;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblRojo;
         private System.Windows.Forms.DateTimePicker dtpFechaDevolucion;
         private System.Windows.Forms.DateTimePicker dtpFechaTentativaDevolucion;
         private System.Windows.Forms.CheckBox chkAbiertos;

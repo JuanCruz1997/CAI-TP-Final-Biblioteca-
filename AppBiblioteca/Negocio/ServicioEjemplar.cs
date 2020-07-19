@@ -12,15 +12,15 @@ namespace Negocio
     {
         private MapperEjemplares _ejemplarMapper;
         private ServicioLibro _librosServicio;
-        private List<Ejemplar> _ejemplares;
+        
 
-        public List<Ejemplar> Ejemplares { get => _ejemplares; set => _ejemplares = value; }
+        
 
         public ServicioEjemplar()
         {
             this._ejemplarMapper = new MapperEjemplares();
             this._librosServicio = new ServicioLibro();
-            this._ejemplares = new List<Ejemplar>();
+           
             
             
         }
@@ -61,7 +61,17 @@ namespace Negocio
             List<Ejemplar> ejemplares = new List<Ejemplar>();
             ejemplares = _ejemplarMapper.TraerPorLibro(idLibro);
             CargarLibro(ejemplares, idLibro);
-            CalcularStock(ejemplares, _librosServicio.Libros);
+            CalcularStock(ejemplares, _librosServicio.TraerTodos());
+            return ejemplares;
+        }
+
+        public List<Ejemplar> ListaCompletaEjemplares()
+        {
+            List<Ejemplar> ejemplares = new List<Ejemplar>();
+            foreach (Libro l in _librosServicio.TraerTodos())
+            {
+                ejemplares.AddRange(TraerPorLibro(l.ISBN));
+            }
             return ejemplares;
         }
 
