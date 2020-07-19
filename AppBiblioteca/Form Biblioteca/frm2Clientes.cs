@@ -24,7 +24,8 @@ namespace Form_Biblioteca
         {
             dgvClientes.DataSource = null;
             dgvClientes.DataSource = clientes;
-            LimpiarCampos();
+            
+            
         }
         private void LimpiarCampos()
         {
@@ -40,15 +41,54 @@ namespace Form_Biblioteca
             txtBuscarNombre.Text = string.Empty;
             txtBuscarApellido.Text = string.Empty;
 
+            FormatearCampos("menu");
 
-            btnAlta.Enabled = true;
+            /*btnAlta.Enabled = true;
             btnEliminar.Enabled = false;
-            btnModificar.Enabled = false;
+            btnModificar.Enabled = false;*/
+
         }
 
         public void FormatearCampos(string condicion)
         {
-            throw new NotImplementedException();
+            if(condicion == "prestamo")
+            {
+                btnTraerCliente.Visible = true;
+                btnTraerCliente.Enabled = true;
+
+                btnAlta.Visible = false;
+                btnEliminar.Visible = false;
+                btnModificar.Visible = false;
+
+                btnAlta.Enabled = false;
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
+
+                this.Text = "Seleccionar cliente";
+
+            }else if (condicion == "menu")
+            {
+                btnAlta.Visible = true;
+                btnEliminar.Visible = true;
+                btnModificar.Visible = true;
+
+                btnAlta.Enabled = true;
+                btnEliminar.Enabled = false;
+                btnModificar.Enabled = false;
+
+                btnTraerCliente.Visible = false;
+                btnTraerCliente.Enabled = false;
+
+            } else if(condicion == "modificar")
+            {
+                btnAlta.Visible = true;
+                btnEliminar.Visible = true;
+                btnModificar.Visible = true;
+
+                btnAlta.Enabled = false;
+                btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
+            }
         }
         private Boolean ValidarCampos()
         {
@@ -61,33 +101,7 @@ namespace Form_Biblioteca
             txtTelefono.Text = Validaciones.LongValidation(txtTelefono.Text, 10000000, 999999999999 ,lblTelefono.Text).ToString();
             txtMail.Text = Validaciones.StringValidation(txtMail.Text, lblMail.Text);
              
-            //fijate que de esta forma, no hace falta tanto código
-
-            /*if (Validaciones.ValidarString(txtNombre.Text) == "")
-            {
-                msg = "El nombre ingresado no es válido.";
-            }
-            else if (Validaciones.ValidarString(txtApellido.Text) == "")
-            {
-                msg = "El apellido ingresado no es válido.";
-            }
-            else if (Validaciones.ValidarString(txtDireccion.Text) == "")
-            {
-                msg = "La dirección ingresada es inválida.";
-            }
-            else if (Validaciones.ValidarInt(txtTelefono.Text) == -1)
-            {
-                msg = "El teléfono ingresado es inválido.";
-            }
-            else if (Validaciones.ValidarString(txtMail.Text) == "")
-            {
-                msg = "El mail ingresado es inválido.";
-            }
-            if (msg != string.Empty)
-            {
-                valido = false;
-                MessageBox.Show(msg);
-            }*/
+            
             return valido;
         }
         private void CompletarFormulario(Cliente seleccionado)
@@ -103,6 +117,13 @@ namespace Form_Biblioteca
         private void frm2Clientes_Load(object sender, EventArgs e)
         {
             CargarDGVClientes(this._clienteServicio.TraerTodos());
+            if(this.Owner is frm1MenuPrincipal)
+            {
+                FormatearCampos("menu");
+            } else if (this.Owner is frm2GestionarPrestamo)
+            {
+                FormatearCampos("prestamo");
+            }
         }
         private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
         {
@@ -117,6 +138,7 @@ namespace Form_Biblioteca
                 {
                     CargarDGVClientes(this._clienteServicio.BuscarClientes(Validaciones.StringValidation(txtBuscarNombre.Text, lblBuscarNombre.Text), Validaciones.StringValidation(txtBuscarApellido.Text, lblBuscarApellido.Text)));
                 }
+
                 LimpiarCampos();
             }
             catch (Exception ex)
@@ -134,9 +156,7 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 CompletarFormulario(seleccionado);
-                btnAlta.Enabled = false;
-                btnModificar.Enabled = true;
-                btnEliminar.Enabled = true;
+                FormatearCampos("modificar");
             }
         }
 
@@ -152,6 +172,7 @@ namespace Form_Biblioteca
                     MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
                     CargarDGVClientes(this._clienteServicio.Clientes);
                     LimpiarCampos();
+                   
                 }
             }
             catch(Exception ex)
@@ -178,6 +199,7 @@ namespace Form_Biblioteca
                         MessageBox.Show("El cliente se ha modificado exitosamente.");
                         CargarDGVClientes(this._clienteServicio.TraerTodos());
                         LimpiarCampos();
+                        
                     }
                 }
                 catch(Exception ex)
@@ -204,6 +226,7 @@ namespace Form_Biblioteca
                         MessageBox.Show("El cliente ha sido eliminado.");
                         CargarDGVClientes(this._clienteServicio.TraerTodos());
                         LimpiarCampos();
+                       
                     }
                 }
                 catch (Exception ex)
@@ -215,8 +238,8 @@ namespace Form_Biblioteca
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
             CargarDGVClientes(this._clienteServicio.Clientes);
+            LimpiarCampos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -229,6 +252,21 @@ namespace Form_Biblioteca
         private void frm2Clientes_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnTraerCliente_Click(object sender, EventArgs e)
+        {
+            if(txtCodigoCliente.Text == string.Empty)
+            {
+                MessageBox.Show("Elija un cliente");
+            }
+            else
+            {
+                ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
+                this.Owner.Show();
+                this.Dispose();
+            }
+            
         }
     }
 }

@@ -50,7 +50,7 @@ namespace Entidades
             {
                 disp = "Prestado";
             }
-            return string.Format("{0}) $ {1, 0.00} - {2}", this._codigo, this._precio, disp);
+            return string.Format("{0}) $ {1} - {2}", this._codigo, this._precio, disp);
         }
     }
 

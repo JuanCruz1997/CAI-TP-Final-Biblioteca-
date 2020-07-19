@@ -17,23 +17,28 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
-        /*public bool ValidarCampos()
-        {
-
-        }*/
-
-        public void LimpiarCampos()
+        private void ValidarCampos()
         {
 
         }
 
-        public void FormatearCampos(string condicion)
+        private void LimpiarCampos()
         {
 
         }
-        public void CargarDGVPrestamos()
+
+        private void FormatearCampos(string condicion)
         {
 
+        }
+        private void CargarDGVPrestamos()
+        {
+
+        }
+
+        public void CompletarCodigo(string id, Form form)
+        {
+            txtBuscarCodCliente.Text = id;
         }
 
         private void lstPrestamos_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,10 +71,7 @@ namespace Form_Biblioteca
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {

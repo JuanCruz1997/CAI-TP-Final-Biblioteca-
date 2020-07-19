@@ -21,23 +21,20 @@ namespace Negocio
             this._ejemplarMapper = new MapperEjemplares();
             this._librosServicio = new ServicioLibro();
             this._ejemplares = new List<Ejemplar>();
-            this._ejemplares = _ejemplarMapper.TraerTodos();
+            
             
         }
 
-        public void CargarLibro(List<Ejemplar> ejemplares, List<Libro> libros)
+        public void CargarLibro(List<Ejemplar> ejemplares, int idLibro)
         {
+            
             foreach (Ejemplar ejem in ejemplares)
             {
-                foreach (Libro libro in libros)
-                {
-                    if (ejem.CodigoLibro == libro.ISBN)
-                    {
-                        ejem.Libro = libro;
-                    }
-                }
+                ejem.Libro = _librosServicio.BuscarPorCodigo(idLibro);
             }
+                
         }
+    
 
         public void AsignarDisponibilidad(List<Ejemplar> ejemplares, List<Prestamo> prestamos)
         {
@@ -59,11 +56,11 @@ namespace Negocio
             }
         }
         //Traer sólo por código de libro
-        public List<Ejemplar> TraerTodos()
+        public List<Ejemplar> TraerPorLibro(int idLibro)
         {
             List<Ejemplar> ejemplares = new List<Ejemplar>();
-            ejemplares = _ejemplares;
-            CargarLibro(ejemplares, _librosServicio.Libros);
+            ejemplares = _ejemplarMapper.TraerPorLibro(idLibro);
+            CargarLibro(ejemplares, idLibro);
             CalcularStock(ejemplares, _librosServicio.Libros);
             return ejemplares;
         }

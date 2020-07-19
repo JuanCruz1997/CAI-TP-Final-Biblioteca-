@@ -39,7 +39,7 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Dispose();
         }
 
         private void btnCliente_Click(object sender, EventArgs e)

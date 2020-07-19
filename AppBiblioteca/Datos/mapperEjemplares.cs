@@ -22,7 +22,7 @@ namespace Datos
         public TransactionResult Insert (Ejemplar ejemplar)
         {
             NameValueCollection obj = ReverseMap(ejemplar);
-            string json = WebHelper.Post("api/v1/Biblioteca/Ejemplares", obj);
+            string json = WebHelper.Post("/api/v1/Biblioteca/Ejemplares", obj);
             TransactionResult resultado = MapResult(json);
             return resultado;
 
@@ -36,9 +36,9 @@ namespace Datos
         {
             NameValueCollection nvc = new NameValueCollection();
             nvc.Add("idLibro", ejemplar.CodigoLibro.ToString());
-            nvc.Add("observaciones", ejemplar.Descripcion);
-            nvc.Add("precio", ejemplar.Precio.ToString());
-            nvc.Add("fechaAlta", ejemplar.FechaAlta.ToString());
+            nvc.Add("Observaciones", ejemplar.Descripcion);
+            nvc.Add("Precio", ejemplar.Precio.ToString());
+            
             return nvc;
 
         }

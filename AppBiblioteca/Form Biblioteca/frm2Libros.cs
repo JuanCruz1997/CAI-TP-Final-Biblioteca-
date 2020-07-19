@@ -90,22 +90,15 @@ namespace Form_Biblioteca
         private void CargarListaEjemplares(Libro seleccionado)
         {
             lstEjemplares.DataSource = null;
-            List<Ejemplar> listaCompleta = this._servicioEjemplar.TraerTodos();
-            List<Ejemplar> listaFiltrada = new List<Ejemplar>();
-            foreach (Ejemplar e in listaCompleta)
-            {
-                if (seleccionado == e.Libro)
-                {
-                    listaFiltrada.Add(e);
-                }
-            }
-            lstEjemplares.DataSource = listaFiltrada;
+            List<Ejemplar> listaEjemplaresPorLibro = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+            
+            lstEjemplares.DataSource = listaEjemplaresPorLibro;
             lstEjemplares.SelectedIndex = -1;
         }
         private List<String> ListaTemas()
         {
             List<String> temas = new List<String>();
-            temas.Add("--Seleccione una opción--");
+            
             temas.Add("Romántico");
             temas.Add("Misterio");
             temas.Add("Terror");
@@ -117,7 +110,10 @@ namespace Form_Biblioteca
             temas.Add("Informática");
             temas.Add("Derecho");
             temas.Add("Matemática");
+            temas.Add("Fantasía");
             temas.Add("Varios");
+            temas.Sort();
+            temas.Insert(0, "--Seleccione una opción--");
             return temas;
         }
 
@@ -160,9 +156,21 @@ namespace Form_Biblioteca
             }
         }
 
+        private void dgvLibros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvLibros.CurrentRow;
+            Libro seleccionado = row.DataBoundItem as Libro;
+            if (seleccionado != null)
+            {
+                //Abrir formulario con datos de seleccionado
+            }
+        }
+
+
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
+            CargarDGVLibros(_servicioLibro.TraerTodos());
             this.Size = new Size(800, this.Size.Height);
         }
 
@@ -172,7 +180,7 @@ namespace Form_Biblioteca
             {
                 ValidarCampos();
                 int codigo = this._servicioLibro.AltaLibro(txtTitulo.Text,txtAutor.Text,Convert.ToInt32(txtEdicion.Text),txtEditorial.Text,Convert.ToInt32(txtPaginas.Text),cmbTema.Text);
-                MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nAhora agregue los ejemplares disponibles del mismo.");
+                MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nPor favor, agregue la cantidad de ejemplares");
                 CargarDGVLibros(_servicioLibro.TraerPorCodigo(codigo));
                 dgvLibros.FirstDisplayedScrollingRowIndex = 0;
                 DataGridViewRow row = dgvLibros.CurrentRow;
@@ -221,8 +229,8 @@ namespace Form_Biblioteca
             {
                 txtCantidadAAgregar.Text = Validaciones.IntValidation(txtCantidadAAgregar.Text, 0, int.MaxValue, lblCantidadAAgregar.Text).ToString();
                 txtPrecio.Text = Validaciones.DoubleValidation(txtPrecio.Text, 0, double.MaxValue, lblPrecio.Text).ToString();
-                txtISBN.Text = Validaciones.StringValidation(txtISBN.Text, lblISBN.Text);
-                String codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
+                txtISBN.Text = Validaciones.IntValidation(txtISBN.Text, 0, int.MaxValue, lblISBN.Text).ToString();
+                string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
             }
             catch(Exception ex)
@@ -230,5 +238,7 @@ namespace Form_Biblioteca
                 MessageBox.Show(ex.Message);
             }
         }
+
+        
     }
 }

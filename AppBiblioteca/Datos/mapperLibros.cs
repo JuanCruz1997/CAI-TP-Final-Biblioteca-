@@ -37,7 +37,7 @@ namespace Datos
             nvc.Add("edicion", libro.Edicion.ToString());
             nvc.Add("editorial", libro.Editorial);
             nvc.Add("paginas", libro.CantPaginas.ToString());
-            nvc.Add("temas", libro.Tema);
+            nvc.Add("tema", libro.Tema);
             return nvc;
         }
         private TransactionResult MapResult (string json)

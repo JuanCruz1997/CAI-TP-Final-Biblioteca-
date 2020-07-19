@@ -69,6 +69,10 @@
             this.lblObservaciones = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.lblPrecio = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.gbEjemplares = new System.Windows.Forms.GroupBox();
+            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.iSBNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,60 +80,51 @@
             this.editorialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cantPaginasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.temaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.libroBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.lblPrecio = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
-            this.gbEjemplares = new System.Windows.Forms.GroupBox();
             this.gbBuscarLibros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLibros)).BeginInit();
             this.gbDatosLibro.SuspendLayout();
             this.gbStock.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.gbEjemplares.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // lblCantidadPaginas
             // 
             this.lblCantidadPaginas.AutoSize = true;
-            this.lblCantidadPaginas.Location = new System.Drawing.Point(146, 153);
-            this.lblCantidadPaginas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidadPaginas.Location = new System.Drawing.Point(110, 124);
             this.lblCantidadPaginas.Name = "lblCantidadPaginas";
-            this.lblCantidadPaginas.Size = new System.Drawing.Size(59, 17);
+            this.lblCantidadPaginas.Size = new System.Drawing.Size(45, 13);
             this.lblCantidadPaginas.TabIndex = 125;
             this.lblCantidadPaginas.Text = "Páginas";
             // 
             // lblEditorial
             // 
             this.lblEditorial.AutoSize = true;
-            this.lblEditorial.Location = new System.Drawing.Point(12, 196);
-            this.lblEditorial.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEditorial.Location = new System.Drawing.Point(9, 159);
             this.lblEditorial.Name = "lblEditorial";
-            this.lblEditorial.Size = new System.Drawing.Size(59, 17);
+            this.lblEditorial.Size = new System.Drawing.Size(44, 13);
             this.lblEditorial.TabIndex = 124;
             this.lblEditorial.Text = "Editorial";
             // 
             // txtPaginas
             // 
-            this.txtPaginas.Location = new System.Drawing.Point(213, 150);
-            this.txtPaginas.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPaginas.Location = new System.Drawing.Point(160, 122);
             this.txtPaginas.Name = "txtPaginas";
-            this.txtPaginas.Size = new System.Drawing.Size(49, 22);
+            this.txtPaginas.Size = new System.Drawing.Size(38, 20);
             this.txtPaginas.TabIndex = 122;
             // 
             // txtEditorial
             // 
-            this.txtEditorial.Location = new System.Drawing.Point(79, 196);
-            this.txtEditorial.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEditorial.Location = new System.Drawing.Point(59, 159);
             this.txtEditorial.Name = "txtEditorial";
-            this.txtEditorial.Size = new System.Drawing.Size(183, 22);
+            this.txtEditorial.Size = new System.Drawing.Size(138, 20);
             this.txtEditorial.TabIndex = 121;
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(804, 559);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(603, 454);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(225, 57);
+            this.btnSalir.Size = new System.Drawing.Size(169, 46);
             this.btnSalir.TabIndex = 117;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -137,10 +132,9 @@
             // 
             // btnAltaLibro
             // 
-            this.btnAltaLibro.Location = new System.Drawing.Point(31, 559);
-            this.btnAltaLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAltaLibro.Location = new System.Drawing.Point(23, 454);
             this.btnAltaLibro.Name = "btnAltaLibro";
-            this.btnAltaLibro.Size = new System.Drawing.Size(243, 57);
+            this.btnAltaLibro.Size = new System.Drawing.Size(182, 46);
             this.btnAltaLibro.TabIndex = 116;
             this.btnAltaLibro.Text = "Alta";
             this.btnAltaLibro.UseVisualStyleBackColor = true;
@@ -149,105 +143,94 @@
             // lblDisponibles
             // 
             this.lblDisponibles.AutoSize = true;
-            this.lblDisponibles.Location = new System.Drawing.Point(12, 75);
-            this.lblDisponibles.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDisponibles.Location = new System.Drawing.Point(9, 61);
             this.lblDisponibles.Name = "lblDisponibles";
-            this.lblDisponibles.Size = new System.Drawing.Size(177, 17);
+            this.lblDisponibles.Size = new System.Drawing.Size(131, 13);
             this.lblDisponibles.TabIndex = 133;
             this.lblDisponibles.Text = "Disponibles para préstamo";
             // 
             // lblInventario
             // 
             this.lblInventario.AutoSize = true;
-            this.lblInventario.Location = new System.Drawing.Point(12, 35);
-            this.lblInventario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInventario.Location = new System.Drawing.Point(9, 28);
             this.lblInventario.Name = "lblInventario";
-            this.lblInventario.Size = new System.Drawing.Size(70, 17);
+            this.lblInventario.Size = new System.Drawing.Size(54, 13);
             this.lblInventario.TabIndex = 132;
             this.lblInventario.Text = "Inventario";
             // 
             // lblTema
             // 
             this.lblTema.AutoSize = true;
-            this.lblTema.Location = new System.Drawing.Point(12, 236);
-            this.lblTema.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTema.Location = new System.Drawing.Point(9, 192);
             this.lblTema.Name = "lblTema";
-            this.lblTema.Size = new System.Drawing.Size(44, 17);
+            this.lblTema.Size = new System.Drawing.Size(34, 13);
             this.lblTema.TabIndex = 131;
             this.lblTema.Text = "Tema";
             // 
             // txtInventario
             // 
             this.txtInventario.Enabled = false;
-            this.txtInventario.Location = new System.Drawing.Point(228, 32);
-            this.txtInventario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtInventario.Location = new System.Drawing.Point(171, 26);
             this.txtInventario.Name = "txtInventario";
             this.txtInventario.ReadOnly = true;
-            this.txtInventario.Size = new System.Drawing.Size(55, 22);
+            this.txtInventario.Size = new System.Drawing.Size(42, 20);
             this.txtInventario.TabIndex = 129;
             // 
             // cmbTema
             // 
             this.cmbTema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTema.FormattingEnabled = true;
-            this.cmbTema.Location = new System.Drawing.Point(79, 233);
-            this.cmbTema.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTema.Location = new System.Drawing.Point(59, 189);
             this.cmbTema.Name = "cmbTema";
-            this.cmbTema.Size = new System.Drawing.Size(183, 24);
+            this.cmbTema.Size = new System.Drawing.Size(138, 21);
             this.cmbTema.TabIndex = 134;
             // 
             // lblEdicion
             // 
             this.lblEdicion.AutoSize = true;
-            this.lblEdicion.Location = new System.Drawing.Point(12, 153);
-            this.lblEdicion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEdicion.Location = new System.Drawing.Point(9, 124);
             this.lblEdicion.Name = "lblEdicion";
-            this.lblEdicion.Size = new System.Drawing.Size(54, 17);
+            this.lblEdicion.Size = new System.Drawing.Size(42, 13);
             this.lblEdicion.TabIndex = 123;
             this.lblEdicion.Text = "Edición";
             // 
             // txtEdicion
             // 
-            this.txtEdicion.Location = new System.Drawing.Point(79, 150);
-            this.txtEdicion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEdicion.Location = new System.Drawing.Point(59, 122);
             this.txtEdicion.Name = "txtEdicion";
-            this.txtEdicion.Size = new System.Drawing.Size(49, 22);
+            this.txtEdicion.Size = new System.Drawing.Size(38, 20);
             this.txtEdicion.TabIndex = 135;
             // 
             // txtDisponibles
             // 
             this.txtDisponibles.Enabled = false;
-            this.txtDisponibles.Location = new System.Drawing.Point(228, 72);
-            this.txtDisponibles.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDisponibles.Location = new System.Drawing.Point(171, 58);
             this.txtDisponibles.Name = "txtDisponibles";
             this.txtDisponibles.ReadOnly = true;
-            this.txtDisponibles.Size = new System.Drawing.Size(55, 22);
+            this.txtDisponibles.Size = new System.Drawing.Size(42, 20);
             this.txtDisponibles.TabIndex = 136;
             // 
             // txtCantidadAAgregar
             // 
-            this.txtCantidadAAgregar.Location = new System.Drawing.Point(1253, 12);
-            this.txtCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantidadAAgregar.Location = new System.Drawing.Point(940, 10);
             this.txtCantidadAAgregar.Name = "txtCantidadAAgregar";
-            this.txtCantidadAAgregar.Size = new System.Drawing.Size(55, 22);
+            this.txtCantidadAAgregar.Size = new System.Drawing.Size(42, 20);
             this.txtCantidadAAgregar.TabIndex = 138;
             // 
             // lblCantidadAAgregar
             // 
             this.lblCantidadAAgregar.AutoSize = true;
-            this.lblCantidadAAgregar.Location = new System.Drawing.Point(1042, 12);
-            this.lblCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCantidadAAgregar.Location = new System.Drawing.Point(782, 10);
             this.lblCantidadAAgregar.Name = "lblCantidadAAgregar";
-            this.lblCantidadAAgregar.Size = new System.Drawing.Size(203, 17);
+            this.lblCantidadAAgregar.Size = new System.Drawing.Size(150, 13);
             this.lblCantidadAAgregar.TabIndex = 137;
             this.lblCantidadAAgregar.Text = "Cantidad ejemplares a agregar";
             // 
             // btnVerEjemplares
             // 
-            this.btnVerEjemplares.Location = new System.Drawing.Point(296, 559);
-            this.btnVerEjemplares.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerEjemplares.Location = new System.Drawing.Point(222, 454);
             this.btnVerEjemplares.Name = "btnVerEjemplares";
-            this.btnVerEjemplares.Size = new System.Drawing.Size(243, 57);
+            this.btnVerEjemplares.Size = new System.Drawing.Size(182, 46);
             this.btnVerEjemplares.TabIndex = 143;
             this.btnVerEjemplares.Text = "Ver ejemplares";
             this.btnVerEjemplares.UseVisualStyleBackColor = true;
@@ -255,10 +238,9 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(560, 559);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(420, 454);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(169, 46);
             this.btnLimpiarCampos.TabIndex = 144;
             this.btnLimpiarCampos.Text = "Limpiar campos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
@@ -267,19 +249,16 @@
             // lstEjemplares
             // 
             this.lstEjemplares.FormattingEnabled = true;
-            this.lstEjemplares.ItemHeight = 16;
-            this.lstEjemplares.Location = new System.Drawing.Point(1045, 142);
-            this.lstEjemplares.Margin = new System.Windows.Forms.Padding(4);
+            this.lstEjemplares.Location = new System.Drawing.Point(784, 115);
             this.lstEjemplares.Name = "lstEjemplares";
-            this.lstEjemplares.Size = new System.Drawing.Size(409, 404);
+            this.lstEjemplares.Size = new System.Drawing.Size(308, 329);
             this.lstEjemplares.TabIndex = 146;
             // 
             // btnComprimir
             // 
-            this.btnComprimir.Location = new System.Drawing.Point(1045, 559);
-            this.btnComprimir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnComprimir.Location = new System.Drawing.Point(784, 454);
             this.btnComprimir.Name = "btnComprimir";
-            this.btnComprimir.Size = new System.Drawing.Size(60, 57);
+            this.btnComprimir.Size = new System.Drawing.Size(45, 46);
             this.btnComprimir.TabIndex = 148;
             this.btnComprimir.Text = "<<";
             this.btnComprimir.UseVisualStyleBackColor = true;
@@ -287,10 +266,9 @@
             // 
             // btnBuscarLibro
             // 
-            this.btnBuscarLibro.Location = new System.Drawing.Point(633, 24);
-            this.btnBuscarLibro.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarLibro.Location = new System.Drawing.Point(475, 20);
             this.btnBuscarLibro.Name = "btnBuscarLibro";
-            this.btnBuscarLibro.Size = new System.Drawing.Size(71, 32);
+            this.btnBuscarLibro.Size = new System.Drawing.Size(53, 26);
             this.btnBuscarLibro.TabIndex = 142;
             this.btnBuscarLibro.Text = "Buscar";
             this.btnBuscarLibro.UseVisualStyleBackColor = true;
@@ -299,56 +277,50 @@
             // txtISBN
             // 
             this.txtISBN.Enabled = false;
-            this.txtISBN.Location = new System.Drawing.Point(79, 34);
-            this.txtISBN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtISBN.Location = new System.Drawing.Point(59, 28);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.ReadOnly = true;
-            this.txtISBN.Size = new System.Drawing.Size(183, 22);
+            this.txtISBN.Size = new System.Drawing.Size(138, 20);
             this.txtISBN.TabIndex = 107;
             // 
             // lblISBN
             // 
             this.lblISBN.AutoSize = true;
-            this.lblISBN.Location = new System.Drawing.Point(12, 37);
-            this.lblISBN.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblISBN.Location = new System.Drawing.Point(9, 30);
             this.lblISBN.Name = "lblISBN";
-            this.lblISBN.Size = new System.Drawing.Size(39, 17);
+            this.lblISBN.Size = new System.Drawing.Size(32, 13);
             this.lblISBN.TabIndex = 111;
             this.lblISBN.Text = "ISBN";
             // 
             // txtAutor
             // 
-            this.txtAutor.Location = new System.Drawing.Point(79, 107);
-            this.txtAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAutor.Location = new System.Drawing.Point(59, 87);
             this.txtAutor.Name = "txtAutor";
-            this.txtAutor.Size = new System.Drawing.Size(183, 22);
+            this.txtAutor.Size = new System.Drawing.Size(138, 20);
             this.txtAutor.TabIndex = 141;
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Location = new System.Drawing.Point(11, 74);
-            this.lblTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitulo.Location = new System.Drawing.Point(8, 60);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(43, 17);
+            this.lblTitulo.Size = new System.Drawing.Size(35, 13);
             this.lblTitulo.TabIndex = 112;
             this.lblTitulo.Text = "Título";
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(79, 71);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTitulo.Location = new System.Drawing.Point(59, 58);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(183, 22);
+            this.txtTitulo.Size = new System.Drawing.Size(138, 20);
             this.txtTitulo.TabIndex = 139;
             // 
             // lblAutor
             // 
             this.lblAutor.AutoSize = true;
-            this.lblAutor.Location = new System.Drawing.Point(12, 110);
-            this.lblAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAutor.Location = new System.Drawing.Point(9, 89);
             this.lblAutor.Name = "lblAutor";
-            this.lblAutor.Size = new System.Drawing.Size(42, 17);
+            this.lblAutor.Size = new System.Drawing.Size(32, 13);
             this.lblAutor.TabIndex = 113;
             this.lblAutor.Text = "Autor";
             // 
@@ -359,48 +331,44 @@
             this.gbBuscarLibros.Controls.Add(this.lblBuscarAutor);
             this.gbBuscarLibros.Controls.Add(this.lblBuscarTitulo);
             this.gbBuscarLibros.Controls.Add(this.btnBuscarLibro);
-            this.gbBuscarLibros.Location = new System.Drawing.Point(318, 12);
-            this.gbBuscarLibros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbBuscarLibros.Location = new System.Drawing.Point(238, 10);
+            this.gbBuscarLibros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbBuscarLibros.Name = "gbBuscarLibros";
-            this.gbBuscarLibros.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbBuscarLibros.Size = new System.Drawing.Size(711, 68);
+            this.gbBuscarLibros.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBuscarLibros.Size = new System.Drawing.Size(533, 55);
             this.gbBuscarLibros.TabIndex = 145;
             this.gbBuscarLibros.TabStop = false;
             this.gbBuscarLibros.Text = "Buscar";
             // 
             // txtBuscarAutor
             // 
-            this.txtBuscarAutor.Location = new System.Drawing.Point(355, 28);
-            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarAutor.Location = new System.Drawing.Point(266, 23);
             this.txtBuscarAutor.Name = "txtBuscarAutor";
-            this.txtBuscarAutor.Size = new System.Drawing.Size(202, 22);
+            this.txtBuscarAutor.Size = new System.Drawing.Size(152, 20);
             this.txtBuscarAutor.TabIndex = 148;
             // 
             // txtBuscarTitulo
             // 
-            this.txtBuscarTitulo.Location = new System.Drawing.Point(61, 28);
-            this.txtBuscarTitulo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarTitulo.Location = new System.Drawing.Point(46, 23);
             this.txtBuscarTitulo.Name = "txtBuscarTitulo";
-            this.txtBuscarTitulo.Size = new System.Drawing.Size(202, 22);
+            this.txtBuscarTitulo.Size = new System.Drawing.Size(152, 20);
             this.txtBuscarTitulo.TabIndex = 147;
             // 
             // lblBuscarAutor
             // 
             this.lblBuscarAutor.AutoSize = true;
-            this.lblBuscarAutor.Location = new System.Drawing.Point(305, 28);
-            this.lblBuscarAutor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarAutor.Location = new System.Drawing.Point(229, 23);
             this.lblBuscarAutor.Name = "lblBuscarAutor";
-            this.lblBuscarAutor.Size = new System.Drawing.Size(42, 17);
+            this.lblBuscarAutor.Size = new System.Drawing.Size(32, 13);
             this.lblBuscarAutor.TabIndex = 146;
             this.lblBuscarAutor.Text = "Autor";
             // 
             // lblBuscarTitulo
             // 
             this.lblBuscarTitulo.AutoSize = true;
-            this.lblBuscarTitulo.Location = new System.Drawing.Point(11, 28);
-            this.lblBuscarTitulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblBuscarTitulo.Location = new System.Drawing.Point(8, 23);
             this.lblBuscarTitulo.Name = "lblBuscarTitulo";
-            this.lblBuscarTitulo.Size = new System.Drawing.Size(43, 17);
+            this.lblBuscarTitulo.Size = new System.Drawing.Size(35, 13);
             this.lblBuscarTitulo.TabIndex = 145;
             this.lblBuscarTitulo.Text = "Título";
             // 
@@ -429,17 +397,18 @@
             this.cantPaginasDataGridViewTextBoxColumn,
             this.temaDataGridViewTextBoxColumn});
             this.dgvLibros.DataSource = this.libroBindingSource;
-            this.dgvLibros.Location = new System.Drawing.Point(318, 86);
-            this.dgvLibros.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvLibros.Location = new System.Drawing.Point(238, 70);
+            this.dgvLibros.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvLibros.Name = "dgvLibros";
             this.dgvLibros.ReadOnly = true;
             this.dgvLibros.RowHeadersVisible = false;
             this.dgvLibros.RowHeadersWidth = 51;
             this.dgvLibros.RowTemplate.Height = 24;
             this.dgvLibros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLibros.Size = new System.Drawing.Size(711, 460);
+            this.dgvLibros.Size = new System.Drawing.Size(533, 374);
             this.dgvLibros.TabIndex = 149;
             this.dgvLibros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellClick);
+            this.dgvLibros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellDoubleClick);
             // 
             // gbDatosLibro
             // 
@@ -457,9 +426,11 @@
             this.gbDatosLibro.Controls.Add(this.lblEditorial);
             this.gbDatosLibro.Controls.Add(this.lblTema);
             this.gbDatosLibro.Controls.Add(this.txtEditorial);
-            this.gbDatosLibro.Location = new System.Drawing.Point(12, 12);
+            this.gbDatosLibro.Location = new System.Drawing.Point(9, 10);
+            this.gbDatosLibro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbDatosLibro.Name = "gbDatosLibro";
-            this.gbDatosLibro.Size = new System.Drawing.Size(300, 275);
+            this.gbDatosLibro.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbDatosLibro.Size = new System.Drawing.Size(225, 223);
             this.gbDatosLibro.TabIndex = 150;
             this.gbDatosLibro.TabStop = false;
             this.gbDatosLibro.Text = "Datos libro";
@@ -470,18 +441,21 @@
             this.gbStock.Controls.Add(this.lblDisponibles);
             this.gbStock.Controls.Add(this.txtInventario);
             this.gbStock.Controls.Add(this.txtDisponibles);
-            this.gbStock.Location = new System.Drawing.Point(12, 436);
+            this.gbStock.Location = new System.Drawing.Point(9, 354);
+            this.gbStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gbStock.Name = "gbStock";
-            this.gbStock.Size = new System.Drawing.Size(300, 110);
+            this.gbStock.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbStock.Size = new System.Drawing.Size(225, 89);
             this.gbStock.TabIndex = 151;
             this.gbStock.TabStop = false;
             this.gbStock.Text = "Datos stock";
             // 
             // btnAgregarCantidad
             // 
-            this.btnAgregarCantidad.Location = new System.Drawing.Point(1329, 9);
+            this.btnAgregarCantidad.Location = new System.Drawing.Point(997, 7);
+            this.btnAgregarCantidad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarCantidad.Name = "btnAgregarCantidad";
-            this.btnAgregarCantidad.Size = new System.Drawing.Size(125, 28);
+            this.btnAgregarCantidad.Size = new System.Drawing.Size(94, 23);
             this.btnAgregarCantidad.TabIndex = 152;
             this.btnAgregarCantidad.Text = "Agregar";
             this.btnAgregarCantidad.UseVisualStyleBackColor = true;
@@ -490,29 +464,68 @@
             // lblObservaciones
             // 
             this.lblObservaciones.AutoSize = true;
-            this.lblObservaciones.Location = new System.Drawing.Point(7, 59);
-            this.lblObservaciones.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblObservaciones.Location = new System.Drawing.Point(5, 48);
             this.lblObservaciones.Name = "lblObservaciones";
-            this.lblObservaciones.Size = new System.Drawing.Size(103, 17);
+            this.lblObservaciones.Size = new System.Drawing.Size(78, 13);
             this.lblObservaciones.TabIndex = 153;
             this.lblObservaciones.Text = "Observaciones";
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(117, 59);
+            this.txtObservaciones.Location = new System.Drawing.Point(88, 48);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(146, 22);
+            this.txtObservaciones.Size = new System.Drawing.Size(110, 20);
             this.txtObservaciones.TabIndex = 154;
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(269, 23);
+            this.btnModificar.Location = new System.Drawing.Point(202, 19);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(125, 58);
+            this.btnModificar.Size = new System.Drawing.Size(94, 47);
             this.btnModificar.TabIndex = 155;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // lblPrecio
+            // 
+            this.lblPrecio.AutoSize = true;
+            this.lblPrecio.Location = new System.Drawing.Point(5, 19);
+            this.lblPrecio.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPrecio.Name = "lblPrecio";
+            this.lblPrecio.Size = new System.Drawing.Size(37, 13);
+            this.lblPrecio.TabIndex = 156;
+            this.lblPrecio.Text = "Precio";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Location = new System.Drawing.Point(88, 19);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(110, 20);
+            this.txtPrecio.TabIndex = 157;
+            // 
+            // gbEjemplares
+            // 
+            this.gbEjemplares.Controls.Add(this.btnModificar);
+            this.gbEjemplares.Controls.Add(this.txtPrecio);
+            this.gbEjemplares.Controls.Add(this.txtObservaciones);
+            this.gbEjemplares.Controls.Add(this.lblPrecio);
+            this.gbEjemplares.Controls.Add(this.lblObservaciones);
+            this.gbEjemplares.Location = new System.Drawing.Point(784, 32);
+            this.gbEjemplares.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEjemplares.Name = "gbEjemplares";
+            this.gbEjemplares.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEjemplares.Size = new System.Drawing.Size(300, 80);
+            this.gbEjemplares.TabIndex = 158;
+            this.gbEjemplares.TabStop = false;
+            this.gbEjemplares.Text = "Datos ejemplar";
+            // 
+            // libroBindingSource
+            // 
+            this.libroBindingSource.DataSource = typeof(Entidades.Libro);
             // 
             // iSBNDataGridViewTextBoxColumn
             // 
@@ -521,6 +534,7 @@
             this.iSBNDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iSBNDataGridViewTextBoxColumn.Name = "iSBNDataGridViewTextBoxColumn";
             this.iSBNDataGridViewTextBoxColumn.ReadOnly = true;
+            this.iSBNDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // tituloDataGridViewTextBoxColumn
             // 
@@ -570,45 +584,11 @@
             this.temaDataGridViewTextBoxColumn.Name = "temaDataGridViewTextBoxColumn";
             this.temaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // libroBindingSource
-            // 
-            this.libroBindingSource.DataSource = typeof(Entidades.Libro);
-            // 
-            // lblPrecio
-            // 
-            this.lblPrecio.AutoSize = true;
-            this.lblPrecio.Location = new System.Drawing.Point(7, 23);
-            this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(48, 17);
-            this.lblPrecio.TabIndex = 156;
-            this.lblPrecio.Text = "Precio";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Location = new System.Drawing.Point(117, 23);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(146, 22);
-            this.txtPrecio.TabIndex = 157;
-            // 
-            // gbEjemplares
-            // 
-            this.gbEjemplares.Controls.Add(this.btnModificar);
-            this.gbEjemplares.Controls.Add(this.txtPrecio);
-            this.gbEjemplares.Controls.Add(this.txtObservaciones);
-            this.gbEjemplares.Controls.Add(this.lblPrecio);
-            this.gbEjemplares.Controls.Add(this.lblObservaciones);
-            this.gbEjemplares.Location = new System.Drawing.Point(1045, 40);
-            this.gbEjemplares.Name = "gbEjemplares";
-            this.gbEjemplares.Size = new System.Drawing.Size(400, 99);
-            this.gbEjemplares.TabIndex = 158;
-            this.gbEjemplares.TabStop = false;
-            this.gbEjemplares.Text = "Datos ejemplar";
-            // 
             // frm2Libros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1472, 633);
+            this.ClientSize = new System.Drawing.Size(1104, 514);
             this.Controls.Add(this.btnAgregarCantidad);
             this.Controls.Add(this.gbDatosLibro);
             this.Controls.Add(this.dgvLibros);
@@ -623,7 +603,6 @@
             this.Controls.Add(this.gbBuscarLibros);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.gbEjemplares);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm2Libros";
             this.Text = "Gestionar libros";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm2Libros_FormClosed);
@@ -635,9 +614,9 @@
             this.gbDatosLibro.PerformLayout();
             this.gbStock.ResumeLayout(false);
             this.gbStock.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.gbEjemplares.ResumeLayout(false);
             this.gbEjemplares.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.libroBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,13 +658,6 @@
         private System.Windows.Forms.Label lblBuscarTitulo;
         private System.Windows.Forms.DataGridView dgvLibros;
         private System.Windows.Forms.BindingSource libroBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn edicionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn editorialDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantPaginasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn temaDataGridViewTextBoxColumn;
         private System.Windows.Forms.GroupBox gbDatosLibro;
         private System.Windows.Forms.GroupBox gbStock;
         private System.Windows.Forms.Button btnAgregarCantidad;
@@ -695,5 +667,12 @@
         private System.Windows.Forms.Label lblPrecio;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.GroupBox gbEjemplares;
+        private System.Windows.Forms.DataGridViewTextBoxColumn iSBNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn edicionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn editorialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cantPaginasDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn temaDataGridViewTextBoxColumn;
     }
 }

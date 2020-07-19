@@ -40,6 +40,7 @@ namespace Entidades
         public string Editorial { get => _editorial; set => _editorial = value; }
         [DataMember(Name ="Paginas")]
         public int CantPaginas { get => _cantPaginas; set => _cantPaginas = value; }
+
         [DataMember]
         public string Tema { get => _tema; set => _tema = value; }
         public int StockPermanente { get => _stockPermanente; set => _stockPermanente = value; }

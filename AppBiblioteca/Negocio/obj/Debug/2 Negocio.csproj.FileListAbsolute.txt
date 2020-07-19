@@ -14,3 +14,12 @@ C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\App
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Entidades.pdb
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Juan Cruz\Documents\Visual Studio 2019\CAI\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csproj.CopyComplete
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Negocio.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Negocio.pdb
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Datos.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Entidades.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Newtonsoft.Json.dll
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Datos.pdb
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Entidades.pdb
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\bin\Debug\Newtonsoft.Json.xml
+C:\Users\I515818\OneDrive - SAP SE\Documents\Facultad\CAI\Repository\JuanCruz1997\CAI-TP-Final-Biblioteca-\AppBiblioteca\Negocio\obj\Debug\2 Negocio.csproj.CopyComplete

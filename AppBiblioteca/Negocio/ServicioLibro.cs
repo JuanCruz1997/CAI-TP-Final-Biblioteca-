@@ -90,5 +90,19 @@ namespace Negocio
             }
             return resultado;
         }
+
+        public Libro BuscarPorCodigo(int codLibro)
+        {
+            
+            foreach (Libro l in this.TraerTodos())
+            {
+                if (codLibro == l.ISBN)
+                {
+                    return l;
+                    
+                }
+            }
+            return null;
+        }
     }
 }
