@@ -15,11 +15,10 @@ namespace Entidades
         private int _idEjemplar;
         private int _plazoPrestamo;
         private DateTime _fechaHoraPrestamo;
-        //private DateTime _fechaDevolucionTentativa;
         private DateTime _fechaDevolucionReal;
         private Cliente _cliente;
         private Ejemplar _ejemplar;
-        //private Libro _libro;
+        private double _precioPactado;
 
         [DataMember(Name = "id")]
         public int NumeroOperacion { get => _numeroOperacion; set => _numeroOperacion = value; }
@@ -31,7 +30,7 @@ namespace Entidades
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
         [DataMember(Name ="FechaPrestamo")]
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
-        
+        [DataMember]
         public DateTime FechaDevolucionTentativa { get => _fechaHoraPrestamo.AddDays(_plazoPrestamo); }
         [DataMember]
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
@@ -55,14 +54,16 @@ namespace Entidades
             }
         }
         public double Deuda { get => Ejemplar.Precio * DiasDeAtraso; }
+        public double PrecioPactado { get => _precioPactado; set => _precioPactado = value; }
 
-        public Prestamo(int idCliente, int idEjemplar, int plazo)
+        public Prestamo(int idCliente, int idEjemplar, int plazo, double precio)
         {
             this.IdCliente = idCliente;
             this.IdEjemplar = idEjemplar;
             this._plazoPrestamo = plazo;
             this.FechaDevolucionReal = FechaDevolucionNula;
-            
+            this.FechaHoraPrestamo = DateTime.Today;
+            this._precioPactado = precio;
         }
     }
 

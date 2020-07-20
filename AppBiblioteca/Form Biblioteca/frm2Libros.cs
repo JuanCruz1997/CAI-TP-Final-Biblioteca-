@@ -168,7 +168,6 @@ namespace Form_Biblioteca
                 txtPrecio.Enabled = false;
                 txtObservaciones.Enabled = false;
                 btnModificar.Enabled = false;
-                lstEjemplares.Enabled = false;
                 btnComprimir.Enabled = false;
                 
             }
@@ -322,7 +321,7 @@ namespace Form_Biblioteca
             {
                 FormatearCampos(menu);
             }
-            else if (this.Owner is frm2GestionarPrestamo)
+            else if (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
             {
                 FormatearCampos(prestamo);
             }

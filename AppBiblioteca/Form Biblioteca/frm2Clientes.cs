@@ -188,7 +188,7 @@ namespace Form_Biblioteca
             if (this.Owner is frm1MenuPrincipal)
             {
                 FormatearCampos(menu);
-            } else if (this.Owner is frm2GestionarPrestamo)
+            } else if (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
             {
                 FormatearCampos(prestamo);
             }

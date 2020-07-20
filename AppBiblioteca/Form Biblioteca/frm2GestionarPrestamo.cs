@@ -144,7 +144,7 @@ namespace Form_Biblioteca
        }    }
         
     
-        private void CargarDGVPrestamos()
+        public void CargarDGVPrestamos()
         {
             ValidarCampos();
             if (chkAbiertos.Checked)
@@ -276,29 +276,20 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-            {
-                CloseWindow();
-            }
+            CloseWindow();
         }
 
         private void frm2GestionarPrestamo_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-                {
-                    CloseWindow();
-                }
+                CloseWindow();
             }
         }
 
         private void frm2GestionarPrestamo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-            {
-                CloseWindow();
-            }
+            CloseWindow();
         }
 
 

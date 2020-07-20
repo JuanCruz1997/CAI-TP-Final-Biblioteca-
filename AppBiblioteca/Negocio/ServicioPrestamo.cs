@@ -29,10 +29,14 @@ namespace Negocio
             
             CargarClientes(lista, _clienteServicio.TraerTodos());
             CargarEjemplares(lista, _ejemplarServicio.ListaCompletaEjemplares());
-
+            
             return lista;
         }
-
+        /*public List<Prestamo> TraerTodosMapper()
+        {
+            List<Prestamo> prestamo = this._prestamoMapper.TraerTodos();
+            return prestamo;
+        }*/
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> resultado = new List<Prestamo>();
@@ -94,9 +98,9 @@ namespace Negocio
         }
 
 
-        public int AltaPrestamo(int idCliente, int idEjemplar, int idPlazo)
+        public int AltaPrestamo(int idCliente, int idEjemplar, int idPlazo, double precio)
         {
-            Prestamo alta = new Prestamo(idCliente, idEjemplar, idPlazo);
+            Prestamo alta = new Prestamo(idCliente, idEjemplar, idPlazo, precio);
             
             TransactionResult resultado = _prestamoMapper.Insert(alta);
             if (resultado.IsOk)

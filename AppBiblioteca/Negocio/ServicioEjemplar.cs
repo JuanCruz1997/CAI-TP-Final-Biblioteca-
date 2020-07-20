@@ -12,7 +12,7 @@ namespace Negocio
     {
         private MapperEjemplares _ejemplarMapper;
         private ServicioLibro _librosServicio;
-        
+        private ServicioPrestamo _servicioPrestamo;
 
         
 
@@ -20,7 +20,7 @@ namespace Negocio
         {
             this._ejemplarMapper = new MapperEjemplares();
             this._librosServicio = new ServicioLibro();
-           
+            this._servicioPrestamo = new ServicioPrestamo();
             
             
         }
@@ -62,6 +62,7 @@ namespace Negocio
             ejemplares = _ejemplarMapper.TraerPorLibro(idLibro);
             CargarLibro(ejemplares, idLibro);
             CalcularStock(ejemplares, _librosServicio.TraerTodos());
+            //AsignarDisponibilidad(ejemplares, this._servicioPrestamo.TraerTodosMapper());
             return ejemplares;
         }
 

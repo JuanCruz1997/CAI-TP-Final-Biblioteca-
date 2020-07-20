@@ -125,7 +125,23 @@ namespace Form_Biblioteca
 
         public void FormatearCampos(string condicion)
         {
-            if(condicion == vacio)
+            if (txtCodigoCliente.Text == string.Empty)
+            {
+                btnActualizarDatosCliente.Enabled = false;
+            }
+            else
+            {
+                btnActualizarDatosCliente.Enabled = true;
+            }
+            if (txtCodigoCliente.Text == string.Empty)
+            {
+                btnActualizarDatosEjemplar.Enabled = false;
+            }
+            else
+            {
+                btnActualizarDatosEjemplar.Enabled = true;
+            }
+            if (condicion == vacio)
             {
                 btnConfirmarNuevoPrestamo.Enabled = false;
             } else if (condicion == completo)
@@ -178,6 +194,14 @@ namespace Form_Biblioteca
             {
                 FormatearCampos(completo);
             }
+            if (txtCodigoEjemplar.Text == string.Empty)
+            {
+                btnActualizarDatosEjemplar.Enabled = false;
+            }
+            else
+            {
+                btnActualizarDatosEjemplar.Enabled = true;
+            }
         }
 
         private void txtCodigoCliente_TextChanged(object sender, EventArgs e)
@@ -185,6 +209,14 @@ namespace Form_Biblioteca
             if (txtCodigoCliente.Text != string.Empty && txtCodigoEjemplar.Text != string.Empty)
             {
                 FormatearCampos(completo);
+            }
+            if (txtCodigoCliente.Text == string.Empty)
+            {
+                btnActualizarDatosCliente.Enabled = false;
+            }
+            else
+            {
+                btnActualizarDatosCliente.Enabled = true;
             }
         }
         private void btnTraerEjemplares_Click(object sender, EventArgs e)
@@ -216,9 +248,10 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 ValidarCampos(cliente);
                 ValidarCampos(prestamo);
-                int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(txtPlazo.Text));
+                int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(txtPlazo.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " existosamente");
-                this.Dispose();
+                ((frm2GestionarPrestamo)this.Owner).CargarDGVPrestamos();
+                CloseWindow();
             }
             catch(Exception ex)
             {
@@ -249,9 +282,12 @@ namespace Form_Biblioteca
 
         private void frm3AltaPrestamo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            if (e.KeyCode == Keys.Escape)
             {
-                CloseWindow();
+                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                {
+                    CloseWindow();
+                }
             }
         }
         #endregion
