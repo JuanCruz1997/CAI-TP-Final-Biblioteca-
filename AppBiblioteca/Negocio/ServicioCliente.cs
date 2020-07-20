@@ -74,7 +74,7 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
-        public void ModificarCliente(int codigo,string nombre, string apellido, string direccion, string telefono, string mail)
+        public int ModificarCliente(int codigo,string nombre, string apellido, string direccion, string telefono, string mail)
         {
             Cliente c = TraerPorCodigo(codigo);
             if (c != null)
@@ -84,19 +84,35 @@ namespace Negocio
                 c.Direccion = direccion;
                 c.Telefono = telefono;
                 c.Mail = mail;
-                //Falta la lógica de modificar el cliente en el servidor.
+                TransactionResult resultado = _mapper.Update(c);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
+                }
             }
             else
             {
                 throw new Exception("Cliente inexistente");
             }
         }
-        public void EliminarCliente(int codigo)
+        public int EliminarCliente(int codigo)
         {
             Cliente c = this.TraerPorCodigo(codigo);
             if (c != null)
             {
-                //Lógica de eliminar el cliente en servidor
+                TransactionResult resultado = _mapper.Delete(c);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                }
             }
             else
             {

@@ -119,5 +119,16 @@ namespace Negocio
             }
             return codigos;
         }
+        public Ejemplar TraerPorCodigo(int codigo)
+        {
+            foreach(Ejemplar e in this.ListaCompletaEjemplares())
+            {
+                if (codigo == e.Codigo)
+                {
+                    return e;
+                }
+            }
+            return null;
+        }
     }
 }

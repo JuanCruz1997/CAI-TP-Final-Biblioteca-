@@ -23,7 +23,7 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
-
+        #region "Métodos"
         private void ValidarCampos(string objeto)
         {
             if(objeto == "libro")
@@ -202,7 +202,8 @@ namespace Form_Biblioteca
             temas.Insert(0, "--Seleccione una opción--");
             return temas;
         }
-
+        #endregion
+        #region "Eventos"
         private void frm2Libros_Load(object sender, EventArgs e)
         {
             CargarDGVLibros(this._servicioLibro.TraerTodos());
@@ -283,6 +284,7 @@ namespace Form_Biblioteca
                 Libro seleccionado = row.DataBoundItem as Libro;
                 CompletarFormulario(seleccionado);
                 this.Size = new Size(1125, this.Size.Height);
+                gbEjemplares.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -308,7 +310,7 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            //Agregar advertencia para que no se pierdan datos.
+            //Agregar advertencia para que no se pierdan datos
             this.Owner.Show();
             this.Hide();
         }
@@ -331,6 +333,7 @@ namespace Form_Biblioteca
                 ValidarCampos("ejemplar");
                 string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
+                gbEjemplares.Enabled = true;
             }
             catch(Exception ex)
             {
@@ -382,6 +385,6 @@ namespace Form_Biblioteca
                 this.Dispose();
             }
         }
-
+        #endregion
     }
 }

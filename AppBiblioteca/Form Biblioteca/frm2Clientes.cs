@@ -20,6 +20,7 @@ namespace Form_Biblioteca
             this._clienteServicio = cs;
             InitializeComponent();
         }
+        #region "Métodos" 
         private void CargarDGVClientes(List<Cliente> clientes)
         {
             dgvClientes.DataSource = null;
@@ -138,7 +139,8 @@ namespace Form_Biblioteca
             txtTelefono.Text = seleccionado.Telefono;
             txtMail.Text = seleccionado.Mail;
         }
-
+        #endregion
+        #region "Eventos"
         private void frm2Clientes_Load(object sender, EventArgs e)
         {
             CargarDGVClientes(this._clienteServicio.TraerTodos());
@@ -149,6 +151,7 @@ namespace Form_Biblioteca
             {
                 FormatearCampos("prestamo");
             }
+            dgvClientes.CurrentCell = null;
         }
         private void btnBuscarNombreCliente_Click(object sender, EventArgs e)
         {
@@ -219,8 +222,8 @@ namespace Form_Biblioteca
                 {
                     
                     ValidarCampos();
-                    this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
-                    MessageBox.Show("El cliente se ha modificado exitosamente.");
+                    int codigo = this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                    MessageBox.Show("El cliente se ha modificado exitosamente.\nCódigo operación: " + codigo);
                     CargarDGVClientes(this._clienteServicio.TraerTodos());
                     LimpiarCampos();
                         
@@ -319,5 +322,6 @@ namespace Form_Biblioteca
                 this.Dispose();
             }
         }
+        #endregion
     }
 }

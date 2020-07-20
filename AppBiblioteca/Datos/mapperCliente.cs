@@ -34,6 +34,7 @@ namespace Datos
         private NameValueCollection ReverseMap(Cliente cliente)
         {
             NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("id", cliente.Codigo.ToString());
             nvc.Add("nombre", cliente.Nombre);
             nvc.Add("apellido", cliente.Apellido);
             nvc.Add("direccion", cliente.Direccion);
@@ -51,5 +52,27 @@ namespace Datos
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
+        public TransactionResult Update(Cliente cliente)
+        {
+            NameValueCollection obj = ReverseMap(cliente);
+            string result = WebHelper.Put("/api/v1/cliente", obj);
+
+            TransactionResult resultadoTransaccion = MapResult(result);
+
+            return resultadoTransaccion;
+        }
+
+        public TransactionResult Delete(Cliente cliente)
+        {
+            NameValueCollection obj = new NameValueCollection();
+            obj.Add("id", cliente.Codigo.ToString());
+
+            string result = WebHelper.Delete("/api/v1/cliente", obj);
+
+            TransactionResult resultadoTransaccion = MapResult(result);
+
+            return resultadoTransaccion;
+        }
+
     }
 }

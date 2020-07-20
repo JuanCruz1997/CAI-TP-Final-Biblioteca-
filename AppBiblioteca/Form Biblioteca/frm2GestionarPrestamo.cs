@@ -22,7 +22,7 @@ namespace Form_Biblioteca
             _grilla = new GrillaService();
             InitializeComponent();
         }
-
+        #region "Métodos"
         private void ValidarCampos()
         {
             txtBuscarCodCliente.Text = Validaciones.IntValidation(txtBuscarCodCliente.Text, 0, int.MaxValue, lblBuscarCodCliente.Text).ToString();
@@ -39,7 +39,16 @@ namespace Form_Biblioteca
 
         private void CompletarFormulario(Prestamo seleccionado)
         {
-            throw new NotImplementedException();
+            dtpFechaTentativaDevolucion.Value = seleccionado.FechaDevolucionTentativa;
+            dtpFechaDevolucion.Value = seleccionado.FechaDevolucionReal;
+            /*if (seleccionado.FechaDevolucionReal != null)
+            {
+                dtpFechaDevolucion.Value = seleccionado.FechaDevolucionReal;
+            }
+            else
+            {
+               ¿QUÉ HACEMOS 'MIJA?
+            }*/
         }
         private void FormatearCampos(string condicion)
         {
@@ -54,6 +63,8 @@ namespace Form_Biblioteca
                 lblRojo.Visible = false;
 
                 chkAbiertos.Checked = true;
+
+                dtpFechaDevolucion.Enabled = false;
 
             }
             else if (condicion == "seleccionado" && chkAbiertos.Checked)
@@ -71,7 +82,7 @@ namespace Form_Biblioteca
                 {
                     lblRojo.Visible = false;
                 }
-
+                dtpFechaDevolucion.Enabled = true;
 
             }
             else if (condicion == "seleccionado" && !chkAbiertos.Checked)
@@ -85,7 +96,7 @@ namespace Form_Biblioteca
 
                     lblRojo.Visible = false;
 
-
+                    dtpFechaDevolucion.Enabled = false;
                 }
                 else
                 {
@@ -103,6 +114,7 @@ namespace Form_Biblioteca
                     {
                         lblRojo.Visible = false;
                     }
+                    dtpFechaDevolucion.Enabled = true;
                 }
        }    }
         
@@ -135,41 +147,65 @@ namespace Form_Biblioteca
             }
         }
 
-        
 
+        #endregion
+        #region "Eventos"
         private void btnNuevoPrestamo_Click(object sender, EventArgs e)
         {
-            frm3AltaPrestamo f = new frm3AltaPrestamo(new ServicioPrestamo());
+            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo,new ServicioCliente(), new ServicioEjemplar());
             f.Owner = this;
             f.Show();
-            this.Hide();
         }
 
         private void btnConfirmarDevolución_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataGridViewRow row = dgvPrestamos.CurrentRow;
+            Prestamo seleccionado = row.DataBoundItem as Prestamo;
+            this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
         }
 
         private void btnEliminarPréstamo_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataGridViewRow row = dgvPrestamos.CurrentRow;
+            Prestamo seleccionado = row.DataBoundItem as Prestamo;
+            this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
         }
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            LimpiarCampos();
+            CargarDGVPrestamos();
+            FormatearCampos("menu");
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            this.Owner.Show();
+            this.Hide();
         }      
 
         
 
         private void btnBuscarPrestamo_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            try
+            {
+                if (txtBuscarCodCliente.Text == string.Empty && txtBuscarCodEjemplar.Text == string.Empty)
+                {
+                    MessageBox.Show("Debe ingresar al menos un criterio de búsqueda.");
+                    CargarDGVPrestamos();
+                }
+                else
+                {
+                    CargarDGVPrestamos();
+                }
+
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void chkAbiertos_CheckedChanged(object sender, EventArgs e)
@@ -212,5 +248,6 @@ namespace Form_Biblioteca
             }
             
         }
+        #endregion
     }
 }

@@ -124,7 +124,7 @@ namespace Negocio
             }
         }
         
-        public void EliminarCliente(int codigo)
+        public void EliminarPrestamo(int codigo)
         {
             Prestamo p = this.TraerPorCodigo(codigo);
             if (p != null)
