@@ -12,10 +12,8 @@ namespace Negocio
     {
         private MapperPrestamos _prestamoMapper;
         private ServicioEjemplar _ejemplarServicio;
-        private ServicioCliente _clienteServicio;
-       
-
-        
+        private ServicioCliente _clienteServicio;   
+               
 
         public ServicioPrestamo()
         {
@@ -38,7 +36,7 @@ namespace Negocio
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> resultado = new List<Prestamo>();
-            resultado = _prestamoMapper.TraerTodos();
+            resultado = TraerTodos();
 
             if (idCodigoCliente == 0 && idCodigoEjemplar == 0)
             {

@@ -18,9 +18,17 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
+        private void Tab()
+        {
+            btnPrestamos.TabIndex = 0;
+            btnLibro.TabIndex = 1;
+            btnCliente.TabIndex = 2;
+            btnSalir.TabIndex = 3;
+        }
+
         private void frm1MenuPrincipal_Load(object sender, EventArgs e)
         {
-
+            Tab();
         }
 
         private void btnPrestamos_Click(object sender, EventArgs e)
@@ -40,11 +48,7 @@ namespace Form_Biblioteca
             this.Hide();
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
+        
         private void btnCliente_Click(object sender, EventArgs e)
         {
             frm2Clientes f = new frm2Clientes(new ServicioCliente());
@@ -52,5 +56,26 @@ namespace Form_Biblioteca
             f.Show();
             this.Hide();
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void frm1MenuPrincipal_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {                
+                this.Dispose();
+            }
+        }
+
+        private void frm1MenuPrincipal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+        }
+
+       
+       
     }
 }

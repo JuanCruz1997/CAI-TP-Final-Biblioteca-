@@ -31,10 +31,11 @@ namespace Entidades
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
         [DataMember(Name ="FechaPrestamo")]
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
-        [DataMember]
+        
         public DateTime FechaDevolucionTentativa { get => _fechaHoraPrestamo.AddDays(_plazoPrestamo); }
         [DataMember]
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
+        public DateTime FechaDevolucionNula { get => Convert.ToDateTime("0001-01-01");}
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
         public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
 
@@ -57,7 +58,11 @@ namespace Entidades
 
         public Prestamo(int idCliente, int idEjemplar, int plazo)
         {
-
+            this.IdCliente = idCliente;
+            this.IdEjemplar = idEjemplar;
+            this._plazoPrestamo = plazo;
+            this.FechaDevolucionReal = FechaDevolucionNula;
+            
         }
     }
 

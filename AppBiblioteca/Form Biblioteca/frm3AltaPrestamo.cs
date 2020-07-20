@@ -17,6 +17,12 @@ namespace Form_Biblioteca
         private ServicioPrestamo _servicioPrestamo;
         private ServicioCliente _servicioCliente;
         private ServicioEjemplar _servicioEjemplar;
+
+        private const string ejemplar = "ejemplar";
+        private const string cliente = "cliente";
+        private const string prestamo = "prestamo";
+        private const string vacio = "vacio";
+        private const string completo = "completo";
         public frm3AltaPrestamo(ServicioPrestamo sp, ServicioCliente sc, ServicioEjemplar se)
         {
             this._servicioPrestamo = sp;
@@ -25,14 +31,48 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
         #region "Métodos"
-        public void ValidarCampos()
+        private bool MessageOkCancel(string msg, string tituloForm)
         {
-            txtCodigoCliente.Text = Validaciones.IntValidation(txtCodigoCliente.Text, 0, int.MaxValue, lblCodigoCl.Text).ToString();
-            txtNombreCliente.Text = Validaciones.StringValidation(txtNombreCliente.Text, lblNombre.Text);
-            txtApellidoCliente.Text = Validaciones.StringValidation(txtApellidoCliente.Text, lblApellido.Text);
-            txtCodigoEjemplar.Text = Validaciones.IntValidation(txtCodigoEjemplar.Text, 0, int.MaxValue, lblCodigoEj.Text).ToString();
-            txtTitulo.Text = Validaciones.StringValidation(txtTitulo.Text, lblTitulo.Text);
-            txtAutor.Text = Validaciones.StringValidation(txtAutor.Text, lblAutor.Text);
+
+            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
+        }
+        private void Tab()
+        {
+            gbDatosEjemplar.TabIndex = 0;
+            txtCodigoEjemplar.TabIndex = 1;
+            btnActualizarDatosEjemplar.TabIndex = 2;
+            btnTraerEjemplares.TabIndex = 3;
+            gbDatosCliente.TabIndex = 4;
+            txtCodigoCliente.TabIndex = 5;
+            btnActualizarDatosCliente.TabIndex = 6;
+            btnTraerClientes.TabIndex = 7;
+            btnConfirmarNuevoPrestamo.TabIndex = 8;
+            btnLimpiarCampos.TabIndex = 9;
+            btnSalir.TabIndex = 10;
+        }
+        public void ValidarCampos(string objeto)
+        {
+            if(objeto == ejemplar)
+            {
+                txtCodigoEjemplar.Text = Validaciones.IntValidation(txtCodigoEjemplar.Text, 0, int.MaxValue, lblCodigoEj.Text).ToString();
+
+            }
+            else if (objeto == cliente)
+            {
+                txtCodigoCliente.Text = Validaciones.IntValidation(txtCodigoCliente.Text, 0, int.MaxValue, lblCodigoCl.Text).ToString();
+
+            }
+            else if(objeto == prestamo)
+            {
+                txtPlazo.Text = Validaciones.IntValidation(txtPlazo.Text, 0, 365, lblPlazo.Text).ToString();
+
+            }
+    
         }
 
         public void LimpiarCampos()
@@ -49,7 +89,13 @@ namespace Form_Biblioteca
 
         public void CompletarFormulario(string objeto)
         {
-            if(objeto == "cliente")
+            if(objeto == prestamo)
+            {
+                txtPlazo.Text = "30"; //primera entrega, los préstamos serán de plazo fijo
+                dtpFechaAlta.Value = DateTime.Today;
+                dtpFechaTentativaDevolucion.Value = DateTime.Today.AddDays(Convert.ToDouble(txtPlazo.Text));
+            }
+            else if(objeto == cliente)
             {
                 Cliente c = this._servicioCliente.TraerPorCodigo(Convert.ToInt32(txtCodigoCliente.Text));
                 if (c != null)
@@ -59,29 +105,30 @@ namespace Form_Biblioteca
                 }
                 else
                 {
-                    MessageBox.Show("El código de cliente ingresado es incorrecto, o bien el cliente no existe.");
+                    MessageBox.Show("El código de cliente ingresado es incorrecto");
                 }
-            } else if (objeto == "ejemplar")
+            } else if (objeto == ejemplar)
             {
                 Ejemplar e = this._servicioEjemplar.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));
                 if (e != null)
                 {
                     txtTitulo.Text = e.Libro.Titulo;
                     txtAutor.Text = e.Libro.Autor;
+                    txtPrecio.Text = e.Precio.ToString();
                 }
                 else
                 {
-                    MessageBox.Show("El código de ejemplar ingresado es incorrecto, o bien el ejemplar no existe.");
+                    MessageBox.Show("El código de ejemplar ingresado es incorrecto");
                 }
             }
         }
 
         public void FormatearCampos(string condicion)
         {
-            if(condicion == "vacio")
+            if(condicion == vacio)
             {
                 btnConfirmarNuevoPrestamo.Enabled = false;
-            } else if (condicion == "completo")
+            } else if (condicion == completo)
             {
                 btnConfirmarNuevoPrestamo.Enabled = true;
             }
@@ -97,13 +144,49 @@ namespace Form_Biblioteca
                 txtCodigoEjemplar.Text = id;
             }
         }
+
+        private void CloseWindow()
+        {
+            this.Owner.Show();
+            this.Dispose();
+        }
         #endregion
         #region "Eventos"
         private void frm3AltaPrestamo_Load(object sender, EventArgs e)
         {
-
+            Tab();
+            FormatearCampos(vacio);
+            CompletarFormulario(prestamo);
+        }
+        private void btnActualizarDatosEjemplar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarCampos(ejemplar);
+                CompletarFormulario(ejemplar);
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
         }
 
+
+        private void txtCodigoEjemplar_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigoCliente.Text != string.Empty && txtCodigoEjemplar.Text != string.Empty)
+            {
+                FormatearCampos(completo);
+            }
+        }
+
+        private void txtCodigoCliente_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigoCliente.Text != string.Empty && txtCodigoEjemplar.Text != string.Empty)
+            {
+                FormatearCampos(completo);
+            }
+        }
         private void btnTraerEjemplares_Click(object sender, EventArgs e)
         {
             frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
@@ -117,15 +200,30 @@ namespace Form_Biblioteca
             f.Owner = this;
             f.Show();
         }
-
-        private void btnActualizarDatosEjemplar_Click(object sender, EventArgs e)
-        {
-            CompletarFormulario("ejemplar");
-        }
+              
 
         private void btnActualizarDatosCliente_Click(object sender, EventArgs e)
         {
-            CompletarFormulario("cliente");
+            CompletarFormulario(cliente);
+        }
+
+        
+
+        private void btnConfirmarNuevoPrestamo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidarCampos(ejemplar);
+                ValidarCampos(cliente);
+                ValidarCampos(prestamo);
+                int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(txtPlazo.Text));
+                MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " existosamente");
+                this.Dispose();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
@@ -135,29 +233,28 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            this.Dispose();
-        }
-
-        private void btnConfirmarNuevoPrestamo_Click(object sender, EventArgs e)
-        {
-            try
+            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
             {
-                ValidarCampos();
-                int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(dtpFechaTentativaDevolucion.Value - dtpFechaAlta.Value));
-                MessageBox.Show("Se ha dado de alta el préstamo existosamente.\nCódigo operación: " + codigo);
-                this.Dispose();
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+                CloseWindow();
             }
         }
 
         private void frm3AltaPrestamo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            this.Owner.Show();
-            this.Dispose();
+            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            {
+                CloseWindow();
+            }
+        }
+
+        private void frm3AltaPrestamo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            {
+                CloseWindow();
+            }
         }
         #endregion
+
     }
 }

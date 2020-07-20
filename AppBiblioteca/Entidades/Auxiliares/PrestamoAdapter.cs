@@ -16,17 +16,15 @@ namespace Entidades
         private DateTime _fechaDevolucionPrestamo;
         private int _plazoRestante;
         private bool _estado; //ver si se usa
-        public PrestamoAdapter(Prestamo p) //No debería recibir un libro, sino el libro del préstamo
+        public PrestamoAdapter(Prestamo p) 
         {
             this._nombre = p.Cliente.Nombre;
             this._apellido = p.Cliente.Apellido;
-            //No hace falta, accedes al libro del ejemplar desde la propiedad libro asignada al ejemplar
-            //this._titulo = p.Libro.Titulo;
-            //this._autor = p.Libro.Autor;
             this._titulo = p.Ejemplar.Libro.Titulo;
             this._autor = p.Ejemplar.Libro.Autor;
             this._fechaAltaPrestamo = p.FechaHoraPrestamo;
             this._plazoRestante = p.PlazoPrestamo;
+            this.FechaAltaPrestamo = p.FechaHoraPrestamo;
             this._fechaDevolucionPrestamo = p.FechaDevolucionReal;
             
         }

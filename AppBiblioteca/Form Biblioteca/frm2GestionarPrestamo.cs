@@ -16,6 +16,9 @@ namespace Form_Biblioteca
     {
         private ServicioPrestamo _servicioPrestamo;
         private GrillaService _grilla;
+        private const string menu = "menu";
+        private const string seleccion = "seleccion";
+
         public frm2GestionarPrestamo(ServicioPrestamo sp)
         {
             _servicioPrestamo = sp;
@@ -23,6 +26,36 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
         #region "Métodos"
+
+        private bool MessageOkCancel(string msg, string tituloForm)
+        {
+            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
+        }
+
+        private void Tab()
+        {
+            gbBuscarPrestamos.TabIndex = 0;
+            txtBuscarCodEjemplar.TabIndex = 0;
+            btnEjemplares.TabIndex = 1;
+            txtBuscarCodCliente.TabIndex = 2;
+            btnClientes.TabIndex = 3;
+            btnBuscarPrestamo.TabIndex = 4;
+            gbDatosPrestamo.TabIndex = 5;
+            chkAbiertos.TabIndex = 5;
+            dtpFechaTentativaDevolucion.TabIndex = 6;
+            dtpFechaDevolucion.TabIndex = 7;
+            btnNuevoPrestamo.TabIndex = 8;
+            btnConfirmarDevolución.TabIndex = 9;
+            btnEliminarPréstamo.TabIndex = 10;
+            btnLimpiarCampos.TabIndex = 11;
+            btnSalir.TabIndex = 12;
+            dgvPrestamos.TabIndex = 13;
+        }
         private void ValidarCampos()
         {
             txtBuscarCodCliente.Text = Validaciones.IntValidation(txtBuscarCodCliente.Text, 0, int.MaxValue, lblBuscarCodCliente.Text).ToString();
@@ -41,19 +74,11 @@ namespace Form_Biblioteca
         {
             dtpFechaTentativaDevolucion.Value = seleccionado.FechaDevolucionTentativa;
             dtpFechaDevolucion.Value = seleccionado.FechaDevolucionReal;
-            /*if (seleccionado.FechaDevolucionReal != null)
-            {
-                dtpFechaDevolucion.Value = seleccionado.FechaDevolucionReal;
-            }
-            else
-            {
-               ¿QUÉ HACEMOS 'MIJA?
-            }*/
+            txtDeuda.Text = seleccionado.Deuda.ToString();
         }
         private void FormatearCampos(string condicion)
-        {
-            
-            if (condicion == "menu")
+        {            
+            if (condicion == menu)
             {
                 btnNuevoPrestamo.Enabled = true;
 
@@ -67,7 +92,7 @@ namespace Form_Biblioteca
                 dtpFechaDevolucion.Enabled = false;
 
             }
-            else if (condicion == "seleccionado" && chkAbiertos.Checked)
+            else if (condicion == seleccion && chkAbiertos.Checked)
             {
                 btnNuevoPrestamo.Enabled = false;
 
@@ -85,7 +110,7 @@ namespace Form_Biblioteca
                 dtpFechaDevolucion.Enabled = true;
 
             }
-            else if (condicion == "seleccionado" && !chkAbiertos.Checked)
+            else if (condicion == seleccion && !chkAbiertos.Checked)
             {
                 if (dtpFechaDevolucion.Value != null)
                 {
@@ -147,44 +172,51 @@ namespace Form_Biblioteca
             }
         }
 
+        private void CloseWindow()
+        {
+            this.Owner.Show();
+            this.Dispose();
+        }
+
 
         #endregion
         #region "Eventos"
-        private void btnNuevoPrestamo_Click(object sender, EventArgs e)
+        private void frm2GestionarPrestamo_Load(object sender, EventArgs e)
         {
-            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo,new ServicioCliente(), new ServicioEjemplar());
+            Tab();
+            CargarDGVPrestamos();
+            FormatearCampos(menu);
+            LimpiarCampos();
+        }
+        private void dgvPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dgvPrestamos.CurrentRow;
+            Prestamo seleccionado = row.DataBoundItem as Prestamo;
+            if (seleccionado != null)
+            {
+                CompletarFormulario(seleccionado);
+                FormatearCampos(seleccion);
+            }
+
+
+        }
+        
+
+        private void btnEjemplares_Click(object sender, EventArgs e)
+        {
+            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
             f.Owner = this;
             f.Show();
-        }
-
-        private void btnConfirmarDevolución_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow row = dgvPrestamos.CurrentRow;
-            Prestamo seleccionado = row.DataBoundItem as Prestamo;
-            this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
-        }
-
-        private void btnEliminarPréstamo_Click(object sender, EventArgs e)
-        {
-            DataGridViewRow row = dgvPrestamos.CurrentRow;
-            Prestamo seleccionado = row.DataBoundItem as Prestamo;
-            this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
-        }
-
-        private void btnLimpiarCampos_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            CargarDGVPrestamos();
-            FormatearCampos("menu");
-        }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            this.Owner.Show();
             this.Hide();
-        }      
+        }
 
-        
+        private void btnClientes_Click(object sender, EventArgs e)
+        {
+            frm2Clientes f = new frm2Clientes(new ServicioCliente());
+            f.Owner = this;
+            f.Show();
+            this.Hide();
+        }
 
         private void btnBuscarPrestamo_Click(object sender, EventArgs e)
         {
@@ -213,41 +245,66 @@ namespace Form_Biblioteca
             CargarDGVPrestamos();
             LimpiarCampos();
         }
-
-        private void frm2GestionarPrestamo_Load(object sender, EventArgs e)
+        
+        private void btnNuevoPrestamo_Click(object sender, EventArgs e)
         {
-            CargarDGVPrestamos();            
-            FormatearCampos("menu");
-            LimpiarCampos();
-        }
-
-        private void btnEjemplares_Click(object sender, EventArgs e)
-        {
-            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
+            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo, new ServicioCliente(), new ServicioEjemplar());
             f.Owner = this;
             f.Show();
-            this.Hide();
         }
 
-        private void btnClientes_Click(object sender, EventArgs e)
-        {
-            frm2Clientes f = new frm2Clientes(new ServicioCliente());
-            f.Owner = this;
-            f.Show();
-            this.Hide();
-        }
-
-        private void dgvPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnConfirmarDevolución_Click(object sender, EventArgs e)
         {
             DataGridViewRow row = dgvPrestamos.CurrentRow;
             Prestamo seleccionado = row.DataBoundItem as Prestamo;
-            if (seleccionado != null)
-            {
-                CompletarFormulario(seleccionado);
-                FormatearCampos("seleccionado");
-            }
-            
+            this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
         }
+
+        private void btnEliminarPréstamo_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow row = dgvPrestamos.CurrentRow;
+            Prestamo seleccionado = row.DataBoundItem as Prestamo;
+            this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
+        }
+
+        private void btnLimpiarCampos_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            CargarDGVPrestamos();
+            FormatearCampos(menu);
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            {
+                CloseWindow();
+            }
+        }
+
+        private void frm2GestionarPrestamo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                {
+                    CloseWindow();
+                }
+            }
+        }
+
+        private void frm2GestionarPrestamo_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            {
+                CloseWindow();
+            }
+        }
+
+
+
         #endregion
+
+        
     }
 }

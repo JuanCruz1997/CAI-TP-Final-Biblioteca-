@@ -10,6 +10,7 @@ namespace Negocio
     public class GrillaService
     {
         private ServicioPrestamo _prestamoServicio;
+
         public GrillaService()
         {
             this._prestamoServicio = new ServicioPrestamo();
@@ -36,7 +37,7 @@ namespace Negocio
             listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
             foreach (Prestamo p in listaPrestamo)
             {
-                if(p.FechaDevolucionReal == null)
+                if(p.FechaDevolucionReal == p.FechaDevolucionNula)
                 {
                     listaPrestamoAdapter.Add(new PrestamoAdapter(p));
                 }
