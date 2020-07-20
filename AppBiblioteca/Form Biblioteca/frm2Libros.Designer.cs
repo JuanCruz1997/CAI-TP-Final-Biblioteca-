@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCantidadPaginas = new System.Windows.Forms.Label();
             this.lblEditorial = new System.Windows.Forms.Label();
             this.txtPaginas = new System.Windows.Forms.TextBox();
@@ -112,7 +112,7 @@
             // txtPaginas
             // 
             this.txtPaginas.Location = new System.Drawing.Point(213, 150);
-            this.txtPaginas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPaginas.Margin = new System.Windows.Forms.Padding(4);
             this.txtPaginas.Name = "txtPaginas";
             this.txtPaginas.Size = new System.Drawing.Size(49, 22);
             this.txtPaginas.TabIndex = 122;
@@ -120,7 +120,7 @@
             // txtEditorial
             // 
             this.txtEditorial.Location = new System.Drawing.Point(79, 196);
-            this.txtEditorial.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEditorial.Margin = new System.Windows.Forms.Padding(4);
             this.txtEditorial.Name = "txtEditorial";
             this.txtEditorial.Size = new System.Drawing.Size(183, 22);
             this.txtEditorial.TabIndex = 121;
@@ -128,7 +128,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(804, 559);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(225, 57);
             this.btnSalir.TabIndex = 117;
@@ -139,7 +139,7 @@
             // btnAltaLibro
             // 
             this.btnAltaLibro.Location = new System.Drawing.Point(31, 559);
-            this.btnAltaLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAltaLibro.Margin = new System.Windows.Forms.Padding(4);
             this.btnAltaLibro.Name = "btnAltaLibro";
             this.btnAltaLibro.Size = new System.Drawing.Size(243, 57);
             this.btnAltaLibro.TabIndex = 116;
@@ -181,7 +181,7 @@
             // 
             this.txtInventario.Enabled = false;
             this.txtInventario.Location = new System.Drawing.Point(228, 32);
-            this.txtInventario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtInventario.Margin = new System.Windows.Forms.Padding(4);
             this.txtInventario.Name = "txtInventario";
             this.txtInventario.ReadOnly = true;
             this.txtInventario.Size = new System.Drawing.Size(55, 22);
@@ -192,7 +192,7 @@
             this.cmbTema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTema.FormattingEnabled = true;
             this.cmbTema.Location = new System.Drawing.Point(79, 233);
-            this.cmbTema.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbTema.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTema.Name = "cmbTema";
             this.cmbTema.Size = new System.Drawing.Size(183, 24);
             this.cmbTema.TabIndex = 134;
@@ -210,7 +210,7 @@
             // txtEdicion
             // 
             this.txtEdicion.Location = new System.Drawing.Point(79, 150);
-            this.txtEdicion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtEdicion.Margin = new System.Windows.Forms.Padding(4);
             this.txtEdicion.Name = "txtEdicion";
             this.txtEdicion.Size = new System.Drawing.Size(49, 22);
             this.txtEdicion.TabIndex = 135;
@@ -219,7 +219,7 @@
             // 
             this.txtDisponibles.Enabled = false;
             this.txtDisponibles.Location = new System.Drawing.Point(228, 71);
-            this.txtDisponibles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDisponibles.Margin = new System.Windows.Forms.Padding(4);
             this.txtDisponibles.Name = "txtDisponibles";
             this.txtDisponibles.ReadOnly = true;
             this.txtDisponibles.Size = new System.Drawing.Size(55, 22);
@@ -228,7 +228,7 @@
             // txtCantidadAAgregar
             // 
             this.txtCantidadAAgregar.Location = new System.Drawing.Point(1253, 12);
-            this.txtCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCantidadAAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.txtCantidadAAgregar.Name = "txtCantidadAAgregar";
             this.txtCantidadAAgregar.Size = new System.Drawing.Size(55, 22);
             this.txtCantidadAAgregar.TabIndex = 138;
@@ -246,7 +246,7 @@
             // btnVerEjemplares
             // 
             this.btnVerEjemplares.Location = new System.Drawing.Point(296, 559);
-            this.btnVerEjemplares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVerEjemplares.Margin = new System.Windows.Forms.Padding(4);
             this.btnVerEjemplares.Name = "btnVerEjemplares";
             this.btnVerEjemplares.Size = new System.Drawing.Size(243, 57);
             this.btnVerEjemplares.TabIndex = 143;
@@ -257,7 +257,7 @@
             // btnLimpiarCampos
             // 
             this.btnLimpiarCampos.Location = new System.Drawing.Point(560, 559);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
             this.btnLimpiarCampos.TabIndex = 144;
@@ -270,16 +270,17 @@
             this.lstEjemplares.FormattingEnabled = true;
             this.lstEjemplares.ItemHeight = 16;
             this.lstEjemplares.Location = new System.Drawing.Point(1045, 142);
-            this.lstEjemplares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstEjemplares.Margin = new System.Windows.Forms.Padding(4);
             this.lstEjemplares.Name = "lstEjemplares";
             this.lstEjemplares.Size = new System.Drawing.Size(409, 404);
             this.lstEjemplares.TabIndex = 146;
+            this.lstEjemplares.SelectedIndexChanged += new System.EventHandler(this.lstEjemplares_SelectedIndexChanged);
             this.lstEjemplares.DoubleClick += new System.EventHandler(this.lstEjemplares_DoubleClick);
             // 
             // btnComprimir
             // 
             this.btnComprimir.Location = new System.Drawing.Point(1045, 559);
-            this.btnComprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnComprimir.Margin = new System.Windows.Forms.Padding(4);
             this.btnComprimir.Name = "btnComprimir";
             this.btnComprimir.Size = new System.Drawing.Size(60, 57);
             this.btnComprimir.TabIndex = 148;
@@ -290,7 +291,7 @@
             // btnBuscarLibro
             // 
             this.btnBuscarLibro.Location = new System.Drawing.Point(633, 25);
-            this.btnBuscarLibro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarLibro.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarLibro.Name = "btnBuscarLibro";
             this.btnBuscarLibro.Size = new System.Drawing.Size(71, 32);
             this.btnBuscarLibro.TabIndex = 142;
@@ -302,7 +303,7 @@
             // 
             this.txtISBN.Enabled = false;
             this.txtISBN.Location = new System.Drawing.Point(79, 34);
-            this.txtISBN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtISBN.Margin = new System.Windows.Forms.Padding(4);
             this.txtISBN.Name = "txtISBN";
             this.txtISBN.ReadOnly = true;
             this.txtISBN.Size = new System.Drawing.Size(183, 22);
@@ -321,7 +322,7 @@
             // txtAutor
             // 
             this.txtAutor.Location = new System.Drawing.Point(79, 107);
-            this.txtAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtAutor.Name = "txtAutor";
             this.txtAutor.Size = new System.Drawing.Size(183, 22);
             this.txtAutor.TabIndex = 141;
@@ -339,7 +340,7 @@
             // txtTitulo
             // 
             this.txtTitulo.Location = new System.Drawing.Point(79, 71);
-            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(183, 22);
             this.txtTitulo.TabIndex = 139;
@@ -369,11 +370,12 @@
             this.gbBuscarLibros.TabIndex = 145;
             this.gbBuscarLibros.TabStop = false;
             this.gbBuscarLibros.Text = "Buscar";
+            this.gbBuscarLibros.Enter += new System.EventHandler(this.gbBuscarLibros_Enter);
             // 
             // txtBuscarAutor
             // 
             this.txtBuscarAutor.Location = new System.Drawing.Point(355, 28);
-            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarAutor.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarAutor.Name = "txtBuscarAutor";
             this.txtBuscarAutor.Size = new System.Drawing.Size(201, 22);
             this.txtBuscarAutor.TabIndex = 148;
@@ -381,7 +383,7 @@
             // txtBuscarTitulo
             // 
             this.txtBuscarTitulo.Location = new System.Drawing.Point(61, 28);
-            this.txtBuscarTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarTitulo.Name = "txtBuscarTitulo";
             this.txtBuscarTitulo.Size = new System.Drawing.Size(201, 22);
             this.txtBuscarTitulo.TabIndex = 147;
@@ -413,14 +415,14 @@
             this.dgvLibros.AllowUserToResizeRows = false;
             this.dgvLibros.AutoGenerateColumns = false;
             this.dgvLibros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iSBNDataGridViewTextBoxColumn,
@@ -621,7 +623,7 @@
             // btnTraerEjemplar
             // 
             this.btnTraerEjemplar.Location = new System.Drawing.Point(31, 559);
-            this.btnTraerEjemplar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTraerEjemplar.Margin = new System.Windows.Forms.Padding(4);
             this.btnTraerEjemplar.Name = "btnTraerEjemplar";
             this.btnTraerEjemplar.Size = new System.Drawing.Size(243, 57);
             this.btnTraerEjemplar.TabIndex = 159;
@@ -649,7 +651,7 @@
             this.Controls.Add(this.gbBuscarLibros);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.gbEjemplares);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm2Libros";
             this.Text = "Gestionar libros";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm2Libros_FormClosed);

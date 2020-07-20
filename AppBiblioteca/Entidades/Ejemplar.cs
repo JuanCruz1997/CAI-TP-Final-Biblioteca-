@@ -22,7 +22,7 @@ namespace Entidades
         {
             this._codigoLibro = codLibro;
             this._precio = precio;
-            this._descripcion = string.Empty;
+            this._descripcion = "Sin observaciones";
             this._disponible = true;
         }
 

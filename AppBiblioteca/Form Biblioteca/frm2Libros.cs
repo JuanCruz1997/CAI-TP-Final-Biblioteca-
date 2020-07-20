@@ -142,7 +142,7 @@ namespace Form_Biblioteca
             
         }
 
-        private void CompletarFormulario(Libro seleccionado)
+        private void CompletarFormularioLibro(Libro seleccionado)
         {
             txtISBN.Text = seleccionado.ISBN.ToString();
             txtTitulo.Text = seleccionado.Titulo;
@@ -202,6 +202,11 @@ namespace Form_Biblioteca
             temas.Insert(0, "--Seleccione una opción--");
             return temas;
         }
+        private void CompletarFormularioEjemplar(Ejemplar seleccionado)
+        {
+            txtPrecio.Text = seleccionado.Precio.ToString();
+            txtObservaciones.Text = seleccionado.Descripcion;
+        }
         #endregion
         #region "Eventos"
         private void frm2Libros_Load(object sender, EventArgs e)
@@ -247,7 +252,7 @@ namespace Form_Biblioteca
             Libro seleccionado = row.DataBoundItem as Libro;
             if (seleccionado != null)
             {
-                CompletarFormulario(seleccionado);
+                CompletarFormularioLibro(seleccionado);
                 FormatearCampos("seleccionado");
             }
         }
@@ -282,7 +287,7 @@ namespace Form_Biblioteca
                 DataGridViewRow row = dgvLibros.Rows[0];
                 row.Selected = true;
                 Libro seleccionado = row.DataBoundItem as Libro;
-                CompletarFormulario(seleccionado);
+                CompletarFormularioLibro(seleccionado);
                 this.Size = new Size(1125, this.Size.Height);
                 gbEjemplares.Enabled = false;
             }
@@ -323,7 +328,29 @@ namespace Form_Biblioteca
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (txtISBN.Text == string.Empty)
+            {
+                MessageBox.Show("Para modificar un libro, antes debe seleccionarlo.");
+            }
+            else
+            {
+                try
+                {
+
+                    ValidarCampos("ejemplar");
+                    Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
+                    int codigo = this._servicioEjemplar.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
+                    MessageBox.Show("El ejemplar se ha modificado exitosamente.\nCódigo operación: " + codigo);
+                    DataGridViewRow row = dgvLibros.CurrentRow;
+                    Libro seleccionado = row.DataBoundItem as Libro;
+                    CargarListaEjemplares(seleccionado);
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void btnAgregarCantidad_Click(object sender, EventArgs e)
@@ -333,6 +360,9 @@ namespace Form_Biblioteca
                 ValidarCampos("ejemplar");
                 string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
+                DataGridViewRow row = dgvLibros.CurrentRow;
+                Libro seleccionado = row.DataBoundItem as Libro;
+                CargarListaEjemplares(seleccionado);
                 gbEjemplares.Enabled = true;
             }
             catch(Exception ex)
@@ -385,6 +415,20 @@ namespace Form_Biblioteca
                 this.Dispose();
             }
         }
+        private void gbBuscarLibros_Enter(object sender, EventArgs e)
+        {
+
+        }
+        private void lstEjemplares_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Ejemplar seleccionado = (Ejemplar)lstEjemplares.SelectedItem;
+            if (seleccionado != null)
+            {
+                CompletarFormularioEjemplar(seleccionado);
+            }
+        }
         #endregion
+
+
     }
 }

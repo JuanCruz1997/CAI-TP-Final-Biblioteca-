@@ -130,5 +130,27 @@ namespace Negocio
             }
             return null;
         }
+        public int ModificarEjemplar(int codigo, double precio, string descripcion)
+        {
+            Ejemplar ej = TraerPorCodigo(codigo);
+            if (ej != null)
+            {
+                ej.Precio = precio;
+                ej.Descripcion = descripcion;
+                TransactionResult resultado = _ejemplarMapper.Update(ej);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
+                }
+            }
+            else
+            {
+                throw new Exception("Ejemplar inexistente");
+            }
+        }
     }
 }

@@ -38,7 +38,8 @@ namespace Datos
             nvc.Add("idLibro", ejemplar.CodigoLibro.ToString());
             nvc.Add("Observaciones", ejemplar.Descripcion);
             nvc.Add("Precio", ejemplar.Precio.ToString());
-            
+            nvc.Add("FechaAlta", ejemplar.FechaAlta.ToString());
+            nvc.Add("id", ejemplar.Codigo.ToString());
             return nvc;
 
         }
@@ -46,6 +47,15 @@ namespace Datos
         {
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
-        } 
+        }
+        public TransactionResult Update(Ejemplar ejemplar)
+        {
+            NameValueCollection obj = ReverseMap(ejemplar);
+            string result = WebHelper.Put("/api/v1/ejemplares", obj);
+
+            TransactionResult resultadoTransaccion = MapResult(result);
+
+            return resultadoTransaccion;
+        }
     }
 }
