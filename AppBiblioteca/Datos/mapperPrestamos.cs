@@ -34,10 +34,11 @@ namespace Datos
             NameValueCollection nvc = new NameValueCollection();
             nvc.Add("idCliente", prestamo.IdCliente.ToString());
             nvc.Add("idEjemplar", prestamo.IdEjemplar.ToString());
-            nvc.Add("plazo", prestamo.PlazoPrestamo.ToString());
+            nvc.Add("Plazo", prestamo.PlazoPrestamo.ToString());
             nvc.Add("FechaPrestamo", prestamo.FechaHoraPrestamo.ToString());
-            nvc.Add("fechaDevolucionTentativa", prestamo.FechaDevolucionTentativa.ToString());
-            nvc.Add("fechaDevolucionReal", prestamo.FechaDevolucionReal.ToString());
+            nvc.Add("FechaDevolucionTentativa", prestamo.FechaDevolucionTentativa.ToString());
+            nvc.Add("FechaDevolucionReal", prestamo.FechaDevolucionReal.ToString());
+            nvc.Add("id", prestamo.NumeroOperacion.ToString());
             return nvc;
         }
         private TransactionResult MapResult (string json)
@@ -48,7 +49,7 @@ namespace Datos
         public TransactionResult Update(Prestamo prestamo)
         {
             NameValueCollection obj = ReverseMap(prestamo);
-            string result = WebHelper.Put("​/api/v1​/Biblioteca​/Prestamos", obj);
+            string result = WebHelper.Put("/api/v1/Biblioteca/Prestamos", obj);
             TransactionResult resultadoTransaccion = MapResult(result);
             return resultadoTransaccion;
         }
@@ -57,7 +58,7 @@ namespace Datos
         {
             NameValueCollection obj = new NameValueCollection();
             obj.Add("id", prestamo.NumeroOperacion.ToString());
-            string result = WebHelper.Delete("/api/v1​/Biblioteca​/Prestamos", obj);
+            string result = WebHelper.Delete("/api/v1/biblioteca/prestamos", obj);
             TransactionResult resultadoTransaccion = MapResult(result);
             return resultadoTransaccion;
         }

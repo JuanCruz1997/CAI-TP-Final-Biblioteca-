@@ -37,7 +37,7 @@ namespace Negocio
             listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
             foreach (Prestamo p in listaPrestamo)
             {
-                if(p.FechaDevolucionReal == p.FechaDevolucionNula)
+                if(p.FechaDevolucionReal == DateTime.MinValue)
                 {
                     listaPrestamoAdapter.Add(new PrestamoAdapter(p));
                 }

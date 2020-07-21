@@ -44,10 +44,11 @@ namespace Entidades
         {
             get
             {
-                if(FechaDevolucionTentativa>= DateTime.Today)
+                if(DateTime.Today >= FechaDevolucionTentativa)
                 {
                     return (int)(FechaDevolucionTentativa - DateTime.Today).Days;
-                } else
+                }
+                else
                 {
                     return 0;
                 }
@@ -61,7 +62,7 @@ namespace Entidades
             this.IdCliente = idCliente;
             this.IdEjemplar = idEjemplar;
             this._plazoPrestamo = plazo;
-            this.FechaDevolucionReal = FechaDevolucionNula;
+            this.FechaDevolucionReal = DateTime.MinValue;
             this.FechaHoraPrestamo = DateTime.Today;
             this._precioPactado = precio;
         }

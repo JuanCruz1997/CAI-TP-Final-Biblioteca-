@@ -100,16 +100,23 @@ namespace Negocio
 
         public int AltaPrestamo(int idCliente, int idEjemplar, int idPlazo, double precio)
         {
-            Prestamo alta = new Prestamo(idCliente, idEjemplar, idPlazo, precio);
-            
-            TransactionResult resultado = _prestamoMapper.Insert(alta);
-            if (resultado.IsOk)
+            Ejemplar ej = this._ejemplarServicio.TraerPorCodigo(idEjemplar);
+            if (ej.Disponible)
             {
-                return resultado.Id;
+                Prestamo alta = new Prestamo(idCliente, idEjemplar, idPlazo, precio);
+                TransactionResult resultado = _prestamoMapper.Insert(alta);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
+                }
             }
             else
             {
-                throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
+                throw new Exception("El ejemplar no se encuentra disponible para préstamo. Elija otro.");
             }
         }
         public int Devolucion(int codigo, DateTime fechaDevolucion)

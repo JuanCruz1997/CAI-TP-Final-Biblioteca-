@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class PrestamoAdapter
     {
+        private int _codigo;
         private string _nombre;
         private string _apellido;
         private string _titulo;
@@ -18,6 +19,7 @@ namespace Entidades
         private bool _estado; //ver si se usa
         public PrestamoAdapter(Prestamo p) 
         {
+            this.Codigo = p.NumeroOperacion;
             this._nombre = p.Cliente.Nombre;
             this._apellido = p.Cliente.Apellido;
             this._titulo = p.Ejemplar.Libro.Titulo;
@@ -28,6 +30,7 @@ namespace Entidades
             this._fechaDevolucionPrestamo = p.FechaDevolucionReal;
             
         }
+        public int Codigo { get => _codigo; set => _codigo = value; }
         public string Nombre { get => _nombre; set => _nombre = value; }
         public string Apellido { get => _apellido; set => _apellido = value; }
         public string Titulo { get => _titulo; set => _titulo = value; }

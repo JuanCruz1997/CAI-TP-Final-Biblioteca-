@@ -40,11 +40,6 @@ namespace Datos
             nvc.Add("direccion", cliente.Direccion);
             nvc.Add("email", cliente.Mail);
             nvc.Add("telefono", cliente.Telefono.ToString());
-            //nvc.Add("fechaNacimiento", cliente.);
-            //nvc.Add("fechaAlta", cliente);
-            nvc.Add("activo", cliente.Activo.ToString());
-            //nvc.Add("usuario", cliente);
-            //nvc.Add("host", cliente);
             return nvc;
         }
         private TransactionResult MapResult(string json)

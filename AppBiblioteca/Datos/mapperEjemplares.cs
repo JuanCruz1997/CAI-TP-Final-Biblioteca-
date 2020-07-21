@@ -38,8 +38,8 @@ namespace Datos
             nvc.Add("idLibro", ejemplar.CodigoLibro.ToString());
             nvc.Add("Observaciones", ejemplar.Descripcion);
             nvc.Add("Precio", ejemplar.Precio.ToString());
-           nvc.Add("FechaAlta", ejemplar.FechaAlta.ToString());
-           nvc.Add("id", ejemplar.Codigo.ToString());
+            nvc.Add("FechaAlta", ejemplar.FechaAlta.ToString());
+            nvc.Add("id", ejemplar.Codigo.ToString());
             return nvc;
 
         }

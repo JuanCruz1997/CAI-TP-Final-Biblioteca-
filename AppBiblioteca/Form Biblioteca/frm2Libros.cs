@@ -81,19 +81,10 @@ namespace Form_Biblioteca
                 txtPaginas.Text = Validaciones.IntValidation(txtPaginas.Text, 0, 999999999, lblCantidadPaginas.Text).ToString();
             } else if (objeto ==ejemplar)
             {
-
-                if (!string.IsNullOrEmpty(txtObservaciones.Text))
-                {
-                    txtCantidadAAgregar.Text = Validaciones.IntValidation(txtCantidadAAgregar.Text, 0, int.MaxValue, lblCantidadAAgregar.Text).ToString();
-                    txtPrecio.Text = Validaciones.DoubleValidation(txtPrecio.Text, 0, double.MaxValue, lblPrecio.Text).ToString();
-                    txtISBN.Text = Validaciones.IntValidation(txtISBN.Text, 0, int.MaxValue, lblISBN.Text).ToString();
-                    txtObservaciones.Text = Validaciones.StringValidation(txtObservaciones.Text, lblObservaciones.Text);
-                }
-                else
-                {
-                    throw new Exception("El campo "+ lblObservaciones.Text + "no puede estar vacío");
-                }
-                
+                txtCantidadAAgregar.Text = Validaciones.IntValidation(txtCantidadAAgregar.Text, 0, int.MaxValue, lblCantidadAAgregar.Text).ToString();
+                txtPrecio.Text = Validaciones.DoubleValidation(txtPrecio.Text, 0, double.MaxValue, lblPrecio.Text).ToString();
+                txtISBN.Text = Validaciones.IntValidation(txtISBN.Text, 0, int.MaxValue, lblISBN.Text).ToString();
+                txtObservaciones.Text = Validaciones.StringValidation(txtObservaciones.Text, lblObservaciones.Text);
             }
             
         }
@@ -283,8 +274,8 @@ namespace Form_Biblioteca
 
         private void CargarListaEjemplares(Libro seleccionado)
         {
-            List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-            this._servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+            //List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+            List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
             this._servicioEjemplar.CalcularStock(lista, seleccionado);
             lstEjemplares.DataSource = null;
             lstEjemplares.DataSource = lista;
@@ -407,8 +398,8 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
-                List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-                this._servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+                //List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+                List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
                 this._servicioEjemplar.CalcularStock(lista, seleccionado);
                 CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);

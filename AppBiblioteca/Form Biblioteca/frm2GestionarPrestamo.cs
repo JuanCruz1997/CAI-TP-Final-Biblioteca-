@@ -76,11 +76,19 @@ namespace Form_Biblioteca
             dgvPrestamos.CurrentCell = null;
         }
 
-        private void CompletarFormulario(Prestamo seleccionado)
+        private void CompletarFormulario(PrestamoAdapter seleccionado)
         {
-            dtpFechaTentativaDevolucion.Value = seleccionado.FechaDevolucionTentativa;
-            dtpFechaDevolucion.Value = seleccionado.FechaDevolucionReal;
-            txtDeuda.Text = seleccionado.Deuda.ToString();
+            Prestamo elegido = this._servicioPrestamo.TraerPorCodigo(seleccionado.Codigo);
+            dtpFechaTentativaDevolucion.Value = elegido.FechaDevolucionTentativa;
+            if (elegido.FechaDevolucionReal == DateTime.MinValue)
+            {
+                dtpFechaDevolucion.Value = DateTime.Today;
+            }
+            else
+            {
+                dtpFechaDevolucion.Value = elegido.FechaDevolucionReal;
+            }
+            txtDeuda.Text = elegido.Deuda.ToString();
         }
         private void FormatearCampos(string condicion)
         {            
@@ -183,7 +191,12 @@ namespace Form_Biblioteca
             this.Owner.Show();
             this.Dispose();
         }
-
+        private PrestamoAdapter ObtenerAdapter()
+        {
+            DataGridViewRow row = dgvPrestamos.CurrentRow;
+            PrestamoAdapter seleccionado = row.DataBoundItem as PrestamoAdapter;
+            return seleccionado;
+        }
 
         #endregion
         #region "Eventos"
@@ -196,8 +209,7 @@ namespace Form_Biblioteca
         }
         private void dgvPrestamos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvPrestamos.CurrentRow;
-            Prestamo seleccionado = row.DataBoundItem as Prestamo;
+            PrestamoAdapter seleccionado = ObtenerAdapter();
             if (seleccionado != null)
             {
                 CompletarFormulario(seleccionado);
@@ -264,9 +276,8 @@ namespace Form_Biblioteca
                 DialogResult pregunta = MessageBox.Show("¿Confirma que el ejemplar ha sido devuelto?", "Confirmar devolución", MessageBoxButtons.YesNo);
                 if (pregunta.ToString() == "Yes")
                 {
-                    DataGridViewRow row = dgvPrestamos.CurrentRow;
-                    Prestamo seleccionado = row.DataBoundItem as Prestamo;
-                    int codigo = this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
+                    PrestamoAdapter seleccionado = ObtenerAdapter();
+                    int codigo = this._servicioPrestamo.Devolucion(seleccionado.Codigo, DateTime.Now);
                     MessageBox.Show("El ejemplar ha sido devuelto. Código operación: " + codigo);
                     CargarDGVPrestamos();
                     LimpiarCampos();
@@ -285,9 +296,8 @@ namespace Form_Biblioteca
                 DialogResult pregunta = MessageBox.Show("¿Confirma que desea eliminar el préstamo seleccionado? Recuerde que sólo debe hacerlo si el mismo fue cargado incorrectamente con datos incorrectos.", "Eliminar préstamo", MessageBoxButtons.YesNo);
                 if (pregunta.ToString() == "Yes")
                 {
-                    DataGridViewRow row = dgvPrestamos.CurrentRow;
-                    Prestamo seleccionado = row.DataBoundItem as Prestamo;
-                    int codigo = this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
+                    PrestamoAdapter seleccionado = ObtenerAdapter();
+                    int codigo = this._servicioPrestamo.EliminarPrestamo(seleccionado.Codigo);
                     MessageBox.Show("Se ha eliminado el préstamo. Código operación: " + codigo);
                     CargarDGVPrestamos();
                     LimpiarCampos();

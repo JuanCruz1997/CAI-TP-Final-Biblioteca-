@@ -31,8 +31,25 @@ namespace Negocio
             }
                 
         }
-    
-
+        public List<Ejemplar> AsignarDisponibilidad2(Libro seleccionado, ServicioPrestamo sp)
+        {
+            List<Ejemplar> lista = TraerPorLibro(seleccionado.ISBN);
+            foreach(Ejemplar ej in lista)
+            {
+                ej.Disponible = true;
+            }
+            foreach(Prestamo p in sp.TraerTodos())
+            {
+                foreach(Ejemplar ej in lista)
+                {
+                    if (p.Ejemplar.Codigo == ej.Codigo)
+                    {
+                        ej.Disponible = false;
+                    }
+                }
+            }
+            return lista;
+        }
         public void AsignarDisponibilidad(List<Ejemplar> ejemplares, ServicioPrestamo sp)
         {
             foreach (Ejemplar ejem in ejemplares)
