@@ -325,6 +325,12 @@ namespace Form_Biblioteca
             this.Owner.Show();
             this.Dispose();
         }
+        private Libro IndicarLibro()
+        {
+            DataGridViewRow row = dgvLibros.CurrentRow;
+            Libro seleccionado = row.DataBoundItem as Libro;
+            return seleccionado;
+        }
         #endregion
         #region "Eventos"
 
@@ -347,20 +353,14 @@ namespace Form_Biblioteca
 
         private void frm2Libros_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-            {
-                CloseWindow();
-            }
+            CloseWindow();
         }
 
         private void frm2Libros_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Escape)
             {
-                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-                {
-                    CloseWindow();
-                }
+                CloseWindow();
             }
         }
 
@@ -391,8 +391,7 @@ namespace Form_Biblioteca
 
         private void dgvLibros_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvLibros.CurrentRow;
-            Libro seleccionado = row.DataBoundItem as Libro;
+            Libro seleccionado = IndicarLibro();
             if (seleccionado != null)
             {
                 CompletarFormularioLibro(seleccionado);
@@ -404,8 +403,7 @@ namespace Form_Biblioteca
 
         private void dgvLibros_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dgvLibros.CurrentRow;
-            Libro seleccionado = row.DataBoundItem as Libro;
+            Libro seleccionado = IndicarLibro();
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
@@ -491,10 +489,7 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
-            {
-                CloseWindow();
-            }
+            CloseWindow();
         }
         
         private void lstEjemplares_SelectedIndexChanged(object sender, EventArgs e)
@@ -537,9 +532,7 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
-                //Modularizar
-                DataGridViewRow row = dgvLibros.CurrentRow;
-                Libro seleccionado = row.DataBoundItem as Libro;
+                Libro seleccionado = IndicarLibro();
                 CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
@@ -567,9 +560,7 @@ namespace Form_Biblioteca
                     Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
                     int codigo = this._servicioEjemplar.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
                     MessageBox.Show("El ejemplar " + codigo + " se ha modificado exitosamente");
-                    //Modularizar
-                    DataGridViewRow row = dgvLibros.CurrentRow;
-                    Libro seleccionado = row.DataBoundItem as Libro;
+                    Libro seleccionado = IndicarLibro();
                     CompletarFormularioLibro(seleccionado);
                     CargarListaEjemplares(seleccionado);
                     FormatearCampos(seleccion);

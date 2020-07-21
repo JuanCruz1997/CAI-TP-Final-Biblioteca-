@@ -112,13 +112,21 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
-        public void Devolucion(int codigo, DateTime fechaDevolucion)
+        public int Devolucion(int codigo, DateTime fechaDevolucion)
         {
             Prestamo p = TraerPorCodigo(codigo);
             if (p != null)
             {
                 p.FechaDevolucionReal = fechaDevolucion;
-                //Falta la lógica de modificar el prestamo en el servidor.
+                TransactionResult resultado = _prestamoMapper.Update(p);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor.Detalle: " + resultado.Error);
+                }
             }
             else
             {
@@ -126,12 +134,20 @@ namespace Negocio
             }
         }
         
-        public void EliminarPrestamo(int codigo)
+        public int EliminarPrestamo(int codigo)
         {
             Prestamo p = this.TraerPorCodigo(codigo);
             if (p != null)
             {
-                //Lógica de eliminar el prestamo en servidor
+                TransactionResult resultado = _prestamoMapper.Delete(p);
+                if (resultado.IsOk)
+                {
+                    return resultado.Id;
+                }
+                else
+                {
+                    throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                }
             }
             else
             {

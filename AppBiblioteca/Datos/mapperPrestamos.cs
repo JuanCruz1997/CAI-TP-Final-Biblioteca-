@@ -45,6 +45,22 @@ namespace Datos
             TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
             return resultado;
         }
+        public TransactionResult Update(Prestamo prestamo)
+        {
+            NameValueCollection obj = ReverseMap(prestamo);
+            string result = WebHelper.Put("​/api/v1​/Biblioteca​/Prestamos", obj);
+            TransactionResult resultadoTransaccion = MapResult(result);
+            return resultadoTransaccion;
+        }
+
+        public TransactionResult Delete(Prestamo prestamo)
+        {
+            NameValueCollection obj = new NameValueCollection();
+            obj.Add("id", prestamo.NumeroOperacion.ToString());
+            string result = WebHelper.Delete("/api/v1​/Biblioteca​/Prestamos", obj);
+            TransactionResult resultadoTransaccion = MapResult(result);
+            return resultadoTransaccion;
+        }
 
     }
 }

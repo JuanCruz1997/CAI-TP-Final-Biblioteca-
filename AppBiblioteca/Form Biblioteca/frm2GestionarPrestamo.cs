@@ -203,8 +203,6 @@ namespace Form_Biblioteca
                 CompletarFormulario(seleccionado);
                 FormatearCampos(seleccion);
             }
-
-
         }
         
 
@@ -261,16 +259,44 @@ namespace Form_Biblioteca
 
         private void btnConfirmarDevolución_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dgvPrestamos.CurrentRow;
-            Prestamo seleccionado = row.DataBoundItem as Prestamo;
-            this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
+            try
+            {
+                DialogResult pregunta = MessageBox.Show("¿Confirma que el ejemplar ha sido devuelto?", "Confirmar devolución", MessageBoxButtons.YesNo);
+                if (pregunta.ToString() == "Yes")
+                {
+                    DataGridViewRow row = dgvPrestamos.CurrentRow;
+                    Prestamo seleccionado = row.DataBoundItem as Prestamo;
+                    int codigo = this._servicioPrestamo.Devolucion(seleccionado.NumeroOperacion, DateTime.Now);
+                    MessageBox.Show("El ejemplar ha sido devuelto. Código operación: " + codigo);
+                    CargarDGVPrestamos();
+                    LimpiarCampos();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnEliminarPréstamo_Click(object sender, EventArgs e)
         {
-            DataGridViewRow row = dgvPrestamos.CurrentRow;
-            Prestamo seleccionado = row.DataBoundItem as Prestamo;
-            this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
+            try
+            {
+                DialogResult pregunta = MessageBox.Show("¿Confirma que desea eliminar el préstamo seleccionado? Recuerde que sólo debe hacerlo si el mismo fue cargado incorrectamente con datos incorrectos.", "Eliminar préstamo", MessageBoxButtons.YesNo);
+                if (pregunta.ToString() == "Yes")
+                {
+                    DataGridViewRow row = dgvPrestamos.CurrentRow;
+                    Prestamo seleccionado = row.DataBoundItem as Prestamo;
+                    int codigo = this._servicioPrestamo.EliminarPrestamo(seleccionado.NumeroOperacion);
+                    MessageBox.Show("Se ha eliminado el préstamo. Código operación: " + codigo);
+                    CargarDGVPrestamos();
+                    LimpiarCampos();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
