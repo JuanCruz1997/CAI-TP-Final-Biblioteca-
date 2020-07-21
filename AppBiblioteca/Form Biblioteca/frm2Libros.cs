@@ -211,9 +211,9 @@ namespace Form_Biblioteca
                 cmbTema.Enabled = false;
 
             }
-            else if (condicion == seleccion && this.Owner is frm2GestionarPrestamo)
+            else if (condicion == seleccion && (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
             {
-               
+                //btnTraerEjemplar.Enabled = true;
                 btnVerEjemplares.Enabled = true;
 
                 lblCantidadAAgregar.Enabled = true;
@@ -233,9 +233,10 @@ namespace Form_Biblioteca
                 cmbTema.Enabled = false;
 
             }
-            else if (condicion == ejemplar && this.Owner is frm2GestionarPrestamo)
+            else if (condicion == ejemplar && (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
             {
                 btnTraerEjemplar.Enabled = true;
+                btnVerEjemplares.Enabled = false;
             }
             
             
@@ -274,8 +275,9 @@ namespace Form_Biblioteca
 
         private void CargarListaEjemplares(Libro seleccionado)
         {
-            //List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-            List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
+            List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+            _servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+            //List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
             this._servicioEjemplar.CalcularStock(lista, seleccionado);
             lstEjemplares.DataSource = null;
             lstEjemplares.DataSource = lista;
@@ -398,8 +400,9 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
-                //List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-                List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
+                List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+                _servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+                //List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
                 this._servicioEjemplar.CalcularStock(lista, seleccionado);
                 CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
@@ -433,23 +436,31 @@ namespace Form_Biblioteca
 
         private void btnTraerEjemplar_Click(object sender, EventArgs e)
         {
-            Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
-            if (lstEjemplares.SelectedIndex == -1)
+            try
+            {            
+                Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
+                if (lstEjemplares.SelectedIndex == -1)
+                {
+                    throw new Exception("Seleccione un ejemplar");
+                } else if (ejemplar.Disponible == false)
+                {
+                        throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
+                }
+                else if (this.Owner is frm2GestionarPrestamo)
+                {
+                    ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                    CloseWindow();
+                }
+                else if (this.Owner is frm3AltaPrestamo)
+                {
+                    ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                    ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
+                    this.Owner.Show();
+                    this.Dispose();
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Elija un ejemplar");
-            }
-            else if (this.Owner is frm2GestionarPrestamo)
-            {
-                ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
-                this.Owner.Show();
-                this.Dispose();
-            }
-            else if (this.Owner is frm3AltaPrestamo)
-            {
-                ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
-                ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
-                this.Owner.Show();
-                this.Dispose();
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -490,29 +501,41 @@ namespace Form_Biblioteca
             
             if (seleccionado != null)
             {
+                FormatearCampos(ejemplar);
                 CompletarFormularioEjemplar(seleccionado);
+                
             }
         }
 
         private void lstEjemplares_DoubleClick(object sender, EventArgs e)
         {
-            Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
-            if (lstEjemplares.SelectedIndex == -1)
+            try
             {
-                MessageBox.Show("Elija un ejemplar");
+                Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
+                if (lstEjemplares.SelectedIndex == -1)
+                {
+                    throw new Exception("Seleccione un ejemplar");
+                }
+                else if (ejemplar.Disponible == false)
+                {
+                    throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
+                }
+                else if (this.Owner is frm2GestionarPrestamo)
+                {
+                    ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                    CloseWindow();
+                }
+                else if (this.Owner is frm3AltaPrestamo)
+                {
+                    ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                    ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
+                    this.Owner.Show();
+                    this.Dispose();
+                }
             }
-            else if (this.Owner is frm2GestionarPrestamo)
+            catch (Exception ex)
             {
-                ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
-
-                CloseWindow();
-            }
-            else if (this.Owner is frm3AltaPrestamo)
-            {
-                ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
-                ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
-
-                CloseWindow();
+                MessageBox.Show(ex.Message);
             }
         }
 

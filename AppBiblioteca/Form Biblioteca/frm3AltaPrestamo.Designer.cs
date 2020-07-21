@@ -48,16 +48,16 @@
             this.txtNombreCliente = new System.Windows.Forms.TextBox();
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.gbDatosPrestamo = new System.Windows.Forms.GroupBox();
+            this.lblPrecioPorDía = new System.Windows.Forms.Label();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtPlazo = new System.Windows.Forms.TextBox();
+            this.lblPlazo = new System.Windows.Forms.Label();
             this.gbDatosEjemplar = new System.Windows.Forms.GroupBox();
             this.btnActualizarDatosEjemplar = new System.Windows.Forms.Button();
             this.btnTraerEjemplares = new System.Windows.Forms.Button();
             this.gbDatosCliente = new System.Windows.Forms.GroupBox();
             this.btnActualizarDatosCliente = new System.Windows.Forms.Button();
             this.btnTraerClientes = new System.Windows.Forms.Button();
-            this.txtPlazo = new System.Windows.Forms.TextBox();
-            this.lblPlazo = new System.Windows.Forms.Label();
-            this.lblPrecioPorDía = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.gbDatosPrestamo.SuspendLayout();
             this.gbDatosEjemplar.SuspendLayout();
             this.gbDatosCliente.SuspendLayout();
@@ -119,7 +119,7 @@
             // lblFechaAlta
             // 
             this.lblFechaAlta.AutoSize = true;
-            this.lblFechaAlta.Location = new System.Drawing.Point(282, 70);
+            this.lblFechaAlta.Location = new System.Drawing.Point(285, 31);
             this.lblFechaAlta.Name = "lblFechaAlta";
             this.lblFechaAlta.Size = new System.Drawing.Size(58, 13);
             this.lblFechaAlta.TabIndex = 57;
@@ -148,7 +148,7 @@
             // lblFechaTentativaDevolucion
             // 
             this.lblFechaTentativaDevolucion.AutoSize = true;
-            this.lblFechaTentativaDevolucion.Location = new System.Drawing.Point(282, 34);
+            this.lblFechaTentativaDevolucion.Location = new System.Drawing.Point(282, 66);
             this.lblFechaTentativaDevolucion.Name = "lblFechaTentativaDevolucion";
             this.lblFechaTentativaDevolucion.Size = new System.Drawing.Size(85, 13);
             this.lblFechaTentativaDevolucion.TabIndex = 64;
@@ -169,7 +169,7 @@
             this.dtpFechaAlta.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaAlta.Enabled = false;
             this.dtpFechaAlta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaAlta.Location = new System.Drawing.Point(374, 67);
+            this.dtpFechaAlta.Location = new System.Drawing.Point(377, 28);
             this.dtpFechaAlta.Name = "dtpFechaAlta";
             this.dtpFechaAlta.Size = new System.Drawing.Size(124, 20);
             this.dtpFechaAlta.TabIndex = 71;
@@ -179,7 +179,7 @@
             this.dtpFechaTentativaDevolucion.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaTentativaDevolucion.Enabled = false;
             this.dtpFechaTentativaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaTentativaDevolucion.Location = new System.Drawing.Point(377, 28);
+            this.dtpFechaTentativaDevolucion.Location = new System.Drawing.Point(377, 60);
             this.dtpFechaTentativaDevolucion.Name = "dtpFechaTentativaDevolucion";
             this.dtpFechaTentativaDevolucion.Size = new System.Drawing.Size(121, 20);
             this.dtpFechaTentativaDevolucion.TabIndex = 73;
@@ -255,6 +255,42 @@
             this.gbDatosPrestamo.TabIndex = 87;
             this.gbDatosPrestamo.TabStop = false;
             this.gbDatosPrestamo.Text = "Datos Préstamo";
+            // 
+            // lblPrecioPorDía
+            // 
+            this.lblPrecioPorDía.AutoSize = true;
+            this.lblPrecioPorDía.Location = new System.Drawing.Point(12, 68);
+            this.lblPrecioPorDía.Name = "lblPrecioPorDía";
+            this.lblPrecioPorDía.Size = new System.Drawing.Size(74, 13);
+            this.lblPrecioPorDía.TabIndex = 56;
+            this.lblPrecioPorDía.Text = "Precio por día";
+            // 
+            // txtPrecio
+            // 
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(101, 63);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.ReadOnly = true;
+            this.txtPrecio.Size = new System.Drawing.Size(122, 20);
+            this.txtPrecio.TabIndex = 55;
+            // 
+            // txtPlazo
+            // 
+            this.txtPlazo.Enabled = false;
+            this.txtPlazo.Location = new System.Drawing.Point(100, 28);
+            this.txtPlazo.Name = "txtPlazo";
+            this.txtPlazo.ReadOnly = true;
+            this.txtPlazo.Size = new System.Drawing.Size(122, 20);
+            this.txtPlazo.TabIndex = 84;
+            // 
+            // lblPlazo
+            // 
+            this.lblPlazo.AutoSize = true;
+            this.lblPlazo.Location = new System.Drawing.Point(12, 34);
+            this.lblPlazo.Name = "lblPlazo";
+            this.lblPlazo.Size = new System.Drawing.Size(33, 13);
+            this.lblPlazo.TabIndex = 85;
+            this.lblPlazo.Text = "Plazo";
             // 
             // gbDatosEjemplar
             // 
@@ -337,42 +373,6 @@
             this.btnTraerClientes.Text = "Clientes...";
             this.btnTraerClientes.UseVisualStyleBackColor = true;
             this.btnTraerClientes.Click += new System.EventHandler(this.btnTraerClientes_Click);
-            // 
-            // txtPlazo
-            // 
-            this.txtPlazo.Enabled = false;
-            this.txtPlazo.Location = new System.Drawing.Point(100, 28);
-            this.txtPlazo.Name = "txtPlazo";
-            this.txtPlazo.ReadOnly = true;
-            this.txtPlazo.Size = new System.Drawing.Size(122, 20);
-            this.txtPlazo.TabIndex = 84;
-            // 
-            // lblPlazo
-            // 
-            this.lblPlazo.AutoSize = true;
-            this.lblPlazo.Location = new System.Drawing.Point(12, 34);
-            this.lblPlazo.Name = "lblPlazo";
-            this.lblPlazo.Size = new System.Drawing.Size(33, 13);
-            this.lblPlazo.TabIndex = 85;
-            this.lblPlazo.Text = "Plazo";
-            // 
-            // lblPrecioPorDía
-            // 
-            this.lblPrecioPorDía.AutoSize = true;
-            this.lblPrecioPorDía.Location = new System.Drawing.Point(12, 68);
-            this.lblPrecioPorDía.Name = "lblPrecioPorDía";
-            this.lblPrecioPorDía.Size = new System.Drawing.Size(74, 13);
-            this.lblPrecioPorDía.TabIndex = 56;
-            this.lblPrecioPorDía.Text = "Precio por día";
-            // 
-            // txtPrecio
-            // 
-            this.txtPrecio.Enabled = false;
-            this.txtPrecio.Location = new System.Drawing.Point(101, 63);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
-            this.txtPrecio.Size = new System.Drawing.Size(122, 20);
-            this.txtPrecio.TabIndex = 55;
             // 
             // frm3AltaPrestamo
             // 

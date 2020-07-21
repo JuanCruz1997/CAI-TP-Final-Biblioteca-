@@ -31,32 +31,28 @@ namespace Negocio
             }
                 
         }
-        public List<Ejemplar> AsignarDisponibilidad2(Libro seleccionado, ServicioPrestamo sp)
+        public bool AsignarDisponibilidadIndividual(Ejemplar ej, ServicioPrestamo sp)
         {
-            List<Ejemplar> lista = TraerPorLibro(seleccionado.ISBN);
-            foreach(Ejemplar ej in lista)
-            {
-                ej.Disponible = true;
-            }
-            foreach(Prestamo p in sp.TraerTodos())
-            {
-                foreach(Ejemplar ej in lista)
+            bool disponible = true;
+            foreach(Prestamo p in sp.TraerTodosMapper())
+            {               
+                if (p.IdEjemplar == ej.Codigo)
                 {
-                    if (p.Ejemplar.Codigo == ej.Codigo)
-                    {
-                        ej.Disponible = false;
-                    }
+                    ej.Disponible = false;
+                    return disponible = false;
                 }
+                
             }
-            return lista;
+            return disponible;
         }
         public void AsignarDisponibilidad(List<Ejemplar> ejemplares, ServicioPrestamo sp)
-        {
+        {            
             foreach (Ejemplar ejem in ejemplares)
             {
+                ejem.Disponible = true;
                 foreach (Prestamo prestamo in sp.TraerTodosMapper())
                 {
-                    if (ejem.Codigo == prestamo.IdEjemplar)
+                    if (ejem.Codigo == prestamo.IdEjemplar && prestamo.FechaDevolucionReal == DateTime.MinValue)
                     {
                         ejem.Disponible = false;
                         break;
@@ -85,17 +81,19 @@ namespace Negocio
 
         public void CalcularStock(List<Ejemplar> ejemplares, Libro l)
         {
+            int disponibles = 0;
             l.StockPermanente = ejemplares.Count;
             foreach (Ejemplar ej in ejemplares)
             {
 
                 if (ej.Libro.ISBN == l.ISBN && ej.Disponible)
                 {
-                        
-                    l.StockDisponible += 1;
+
+                    disponibles += 1;
                         
                 }
             }
+            l.StockDisponible = disponibles;
         }
         public int AltaEjemplar(int codLibro, double precio)
         {

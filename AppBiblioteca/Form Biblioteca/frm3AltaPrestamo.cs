@@ -111,17 +111,30 @@ namespace Form_Biblioteca
                 }
             } else if (objeto == ejemplar)
             {
-                Ejemplar e = this._servicioEjemplar.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));
+                Ejemplar e = this._servicioEjemplar.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));                
+               
+                
                 if (e != null)
                 {
-                    txtTitulo.Text = e.Libro.Titulo;
-                    txtAutor.Text = e.Libro.Autor;
-                    txtPrecio.Text = e.Precio.ToString();
+                    bool disponible = _servicioEjemplar.AsignarDisponibilidadIndividual(e, _servicioPrestamo);
+
+                    if (disponible)
+                    {
+                        txtTitulo.Text = e.Libro.Titulo;
+                        txtAutor.Text = e.Libro.Autor;
+                        txtPrecio.Text = e.Precio.ToString();
+                    }
+                    else
+                    {
+                        throw new Exception("El ejemplar se encuentra prestado, por favor elija otro");
+                    }
+                    
                 }
                 else
                 {
                     MessageBox.Show("El código de ejemplar ingresado es incorrecto");
                 }
+
             }
         }
 
@@ -180,9 +193,10 @@ namespace Form_Biblioteca
         {
             try
             {
-                ValidarCampos(ejemplar);
-                CompletarFormulario(ejemplar);
-            }catch(Exception ex)
+               ValidarCampos(ejemplar);
+               CompletarFormulario(ejemplar);
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

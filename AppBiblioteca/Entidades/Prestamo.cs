@@ -28,6 +28,7 @@ namespace Entidades
         public int IdEjemplar { get => _idEjemplar; set => _idEjemplar = value; }
         [DataMember(Name ="Plazo")]
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
+        public int PlazoRestante { get => (FechaDevolucionTentativa - DateTime.Today).Days; }
         [DataMember(Name ="FechaPrestamo")]
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
         [DataMember]
