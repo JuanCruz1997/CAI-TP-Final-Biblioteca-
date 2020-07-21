@@ -13,8 +13,16 @@ namespace Form_Biblioteca
 {
     public partial class frm1MenuPrincipal : Form
     {
+        private ServicioCliente sc;
+        private ServicioEjemplar se;
+        private ServicioLibro sl;
+        private ServicioPrestamo sp;
         public frm1MenuPrincipal()
         {
+            this.sc = new ServicioCliente();
+            this.se = new ServicioEjemplar();
+            this.sl = new ServicioLibro();
+            this.sp = new ServicioPrestamo();
             InitializeComponent();
         }
 
@@ -33,7 +41,7 @@ namespace Form_Biblioteca
 
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-            frm2GestionarPrestamo f = new frm2GestionarPrestamo(new ServicioPrestamo());
+            frm2GestionarPrestamo f = new frm2GestionarPrestamo(sp, sl, se, sc);
             f.Owner = this;
             f.Show();
             this.Hide();
@@ -41,7 +49,7 @@ namespace Form_Biblioteca
 
         private void btnLibro_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
+            frm2Libros f = new frm2Libros(sl, se, sp);
             f.Owner = this;
             f.Size = new Size(800, f.Size.Height);
             f.Show();
@@ -51,7 +59,7 @@ namespace Form_Biblioteca
         
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            frm2Clientes f = new frm2Clientes(new ServicioCliente());
+            frm2Clientes f = new frm2Clientes(sc);
             f.Owner = this;
             f.Show();
             this.Hide();

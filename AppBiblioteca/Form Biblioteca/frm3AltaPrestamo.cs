@@ -17,17 +17,19 @@ namespace Form_Biblioteca
         private ServicioPrestamo _servicioPrestamo;
         private ServicioCliente _servicioCliente;
         private ServicioEjemplar _servicioEjemplar;
+        private ServicioLibro _servicioLibro;
 
         private const string ejemplar = "ejemplar";
         private const string cliente = "cliente";
         private const string prestamo = "prestamo";
         private const string vacio = "vacio";
         private const string completo = "completo";
-        public frm3AltaPrestamo(ServicioPrestamo sp, ServicioCliente sc, ServicioEjemplar se)
+        public frm3AltaPrestamo(ServicioPrestamo sp, ServicioCliente sc, ServicioEjemplar se, ServicioLibro sl)
         {
             this._servicioPrestamo = sp;
             this._servicioCliente = sc;
             this._servicioEjemplar = se;
+            this._servicioLibro = sl;
             InitializeComponent();
         }
         #region "Métodos"
@@ -221,7 +223,7 @@ namespace Form_Biblioteca
         }
         private void btnTraerEjemplares_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
+            frm2Libros f = new frm2Libros(_servicioLibro, _servicioEjemplar, _servicioPrestamo);
             f.Owner = this;
             f.Show();
         }

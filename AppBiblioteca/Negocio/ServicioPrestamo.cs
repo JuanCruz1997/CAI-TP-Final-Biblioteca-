@@ -32,11 +32,11 @@ namespace Negocio
             
             return lista;
         }
-        /*public List<Prestamo> TraerTodosMapper()
+        public List<Prestamo> TraerTodosMapper()
         {
             List<Prestamo> prestamo = this._prestamoMapper.TraerTodos();
             return prestamo;
-        }*/
+        }
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> resultado = new List<Prestamo>();

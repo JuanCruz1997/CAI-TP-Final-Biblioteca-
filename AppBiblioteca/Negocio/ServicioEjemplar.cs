@@ -12,15 +12,12 @@ namespace Negocio
     {
         private MapperEjemplares _ejemplarMapper;
         private ServicioLibro _librosServicio;
-        private ServicioPrestamo _servicioPrestamo;
-
         
 
         public ServicioEjemplar()
         {
             this._ejemplarMapper = new MapperEjemplares();
             this._librosServicio = new ServicioLibro();
-            this._servicioPrestamo = new ServicioPrestamo();
             
             
         }
@@ -36,21 +33,16 @@ namespace Negocio
         }
     
 
-        public void AsignarDisponibilidad(List<Ejemplar> ejemplares, List<Prestamo> prestamos)
+        public void AsignarDisponibilidad(List<Ejemplar> ejemplares, ServicioPrestamo sp)
         {
             foreach (Ejemplar ejem in ejemplares)
             {
-                foreach (Prestamo prestamo in prestamos)
+                foreach (Prestamo prestamo in sp.TraerTodosMapper())
                 {
-                    if (ejem == prestamo.Ejemplar)
+                    if (ejem.Codigo == prestamo.IdEjemplar)
                     {
                         ejem.Disponible = false;
-                        //revisar que el break haga que salga del foreach de prestamos pero que siga evaluando ejemplares
                         break;
-                    }
-                    else
-                    {
-                        ejem.Disponible = true;
                     }
                 }
             }
@@ -61,8 +53,6 @@ namespace Negocio
             List<Ejemplar> ejemplares = new List<Ejemplar>();
             ejemplares = _ejemplarMapper.TraerPorLibro(idLibro);
             CargarLibro(ejemplares, idLibro);
-            CalcularStock(ejemplares, _librosServicio.TraerTodos());
-            //AsignarDisponibilidad(ejemplares, this._servicioPrestamo.TraerTodosMapper());
             return ejemplares;
         }
 
@@ -76,22 +66,17 @@ namespace Negocio
             return ejemplares;
         }
 
-        public void CalcularStock(List<Ejemplar> ejemplares, List<Libro> libros)
+        public void CalcularStock(List<Ejemplar> ejemplares, Libro l)
         {
-            foreach (Ejemplar ejem in ejemplares)
+            l.StockPermanente = ejemplares.Count;
+            foreach (Ejemplar ej in ejemplares)
             {
-                foreach (Libro libro in libros)
+
+                if (ej.Libro.ISBN == l.ISBN && ej.Disponible)
                 {
-                    if (ejem.Libro == libro)
-                    {
-                        libro.StockPermanente += 1;
-                        if (ejem.Disponible)
-                        {
-                            libro.StockDisponible += 1;
-                        }
-                        //revisar que el break haga que salga del foreach de libros pero que siga evaluando ejemplares
-                        break;
-                    }
+                        
+                    l.StockDisponible += 1;
+                        
                 }
             }
         }

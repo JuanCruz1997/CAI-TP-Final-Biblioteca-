@@ -16,6 +16,7 @@ namespace Form_Biblioteca
     {
         private ServicioLibro _servicioLibro;
         private ServicioEjemplar _servicioEjemplar;
+        private ServicioPrestamo _servicioPrestamo;
 
         private const string libro = "libro";
         private const string ejemplar = "ejemplar";
@@ -23,10 +24,11 @@ namespace Form_Biblioteca
         private const string prestamo = "prestamo";
         private const string seleccion = "seleccion";
         
-        public frm2Libros(ServicioLibro sl, ServicioEjemplar se)
+        public frm2Libros(ServicioLibro sl, ServicioEjemplar se, ServicioPrestamo sp)
         {
             this._servicioLibro = sl;
             this._servicioEjemplar = se;
+            this._servicioPrestamo = sp;
             InitializeComponent();
         }
 
@@ -210,6 +212,13 @@ namespace Form_Biblioteca
                 lstEjemplares.Enabled = true;
                 btnComprimir.Enabled = true;
 
+                txtTitulo.Enabled = false;
+                txtAutor.Enabled = false;
+                txtEdicion.Enabled = false;
+                txtEditorial.Enabled = false;
+                txtPaginas.Enabled = false;
+                cmbTema.Enabled = false;
+
             }
             else if (condicion == seleccion && this.Owner is frm2GestionarPrestamo)
             {
@@ -224,6 +233,13 @@ namespace Form_Biblioteca
                 btnModificar.Enabled = true;
                 lstEjemplares.Enabled = true;
                 btnComprimir.Enabled = true;
+
+                txtTitulo.Enabled = false;
+                txtAutor.Enabled = false;
+                txtEdicion.Enabled = false;
+                txtEditorial.Enabled = false;
+                txtPaginas.Enabled = false;
+                cmbTema.Enabled = false;
 
             }
             else if (condicion == ejemplar && this.Owner is frm2GestionarPrestamo)
@@ -249,13 +265,13 @@ namespace Form_Biblioteca
                 if (s == seleccionado.Tema)
                 {
                     cmbTema.Text = seleccionado.Tema;
+                    break;
                 }
                 else
                 {
                     cmbTema.Text = "Varios";
                 }
             }
-            CargarListaEjemplares(seleccionado);
             LimpiarCampos(ejemplar);
         }
         private void CargarDGVLibros(List<Libro> libros)
@@ -267,10 +283,11 @@ namespace Form_Biblioteca
 
         private void CargarListaEjemplares(Libro seleccionado)
         {
+            List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+            this._servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+            this._servicioEjemplar.CalcularStock(lista, seleccionado);
             lstEjemplares.DataSource = null;
-            List<Ejemplar> listaEjemplaresPorLibro = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-            
-            lstEjemplares.DataSource = listaEjemplaresPorLibro;
+            lstEjemplares.DataSource = lista;
             lstEjemplares.SelectedIndex = -1;
         }
         private List<String> ListaTemas()
@@ -379,7 +396,9 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 CompletarFormularioLibro(seleccionado);
+                CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
+                LimpiarCampos(ejemplar);
             }
         }
 
@@ -390,7 +409,12 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
+                List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
+                this._servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
+                this._servicioEjemplar.CalcularStock(lista, seleccionado);
+                CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
+                FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
             }
         }
@@ -447,7 +471,9 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
+                CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
+                FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
             }
         }
@@ -511,9 +537,12 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
+                //Modularizar
                 DataGridViewRow row = dgvLibros.CurrentRow;
                 Libro seleccionado = row.DataBoundItem as Libro;
+                CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
+                FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
                 gbEjemplares.Enabled = true;
             }
@@ -538,9 +567,12 @@ namespace Form_Biblioteca
                     Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
                     int codigo = this._servicioEjemplar.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
                     MessageBox.Show("El ejemplar " + codigo + " se ha modificado exitosamente");
+                    //Modularizar
                     DataGridViewRow row = dgvLibros.CurrentRow;
                     Libro seleccionado = row.DataBoundItem as Libro;
+                    CompletarFormularioLibro(seleccionado);
                     CargarListaEjemplares(seleccionado);
+                    FormatearCampos(seleccion);
                     LimpiarCampos(ejemplar);
                 }
                 catch (Exception ex)

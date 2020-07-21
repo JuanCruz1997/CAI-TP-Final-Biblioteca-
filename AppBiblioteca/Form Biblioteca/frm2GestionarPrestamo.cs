@@ -15,13 +15,19 @@ namespace Form_Biblioteca
     public partial class frm2GestionarPrestamo : Form
     {
         private ServicioPrestamo _servicioPrestamo;
+        private ServicioLibro _servicioLibro;
+        private ServicioEjemplar _servicioEjemplar;
+        private ServicioCliente _servicioCliente;
         private GrillaService _grilla;
         private const string menu = "menu";
         private const string seleccion = "seleccion";
 
-        public frm2GestionarPrestamo(ServicioPrestamo sp)
+        public frm2GestionarPrestamo(ServicioPrestamo sp, ServicioLibro sl, ServicioEjemplar se, ServicioCliente sc)
         {
             _servicioPrestamo = sp;
+            this._servicioLibro = sl;
+            this._servicioEjemplar = se;
+            this._servicioCliente = sc;
             _grilla = new GrillaService();
             InitializeComponent();
         }
@@ -204,7 +210,7 @@ namespace Form_Biblioteca
 
         private void btnEjemplares_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(new ServicioLibro(), new ServicioEjemplar());
+            frm2Libros f = new frm2Libros(_servicioLibro, _servicioEjemplar, _servicioPrestamo);
             f.Owner = this;
             f.Show();
             this.Hide();
@@ -248,7 +254,7 @@ namespace Form_Biblioteca
         
         private void btnNuevoPrestamo_Click(object sender, EventArgs e)
         {
-            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo, new ServicioCliente(), new ServicioEjemplar());
+            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo, this._servicioCliente, _servicioEjemplar, this._servicioLibro);
             f.Owner = this;
             f.Show();
         }
