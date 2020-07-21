@@ -86,7 +86,7 @@ namespace Form_Biblioteca
             txtNombreCliente.Text = string.Empty;
             txtApellidoCliente.Text = string.Empty;
             dtpFechaAlta.Value = DateTime.Now;
-            dtpFechaAlta.Value = DateTime.Now;
+            //dtpFechaAlta.Value = DateTime.Now;
         }
 
         public void CompletarFormulario(string objeto)

@@ -82,7 +82,7 @@ namespace Form_Biblioteca
             dtpFechaTentativaDevolucion.Value = elegido.FechaDevolucionTentativa;
             if (elegido.FechaDevolucionReal == DateTime.MinValue)
             {
-                dtpFechaDevolucion.Value = DateTime.Today;
+                dtpFechaDevolucion.Value = DateTime.Now;
             }
             else
             {
@@ -126,7 +126,7 @@ namespace Form_Biblioteca
             }
             else if (condicion == seleccion && !chkAbiertos.Checked)
             {
-                if (dtpFechaDevolucion.Value != null)
+                if (dtpFechaDevolucion.Value != DateTime.MinValue)
                 {
                     btnNuevoPrestamo.Enabled = false;
                     btnConfirmarDevolución.Enabled = false;
@@ -173,6 +173,7 @@ namespace Form_Biblioteca
                 dgvPrestamos.DataSource = _grilla.GetListaPrestamosCompleta(Convert.ToInt32(txtBuscarCodCliente.Text), Convert.ToInt32(txtBuscarCodEjemplar.Text));
 
             }
+            LimpiarCampos();
         }
 
         public void CompletarCodigo(string id, Form form)
