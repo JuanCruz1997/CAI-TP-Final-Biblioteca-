@@ -155,7 +155,7 @@ namespace Form_Biblioteca
                 txtCantidadAAgregar.Visible = false;
                 btnAgregarCantidad.Visible = false;
                 
-                lblCantidadAAgregar.Enabled = false;
+                
                 txtCantidadAAgregar.Enabled = false;
                 btnAgregarCantidad.Enabled = false;
                 txtPrecio.Enabled = false;
@@ -188,20 +188,9 @@ namespace Form_Biblioteca
                 btnTraerEjemplar.Enabled = false;
                 btnTraerEjemplar.Visible = false;
             }
-            else if (condicion == seleccion && this.Owner is frm1MenuPrincipal)
+            else if (condicion == seleccion)
             {
-                btnAltaLibro.Enabled = false;
-                btnModificar.Enabled = true;
                 btnVerEjemplares.Enabled = true;
-
-                lblCantidadAAgregar.Enabled = true;
-                txtCantidadAAgregar.Enabled = true;
-                btnAgregarCantidad.Enabled = true;
-                txtPrecio.Enabled = true;
-                txtObservaciones.Enabled = true;
-                btnModificar.Enabled = true;
-                lstEjemplares.Enabled = true;
-                btnComprimir.Enabled = true;
 
                 txtTitulo.Enabled = false;
                 txtAutor.Enabled = false;
@@ -210,33 +199,54 @@ namespace Form_Biblioteca
                 txtPaginas.Enabled = false;
                 cmbTema.Enabled = false;
 
+                if (this.Owner is frm1MenuPrincipal)
+                {
+                    btnAltaLibro.Enabled = false;
+                    btnModificar.Enabled = true;
+                    
+
+                    lblCantidadAAgregar.Enabled = true;
+                    txtCantidadAAgregar.Enabled = true;
+                    btnAgregarCantidad.Enabled = true;
+                    txtPrecio.Enabled = false;
+                    txtObservaciones.Enabled = false;
+                    btnModificar.Enabled = false;
+                    lstEjemplares.Enabled = true;
+                    btnComprimir.Enabled = true;
+
+                    
+                } else if(this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
+                {
+                                      
+                    txtPrecio.Enabled = false;
+                    txtObservaciones.Enabled = false;
+                    btnModificar.Enabled = false;
+                    lstEjemplares.Enabled = true;
+                    btnComprimir.Enabled = true;
+                    
+                }
+                    
+                    
+
+                
+
+
             }
-            else if (condicion == seleccion && (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
+            
+            else if (condicion == ejemplar)
             {
-                //btnTraerEjemplar.Enabled = true;
-                btnVerEjemplares.Enabled = true;
-
-                lblCantidadAAgregar.Enabled = true;
-                txtCantidadAAgregar.Enabled = true;
-                btnAgregarCantidad.Enabled = true;
-                txtPrecio.Enabled = true;
-                txtObservaciones.Enabled = true;
-                btnModificar.Enabled = true;
-                lstEjemplares.Enabled = true;
-                btnComprimir.Enabled = true;
-
-                txtTitulo.Enabled = false;
-                txtAutor.Enabled = false;
-                txtEdicion.Enabled = false;
-                txtEditorial.Enabled = false;
-                txtPaginas.Enabled = false;
-                cmbTema.Enabled = false;
-
-            }
-            else if (condicion == ejemplar && (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
-            {
-                btnTraerEjemplar.Enabled = true;
-                btnVerEjemplares.Enabled = false;
+                if((this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
+                {
+                    btnTraerEjemplar.Enabled = true;
+                    btnVerEjemplares.Enabled = false;
+                    
+                } else if (this.Owner is frm1MenuPrincipal)
+                {
+                    txtPrecio.Enabled = true;
+                    txtObservaciones.Enabled = true;
+                    btnModificar.Enabled = true;
+                }
+                
             }
             
             
@@ -277,7 +287,6 @@ namespace Form_Biblioteca
         {
             List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
             _servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
-            //List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
             this._servicioEjemplar.CalcularStock(lista, seleccionado);
             lstEjemplares.DataSource = null;
             lstEjemplares.DataSource = lista;
@@ -387,8 +396,9 @@ namespace Form_Biblioteca
             Libro seleccionado = IndicarLibro();
             if (seleccionado != null)
             {
-                CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
+                CompletarFormularioLibro(seleccionado);
+                
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
             }
@@ -442,14 +452,16 @@ namespace Form_Biblioteca
                 if (lstEjemplares.SelectedIndex == -1)
                 {
                     throw new Exception("Seleccione un ejemplar");
-                } else if (ejemplar.Disponible == false)
-                {
-                        throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
-                }
+
+                } 
                 else if (this.Owner is frm2GestionarPrestamo)
                 {
                     ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     CloseWindow();
+                }
+                else if (ejemplar.Disponible == false)
+                {
+                    throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
                 }
                 else if (this.Owner is frm3AltaPrestamo)
                 {
@@ -516,14 +528,15 @@ namespace Form_Biblioteca
                 {
                     throw new Exception("Seleccione un ejemplar");
                 }
-                else if (ejemplar.Disponible == false)
-                {
-                    throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
-                }
+                
                 else if (this.Owner is frm2GestionarPrestamo)
                 {
                     ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     CloseWindow();
+                }
+                else if (ejemplar.Disponible == false)
+                {
+                    throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
                 }
                 else if (this.Owner is frm3AltaPrestamo)
                 {

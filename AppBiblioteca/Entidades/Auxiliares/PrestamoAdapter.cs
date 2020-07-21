@@ -16,6 +16,7 @@ namespace Entidades
         private DateTime _fechaAltaPrestamo;
         private DateTime _fechaDevolucionPrestamo;
         private int _plazoRestante;
+        private int _codigoEjemplar;
 
         public PrestamoAdapter(Prestamo p) 
         {
@@ -28,6 +29,7 @@ namespace Entidades
             this._plazoRestante = p.PlazoRestante;
             this.FechaAltaPrestamo = p.FechaHoraPrestamo;
             this._fechaDevolucionPrestamo = p.FechaDevolucionReal;
+            this._codigoEjemplar = p.IdEjemplar;
             
         }
         public int Codigo { get => _codigo; set => _codigo = value; }
@@ -38,6 +40,20 @@ namespace Entidades
         public DateTime FechaAltaPrestamo { get => _fechaAltaPrestamo; set => _fechaAltaPrestamo = value; }
         public DateTime FechaDevolucionPrestamo { get => _fechaDevolucionPrestamo; set => _fechaDevolucionPrestamo = value; }
         public int PlazoRestante { get => _plazoRestante; set => _plazoRestante = value; }
-
+        public int CodigoEjemplar { get => _codigoEjemplar; set => _codigoEjemplar = value; }
+        public bool Devuelto
+        {
+            get
+            {
+                if(FechaDevolucionPrestamo == DateTime.MinValue)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
     }
 }

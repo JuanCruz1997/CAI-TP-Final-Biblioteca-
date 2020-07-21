@@ -265,7 +265,7 @@ namespace Form_Biblioteca
                 ValidarCampos(cliente);
                 ValidarCampos(prestamo);
                 int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(txtPlazo.Text), Convert.ToDouble(txtPrecio.Text));
-                MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " existosamente");
+                MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " exitosamente");
                 ((frm2GestionarPrestamo)this.Owner).CargarDGVPrestamos();
                 CloseWindow();
             }
@@ -282,23 +282,30 @@ namespace Form_Biblioteca
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            if(txtCodigoCliente.Text != string.Empty || txtCodigoEjemplar.Text != string.Empty)
             {
-                CloseWindow();
+                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                {
+                    CloseWindow();
+                }
             }
+            
         }
 
         private void frm3AltaPrestamo_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+            if (txtCodigoCliente.Text != string.Empty || txtCodigoEjemplar.Text != string.Empty)
             {
-                CloseWindow();
+                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                {
+                    CloseWindow();
+                }
             }
         }
 
         private void frm3AltaPrestamo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            if (txtCodigoCliente.Text != string.Empty || txtCodigoEjemplar.Text != string.Empty)
             {
                 if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
                 {

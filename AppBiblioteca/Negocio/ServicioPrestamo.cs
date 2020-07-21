@@ -40,15 +40,14 @@ namespace Negocio
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> resultado = new List<Prestamo>();
-            resultado = TraerTodos();
 
             if (idCodigoCliente == 0 && idCodigoEjemplar == 0)
             {
-                return resultado;
+                return TraerTodos();
             }
             else
             {
-                foreach (Prestamo p in resultado)
+                foreach (Prestamo p in TraerTodos())
                 {
                     if (p.IdCliente != 0 || p.IdEjemplar != 0)
                     {

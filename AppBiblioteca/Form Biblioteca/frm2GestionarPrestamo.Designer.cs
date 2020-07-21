@@ -53,14 +53,16 @@
             this.txtDeuda = new System.Windows.Forms.TextBox();
             this.lblDeuda = new System.Windows.Forms.Label();
             this.dgvPrestamos = new System.Windows.Forms.DataGridView();
+            this.prestamoAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.prestamoAdapterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoEjemplar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaAltaPrestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plazoRestanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prestamoAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.prestamoAdapterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.Devuelto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gbBuscarPrestamos.SuspendLayout();
             this.gbDatosPrestamo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
@@ -129,7 +131,6 @@
             // lblRojo
             // 
             this.lblRojo.AutoSize = true;
-            this.lblRojo.Enabled = false;
             this.lblRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRojo.ForeColor = System.Drawing.Color.Red;
             this.lblRojo.Location = new System.Drawing.Point(221, 24);
@@ -325,10 +326,12 @@
             this.dgvPrestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
+            this.CodigoEjemplar,
             this.tituloDataGridViewTextBoxColumn,
             this.autorDataGridViewTextBoxColumn,
             this.fechaAltaPrestamoDataGridViewTextBoxColumn,
-            this.plazoRestanteDataGridViewTextBoxColumn});
+            this.plazoRestanteDataGridViewTextBoxColumn,
+            this.Devuelto});
             this.dgvPrestamos.DataSource = this.prestamoAdapterBindingSource1;
             this.dgvPrestamos.Location = new System.Drawing.Point(10, 112);
             this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -342,54 +345,6 @@
             this.dgvPrestamos.TabIndex = 31;
             this.dgvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamos_CellClick);
             // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // tituloDataGridViewTextBoxColumn
-            // 
-            this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
-            this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
-            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
-            this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // autorDataGridViewTextBoxColumn
-            // 
-            this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
-            this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
-            this.autorDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
-            this.autorDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaAltaPrestamoDataGridViewTextBoxColumn
-            // 
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.DataPropertyName = "FechaAltaPrestamo";
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.HeaderText = "Fecha Alta Préstamo";
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.Name = "fechaAltaPrestamoDataGridViewTextBoxColumn";
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // plazoRestanteDataGridViewTextBoxColumn
-            // 
-            this.plazoRestanteDataGridViewTextBoxColumn.DataPropertyName = "PlazoRestante";
-            this.plazoRestanteDataGridViewTextBoxColumn.HeaderText = "Plazo Restante";
-            this.plazoRestanteDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.plazoRestanteDataGridViewTextBoxColumn.Name = "plazoRestanteDataGridViewTextBoxColumn";
-            this.plazoRestanteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // prestamoAdapterBindingSource
             // 
             this.prestamoAdapterBindingSource.DataSource = typeof(Entidades.PrestamoAdapter);
@@ -397,6 +352,62 @@
             // prestamoAdapterBindingSource1
             // 
             this.prestamoAdapterBindingSource1.DataSource = typeof(Entidades.PrestamoAdapter);
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // CodigoEjemplar
+            // 
+            this.CodigoEjemplar.DataPropertyName = "CodigoEjemplar";
+            this.CodigoEjemplar.HeaderText = "Código Ejemplar";
+            this.CodigoEjemplar.Name = "CodigoEjemplar";
+            this.CodigoEjemplar.ReadOnly = true;
+            // 
+            // tituloDataGridViewTextBoxColumn
+            // 
+            this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
+            this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // autorDataGridViewTextBoxColumn
+            // 
+            this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
+            this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
+            this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
+            this.autorDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaAltaPrestamoDataGridViewTextBoxColumn
+            // 
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.DataPropertyName = "FechaAltaPrestamo";
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.HeaderText = "FechaAltaPrestamo";
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.Name = "fechaAltaPrestamoDataGridViewTextBoxColumn";
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // plazoRestanteDataGridViewTextBoxColumn
+            // 
+            this.plazoRestanteDataGridViewTextBoxColumn.DataPropertyName = "PlazoRestante";
+            this.plazoRestanteDataGridViewTextBoxColumn.HeaderText = "PlazoRestante";
+            this.plazoRestanteDataGridViewTextBoxColumn.Name = "plazoRestanteDataGridViewTextBoxColumn";
+            this.plazoRestanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Devuelto
+            // 
+            this.Devuelto.DataPropertyName = "Devuelto";
+            this.Devuelto.HeaderText = "Devuelto";
+            this.Devuelto.Name = "Devuelto";
+            this.Devuelto.ReadOnly = true;
             // 
             // frm2GestionarPrestamo
             // 
@@ -450,16 +461,18 @@
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnEjemplares;
         private System.Windows.Forms.DataGridView dgvPrestamos;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.TextBox txtDeuda;
+        private System.Windows.Forms.Label lblDeuda;
         private System.Windows.Forms.BindingSource prestamoAdapterBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoEjemplar;
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaPrestamoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn plazoRestanteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.TextBox txtDeuda;
-        private System.Windows.Forms.Label lblDeuda;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Devuelto;
         private System.Windows.Forms.BindingSource prestamoAdapterBindingSource1;
     }
 }

@@ -73,6 +73,9 @@ namespace Form_Biblioteca
             txtBuscarCodCliente.Text = string.Empty;
             txtBuscarCodEjemplar.Text = string.Empty;
 
+            dtpFechaTentativaDevolucion.Value = DateTime.Today;
+            dtpFechaDevolucion.Value = DateTime.Today;
+
             dgvPrestamos.CurrentCell = null;
         }
 
@@ -275,12 +278,13 @@ namespace Form_Biblioteca
             try
             {
                 DialogResult pregunta = MessageBox.Show("¿Confirma que el ejemplar ha sido devuelto?", "Confirmar devolución", MessageBoxButtons.YesNo);
-                if (pregunta.ToString() == "Yes")
+                if (MessageOkCancel("Para confirmar la devolución del ejemplar presione Ok", this.Text))
                 {
                     PrestamoAdapter seleccionado = ObtenerAdapter();
                     int codigo = this._servicioPrestamo.Devolucion(seleccionado.Codigo, DateTime.Now);
-                    MessageBox.Show("El ejemplar ha sido devuelto. Código operación: " + codigo);
+                    MessageBox.Show("El ejemplar " + codigo +" ha sido devuelto exitosamente");
                     CargarDGVPrestamos();
+                    FormatearCampos(menu);
                     LimpiarCampos();
                 }
             }
@@ -312,9 +316,11 @@ namespace Form_Biblioteca
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            
             CargarDGVPrestamos();
             FormatearCampos(menu);
+            LimpiarCampos();
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

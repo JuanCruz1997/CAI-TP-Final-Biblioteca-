@@ -36,7 +36,7 @@ namespace Negocio
             bool disponible = true;
             foreach(Prestamo p in sp.TraerTodosMapper())
             {               
-                if (p.IdEjemplar == ej.Codigo)
+                if (p.IdEjemplar == ej.Codigo && p.FechaDevolucionReal == DateTime.MinValue)
                 {
                     ej.Disponible = false;
                     return disponible = false;

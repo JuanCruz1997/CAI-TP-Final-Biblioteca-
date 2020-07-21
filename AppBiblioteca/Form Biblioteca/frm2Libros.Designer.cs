@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblCantidadPaginas = new System.Windows.Forms.Label();
             this.lblEditorial = new System.Windows.Forms.Label();
             this.txtPaginas = new System.Windows.Forms.TextBox();
@@ -243,7 +243,7 @@
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(169, 46);
             this.btnLimpiarCampos.TabIndex = 44;
-            this.btnLimpiarCampos.Text = "Limpiar campos";
+            this.btnLimpiarCampos.Text = "Limpiar campos/\r\nActualizar lista";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
             this.btnLimpiarCampos.Click += new System.EventHandler(this.btnLimpiarCampos_Click);
             // 
@@ -382,14 +382,14 @@
             this.dgvLibros.AllowUserToResizeRows = false;
             this.dgvLibros.AutoGenerateColumns = false;
             this.dgvLibros.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLibros.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvLibros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLibros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iSBNDataGridViewTextBoxColumn,
@@ -412,7 +412,6 @@
             this.dgvLibros.TabIndex = 44;
             this.dgvLibros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellClick);
             this.dgvLibros.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_CellDoubleClick);
-            //this.dgvLibros.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLibros_RowEnter);
             // 
             // iSBNDataGridViewTextBoxColumn
             // 
