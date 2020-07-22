@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapper.cs" />
     <Compile Include="MapperCliente.cs" />
     <Compile Include="MapperEjemplares.cs" />
     <Compile Include="MapperLibros.cs" />
