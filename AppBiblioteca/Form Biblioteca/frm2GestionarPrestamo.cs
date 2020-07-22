@@ -14,21 +14,15 @@ namespace Form_Biblioteca
 {
     public partial class frm2GestionarPrestamo : Form
     {
-        private ServicioPrestamo _servicioPrestamo;
-        private ServicioLibro _servicioLibro;
-        private ServicioEjemplar _servicioEjemplar;
-        private ServicioCliente _servicioCliente;
+        private Master m;
         private GrillaService _grilla;
         private const string menu = "menu";
         private const string seleccion = "seleccion";
 
-        public frm2GestionarPrestamo(ServicioPrestamo sp, ServicioLibro sl, ServicioEjemplar se, ServicioCliente sc)
+        public frm2GestionarPrestamo(Master m)
         {
-            _servicioPrestamo = sp;
-            this._servicioLibro = sl;
-            this._servicioEjemplar = se;
-            this._servicioCliente = sc;
-            _grilla = new GrillaService();
+            this.m = m;
+            _grilla = new GrillaService(m);
             InitializeComponent();
         }
         #region "Métodos"
@@ -42,7 +36,11 @@ namespace Form_Biblioteca
             }
             else return false;
         }
-
+        public void CloseWindow()
+        {
+            Owner.Show();
+            Dispose();
+        }
         private void Tab()
         {
             gbBuscarPrestamos.TabIndex = 0;
@@ -53,14 +51,15 @@ namespace Form_Biblioteca
             btnBuscarPrestamo.TabIndex = 4;
             gbDatosPrestamo.TabIndex = 5;
             chkAbiertos.TabIndex = 5;
-            dtpFechaTentativaDevolucion.TabIndex = 6;
-            dtpFechaDevolucion.TabIndex = 7;
-            btnNuevoPrestamo.TabIndex = 8;
-            btnConfirmarDevolución.TabIndex = 9;
-            btnEliminarPréstamo.TabIndex = 10;
-            btnLimpiarCampos.TabIndex = 11;
-            btnSalir.TabIndex = 12;
-            dgvPrestamos.TabIndex = 13;
+            dgvPrestamos.TabIndex = 6;
+            dtpFechaTentativaDevolucion.TabIndex = 7;
+            dtpFechaDevolucion.TabIndex = 8;
+            btnNuevoPrestamo.TabIndex = 9;
+            btnConfirmarDevolución.TabIndex = 10;
+            btnEliminarPréstamo.TabIndex = 11;
+            btnLimpiarCampos.TabIndex = 12;
+            btnSalir.TabIndex = 13;
+            
         }
         private void ValidarCampos()
         {
@@ -75,15 +74,16 @@ namespace Form_Biblioteca
 
             dtpFechaTentativaDevolucion.Value = DateTime.Today;
             dtpFechaDevolucion.Value = DateTime.Today;
+            txtDeuda.Text = string.Empty;
 
             dgvPrestamos.CurrentCell = null;
         }
 
         private void CompletarFormulario(PrestamoAdapter seleccionado)
         {
-            Prestamo elegido = this._servicioPrestamo.TraerPorCodigo(seleccionado.Codigo);
+            Prestamo elegido = this.m.SP.TraerPorCodigo(seleccionado.Codigo);
             dtpFechaTentativaDevolucion.Value = elegido.FechaDevolucionTentativa;
-            if (elegido.FechaDevolucionReal == DateTime.MinValue)
+            if (elegido.Abierto)
             {
                 dtpFechaDevolucion.Value = DateTime.Now;
             }
@@ -179,6 +179,7 @@ namespace Form_Biblioteca
             LimpiarCampos();
         }
 
+        
         public void CompletarCodigo(string id, Form form)
         {
             if (form is frm2Clientes)
@@ -190,11 +191,7 @@ namespace Form_Biblioteca
             }
         }
 
-        private void CloseWindow()
-        {
-            this.Owner.Show();
-            this.Dispose();
-        }
+
         private PrestamoAdapter ObtenerAdapter()
         {
             DataGridViewRow row = dgvPrestamos.CurrentRow;
@@ -224,7 +221,7 @@ namespace Form_Biblioteca
 
         private void btnEjemplares_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(_servicioLibro, _servicioEjemplar, _servicioPrestamo);
+            frm2Libros f = new frm2Libros(m);
             f.Owner = this;
             f.Show();
             this.Hide();
@@ -232,7 +229,7 @@ namespace Form_Biblioteca
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            frm2Clientes f = new frm2Clientes(new ServicioCliente());
+            frm2Clientes f = new frm2Clientes(m);
             f.Owner = this;
             f.Show();
             this.Hide();
@@ -268,7 +265,7 @@ namespace Form_Biblioteca
         
         private void btnNuevoPrestamo_Click(object sender, EventArgs e)
         {
-            frm3AltaPrestamo f = new frm3AltaPrestamo(this._servicioPrestamo, this._servicioCliente, _servicioEjemplar, this._servicioLibro);
+            frm3AltaPrestamo f = new frm3AltaPrestamo(m);
             f.Owner = this;
             f.Show();
         }
@@ -276,12 +273,11 @@ namespace Form_Biblioteca
         private void btnConfirmarDevolución_Click(object sender, EventArgs e)
         {
             try
-            {
-                DialogResult pregunta = MessageBox.Show("¿Confirma que el ejemplar ha sido devuelto?", "Confirmar devolución", MessageBoxButtons.YesNo);
+            {                
                 if (MessageOkCancel("Para confirmar la devolución del ejemplar presione Ok", this.Text))
                 {
                     PrestamoAdapter seleccionado = ObtenerAdapter();
-                    int codigo = this._servicioPrestamo.Devolucion(seleccionado.Codigo, DateTime.Now);
+                    int codigo = this.m.SP.Devolucion(seleccionado.Codigo, DateTime.Now);
                     MessageBox.Show("El ejemplar " + codigo +" ha sido devuelto exitosamente");
                     CargarDGVPrestamos();
                     FormatearCampos(menu);
@@ -302,8 +298,8 @@ namespace Form_Biblioteca
                 if (pregunta.ToString() == "Yes")
                 {
                     PrestamoAdapter seleccionado = ObtenerAdapter();
-                    int codigo = this._servicioPrestamo.EliminarPrestamo(seleccionado.Codigo);
-                    MessageBox.Show("Se ha eliminado el préstamo. Código operación: " + codigo);
+                    int codigo = this.m.SP.EliminarPrestamo(seleccionado.Codigo);
+                    MessageBox.Show("El préstamo " + codigo + "se ha eliminado exitosamente");
                     CargarDGVPrestamos();
                     LimpiarCampos();
                 }
@@ -341,10 +337,14 @@ namespace Form_Biblioteca
             CloseWindow();
         }
 
+        
+
+       
+
 
 
         #endregion
 
-        
+       
     }
 }

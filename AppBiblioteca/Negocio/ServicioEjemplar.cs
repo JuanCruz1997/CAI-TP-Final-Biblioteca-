@@ -11,48 +11,42 @@ namespace Negocio
     public class ServicioEjemplar
     {
         private MapperEjemplares _ejemplarMapper;
-        private ServicioLibro _librosServicio;
+        private Master m;     
         
 
-        public ServicioEjemplar()
+        public ServicioEjemplar(Master m, ServicioLibro sL)
         {
             this._ejemplarMapper = new MapperEjemplares();
-            this._librosServicio = new ServicioLibro();
-            
+            this.m = m;       
             
         }
 
-        public void CargarLibro(List<Ejemplar> ejemplares, int idLibro)
-        {
-            
+        public void CargarLibro(List<Ejemplar> ejemplares)
+        {            
             foreach (Ejemplar ejem in ejemplares)
             {
-                ejem.Libro = _librosServicio.BuscarPorCodigo(idLibro);
-            }
-                
-        }
-        public bool AsignarDisponibilidadIndividual(Ejemplar ej, ServicioPrestamo sp)
-        {
-            bool disponible = true;
-            foreach(Prestamo p in sp.TraerTodosMapper())
-            {               
-                if (p.IdEjemplar == ej.Codigo && p.FechaDevolucionReal == DateTime.MinValue)
+                foreach (Libro libro in m.Libros)
                 {
-                    ej.Disponible = false;
-                    return disponible = false;
+                    if(ejem.CodigoLibro == libro.ISBN)
+                    {
+                        ejem.Libro = libro;
+                        break;
+                    }
+                    
                 }
                 
             }
-            return disponible;
+                
         }
-        public void AsignarDisponibilidad(List<Ejemplar> ejemplares, ServicioPrestamo sp)
+        
+        public void AsignarDisponibilidad(List<Ejemplar> ejemplares, List<Prestamo> prestamos)
         {            
             foreach (Ejemplar ejem in ejemplares)
             {
                 ejem.Disponible = true;
-                foreach (Prestamo prestamo in sp.TraerTodosMapper())
+                foreach (Prestamo prestamo in prestamos)
                 {
-                    if (ejem.Codigo == prestamo.IdEjemplar && prestamo.FechaDevolucionReal == DateTime.MinValue)
+                    if (ejem.Codigo == prestamo.IdEjemplar && prestamo.Abierto)
                     {
                         ejem.Disponible = false;
                         break;
@@ -61,40 +55,30 @@ namespace Negocio
             }
         }
         //Traer sólo por código de libro
-        public List<Ejemplar> TraerPorLibro(int idLibro)
+        public List<Ejemplar> TraerPorLibro(Libro libro)
         {
             List<Ejemplar> ejemplares = new List<Ejemplar>();
-            ejemplares = _ejemplarMapper.TraerPorLibro(idLibro);
-            CargarLibro(ejemplares, idLibro);
-            return ejemplares;
-        }
-
-        public List<Ejemplar> ListaCompletaEjemplares()
-        {
-            List<Ejemplar> ejemplares = new List<Ejemplar>();
-            foreach (Libro l in _librosServicio.TraerTodos())
+            foreach (Ejemplar ej in m.Ejemplares)
             {
-                ejemplares.AddRange(TraerPorLibro(l.ISBN));
-            }
-            return ejemplares;
-        }
-
-        public void CalcularStock(List<Ejemplar> ejemplares, Libro l)
-        {
-            int disponibles = 0;
-            l.StockPermanente = ejemplares.Count;
-            foreach (Ejemplar ej in ejemplares)
-            {
-
-                if (ej.Libro.ISBN == l.ISBN && ej.Disponible)
+                if(libro.ISBN == ej.CodigoLibro)
                 {
 
-                    disponibles += 1;
-                        
+                    ejemplares.Add(ej);
                 }
             }
-            l.StockDisponible = disponibles;
+            
+            m.SL.CalcularStock(ejemplares, libro);
+            return ejemplares;
         }
+
+        public List<Ejemplar> TraerTodos()
+        {
+            List<Ejemplar> ejemplares = _ejemplarMapper.TraerTodos();
+            CargarLibro(ejemplares);
+            return ejemplares;
+        }
+
+        
         public int AltaEjemplar(int codLibro, double precio)
         {
             Ejemplar alta = new Ejemplar(codLibro, precio);
@@ -103,6 +87,7 @@ namespace Negocio
 
             if (resultado.IsOk)
             {
+                this.m.ActualizarCache(this.ToString());
                 return resultado.Id;
             }
             else
@@ -122,7 +107,7 @@ namespace Negocio
         }
         public Ejemplar TraerPorCodigo(int codigo)
         {
-            foreach(Ejemplar e in this.ListaCompletaEjemplares())
+            foreach(Ejemplar e in m.Ejemplares)
             {
                 if (codigo == e.Codigo)
                 {
@@ -141,6 +126,7 @@ namespace Negocio
                 TransactionResult resultado = _ejemplarMapper.Update(ej);
                 if (resultado.IsOk)
                 {
+                    this.m.ActualizarCache(this.ToString());
                     return resultado.Id;
                 }
                 else

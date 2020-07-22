@@ -38,6 +38,7 @@ namespace Datos
             nvc.Add("FechaPrestamo", prestamo.FechaHoraPrestamo.ToString());
             nvc.Add("FechaDevolucionTentativa", prestamo.FechaDevolucionTentativa.ToString());
             nvc.Add("FechaDevolucionReal", prestamo.FechaDevolucionReal.ToString());
+            nvc.Add("Abierto", prestamo.Abierto.ToString());
             nvc.Add("id", prestamo.NumeroOperacion.ToString());
             return nvc;
         }

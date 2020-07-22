@@ -12,12 +12,13 @@ namespace Negocio
     public class ServicioCliente
     {
         private MapperCliente _mapper;
+        private Master m;
         
 
-        public ServicioCliente()
+        public ServicioCliente(Master m)
         {
             this._mapper = new MapperCliente();
-            
+            this.m = m;   
         }
         public List<Cliente> TraerTodos()
         {
@@ -32,14 +33,12 @@ namespace Negocio
             List<Cliente> resultado = new List<Cliente>();
             if(nombre == string.Empty && apellido == string.Empty)
             {
-                return resultado = this.TraerTodos();
+                return resultado = this.m.Clientes;
             }
             else
-            {
-
+            {          
             
-            
-                foreach(Cliente c in this.TraerTodos())
+                foreach(Cliente c in this.m.Clientes)
                 {
                     if (c.Nombre != null || c.Apellido != null)
                     {
@@ -67,6 +66,7 @@ namespace Negocio
             TransactionResult resultado = _mapper.Insert(alta);
             if (resultado.IsOk)
             {
+                this.m.ActualizarCache(this.ToString());
                 return resultado.Id;
             }
             else
@@ -87,6 +87,7 @@ namespace Negocio
                 TransactionResult resultado = _mapper.Update(c);
                 if (resultado.IsOk)
                 {
+                    this.m.ActualizarCache(this.ToString());
                     return resultado.Id;
                 }
                 else
@@ -107,6 +108,7 @@ namespace Negocio
                 TransactionResult resultado = _mapper.Delete(c);
                 if (resultado.IsOk)
                 {
+                    this.m.ActualizarCache(this.ToString());
                     return resultado.Id;
                 }
                 else
@@ -122,7 +124,7 @@ namespace Negocio
 
         public Cliente TraerPorCodigo(int codigo)
         {
-            foreach (Cliente c in this.TraerTodos())
+            foreach (Cliente c in this.m.Clientes)
             {
                 if (codigo == c.Codigo)
                 {

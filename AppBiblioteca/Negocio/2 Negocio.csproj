@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GrillaService.cs" />
+    <Compile Include="Master.cs" />
     <Compile Include="ServicioCliente.cs" />
     <Compile Include="ServicioEjemplar.cs" />
     <Compile Include="ServicioLibro.cs" />

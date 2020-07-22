@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
+using Negocio;
 
 namespace Form_Biblioteca
 {
@@ -16,7 +18,7 @@ namespace Form_Biblioteca
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm1MenuPrincipal());
+            Application.Run(new frm1MenuPrincipal(new Master()));
         }
     }
 }

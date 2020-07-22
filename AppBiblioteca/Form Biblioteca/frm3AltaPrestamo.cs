@@ -14,22 +14,16 @@ namespace Form_Biblioteca
 {
     public partial class frm3AltaPrestamo : Form
     {
-        private ServicioPrestamo _servicioPrestamo;
-        private ServicioCliente _servicioCliente;
-        private ServicioEjemplar _servicioEjemplar;
-        private ServicioLibro _servicioLibro;
+        private Master m;
 
         private const string ejemplar = "ejemplar";
         private const string cliente = "cliente";
         private const string prestamo = "prestamo";
         private const string vacio = "vacio";
         private const string completo = "completo";
-        public frm3AltaPrestamo(ServicioPrestamo sp, ServicioCliente sc, ServicioEjemplar se, ServicioLibro sl)
+        public frm3AltaPrestamo(Master m)
         {
-            this._servicioPrestamo = sp;
-            this._servicioCliente = sc;
-            this._servicioEjemplar = se;
-            this._servicioLibro = sl;
+            this.m = m;
             InitializeComponent();
         }
         #region "Métodos"
@@ -42,6 +36,11 @@ namespace Form_Biblioteca
                 return true;
             }
             else return false;
+        }
+        public void CloseWindow()
+        {
+            Owner.Show();
+            Dispose();
         }
         private void Tab()
         {
@@ -71,7 +70,10 @@ namespace Form_Biblioteca
             }
             else if(objeto == prestamo)
             {
-                txtPlazo.Text = Validaciones.IntValidation(txtPlazo.Text, 0, 365, lblPlazo.Text).ToString();
+                if (cmbPlazo.SelectedIndex == 0)
+                {
+                    throw new Exception("Por favor seleccione el plazo del préstamo");
+                }
 
             }
     
@@ -86,6 +88,7 @@ namespace Form_Biblioteca
             txtNombreCliente.Text = string.Empty;
             txtApellidoCliente.Text = string.Empty;
             dtpFechaAlta.Value = DateTime.Now;
+            cmbPlazo.SelectedIndex = 0;
             //dtpFechaAlta.Value = DateTime.Now;
         }
 
@@ -93,13 +96,21 @@ namespace Form_Biblioteca
         {
             if(objeto == prestamo)
             {
-                txtPlazo.Text = "30"; //primera entrega, los préstamos serán de plazo fijo
+                
                 dtpFechaAlta.Value = DateTime.Today;
-                dtpFechaTentativaDevolucion.Value = DateTime.Today.AddDays(Convert.ToDouble(txtPlazo.Text));
+                if(cmbPlazo.SelectedIndex == 0)
+                {
+                    dtpFechaTentativaDevolucion.Value = DateTime.Today;
+                }
+                else
+                {
+                     dtpFechaTentativaDevolucion.Value = DateTime.Today.AddDays(Convert.ToDouble(cmbPlazo.Text));
+                }
+               
             }
             else if(objeto == cliente)
             {
-                Cliente c = this._servicioCliente.TraerPorCodigo(Convert.ToInt32(txtCodigoCliente.Text));
+                Cliente c = this.m.SC.TraerPorCodigo(Convert.ToInt32(txtCodigoCliente.Text));
                 if (c != null)
                 {
                     txtNombreCliente.Text = c.Nombre;
@@ -111,14 +122,12 @@ namespace Form_Biblioteca
                 }
             } else if (objeto == ejemplar)
             {
-                Ejemplar e = this._servicioEjemplar.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));                
+                Ejemplar e = this.m.SE.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));                
                
                 
                 if (e != null)
                 {
-                    bool disponible = _servicioEjemplar.AsignarDisponibilidadIndividual(e, _servicioPrestamo);
-
-                    if (disponible)
+                    if (e.Disponible)
                     {
                         txtTitulo.Text = e.Libro.Titulo;
                         txtAutor.Text = e.Libro.Autor;
@@ -127,14 +136,12 @@ namespace Form_Biblioteca
                     else
                     {
                         throw new Exception("El ejemplar se encuentra prestado, por favor elija otro");
-                    }
-                    
+                    }                    
                 }
                 else
                 {
-                    MessageBox.Show("El código de ejemplar ingresado es incorrecto");
+                    throw new Exception("El código de ejemplar ingresado es incorrecto");
                 }
-
             }
         }
 
@@ -164,6 +171,25 @@ namespace Form_Biblioteca
                 btnConfirmarNuevoPrestamo.Enabled = true;
             }
         }
+
+        private void CargarCmbPlazo()
+        {
+            List<String> plazos = new List<String>();
+
+            plazos.Add("15");
+            plazos.Add("30");
+            plazos.Add("45");
+            plazos.Add("60");            
+            plazos.Add("-15 - TEST");            
+            plazos.Sort();
+            plazos.Insert(0, "--Seleccione plazo--");
+
+            cmbPlazo.DataSource = plazos;
+
+            cmbPlazo.SelectedIndex = 0;
+        }
+
+        
         public void CompletarCodigo(string id, Form form)
         {
             if (form is frm2Clientes)
@@ -176,17 +202,14 @@ namespace Form_Biblioteca
             }
         }
 
-        private void CloseWindow()
-        {
-            this.Owner.Show();
-            this.Dispose();
-        }
+        
         #endregion
         #region "Eventos"
         private void frm3AltaPrestamo_Load(object sender, EventArgs e)
         {
             Tab();
             FormatearCampos(vacio);
+            CargarCmbPlazo();
             CompletarFormulario(prestamo);
         }
         private void btnActualizarDatosEjemplar_Click(object sender, EventArgs e)
@@ -210,7 +233,7 @@ namespace Form_Biblioteca
             {
                 FormatearCampos(completo);
             }
-            if (txtCodigoEjemplar.Text == string.Empty)
+            else if (txtCodigoEjemplar.Text == string.Empty)
             {
                 btnActualizarDatosEjemplar.Enabled = false;
             }
@@ -237,14 +260,14 @@ namespace Form_Biblioteca
         }
         private void btnTraerEjemplares_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(_servicioLibro, _servicioEjemplar, _servicioPrestamo);
+            frm2Libros f = new frm2Libros(m);
             f.Owner = this;
             f.Show();
         }
 
         private void btnTraerClientes_Click(object sender, EventArgs e)
         {
-            frm2Clientes f = new frm2Clientes(new ServicioCliente());
+            frm2Clientes f = new frm2Clientes(m);
             f.Owner = this;
             f.Show();
         }
@@ -264,7 +287,7 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 ValidarCampos(cliente);
                 ValidarCampos(prestamo);
-                int codigo = this._servicioPrestamo.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(txtPlazo.Text), Convert.ToDouble(txtPrecio.Text));
+                int codigo = this.m.SP.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(cmbPlazo.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " exitosamente");
                 ((frm2GestionarPrestamo)this.Owner).CargarDGVPrestamos();
                 CloseWindow();
@@ -289,6 +312,10 @@ namespace Form_Biblioteca
                     CloseWindow();
                 }
             }
+            else
+            {
+                CloseWindow();
+            }
             
         }
 
@@ -301,19 +328,38 @@ namespace Form_Biblioteca
                     CloseWindow();
                 }
             }
+            else
+            {
+                CloseWindow();
+            }
         }
 
         private void frm3AltaPrestamo_KeyDown(object sender, KeyEventArgs e)
         {
-            if (txtCodigoCliente.Text != string.Empty || txtCodigoEjemplar.Text != string.Empty)
+            if (e.KeyCode == Keys.Escape)
             {
-                if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                if (txtCodigoCliente.Text != string.Empty || txtCodigoEjemplar.Text != string.Empty)
+                {
+                    if (MessageOkCancel("Se borrarán los datos que no hayan sido guardados. Para continuar presione Ok", this.Text))
+                    {
+                        CloseWindow();
+                    }
+                }
+                else
                 {
                     CloseWindow();
                 }
             }
+            
         }
         #endregion
 
+        private void cmbPlazo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbPlazo.SelectedIndex != 0)
+            {
+                CompletarFormulario(prestamo);
+            }
+        }
     }
 }

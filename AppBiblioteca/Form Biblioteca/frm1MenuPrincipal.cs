@@ -8,21 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Negocio;
+using Entidades;
 
 namespace Form_Biblioteca
 {
     public partial class frm1MenuPrincipal : Form
     {
-        private ServicioCliente sc;
-        private ServicioEjemplar se;
-        private ServicioLibro sl;
-        private ServicioPrestamo sp;
-        public frm1MenuPrincipal()
+        private Master m;
+        public frm1MenuPrincipal(Master m)
         {
-            this.sc = new ServicioCliente();
-            this.se = new ServicioEjemplar();
-            this.sl = new ServicioLibro();
-            this.sp = new ServicioPrestamo();
+            this.m = m;
             InitializeComponent();
         }
 
@@ -41,7 +36,7 @@ namespace Form_Biblioteca
 
         private void btnPrestamos_Click(object sender, EventArgs e)
         {
-            frm2GestionarPrestamo f = new frm2GestionarPrestamo(sp, sl, se, sc);
+            frm2GestionarPrestamo f = new frm2GestionarPrestamo(m);
             f.Owner = this;
             f.Show();
             this.Hide();
@@ -49,7 +44,7 @@ namespace Form_Biblioteca
 
         private void btnLibro_Click(object sender, EventArgs e)
         {
-            frm2Libros f = new frm2Libros(sl, se, sp);
+            frm2Libros f = new frm2Libros(m);
             f.Owner = this;
             f.Size = new Size(800, f.Size.Height);
             f.Show();
@@ -59,7 +54,7 @@ namespace Form_Biblioteca
         
         private void btnCliente_Click(object sender, EventArgs e)
         {
-            frm2Clientes f = new frm2Clientes(sc);
+            frm2Clientes f = new frm2Clientes(m);
             f.Owner = this;
             f.Show();
             this.Hide();

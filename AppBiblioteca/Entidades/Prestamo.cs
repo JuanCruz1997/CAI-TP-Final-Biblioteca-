@@ -19,6 +19,7 @@ namespace Entidades
         private Cliente _cliente;
         private Ejemplar _ejemplar;
         private double _precioPactado;
+        private bool _abierto;
 
         [DataMember(Name = "id")]
         public int NumeroOperacion { get => _numeroOperacion; set => _numeroOperacion = value; }
@@ -38,6 +39,8 @@ namespace Entidades
         public DateTime FechaDevolucionNula { get => Convert.ToDateTime("0001-01-01");}
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
         public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
+        [DataMember]
+        public bool Abierto { get => _abierto; set => _abierto = value; }
 
 
 
@@ -66,6 +69,7 @@ namespace Entidades
             this.FechaDevolucionReal = DateTime.MinValue;
             this.FechaHoraPrestamo = DateTime.Today;
             this._precioPactado = precio;
+            this._abierto = true;
         }
     }
 

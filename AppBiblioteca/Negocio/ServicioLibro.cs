@@ -10,13 +10,15 @@ namespace Negocio
 {
     public class ServicioLibro
     {
+        
         private MapperLibros _mapperLibros;
+        private Master m;
         
 
-        public ServicioLibro()
+        public ServicioLibro(Master m)
         {
             this._mapperLibros = new MapperLibros();
-           
+            this.m = m;            
         }
 
         public List<Libro> TraerTodos()
@@ -32,11 +34,11 @@ namespace Negocio
 
             if (titulo == string.Empty && autor == string.Empty)
             {
-                return resultado = this.TraerTodos();
+                return resultado = m.Libros;
             }
             else
             {
-                foreach (Libro l in this.TraerTodos())
+                foreach (Libro l in m.Libros)
                 {
                     if (l.Titulo != string.Empty || l.Autor != string.Empty)
                     {
@@ -67,6 +69,7 @@ namespace Negocio
 
             if (resultado.IsOk)
             {
+                this.m.ActualizarCache(this.ToString());
                 return resultado.Id;
             }
             else
@@ -77,7 +80,7 @@ namespace Negocio
         public List<Libro> TraerPorCodigo(int codLibro)
         {
             List<Libro> resultado = new List<Libro>();
-            foreach(Libro l in this.TraerTodos())
+            foreach(Libro l in m.Libros)
             {
                 if (codLibro == l.ISBN)
                 {
@@ -89,9 +92,8 @@ namespace Negocio
         }
 
         public Libro BuscarPorCodigo(int codLibro)
-        {
-            
-            foreach (Libro l in this.TraerTodos())
+        {            
+            foreach (Libro l in m.Libros)
             {
                 if (codLibro == l.ISBN)
                 {
@@ -101,5 +103,21 @@ namespace Negocio
             }
             return null;
         }
+        public void CalcularStock(List<Ejemplar> ejemplares, Libro l)
+        {
+            int disponibles = 0;
+            l.StockPermanente = ejemplares.Count;
+            foreach (Ejemplar ej in ejemplares)
+            {
+                if (ej.Libro.ISBN == l.ISBN && ej.Disponible)
+                {
+
+                    disponibles += 1;
+
+                }
+            }
+            l.StockDisponible = disponibles;
+        }
     }
+
 }

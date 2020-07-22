@@ -14,21 +14,17 @@ namespace Form_Biblioteca
 {
     public partial class frm2Libros : Form
     {
-        private ServicioLibro _servicioLibro;
-        private ServicioEjemplar _servicioEjemplar;
-        private ServicioPrestamo _servicioPrestamo;
+        private Master m;
 
         private const string libro = "libro";
         private const string ejemplar = "ejemplar";
         private const string menu = "menu";
         private const string prestamo = "prestamo";
         private const string seleccion = "seleccion";
-        
-        public frm2Libros(ServicioLibro sl, ServicioEjemplar se, ServicioPrestamo sp)
+
+        public frm2Libros(Master m)
         {
-            this._servicioLibro = sl;
-            this._servicioEjemplar = se;
-            this._servicioPrestamo = sp;
+            this.m = m;
             InitializeComponent();
         }
 
@@ -41,6 +37,11 @@ namespace Form_Biblioteca
                 return true;
             }
             else return false;
+        }
+        public void CloseWindow()
+        {
+            Owner.Show();
+            Dispose();
         }
         private void Tab()
         {
@@ -55,43 +56,51 @@ namespace Form_Biblioteca
             txtPaginas.TabIndex = 6;
             txtEditorial.TabIndex = 7;
             cmbTema.TabIndex = 8;
-            btnTraerEjemplar.TabIndex = 9;
-            btnAltaLibro.TabIndex = 10;
-            btnVerEjemplares.TabIndex = 12;            
-            btnLimpiarCampos.TabIndex = 13;
-            btnSalir.TabIndex = 14;
-            dgvLibros.TabIndex = 15;
-            txtCantidadAAgregar.TabIndex = 16;
-            btnAgregarCantidad.TabIndex = 17;
-            gbEjemplares.TabIndex = 18;
-            txtPrecio.TabIndex = 19;
-            txtObservaciones.TabIndex = 20;
-            btnModificar.TabIndex = 21;
-            lstEjemplares.TabIndex = 22;
+            dgvLibros.TabIndex = 9;
+            btnTraerEjemplar.TabIndex = 10;
+            btnAltaLibro.TabIndex = 11;
+            btnVerEjemplares.TabIndex = 12;
+
+            txtCantidadAAgregar.TabIndex = 13;
+            btnAgregarCantidad.TabIndex = 14;
+
+            lstEjemplares.TabIndex = 15;
+            gbEjemplares.TabIndex = 16;
+            txtPrecio.TabIndex = 17;
+            txtObservaciones.TabIndex = 18;
+            btnModificar.TabIndex = 19;
+            btnComprimir.TabIndex = 20;
+            btnLimpiarCampos.TabIndex = 21;
+            btnSalir.TabIndex = 22;
+
+
+
+
 
         }
         private void ValidarCampos(string objeto)
         {
-            if(objeto == libro)
+            if (objeto == libro)
             {
                 txtTitulo.Text = Validaciones.StringValidation(txtTitulo.Text, lblTitulo.Text);
                 txtAutor.Text = Validaciones.StringValidation(txtAutor.Text, lblAutor.Text);
                 txtEditorial.Text = Validaciones.StringValidation(txtEditorial.Text, lblEditorial.Text);
                 txtEdicion.Text = Validaciones.IntValidation(txtEdicion.Text, 0, 999999999, lblEdicion.Text).ToString();
                 txtPaginas.Text = Validaciones.IntValidation(txtPaginas.Text, 0, 999999999, lblCantidadPaginas.Text).ToString();
-            } else if (objeto ==ejemplar)
+            }
+            else if (objeto == ejemplar)
             {
                 txtCantidadAAgregar.Text = Validaciones.IntValidation(txtCantidadAAgregar.Text, 0, int.MaxValue, lblCantidadAAgregar.Text).ToString();
                 txtPrecio.Text = Validaciones.DoubleValidation(txtPrecio.Text, 0, double.MaxValue, lblPrecio.Text).ToString();
                 txtISBN.Text = Validaciones.IntValidation(txtISBN.Text, 0, int.MaxValue, lblISBN.Text).ToString();
                 txtObservaciones.Text = Validaciones.StringValidation(txtObservaciones.Text, lblObservaciones.Text);
             }
-            
+
         }
 
         private void LimpiarCampos(string objeto)
         {
-            if(objeto == libro)
+            if (objeto == libro)
             {
                 dgvLibros.CurrentCell = null;
 
@@ -106,15 +115,16 @@ namespace Form_Biblioteca
                 txtBuscarTitulo.Text = string.Empty;
                 txtBuscarAutor.Text = string.Empty;
 
-            } else if (objeto == ejemplar)
+            }
+            else if (objeto == ejemplar)
             {
                 lstEjemplares.SelectedIndex = -1;
 
                 txtCantidadAAgregar.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
                 txtObservaciones.Text = string.Empty;
-            }     
-                        
+            }
+
         }
         private void CargarComboTemas()
         {
@@ -154,15 +164,15 @@ namespace Form_Biblioteca
                 lblCantidadAAgregar.Visible = false;
                 txtCantidadAAgregar.Visible = false;
                 btnAgregarCantidad.Visible = false;
-                
-                
+
+
                 txtCantidadAAgregar.Enabled = false;
                 btnAgregarCantidad.Enabled = false;
                 txtPrecio.Enabled = false;
                 txtObservaciones.Enabled = false;
                 btnModificar.Enabled = false;
                 btnComprimir.Enabled = false;
-                
+
             }
             else if (condicion == menu)
             {
@@ -203,7 +213,7 @@ namespace Form_Biblioteca
                 {
                     btnAltaLibro.Enabled = false;
                     btnModificar.Enabled = true;
-                    
+
 
                     lblCantidadAAgregar.Enabled = true;
                     txtCantidadAAgregar.Enabled = true;
@@ -214,42 +224,38 @@ namespace Form_Biblioteca
                     lstEjemplares.Enabled = true;
                     btnComprimir.Enabled = true;
 
-                    
-                } else if(this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
+
+                }
+                else if (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
                 {
-                                      
+
                     txtPrecio.Enabled = false;
                     txtObservaciones.Enabled = false;
                     btnModificar.Enabled = false;
                     lstEjemplares.Enabled = true;
                     btnComprimir.Enabled = true;
-                    
+
                 }
-                    
-                    
-
-                
-
-
             }
-            
+
             else if (condicion == ejemplar)
             {
-                if((this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
+                if ((this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo))
                 {
                     btnTraerEjemplar.Enabled = true;
                     btnVerEjemplares.Enabled = false;
-                    
-                } else if (this.Owner is frm1MenuPrincipal)
+
+                }
+                else if (this.Owner is frm1MenuPrincipal)
                 {
                     txtPrecio.Enabled = true;
                     txtObservaciones.Enabled = true;
                     btnModificar.Enabled = true;
                 }
-                
+
             }
-            
-            
+
+
         }
 
         private void CompletarFormularioLibro(Libro seleccionado)
@@ -262,7 +268,7 @@ namespace Form_Biblioteca
             txtEditorial.Text = seleccionado.Editorial;
             txtInventario.Text = seleccionado.StockPermanente.ToString();
             txtDisponibles.Text = seleccionado.StockDisponible.ToString();
-            foreach(String s in ListaTemas())
+            foreach (String s in ListaTemas())
             {
                 if (s == seleccionado.Tema)
                 {
@@ -280,14 +286,12 @@ namespace Form_Biblioteca
         {
             dgvLibros.DataSource = null;
             dgvLibros.DataSource = libros;
-            
+
         }
 
         private void CargarListaEjemplares(Libro seleccionado)
         {
-            List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-            _servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
-            this._servicioEjemplar.CalcularStock(lista, seleccionado);
+            List<Ejemplar> lista = this.m.SE.TraerPorLibro(seleccionado);
             lstEjemplares.DataSource = null;
             lstEjemplares.DataSource = lista;
             lstEjemplares.SelectedIndex = -1;
@@ -295,7 +299,7 @@ namespace Form_Biblioteca
         private List<String> ListaTemas()
         {
             List<String> temas = new List<String>();
-            
+
             temas.Add("Romántico");
             temas.Add("Misterio");
             temas.Add("Terror");
@@ -322,16 +326,17 @@ namespace Form_Biblioteca
             txtObservaciones.Text = seleccionado.Descripcion;
         }
 
-        private void CloseWindow()
-        {
-            this.Owner.Show();
-            this.Dispose();
-        }
+
         private Libro IndicarLibro()
         {
             DataGridViewRow row = dgvLibros.CurrentRow;
-            Libro seleccionado = row.DataBoundItem as Libro;
-            return seleccionado;
+            if (row != null)
+            {
+                Libro seleccionado = row.DataBoundItem as Libro;
+                return seleccionado;
+            }
+            return null;
+
         }
         #endregion
         #region "Eventos"
@@ -339,7 +344,7 @@ namespace Form_Biblioteca
         private void frm2Libros_Load(object sender, EventArgs e)
         {
             Tab();
-            CargarDGVLibros(this._servicioLibro.TraerTodos());
+            CargarDGVLibros(this.m.Libros);
             CargarComboTemas();
             LimpiarCampos(libro);
             if (this.Owner is frm1MenuPrincipal)
@@ -366,7 +371,7 @@ namespace Form_Biblioteca
             }
         }
 
-    
+
 
 
         private void btnBuscarLibro_Click(object sender, EventArgs e)
@@ -375,13 +380,13 @@ namespace Form_Biblioteca
             {
                 if (txtBuscarTitulo.Text == string.Empty && txtBuscarAutor.Text == string.Empty)
                 {
-                    CargarDGVLibros(this._servicioLibro.TraerTodos());
+                    CargarDGVLibros(this.m.Libros);
                     MessageBox.Show("Debe ingresar al menos un criterio de búsqueda.");
-                    
+
                 }
                 else
                 {
-                    CargarDGVLibros(this._servicioLibro.BuscarLibro(Validaciones.StringValidation(txtBuscarTitulo.Text, lblBuscarTitulo.Text), Validaciones.StringValidation(txtBuscarAutor.Text, lblBuscarAutor.Text)));
+                    CargarDGVLibros(this.m.SL.BuscarLibro(Validaciones.StringValidation(txtBuscarTitulo.Text, lblBuscarTitulo.Text), Validaciones.StringValidation(txtBuscarAutor.Text, lblBuscarAutor.Text)));
                 }
                 LimpiarCampos(libro);
             }
@@ -398,7 +403,7 @@ namespace Form_Biblioteca
             {
                 CargarListaEjemplares(seleccionado);
                 CompletarFormularioLibro(seleccionado);
-                
+
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
             }
@@ -410,10 +415,7 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
-                List<Ejemplar> lista = this._servicioEjemplar.TraerPorLibro(seleccionado.ISBN);
-                _servicioEjemplar.AsignarDisponibilidad(lista, _servicioPrestamo);
-                //List<Ejemplar> lista = this._servicioEjemplar.AsignarDisponibilidad2(seleccionado, _servicioPrestamo);
-                this._servicioEjemplar.CalcularStock(lista, seleccionado);
+                List<Ejemplar> lista = this.m.SE.TraerPorLibro(seleccionado);
                 CompletarFormularioLibro(seleccionado);
                 CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
@@ -421,16 +423,16 @@ namespace Form_Biblioteca
             }
         }
 
-        
+
 
         private void btnAltaLibro_Click(object sender, EventArgs e)
         {
             try
             {
                 ValidarCampos(libro);
-                int codigo = this._servicioLibro.AltaLibro(txtTitulo.Text,txtAutor.Text,Convert.ToInt32(txtEdicion.Text),txtEditorial.Text,Convert.ToInt32(txtPaginas.Text),cmbTema.Text);
+                int codigo = this.m.SL.AltaLibro(txtTitulo.Text, txtAutor.Text, Convert.ToInt32(txtEdicion.Text), txtEditorial.Text, Convert.ToInt32(txtPaginas.Text), cmbTema.Text);
                 MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nPor favor, agregue la cantidad de ejemplares");
-                CargarDGVLibros(_servicioLibro.TraerPorCodigo(codigo));                
+                CargarDGVLibros(m.SL.TraerPorCodigo(codigo));
                 DataGridViewRow row = dgvLibros.Rows[0];
                 row.Selected = true;
                 Libro seleccionado = row.DataBoundItem as Libro;
@@ -447,13 +449,13 @@ namespace Form_Biblioteca
         private void btnTraerEjemplar_Click(object sender, EventArgs e)
         {
             try
-            {            
+            {
                 Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
                 if (lstEjemplares.SelectedIndex == -1)
                 {
                     throw new Exception("Seleccione un ejemplar");
 
-                } 
+                }
                 else if (this.Owner is frm2GestionarPrestamo)
                 {
                     ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
@@ -470,7 +472,8 @@ namespace Form_Biblioteca
                     this.Owner.Show();
                     this.Dispose();
                 }
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -494,28 +497,28 @@ namespace Form_Biblioteca
         {
             LimpiarCampos(libro);
             LimpiarCampos(ejemplar);
-            CargarDGVLibros(_servicioLibro.TraerTodos());
+            CargarDGVLibros(this.m.Libros);
             this.Size = new Size(800, this.Size.Height);
             LimpiarCampos(libro);
         }
 
-        
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             CloseWindow();
         }
-        
+
         private void lstEjemplares_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             Ejemplar seleccionado = (Ejemplar)lstEjemplares.SelectedItem;
-            
+
             if (seleccionado != null)
             {
                 FormatearCampos(ejemplar);
                 CompletarFormularioEjemplar(seleccionado);
-                
+
             }
         }
 
@@ -528,7 +531,7 @@ namespace Form_Biblioteca
                 {
                     throw new Exception("Seleccione un ejemplar");
                 }
-                
+
                 else if (this.Owner is frm2GestionarPrestamo)
                 {
                     ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
@@ -542,8 +545,7 @@ namespace Form_Biblioteca
                 {
                     ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
-                    this.Owner.Show();
-                    this.Dispose();
+                    CloseWindow();
                 }
             }
             catch (Exception ex)
@@ -557,7 +559,7 @@ namespace Form_Biblioteca
             try
             {
                 ValidarCampos(ejemplar);
-                string codigos = _servicioEjemplar.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
+                string codigos = m.SE.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
                 Libro seleccionado = IndicarLibro();
                 CompletarFormularioLibro(seleccionado);
@@ -582,10 +584,10 @@ namespace Form_Biblioteca
             {
                 try
                 {
-                    
+
                     ValidarCampos(ejemplar);
                     Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
-                    int codigo = this._servicioEjemplar.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
+                    int codigo = this.m.SE.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
                     MessageBox.Show("El ejemplar " + codigo + " se ha modificado exitosamente");
                     Libro seleccionado = IndicarLibro();
                     CompletarFormularioLibro(seleccionado);
@@ -605,7 +607,46 @@ namespace Form_Biblioteca
         {
             this.Size = new Size(800, this.Size.Height);
         }
-                                    
+
+
+
+
+        private void lstEjemplares_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                try
+                {
+                    Ejemplar ejemplar = (Ejemplar)lstEjemplares.SelectedItem;
+                    if (lstEjemplares.SelectedIndex == -1)
+                    {
+                        throw new Exception("Seleccione un ejemplar");
+                    }
+
+                    else if (this.Owner is frm2GestionarPrestamo)
+                    {
+                        ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                        CloseWindow();
+                    }
+                    else if (ejemplar.Disponible == false)
+                    {
+                        throw new Exception("El ejemplar se encuentra prestado. Por favor, elija otro");
+                    }
+                    else if (this.Owner is frm3AltaPrestamo)
+                    {
+                        ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
+                        ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
+                        CloseWindow();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+     
         #endregion
 
 

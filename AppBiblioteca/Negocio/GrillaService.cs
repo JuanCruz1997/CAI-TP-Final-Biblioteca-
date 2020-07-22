@@ -9,18 +9,18 @@ namespace Negocio
 {
     public class GrillaService
     {
-        private ServicioPrestamo _prestamoServicio;
-
-        public GrillaService()
+        private Master m;
+        public GrillaService(Master m)
         {
-            this._prestamoServicio = new ServicioPrestamo();
+
+            this.m = m;
         }
         public List<PrestamoAdapter> GetListaPrestamosCompleta(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> listaPrestamo = new List<Prestamo>();
             List<PrestamoAdapter> listaPrestamoAdapter = new List<PrestamoAdapter>();
 
-            listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
+            listaPrestamo = m.SP.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
             foreach (Prestamo p in listaPrestamo)
             {
                 listaPrestamoAdapter.Add(new PrestamoAdapter(p));
@@ -34,10 +34,10 @@ namespace Negocio
 
             List<PrestamoAdapter> listaPrestamoAdapter = new List<PrestamoAdapter>();
 
-            listaPrestamo = _prestamoServicio.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
+            listaPrestamo = m.SP.BuscarPrestamo(idCodigoCliente, idCodigoEjemplar);
             foreach (Prestamo p in listaPrestamo)
             {
-                if(p.FechaDevolucionReal == DateTime.MinValue)
+                if(p.Abierto)
                 {
                     listaPrestamoAdapter.Add(new PrestamoAdapter(p));
                 }

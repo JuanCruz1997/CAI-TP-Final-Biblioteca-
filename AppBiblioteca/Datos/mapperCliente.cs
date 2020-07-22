@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,7 @@ namespace Datos
     {
         public List<Cliente> Traer()
         {
-            string json = WebHelper.Get("/api/v1/cliente");
+            string json = WebHelper.Get("/api/v1/cliente/" + ConfigurationManager.AppSettings["Registro"]);
             List<Cliente> lst = MapList(json);
             return lst;
         }

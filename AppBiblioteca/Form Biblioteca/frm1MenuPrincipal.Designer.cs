@@ -40,39 +40,40 @@
             // 
             // btnPrestamos
             // 
-            this.btnPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrestamos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrestamos.Image = ((System.Drawing.Image)(resources.GetObject("btnPrestamos.Image")));
-            this.btnPrestamos.Location = new System.Drawing.Point(470, 72);
-            this.btnPrestamos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrestamos.Location = new System.Drawing.Point(420, 58);
+            this.btnPrestamos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrestamos.Name = "btnPrestamos";
             this.btnPrestamos.Size = new System.Drawing.Size(300, 300);
             this.btnPrestamos.TabIndex = 0;
             this.btnPrestamos.Text = "Préstamos";
-            this.btnPrestamos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPrestamos.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPrestamos.UseVisualStyleBackColor = true;
             this.btnPrestamos.Click += new System.EventHandler(this.btnPrestamos_Click);
             // 
             // btnLibro
             // 
-            this.btnLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLibro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLibro.ForeColor = System.Drawing.Color.Black;
             this.btnLibro.Image = ((System.Drawing.Image)(resources.GetObject("btnLibro.Image")));
-            this.btnLibro.Location = new System.Drawing.Point(790, 72);
-            this.btnLibro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLibro.Location = new System.Drawing.Point(735, 58);
+            this.btnLibro.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLibro.Name = "btnLibro";
             this.btnLibro.Size = new System.Drawing.Size(300, 300);
             this.btnLibro.TabIndex = 1;
             this.btnLibro.Text = "Libros";
-            this.btnLibro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLibro.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnLibro.UseVisualStyleBackColor = true;
             this.btnLibro.Click += new System.EventHandler(this.btnLibro_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(470, 392);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Location = new System.Drawing.Point(420, 376);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(937, 57);
+            this.btnSalir.Size = new System.Drawing.Size(930, 46);
             this.btnSalir.TabIndex = 3;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -81,43 +82,44 @@
             // lblMenu
             // 
             this.lblMenu.AutoSize = true;
-            this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMenu.Location = new System.Drawing.Point(12, 9);
+            this.lblMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMenu.Location = new System.Drawing.Point(9, 19);
+            this.lblMenu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMenu.Name = "lblMenu";
-            this.lblMenu.Size = new System.Drawing.Size(646, 50);
+            this.lblMenu.Size = new System.Drawing.Size(942, 29);
             this.lblMenu.TabIndex = 3;
-            this.lblMenu.Text = "¡Bienvenido!\r\nUsted está en el sistema de gestión de la Biblioteca de Springfield" +
-    "";
+            this.lblMenu.Text = "¡Bienvenido! Usted está en el sistema de gestión de la Biblioteca de Springfield";
             // 
             // btnCliente
             // 
-            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnCliente.Image")));
-            this.btnCliente.Location = new System.Drawing.Point(1107, 72);
-            this.btnCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnCliente.Location = new System.Drawing.Point(1050, 58);
+            this.btnCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Size = new System.Drawing.Size(300, 300);
             this.btnCliente.TabIndex = 2;
             this.btnCliente.Text = "Clientes";
-            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCliente.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnCliente.UseVisualStyleBackColor = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
             // pbBienvenida
             // 
             this.pbBienvenida.Image = ((System.Drawing.Image)(resources.GetObject("pbBienvenida.Image")));
-            this.pbBienvenida.Location = new System.Drawing.Point(17, 72);
+            this.pbBienvenida.Location = new System.Drawing.Point(13, 58);
+            this.pbBienvenida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbBienvenida.Name = "pbBienvenida";
-            this.pbBienvenida.Size = new System.Drawing.Size(411, 377);
+            this.pbBienvenida.Size = new System.Drawing.Size(387, 364);
             this.pbBienvenida.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbBienvenida.TabIndex = 4;
             this.pbBienvenida.TabStop = false;
             // 
             // frm1MenuPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1419, 471);
+            this.ClientSize = new System.Drawing.Size(1368, 450);
             this.Controls.Add(this.pbBienvenida);
             this.Controls.Add(this.btnCliente);
             this.Controls.Add(this.lblMenu);
@@ -126,7 +128,7 @@
             this.Controls.Add(this.btnPrestamos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.Name = "frm1MenuPrincipal";
             this.ShowIcon = false;

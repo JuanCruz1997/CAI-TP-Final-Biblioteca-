@@ -11,43 +11,39 @@ namespace Negocio
     public class ServicioPrestamo
     {
         private MapperPrestamos _prestamoMapper;
-        private ServicioEjemplar _ejemplarServicio;
-        private ServicioCliente _clienteServicio;   
-               
+        private Master m;
 
-        public ServicioPrestamo()
+        public ServicioPrestamo(Master m, ServicioEjemplar sE, ServicioCliente sC)
         {
             this._prestamoMapper = new MapperPrestamos();
-            this._ejemplarServicio = new ServicioEjemplar();
-            this._clienteServicio = new ServicioCliente();
+            this.m = m;
+
         }
        
         public List<Prestamo> TraerTodos()
         {
             List<Prestamo> lista = new List<Prestamo>();
             lista = _prestamoMapper.TraerTodos();
-            
-            CargarClientes(lista, _clienteServicio.TraerTodos());
-            CargarEjemplares(lista, _ejemplarServicio.ListaCompletaEjemplares());
-            
+                        
+            m.SE.AsignarDisponibilidad(m.Ejemplares, lista);
+
+            CargarClientes(lista, m.Clientes);
+            CargarEjemplares(lista, m.Ejemplares);
+
             return lista;
         }
-        public List<Prestamo> TraerTodosMapper()
-        {
-            List<Prestamo> prestamo = this._prestamoMapper.TraerTodos();
-            return prestamo;
-        }
+        
         public List<Prestamo> BuscarPrestamo(int idCodigoCliente, int idCodigoEjemplar)
         {
             List<Prestamo> resultado = new List<Prestamo>();
 
             if (idCodigoCliente == 0 && idCodigoEjemplar == 0)
             {
-                return TraerTodos();
+                return m.Prestamos;
             }
             else
             {
-                foreach (Prestamo p in TraerTodos())
+                foreach (Prestamo p in m.Prestamos)
                 {
                     if (p.IdCliente != 0 || p.IdEjemplar != 0)
                     {
@@ -91,6 +87,7 @@ namespace Negocio
                     if (pres.IdCliente == c.Codigo)
                     {
                         pres.Cliente = c;
+                        break;
                     }
                 }
             }
@@ -103,6 +100,7 @@ namespace Negocio
             TransactionResult resultado = _prestamoMapper.Insert(alta);
             if (resultado.IsOk)
             {
+                this.m.ActualizarCache(this.ToString());
                 return resultado.Id;
             }
             else
@@ -116,9 +114,11 @@ namespace Negocio
             if (p != null)
             {
                 p.FechaDevolucionReal = fechaDevolucion;
+                p.Abierto = false;
                 TransactionResult resultado = _prestamoMapper.Update(p);
                 if (resultado.IsOk)
                 {
+                    this.m.ActualizarCache(this.ToString());
                     return resultado.Id;
                 }
                 else
@@ -137,15 +137,24 @@ namespace Negocio
             Prestamo p = this.TraerPorCodigo(codigo);
             if (p != null)
             {
-                TransactionResult resultado = _prestamoMapper.Delete(p);
-                if (resultado.IsOk)
+                if ((DateTime.Today - p.FechaHoraPrestamo).Days < 30 )
                 {
-                    return resultado.Id;
+                    TransactionResult resultado = _prestamoMapper.Delete(p);
+                    if (resultado.IsOk)
+                    {
+                        this.m.ActualizarCache(this.ToString());
+                        return resultado.Id;
+                    }
+                    else
+                    {
+                        throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                    }
                 }
                 else
                 {
-                    throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                    throw new Exception("El prestamo no puede eliminarse luego de los 30 días de creado");
                 }
+                
             }
             else
             {
@@ -155,7 +164,7 @@ namespace Negocio
 
         public Prestamo TraerPorCodigo(int codigo)
         {
-            foreach (Prestamo p in this.TraerTodos())
+            foreach (Prestamo p in m.Prestamos)
             {
                 if (codigo == p.NumeroOperacion)
                 {
