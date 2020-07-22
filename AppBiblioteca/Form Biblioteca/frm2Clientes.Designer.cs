@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnLimpiarCampos = new System.Windows.Forms.Button();
@@ -60,23 +60,23 @@
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.direccionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.clienteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.prestamoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnTraerCliente = new System.Windows.Forms.Button();
             this.gbDatoscCliente = new System.Windows.Forms.GroupBox();
-            this.clienteBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.gbBuscarClientes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).BeginInit();
             this.gbDatoscCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnModificar
             // 
             this.btnModificar.Location = new System.Drawing.Point(305, 468);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(243, 57);
             this.btnModificar.TabIndex = 13;
@@ -87,7 +87,7 @@
             // btnEliminar
             // 
             this.btnEliminar.Location = new System.Drawing.Point(579, 468);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(243, 57);
             this.btnEliminar.TabIndex = 14;
@@ -98,7 +98,7 @@
             // btnLimpiarCampos
             // 
             this.btnLimpiarCampos.Location = new System.Drawing.Point(852, 468);
-            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
             this.btnLimpiarCampos.TabIndex = 15;
@@ -109,7 +109,7 @@
             // btnAlta
             // 
             this.btnAlta.Location = new System.Drawing.Point(36, 468);
-            this.btnAlta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAlta.Margin = new System.Windows.Forms.Padding(4);
             this.btnAlta.Name = "btnAlta";
             this.btnAlta.Size = new System.Drawing.Size(243, 57);
             this.btnAlta.TabIndex = 95;
@@ -150,7 +150,7 @@
             // txtBuscarApellido
             // 
             this.txtBuscarApellido.Location = new System.Drawing.Point(501, 26);
-            this.txtBuscarApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarApellido.Name = "txtBuscarApellido";
             this.txtBuscarApellido.Size = new System.Drawing.Size(337, 22);
             this.txtBuscarApellido.TabIndex = 5;
@@ -158,7 +158,7 @@
             // txtBuscarNombre
             // 
             this.txtBuscarNombre.Location = new System.Drawing.Point(73, 26);
-            this.txtBuscarNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtBuscarNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarNombre.Name = "txtBuscarNombre";
             this.txtBuscarNombre.Size = new System.Drawing.Size(337, 22);
             this.txtBuscarNombre.TabIndex = 4;
@@ -167,7 +167,7 @@
             // 
             this.txtCodigoCliente.Enabled = false;
             this.txtCodigoCliente.Location = new System.Drawing.Point(124, 74);
-            this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtCodigoCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtCodigoCliente.Name = "txtCodigoCliente";
             this.txtCodigoCliente.ReadOnly = true;
             this.txtCodigoCliente.Size = new System.Drawing.Size(221, 22);
@@ -206,7 +206,7 @@
             // txtMail
             // 
             this.txtMail.Location = new System.Drawing.Point(124, 358);
-            this.txtMail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMail.Margin = new System.Windows.Forms.Padding(4);
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(221, 22);
             this.txtMail.TabIndex = 11;
@@ -214,7 +214,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(124, 299);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(221, 22);
             this.txtTelefono.TabIndex = 10;
@@ -222,7 +222,7 @@
             // txtDireccion
             // 
             this.txtDireccion.Location = new System.Drawing.Point(124, 241);
-            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(221, 22);
             this.txtDireccion.TabIndex = 9;
@@ -230,7 +230,7 @@
             // btnBuscarCliente
             // 
             this.btnBuscarCliente.Location = new System.Drawing.Point(848, 23);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(71, 25);
             this.btnBuscarCliente.TabIndex = 6;
@@ -241,7 +241,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(1112, 468);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(225, 57);
             this.btnSalir.TabIndex = 16;
@@ -268,7 +268,7 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(124, 127);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(221, 22);
             this.txtNombre.TabIndex = 7;
@@ -296,7 +296,7 @@
             // txtApellido
             // 
             this.txtApellido.Location = new System.Drawing.Point(124, 181);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(221, 22);
             this.txtApellido.TabIndex = 8;
@@ -309,14 +309,14 @@
             this.dgvClientes.AllowUserToResizeRows = false;
             this.dgvClientes.AutoGenerateColumns = false;
             this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigoDataGridViewTextBoxColumn,
@@ -387,6 +387,10 @@
             this.direccionDataGridViewTextBoxColumn.Name = "direccionDataGridViewTextBoxColumn";
             this.direccionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // clienteBindingSource1
+            // 
+            this.clienteBindingSource1.DataSource = typeof(Entidades.Cliente);
+            // 
             // clienteBindingSource
             // 
             this.clienteBindingSource.DataSource = typeof(Entidades.Cliente);
@@ -398,7 +402,7 @@
             // btnTraerCliente
             // 
             this.btnTraerCliente.Location = new System.Drawing.Point(36, 468);
-            this.btnTraerCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTraerCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnTraerCliente.Name = "btnTraerCliente";
             this.btnTraerCliente.Size = new System.Drawing.Size(243, 57);
             this.btnTraerCliente.TabIndex = 12;
@@ -429,10 +433,6 @@
             this.gbDatoscCliente.TabStop = false;
             this.gbDatoscCliente.Text = "Datos Cliente";
             // 
-            // clienteBindingSource1
-            // 
-            this.clienteBindingSource1.DataSource = typeof(Entidades.Cliente);
-            // 
             // frm2Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -447,9 +447,13 @@
             this.Controls.Add(this.btnLimpiarCampos);
             this.Controls.Add(this.btnAlta);
             this.Controls.Add(this.gbBuscarClientes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frm2Clientes";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestionar clientes";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frm2Clientes_FormClosed);
             this.Load += new System.EventHandler(this.frm2Clientes_Load);
@@ -457,11 +461,11 @@
             this.gbBuscarClientes.ResumeLayout(false);
             this.gbBuscarClientes.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamoBindingSource)).EndInit();
             this.gbDatoscCliente.ResumeLayout(false);
             this.gbDatoscCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
