@@ -8,59 +8,57 @@ using System.Threading.Tasks;
 using Entidades;
 using Newtonsoft.Json;
 
-//namespace Datos
-//{
-//    internal abstract class Mapper
-//    {
-//        internal List<Type> Traer(Type entidad, string url)
-//        {
-//            string json = WebHelper.Get(url);
-//            List<Type> lst = MapList(json);
-//            return lst;
-//        }
-//        internal TransactionResult Insert(Type entidad, string url, NameValueCollection obj)
-//        {
-//            //NameValueCollection obj = ReverseMap(entidad);
-//            string json = WebHelper.Post(url, obj);
-//            TransactionResult resultado = MapResult(json);
-//            return resultado;
+namespace Datos
+{
+    public abstract class Mapper<T>
+    {
+        public List<T> TraerTodo(string url)
+        {
+            string json = WebHelper.Get(url);
+            List<T> lst = MapList(json);
+            return lst;
+        }
+        public TransactionResult Insert(string url, T entidad)
+        {
+            NameValueCollection obj = ReverseMapInsertUpdate(entidad);
+            string json = WebHelper.Post(url, obj);
+            TransactionResult resultado = MapResult(json);
+            return resultado;
+        }
 
-//        }
+        public List<T> MapList(string json)
+        {
+            List<T> lst = JsonConvert.DeserializeObject<List<T>>(json);
+            return lst;
+        }
+        public abstract NameValueCollection ReverseMapInsertUpdate(T entidad);
+        public abstract NameValueCollection ReverseMapDelete(T entidad);
 
-//        internal List<Type> MapList(string json)
-//        {
-//            List<Type> lst = JsonConvert.DeserializeObject<List<Type>>(json);
-//            return lst;
-//        }
-//        internal abstract NameValueCollection ReverseMapInsertUpdate(Type type);
-//        internal abstract NameValueCollection ReverseMapDelete(Type type);
-     
-//        internal TransactionResult MapResult(string json)
-//        {
-//            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
-//            return resultado;
-//        }
-//        public TransactionResult Update(Type entidad, string url, NameValueCollection obj)
-//        {
-//           // NameValueCollection obj = ReverseMap(entidad);
-//            string result = WebHelper.Put(url, obj);
+        public TransactionResult MapResult(string json)
+        {
+            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
+            return resultado;
+        }
+        public TransactionResult Update(string url, T entidad)
+        {
+            NameValueCollection obj = ReverseMapInsertUpdate(entidad);
+            string result = WebHelper.Put(url, obj);
 
-//            TransactionResult resultadoTransaccion = MapResult(result);
+            TransactionResult resultadoTransaccion = MapResult(result);
 
-//            return resultadoTransaccion;
-//        }
+            return resultadoTransaccion;
+        }
 
-//        internal TransactionResult Delete(Type entidad, string url, NameValueCollection obj)
-//        {
-//            //NameValueCollection obj = new NameValueCollection();
-//            //obj.Add("id", cliente.Codigo.ToString());
+        public TransactionResult Delete(string url, T entidad)
+        {
+            NameValueCollection obj = ReverseMapDelete(entidad);
 
-//            string result = WebHelper.Delete(url, obj);
+            string result = WebHelper.Delete(url, obj);
 
-//            TransactionResult resultadoTransaccion = MapResult(result);
+            TransactionResult resultadoTransaccion = MapResult(result);
 
-//            return resultadoTransaccion;
-//        }
+            return resultadoTransaccion;
+        }
 
-//    }
-//}
+    }
+}
