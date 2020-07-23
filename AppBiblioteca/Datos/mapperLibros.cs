@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,41 +10,33 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    public class MapperLibros
+    public class MapperLibros : Mapper<Libro>
     {
-        public List<Libro> TraerTodos()
-        {
-            string json = WebHelper.Get("/api/v1/Biblioteca/Libros");
-            List<Libro> lst = MapList(json);
-            return lst;
-        }
-        public TransactionResult Insert(Libro libro)
-        {
-            NameValueCollection obj = ReverseMap(libro);
-            string json = WebHelper.Post("/api/v1/Biblioteca/Libros", obj);
-            TransactionResult resultado = MapResult(json);
-            return resultado;
-        }
-        private List<Libro> MapList(string json)
-        {
-            List<Libro> lst = JsonConvert.DeserializeObject<List<Libro>>(json);
-            return lst;
-        }
-        private NameValueCollection ReverseMap(Libro libro)
+        private string URL { get => ConfigurationManager.AppSettings["Libros"]; }
+        
+        public override NameValueCollection ReverseMapInsertUpdate(Libro entidad)
         {
             NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("titulo", libro.Titulo);
-            nvc.Add("autor", libro.Autor);
-            nvc.Add("edicion", libro.Edicion.ToString());
-            nvc.Add("editorial", libro.Editorial);
-            nvc.Add("paginas", libro.CantPaginas.ToString());
-            nvc.Add("tema", libro.Tema);
+            nvc.Add("titulo", entidad.Titulo);
+            nvc.Add("autor", entidad.Autor);
+            nvc.Add("edicion", entidad.Edicion.ToString());
+            nvc.Add("editorial", entidad.Editorial);
+            nvc.Add("paginas", entidad.CantPaginas.ToString());
+            nvc.Add("tema", entidad.Tema);
             return nvc;
         }
-        private TransactionResult MapResult (string json)
+
+        public override NameValueCollection ReverseMapDelete(Libro entidad)
         {
-            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
-            return resultado;
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("id", entidad.ISBN.ToString());
+            return nvc;
         }
+
+        public override string GetURL()
+        {
+            return this.URL;
+        }
+
     }
 }

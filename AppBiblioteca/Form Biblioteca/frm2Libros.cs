@@ -545,6 +545,7 @@ namespace Form_Biblioteca
                 {
                     ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
+                    ((frm3AltaPrestamo)this.Owner).FormatearCampos("completo");
                     CloseWindow();
                 }
             }

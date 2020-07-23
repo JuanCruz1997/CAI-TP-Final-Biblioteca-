@@ -48,7 +48,6 @@
   <ItemGroup>
     <Compile Include="Mapper.cs" />
     <Compile Include="MapperCliente.cs" />
-    <Compile Include="MapperClientePrueba.cs" />
     <Compile Include="MapperEjemplares.cs" />
     <Compile Include="MapperLibros.cs" />
     <Compile Include="MapperPrestamos.cs" />

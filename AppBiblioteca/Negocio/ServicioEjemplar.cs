@@ -73,7 +73,7 @@ namespace Negocio
 
         public List<Ejemplar> TraerTodos()
         {
-            List<Ejemplar> ejemplares = _ejemplarMapper.TraerTodos();
+            List<Ejemplar> ejemplares = _ejemplarMapper.TraerTodo();
             CargarLibro(ejemplares);
             return ejemplares;
         }

@@ -23,7 +23,7 @@ namespace Negocio
         public List<Prestamo> TraerTodos()
         {
             List<Prestamo> lista = new List<Prestamo>();
-            lista = _prestamoMapper.TraerTodos();
+            lista = _prestamoMapper.TraerTodo();
                         
             m.SE.AsignarDisponibilidad(m.Ejemplares, lista);
 
@@ -152,7 +152,7 @@ namespace Negocio
                 }
                 else
                 {
-                    throw new Exception("El prestamo no puede eliminarse luego de los 30 días de creado");
+                    throw new Exception("El prestamo no pudo eliminarse debido a que han pasado 30 días de creado");
                 }
                 
             }

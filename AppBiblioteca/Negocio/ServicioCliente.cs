@@ -23,7 +23,7 @@ namespace Negocio
         public List<Cliente> TraerTodos()
         {
             List<Cliente> resultado = new List<Cliente>();
-            resultado = _mapper.Traer();
+            resultado = _mapper.TraerTodo();
             return resultado;
         }
 

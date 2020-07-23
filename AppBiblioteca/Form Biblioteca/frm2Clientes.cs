@@ -221,6 +221,7 @@ namespace Form_Biblioteca
             {
                 ((frm3AltaPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
                 ((frm3AltaPrestamo)this.Owner).CompletarFormulario("cliente");
+                ((frm3AltaPrestamo)this.Owner).FormatearCampos("completo");
                 CloseWindow();
             }
         }

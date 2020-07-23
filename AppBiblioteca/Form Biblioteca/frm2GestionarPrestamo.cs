@@ -104,7 +104,7 @@ namespace Form_Biblioteca
 
                 lblRojo.Visible = false;
 
-                chkAbiertos.Checked = true;
+                
 
                 dtpFechaDevolucion.Enabled = false;
 
@@ -114,6 +114,7 @@ namespace Form_Biblioteca
                 btnNuevoPrestamo.Enabled = false;
 
                 btnConfirmarDevolución.Enabled = true;
+                
                 btnEliminarPréstamo.Enabled = true;
 
                 if (dtpFechaTentativaDevolucion.Value < DateTime.Today)
@@ -134,7 +135,7 @@ namespace Form_Biblioteca
                     btnNuevoPrestamo.Enabled = false;
                     btnConfirmarDevolución.Enabled = false;
 
-                    btnEliminarPréstamo.Enabled = true;
+                    btnEliminarPréstamo.Enabled = false;
 
                     lblRojo.Visible = false;
 
@@ -204,6 +205,7 @@ namespace Form_Biblioteca
         private void frm2GestionarPrestamo_Load(object sender, EventArgs e)
         {
             Tab();
+            chkAbiertos.Checked = true;
             CargarDGVPrestamos();
             FormatearCampos(menu);
             LimpiarCampos();
@@ -294,13 +296,13 @@ namespace Form_Biblioteca
         {
             try
             {
-                DialogResult pregunta = MessageBox.Show("¿Confirma que desea eliminar el préstamo seleccionado? Recuerde que sólo debe hacerlo si el mismo fue cargado incorrectamente con datos incorrectos.", "Eliminar préstamo", MessageBoxButtons.YesNo);
-                if (pregunta.ToString() == "Yes")
-                {
+                if (MessageOkCancel("ATENCIÓN: solo se deberán eliminar los préstamos que posean información incorrecta\nPara eliminar el préstamo presione Ok", this.Text))
+                {                                    
                     PrestamoAdapter seleccionado = ObtenerAdapter();
                     int codigo = this.m.SP.EliminarPrestamo(seleccionado.Codigo);
-                    MessageBox.Show("El préstamo " + codigo + "se ha eliminado exitosamente");
+                    MessageBox.Show("El préstamo " + codigo + " se ha eliminado exitosamente");
                     CargarDGVPrestamos();
+                    FormatearCampos(menu);
                     LimpiarCampos();
                 }
             }

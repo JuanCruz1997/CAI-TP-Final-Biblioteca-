@@ -44,6 +44,7 @@ namespace Entidades
         public int PlazoRestante { get => _plazoRestante; set => _plazoRestante = value; }
         public int CodigoEjemplar { get => _codigoEjemplar; set => _codigoEjemplar = value; }
         public bool Abierto { get => _abierto; set => _abierto = value; }
+        public bool Devuelto { get => !Abierto; }
         
     }
 }

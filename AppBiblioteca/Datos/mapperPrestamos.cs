@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,59 +10,34 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    public class MapperPrestamos
+    public class MapperPrestamos : Mapper<Prestamo>
     {
-        public List<Prestamo> TraerTodos()
-        {
-            string json = WebHelper.Get("/api/v1/Biblioteca/Prestamos");
-            List<Prestamo> lst = MapList(json);
-            return lst;
-        }
-        public TransactionResult Insert (Prestamo prestamo)
-        {
-            NameValueCollection obj = ReverseMap(prestamo);
-            string json = WebHelper.Post("/api/v1/Biblioteca/Prestamos", obj);
-            TransactionResult resultado = MapResult(json);
-            return resultado;
-        }
-        private List<Prestamo> MapList(string json)
-        {
-            List<Prestamo> lst = JsonConvert.DeserializeObject<List<Prestamo>>(json);
-            return lst;
-        }
-        private NameValueCollection ReverseMap(Prestamo prestamo)
+        private string URL { get => ConfigurationManager.AppSettings["Prestamos"]; }
+
+        public override NameValueCollection ReverseMapInsertUpdate(Prestamo entidad)
         {
             NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("idCliente", prestamo.IdCliente.ToString());
-            nvc.Add("idEjemplar", prestamo.IdEjemplar.ToString());
-            nvc.Add("Plazo", prestamo.PlazoPrestamo.ToString());
-            nvc.Add("FechaPrestamo", prestamo.FechaHoraPrestamo.ToString());
-            nvc.Add("FechaDevolucionTentativa", prestamo.FechaDevolucionTentativa.ToString());
-            nvc.Add("FechaDevolucionReal", prestamo.FechaDevolucionReal.ToString());
-            nvc.Add("Abierto", prestamo.Abierto.ToString());
-            nvc.Add("id", prestamo.NumeroOperacion.ToString());
+            nvc.Add("idCliente", entidad.IdCliente.ToString());
+            nvc.Add("idEjemplar", entidad.IdEjemplar.ToString());
+            nvc.Add("Plazo", entidad.PlazoPrestamo.ToString());
+            nvc.Add("FechaPrestamo", entidad.FechaHoraPrestamo.ToString());
+            nvc.Add("FechaDevolucionTentativa", entidad.FechaDevolucionTentativa.ToString());
+            nvc.Add("FechaDevolucionReal", entidad.FechaDevolucionReal.ToString());
+            nvc.Add("Abierto", entidad.Abierto.ToString());
+            nvc.Add("id", entidad.NumeroOperacion.ToString());
             return nvc;
         }
-        private TransactionResult MapResult (string json)
-        {
-            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
-            return resultado;
-        }
-        public TransactionResult Update(Prestamo prestamo)
-        {
-            NameValueCollection obj = ReverseMap(prestamo);
-            string result = WebHelper.Put("/api/v1/Biblioteca/Prestamos", obj);
-            TransactionResult resultadoTransaccion = MapResult(result);
-            return resultadoTransaccion;
-        }
 
-        public TransactionResult Delete(Prestamo prestamo)
+        public override NameValueCollection ReverseMapDelete(Prestamo entidad)
         {
             NameValueCollection obj = new NameValueCollection();
-            obj.Add("id", prestamo.NumeroOperacion.ToString());
-            string result = WebHelper.Delete("/api/v1/biblioteca/prestamos", obj);
-            TransactionResult resultadoTransaccion = MapResult(result);
-            return resultadoTransaccion;
+            obj.Add("id", entidad.NumeroOperacion.ToString());
+            return obj;
+        }      
+
+        public override string GetURL()
+        {
+            return this.URL;
         }
 
     }

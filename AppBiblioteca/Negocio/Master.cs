@@ -47,16 +47,16 @@ namespace Negocio
         {
             if(servicio == SC.ToString())
             {
-                SC.TraerTodos();
+                this.Clientes = SC.TraerTodos();
             } else if (servicio == SL.ToString())
             {
-                SL.TraerTodos();
+                this.Libros = SL.TraerTodos();
             }else if (servicio == SE.ToString())
             {
-                SE.TraerTodos();
+                this.Ejemplares = SE.TraerTodos();
             }else if (servicio == SP.ToString())
             {
-                SP.TraerTodos();
+                this.Prestamos = SP.TraerTodos();
             }
         }
 

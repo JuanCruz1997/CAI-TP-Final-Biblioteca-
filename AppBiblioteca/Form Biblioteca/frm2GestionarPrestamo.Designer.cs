@@ -53,20 +53,18 @@
             this.txtDeuda = new System.Windows.Forms.TextBox();
             this.lblDeuda = new System.Windows.Forms.Label();
             this.dgvPrestamos = new System.Windows.Forms.DataGridView();
+            this.prestamoAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodigoEjemplar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codigoEjemplarDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tituloDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.autorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaAltaPrestamoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.plazoRestanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Devuelto = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.prestamoAdapterBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.prestamoAdapterBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.gbBuscarPrestamos.SuspendLayout();
             this.gbDatosPrestamo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prestamoAdapterBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamoAdapterBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +80,7 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(629, 398);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(621, 398);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
             this.btnLimpiarCampos.Size = new System.Drawing.Size(169, 46);
             this.btnLimpiarCampos.TabIndex = 29;
@@ -110,7 +108,7 @@
             // 
             // btnConfirmarDevolución
             // 
-            this.btnConfirmarDevolución.Location = new System.Drawing.Point(212, 398);
+            this.btnConfirmarDevolución.Location = new System.Drawing.Point(215, 398);
             this.btnConfirmarDevolución.Name = "btnConfirmarDevolución";
             this.btnConfirmarDevolución.Size = new System.Drawing.Size(182, 46);
             this.btnConfirmarDevolución.TabIndex = 27;
@@ -184,7 +182,7 @@
             // 
             // btnEliminarPréstamo
             // 
-            this.btnEliminarPréstamo.Location = new System.Drawing.Point(418, 398);
+            this.btnEliminarPréstamo.Location = new System.Drawing.Point(423, 398);
             this.btnEliminarPréstamo.Name = "btnEliminarPréstamo";
             this.btnEliminarPréstamo.Size = new System.Drawing.Size(169, 46);
             this.btnEliminarPréstamo.TabIndex = 28;
@@ -326,15 +324,18 @@
             this.dgvPrestamos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
-            this.CodigoEjemplar,
+            this.codigoEjemplarDataGridViewTextBoxColumn,
             this.tituloDataGridViewTextBoxColumn,
             this.autorDataGridViewTextBoxColumn,
             this.fechaAltaPrestamoDataGridViewTextBoxColumn,
             this.plazoRestanteDataGridViewTextBoxColumn,
             this.Devuelto});
-            this.dgvPrestamos.DataSource = this.prestamoAdapterBindingSource1;
+            this.dgvPrestamos.DataSource = this.prestamoAdapterBindingSource;
+            this.dgvPrestamos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPrestamos.Enabled = false;
             this.dgvPrestamos.Location = new System.Drawing.Point(10, 112);
             this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPrestamos.MultiSelect = false;
             this.dgvPrestamos.Name = "dgvPrestamos";
             this.dgvPrestamos.ReadOnly = true;
             this.dgvPrestamos.RowHeadersVisible = false;
@@ -345,11 +346,14 @@
             this.dgvPrestamos.TabIndex = 31;
             this.dgvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamos_CellClick);
             // 
+            // prestamoAdapterBindingSource
+            // 
+            this.prestamoAdapterBindingSource.DataSource = typeof(Entidades.PrestamoAdapter);
+            // 
             // nombreDataGridViewTextBoxColumn
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -357,23 +361,20 @@
             // 
             this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
             this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // CodigoEjemplar
+            // codigoEjemplarDataGridViewTextBoxColumn
             // 
-            this.CodigoEjemplar.DataPropertyName = "CodigoEjemplar";
-            this.CodigoEjemplar.HeaderText = "Código Ejemplar";
-            this.CodigoEjemplar.MinimumWidth = 6;
-            this.CodigoEjemplar.Name = "CodigoEjemplar";
-            this.CodigoEjemplar.ReadOnly = true;
+            this.codigoEjemplarDataGridViewTextBoxColumn.DataPropertyName = "CodigoEjemplar";
+            this.codigoEjemplarDataGridViewTextBoxColumn.HeaderText = "Codigo Ejemplar";
+            this.codigoEjemplarDataGridViewTextBoxColumn.Name = "codigoEjemplarDataGridViewTextBoxColumn";
+            this.codigoEjemplarDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // tituloDataGridViewTextBoxColumn
             // 
             this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
             this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
-            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
             this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -381,41 +382,33 @@
             // 
             this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
             this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
-            this.autorDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
             this.autorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fechaAltaPrestamoDataGridViewTextBoxColumn
             // 
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.DataPropertyName = "FechaAltaPrestamo";
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.HeaderText = "FechaAltaPrestamo";
-            this.fechaAltaPrestamoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.HeaderText = "Fecha Alta";
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.Name = "fechaAltaPrestamoDataGridViewTextBoxColumn";
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // plazoRestanteDataGridViewTextBoxColumn
             // 
             this.plazoRestanteDataGridViewTextBoxColumn.DataPropertyName = "PlazoRestante";
-            this.plazoRestanteDataGridViewTextBoxColumn.HeaderText = "PlazoRestante";
-            this.plazoRestanteDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.plazoRestanteDataGridViewTextBoxColumn.HeaderText = "Plazo Restante";
             this.plazoRestanteDataGridViewTextBoxColumn.Name = "plazoRestanteDataGridViewTextBoxColumn";
             this.plazoRestanteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Devuelto
             // 
-            this.Devuelto.DataPropertyName = "Devuelto";
+            this.Devuelto.DataPropertyName = "Abierto";
+            this.Devuelto.FalseValue = "true";
             this.Devuelto.HeaderText = "Devuelto";
-            this.Devuelto.MinimumWidth = 6;
             this.Devuelto.Name = "Devuelto";
             this.Devuelto.ReadOnly = true;
-            // 
-            // prestamoAdapterBindingSource1
-            // 
-            this.prestamoAdapterBindingSource1.DataSource = typeof(Entidades.PrestamoAdapter);
-            // 
-            // prestamoAdapterBindingSource
-            // 
-            this.prestamoAdapterBindingSource.DataSource = typeof(Entidades.PrestamoAdapter);
+            this.Devuelto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Devuelto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Devuelto.TrueValue = "false";
             // 
             // frm2GestionarPrestamo
             // 
@@ -445,7 +438,6 @@
             this.gbDatosPrestamo.ResumeLayout(false);
             this.gbDatosPrestamo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.prestamoAdapterBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.prestamoAdapterBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -476,15 +468,14 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.TextBox txtDeuda;
         private System.Windows.Forms.Label lblDeuda;
-        private System.Windows.Forms.BindingSource prestamoAdapterBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoEjemplar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codigoEjemplarDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tituloDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn autorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaPrestamoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn plazoRestanteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Devuelto;
-        private System.Windows.Forms.BindingSource prestamoAdapterBindingSource1;
+        private System.Windows.Forms.BindingSource prestamoAdapterBindingSource;
     }
 }

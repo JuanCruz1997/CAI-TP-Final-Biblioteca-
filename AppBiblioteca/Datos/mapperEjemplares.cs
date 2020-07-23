@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,54 +10,27 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    public class MapperEjemplares
+    public class MapperEjemplares : Mapper<Ejemplar>
     {
-        
-        public List<Ejemplar> TraerTodos()
-        {
-            string json = WebHelper.Get("/api/v1/Biblioteca/Ejemplares/");
-            List<Ejemplar> lst = MapList(json);
-            return lst;
-        }
-
-
-        public TransactionResult Insert (Ejemplar ejemplar)
-        {
-            NameValueCollection obj = ReverseMap(ejemplar);
-            string json = WebHelper.Post("/api/v1/Biblioteca/Ejemplares", obj);
-            TransactionResult resultado = MapResult(json);
-            return resultado;
-
-        }
-        private List<Ejemplar> MapList(string json)
-        {
-            List<Ejemplar> lst = JsonConvert.DeserializeObject<List<Ejemplar>>(json);
-            return lst;
-        }
-        private NameValueCollection ReverseMap (Ejemplar ejemplar)
+        private string URL { get => ConfigurationManager.AppSettings["Ejemplares"]; }
+        public override NameValueCollection ReverseMapInsertUpdate(Ejemplar entidad)
         {
             NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("idLibro", ejemplar.CodigoLibro.ToString());
-            nvc.Add("Observaciones", ejemplar.Descripcion);
-            nvc.Add("Precio", ejemplar.Precio.ToString());
-            nvc.Add("FechaAlta", ejemplar.FechaAlta.ToString());
-            nvc.Add("id", ejemplar.Codigo.ToString());
+            nvc.Add("idLibro", entidad.CodigoLibro.ToString());
+            nvc.Add("Observaciones", entidad.Descripcion);
+            nvc.Add("Precio", entidad.Precio.ToString());
+            nvc.Add("FechaAlta", entidad.FechaAlta.ToString());            
             return nvc;
-
         }
-        private TransactionResult MapResult(string json)
+        public override NameValueCollection ReverseMapDelete(Ejemplar entidad)
         {
-            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
-            return resultado;
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("id", entidad.Codigo.ToString());
+            return nvc;
         }
-        public TransactionResult Update(Ejemplar ejemplar)
+        public override string GetURL()
         {
-            NameValueCollection obj = ReverseMap(ejemplar);
-            string result = WebHelper.Put("/api/v1/Biblioteca/Ejemplares", obj);
-
-            TransactionResult resultadoTransaccion = MapResult(result);
-
-            return resultadoTransaccion;
+            return this.URL;
         }
     }
 }

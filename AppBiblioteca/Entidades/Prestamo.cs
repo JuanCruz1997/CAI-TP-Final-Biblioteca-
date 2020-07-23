@@ -27,16 +27,30 @@ namespace Entidades
         public int IdCliente { get => _idCliente; set => _idCliente = value; }
         [DataMember]
         public int IdEjemplar { get => _idEjemplar; set => _idEjemplar = value; }
-        [DataMember(Name ="Plazo")]
+        [DataMember(Name = "Plazo")]
         public int PlazoPrestamo { get => _plazoPrestamo; set => _plazoPrestamo = value; }
-        public int PlazoRestante { get => (FechaDevolucionTentativa - DateTime.Today).Days; }
+        public int PlazoRestante
+        {
+            get
+            {
+                if (Abierto)
+                {
+                    return (FechaDevolucionTentativa - DateTime.Today).Days; 
+                }
+                else
+                {
+                    return 0;
+                }
+
+            }
+        
+        }
         [DataMember(Name ="FechaPrestamo")]
         public DateTime FechaHoraPrestamo { get => _fechaHoraPrestamo; set => _fechaHoraPrestamo = value; }
         [DataMember]
         public DateTime FechaDevolucionTentativa { get => _fechaHoraPrestamo.AddDays(_plazoPrestamo); }
         [DataMember]
         public DateTime FechaDevolucionReal { get => _fechaDevolucionReal; set => _fechaDevolucionReal = value; }
-        public DateTime FechaDevolucionNula { get => Convert.ToDateTime("0001-01-01");}
         public Cliente Cliente { get => _cliente; set => _cliente = value; }
         public Ejemplar Ejemplar { get => _ejemplar; set => _ejemplar = value; }
         [DataMember]
@@ -48,9 +62,9 @@ namespace Entidades
         {
             get
             {
-                if(DateTime.Today >= FechaDevolucionTentativa)
+                if(Abierto && DateTime.Today > FechaDevolucionTentativa)
                 {
-                    return (int)(FechaDevolucionTentativa - DateTime.Today).Days;
+                    return -(FechaDevolucionTentativa - DateTime.Today).Days;
                 }
                 else
                 {

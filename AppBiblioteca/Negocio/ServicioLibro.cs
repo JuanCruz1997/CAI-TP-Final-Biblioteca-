@@ -24,7 +24,7 @@ namespace Negocio
         public List<Libro> TraerTodos()
         {
             List<Libro> libros = new List<Libro>();
-            libros = _mapperLibros.TraerTodos();
+            libros = _mapperLibros.TraerTodo();
             return libros;
         }
 

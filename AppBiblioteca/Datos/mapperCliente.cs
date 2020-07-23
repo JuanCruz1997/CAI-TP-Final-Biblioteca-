@@ -10,65 +10,39 @@ using Newtonsoft.Json;
 
 namespace Datos
 {
-    public class MapperCliente
+    public class MapperCliente : Mapper<Cliente>
     {
-        public List<Cliente> Traer()
+        private string URL { get => ConfigurationManager.AppSettings["Clientes"]; }
+        private string ParametroURL { get => ConfigurationManager.AppSettings["Usuario"]; }
+
+        public new List<Cliente> TraerTodo()
         {
-            string json = WebHelper.Get("/api/v1/cliente/" + ConfigurationManager.AppSettings["Registro"]);
+            string url = GetURL();
+            string json = WebHelper.Get(url + "/"+ParametroURL); //Necesito hacer new porque el comportamiento es distinto por el parámetro de la url
             List<Cliente> lst = MapList(json);
             return lst;
         }
-        public  TransactionResult Insert(Cliente cliente)
-        {
-            NameValueCollection obj = ReverseMap(cliente);
-            string json = WebHelper.Post("/api/v1/cliente", obj);
-            TransactionResult resultado = MapResult(json);
-            return resultado;
-
-        }
-
-        private List<Cliente> MapList(string json)
-        {
-            List<Cliente> lst = JsonConvert.DeserializeObject<List<Cliente>>(json);
-            return lst;
-        }
-        private NameValueCollection ReverseMap(Cliente cliente)
+        public override NameValueCollection ReverseMapInsertUpdate(Cliente entidad)
         {
             NameValueCollection nvc = new NameValueCollection();
-            nvc.Add("id", cliente.Codigo.ToString());
-            nvc.Add("nombre", cliente.Nombre);
-            nvc.Add("apellido", cliente.Apellido);
-            nvc.Add("direccion", cliente.Direccion);
-            nvc.Add("email", cliente.Mail);
-            nvc.Add("telefono", cliente.Telefono.ToString());
+            nvc.Add("nombre", entidad.Nombre);
+            nvc.Add("apellido", entidad.Apellido);
+            nvc.Add("direccion", entidad.Direccion);
+            nvc.Add("email", entidad.Mail);
+            nvc.Add("telefono", entidad.Telefono.ToString());
             return nvc;
         }
-        private TransactionResult MapResult(string json)
+        public override NameValueCollection ReverseMapDelete(Cliente entidad)
         {
-            TransactionResult resultado = JsonConvert.DeserializeObject<TransactionResult>(json);
-            return resultado;
-        }
-        public TransactionResult Update(Cliente cliente)
-        {
-            NameValueCollection obj = ReverseMap(cliente);
-            string result = WebHelper.Put("/api/v1/cliente", obj);
-
-            TransactionResult resultadoTransaccion = MapResult(result);
-
-            return resultadoTransaccion;
+            NameValueCollection nvc = new NameValueCollection();
+            nvc.Add("id", entidad.Codigo.ToString());
+            return nvc;
         }
 
-        public TransactionResult Delete(Cliente cliente)
+        public override string GetURL()
         {
-            NameValueCollection obj = new NameValueCollection();
-            obj.Add("id", cliente.Codigo.ToString());
-
-            string result = WebHelper.Delete("/api/v1/cliente", obj);
-
-            TransactionResult resultadoTransaccion = MapResult(result);
-
-            return resultadoTransaccion;
+            return this.URL;
         }
-
     }
+    
 }

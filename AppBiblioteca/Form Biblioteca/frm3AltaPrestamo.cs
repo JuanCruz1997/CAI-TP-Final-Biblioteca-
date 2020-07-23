@@ -16,11 +16,13 @@ namespace Form_Biblioteca
     {
         private Master m;
 
+        private const string menu = "menu";
         private const string ejemplar = "ejemplar";
         private const string cliente = "cliente";
         private const string prestamo = "prestamo";
         private const string vacio = "vacio";
         private const string completo = "completo";
+        private const string cambio = "cambio";
         public frm3AltaPrestamo(Master m)
         {
             this.m = m;
@@ -79,17 +81,29 @@ namespace Form_Biblioteca
     
         }
 
-        public void LimpiarCampos()
-        {
-            txtCodigoEjemplar.Text = string.Empty;
-            txtTitulo.Text = string.Empty;
-            txtAutor.Text = string.Empty;
-            txtCodigoCliente.Text = string.Empty;
-            txtNombreCliente.Text = string.Empty;
-            txtApellidoCliente.Text = string.Empty;
-            dtpFechaAlta.Value = DateTime.Now;
-            cmbPlazo.SelectedIndex = 0;
-            //dtpFechaAlta.Value = DateTime.Now;
+        public void LimpiarCampos(string obj)
+        {   
+            if(obj == ejemplar)
+            {
+                txtTitulo.Text = string.Empty;
+                txtAutor.Text = string.Empty;
+                cmbPlazo.SelectedIndex = 0;
+                
+            }
+
+            if(obj == cliente)
+            {
+                txtNombreCliente.Text = string.Empty;
+                txtApellidoCliente.Text = string.Empty;
+            }
+            if(obj == menu)
+            {
+                dtpFechaAlta.Value = DateTime.Today;
+                dtpFechaTentativaDevolucion.Value = DateTime.Today;
+                txtCodigoEjemplar.Text = string.Empty;
+                txtCodigoCliente.Text = string.Empty;
+            }
+                       
         }
 
         public void CompletarFormulario(string objeto)
@@ -98,14 +112,13 @@ namespace Form_Biblioteca
             {
                 
                 dtpFechaAlta.Value = DateTime.Today;
-                if(cmbPlazo.SelectedIndex == 0)
-                {
-                    dtpFechaTentativaDevolucion.Value = DateTime.Today;
-                }
-                else
-                {
-                     dtpFechaTentativaDevolucion.Value = DateTime.Today.AddDays(Convert.ToDouble(cmbPlazo.Text));
-                }
+
+               if(cmbPlazo.SelectedIndex != 0)
+               {
+                    dtpFechaTentativaDevolucion.Value = DateTime.Today.AddDays(Convert.ToDouble(cmbPlazo.Text));
+               }
+               
+                
                
             }
             else if(objeto == cliente)
@@ -122,7 +135,7 @@ namespace Form_Biblioteca
                 }
             } else if (objeto == ejemplar)
             {
-                Ejemplar e = this.m.SE.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));                
+                Ejemplar e = this.m.SE.TraerPorCodigo(Convert.ToInt32(txtCodigoEjemplar.Text));               
                
                 
                 if (e != null)
@@ -132,6 +145,7 @@ namespace Form_Biblioteca
                         txtTitulo.Text = e.Libro.Titulo;
                         txtAutor.Text = e.Libro.Autor;
                         txtPrecio.Text = e.Precio.ToString();
+                        cmbPlazo.Enabled = true;
                     }
                     else
                     {
@@ -155,32 +169,55 @@ namespace Form_Biblioteca
             {
                 btnActualizarDatosCliente.Enabled = true;
             }
-            if (txtCodigoCliente.Text == string.Empty)
+
+            if (txtCodigoEjemplar.Text == string.Empty)
             {
                 btnActualizarDatosEjemplar.Enabled = false;
+               
+
             }
             else
             {
-                btnActualizarDatosEjemplar.Enabled = true;
+                btnActualizarDatosEjemplar.Enabled = true;               
+
             }
+
+            if (txtTitulo.Text == string.Empty)
+            {
+                cmbPlazo.Enabled = false;
+                dtpFechaTentativaDevolucion.Visible = false;
+                lblFechaTentativaDevolucion.Visible = false;
+            }
+
+
+
             if (condicion == vacio)
             {
                 btnConfirmarNuevoPrestamo.Enabled = false;
-            } else if (condicion == completo)
-            {
-                btnConfirmarNuevoPrestamo.Enabled = true;
+
             }
+            else if (condicion == completo)
+            {
+                
+                if (txtTitulo.Text != string.Empty && txtNombreCliente.Text != string.Empty)
+                {
+                    btnConfirmarNuevoPrestamo.Enabled = true;
+                }
+            }
+
+            
         }
 
         private void CargarCmbPlazo()
         {
             List<String> plazos = new List<String>();
 
-            plazos.Add("15");
+
             plazos.Add("30");
             plazos.Add("45");
             plazos.Add("60");            
-            plazos.Add("-15 - TEST");            
+            plazos.Add("-0000000000000015");            
+            plazos.Add("-0000000000000035");            
             plazos.Sort();
             plazos.Insert(0, "--Seleccione plazo--");
 
@@ -195,10 +232,12 @@ namespace Form_Biblioteca
             if (form is frm2Clientes)
             {
                 txtCodigoCliente.Text = id;
+                FormatearCampos(completo);
             }
             else if (form is frm2Libros)
             {
                 txtCodigoEjemplar.Text = id;
+                FormatearCampos(completo);
             }
         }
 
@@ -211,13 +250,18 @@ namespace Form_Biblioteca
             FormatearCampos(vacio);
             CargarCmbPlazo();
             CompletarFormulario(prestamo);
+            LimpiarCampos(menu);
+            LimpiarCampos(ejemplar);
+            LimpiarCampos(cliente);
         }
         private void btnActualizarDatosEjemplar_Click(object sender, EventArgs e)
         {
             try
             {
-               ValidarCampos(ejemplar);
+               ValidarCampos(ejemplar);               
+               
                CompletarFormulario(ejemplar);
+                FormatearCampos(completo);
             }
             catch (Exception ex)
             {
@@ -229,34 +273,26 @@ namespace Form_Biblioteca
 
         private void txtCodigoEjemplar_TextChanged(object sender, EventArgs e)
         {
-            if (txtCodigoCliente.Text != string.Empty && txtCodigoEjemplar.Text != string.Empty)
+            LimpiarCampos(ejemplar);
+            
+
+            if (txtCodigoEjemplar.Text != string.Empty)
             {
                 FormatearCampos(completo);
             }
-            else if (txtCodigoEjemplar.Text == string.Empty)
-            {
-                btnActualizarDatosEjemplar.Enabled = false;
-            }
-            else
-            {
-                btnActualizarDatosEjemplar.Enabled = true;
-            }
+            
         }
 
         private void txtCodigoCliente_TextChanged(object sender, EventArgs e)
         {
-            if (txtCodigoCliente.Text != string.Empty && txtCodigoEjemplar.Text != string.Empty)
+            txtNombreCliente.Text = string.Empty;
+            txtApellidoCliente.Text = string.Empty;
+
+            if (txtCodigoCliente.Text != string.Empty)
             {
                 FormatearCampos(completo);
             }
-            if (txtCodigoCliente.Text == string.Empty)
-            {
-                btnActualizarDatosCliente.Enabled = false;
-            }
-            else
-            {
-                btnActualizarDatosCliente.Enabled = true;
-            }
+           
         }
         private void btnTraerEjemplares_Click(object sender, EventArgs e)
         {
@@ -275,7 +311,15 @@ namespace Form_Biblioteca
 
         private void btnActualizarDatosCliente_Click(object sender, EventArgs e)
         {
-            CompletarFormulario(cliente);
+            try
+            {
+                CompletarFormulario(cliente);
+                FormatearCampos(completo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         
@@ -300,7 +344,10 @@ namespace Form_Biblioteca
 
         private void btnLimpiarCampos_Click(object sender, EventArgs e)
         {
-            LimpiarCampos();
+            LimpiarCampos(cliente);
+            LimpiarCampos(ejemplar);
+            LimpiarCampos(menu);
+            FormatearCampos(menu);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -359,6 +406,12 @@ namespace Form_Biblioteca
             if(cmbPlazo.SelectedIndex != 0)
             {
                 CompletarFormulario(prestamo);
+                dtpFechaTentativaDevolucion.Visible = true;
+                lblFechaTentativaDevolucion.Visible = true;
+            } else
+            {
+                dtpFechaTentativaDevolucion.Visible = false;
+                lblFechaTentativaDevolucion.Visible = false;
             }
         }
     }
