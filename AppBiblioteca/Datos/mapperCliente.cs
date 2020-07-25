@@ -30,6 +30,7 @@ namespace Datos
             nvc.Add("direccion", entidad.Direccion);
             nvc.Add("email", entidad.Mail);
             nvc.Add("telefono", entidad.Telefono.ToString());
+            nvc.Add("id", entidad.Codigo.ToString());
             return nvc;
         }
         public override NameValueCollection ReverseMapDelete(Cliente entidad)

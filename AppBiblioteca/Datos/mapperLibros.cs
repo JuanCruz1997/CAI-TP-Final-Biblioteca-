@@ -23,6 +23,7 @@ namespace Datos
             nvc.Add("editorial", entidad.Editorial);
             nvc.Add("paginas", entidad.CantPaginas.ToString());
             nvc.Add("tema", entidad.Tema);
+            nvc.Add("id", entidad.ISBN.ToString());
             return nvc;
         }
 

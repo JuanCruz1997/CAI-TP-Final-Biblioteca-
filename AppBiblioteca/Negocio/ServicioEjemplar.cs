@@ -119,8 +119,8 @@ namespace Negocio
             Ejemplar ej = TraerPorCodigo(modificar.Codigo);
             if (ej != null)
             {
-                ej.Precio = modificar.Precio;
-                ej.Descripcion = modificar.Descripcion;
+                //ej.Precio = modificar.Precio;
+                //ej.Descripcion = modificar.Descripcion;
                 TransactionResult resultado = _ejemplarMapper.Update(ej);
                 if (resultado.IsOk)
                 {

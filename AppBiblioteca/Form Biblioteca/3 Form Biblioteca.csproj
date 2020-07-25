@@ -48,6 +48,9 @@
     <Compile Include="AbstractForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AbstractForm.Designer.cs">
+      <DependentUpon>AbstractForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm1MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,7 +81,6 @@
     <Compile Include="frm2Libros.Designer.cs">
       <DependentUpon>frm2Libros.cs</DependentUpon>
     </Compile>
-    <Compile Include="IForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frm1MenuPrincipal.resx">

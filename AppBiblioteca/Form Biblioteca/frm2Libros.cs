@@ -575,9 +575,11 @@ namespace Form_Biblioteca
 
                     ValidarCampos(ejemplar);
                     Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
-                    ej.Precio = Convert.ToDouble(txtPrecio.Text);
-                    ej.Descripcion = txtObservaciones.Text;
-                    int codigo = this.m.SE.ModificarEjemplar(ej);
+                    Ejemplar ejemplarModificar = new Ejemplar(ej.CodigoLibro, ej.Precio);
+                    ejemplarModificar.Codigo = ej.Codigo;
+                    ejemplarModificar.Precio = Convert.ToDouble(txtPrecio.Text);
+                    ejemplarModificar.Descripcion = txtObservaciones.Text;
+                    int codigo = this.m.SE.ModificarEjemplar(ejemplarModificar);
                     MessageBox.Show("El ejemplar " + codigo + " se ha modificado exitosamente");
                     Libro seleccionado = IndicarLibro();
                     CompletarFormulario(seleccionado);

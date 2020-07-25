@@ -19,7 +19,8 @@ namespace Datos
             nvc.Add("idLibro", entidad.CodigoLibro.ToString());
             nvc.Add("Observaciones", entidad.Descripcion);
             nvc.Add("Precio", entidad.Precio.ToString());
-            nvc.Add("FechaAlta", entidad.FechaAlta.ToString());            
+            nvc.Add("FechaAlta", entidad.FechaAlta.ToString());
+            nvc.Add("id", entidad.Codigo.ToString());
             return nvc;
         }
         public override NameValueCollection ReverseMapDelete(Ejemplar entidad)

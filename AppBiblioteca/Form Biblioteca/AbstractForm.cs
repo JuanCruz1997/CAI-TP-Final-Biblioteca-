@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,10 +10,18 @@ using System.Windows.Forms;
 
 namespace Form_Biblioteca
 {
-    public abstract class AbstractForm<T> : Form
+    public abstract partial class AbstractForm<T> : Form
     {
-        public abstract Form GetForm();
-        
+
+        //public AbstractForm<T>()
+        //{
+        //    InitializeComponent();
+        //}
+    public virtual Form GetForm()
+        {
+            throw new NotImplementedException();
+        }
+
         public bool MessageOkCancel(string msg, string tituloForm)
         {
 
@@ -26,7 +37,10 @@ namespace Form_Biblioteca
             GetForm().Owner.Show();
             GetForm().Dispose();
         }
-        public abstract void Tab();
+        public virtual void Tab()
+        {
+            throw new NotImplementedException();
+        }
 
 
         public virtual void LimpiarCampos()
@@ -39,7 +53,10 @@ namespace Form_Biblioteca
         }
 
 
-        public abstract void FormatearCampos(string condicion);
+        public virtual void FormatearCampos(string condicion)
+        {
+            throw new NotImplementedException();
+        }
 
         public virtual void ValidarCampos()
         {
@@ -49,8 +66,12 @@ namespace Form_Biblioteca
         {
             throw new NotImplementedException();
         }
-        public abstract void CompletarFormulario(T seleccionado);
-        
+        public virtual void CompletarFormulario(T seleccionado)
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }
+
