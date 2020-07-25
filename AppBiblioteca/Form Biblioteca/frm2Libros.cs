@@ -12,7 +12,7 @@ using Entidades;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2Libros : Form
+    public partial class frm2Libros : AbstractForm<Libro>
     {
         private Master m;
 
@@ -29,21 +29,12 @@ namespace Form_Biblioteca
         }
 
         #region "Métodos"
-        private bool MessageOkCancel(string msg, string tituloForm)
+        public override Form GetForm()
         {
-            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                return true;
-            }
-            else return false;
+            return this;
         }
-        public void CloseWindow()
-        {
-            Owner.Show();
-            Dispose();
-        }
-        private void Tab()
+        
+        public override void Tab()
         {
             gbBuscarLibros.TabIndex = 0;
             txtBuscarTitulo.TabIndex = 0;
@@ -72,13 +63,8 @@ namespace Form_Biblioteca
             btnComprimir.TabIndex = 20;
             btnLimpiarCampos.TabIndex = 21;
             btnSalir.TabIndex = 22;
-
-
-
-
-
         }
-        private void ValidarCampos(string objeto)
+        public override void ValidarCampos(string objeto)
         {
             if (objeto == libro)
             {
@@ -98,7 +84,7 @@ namespace Form_Biblioteca
 
         }
 
-        private void LimpiarCampos(string objeto)
+        public override void LimpiarCampos(string objeto)
         {
             if (objeto == libro)
             {
@@ -130,7 +116,7 @@ namespace Form_Biblioteca
         {
             cmbTema.DataSource = ListaTemas();
         }
-        private void FormatearCampos(string condicion)
+        public override void FormatearCampos(string condicion)
         {
             if (condicion == prestamo)
             {
@@ -224,7 +210,6 @@ namespace Form_Biblioteca
                     lstEjemplares.Enabled = true;
                     btnComprimir.Enabled = true;
 
-
                 }
                 else if (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
                 {
@@ -258,7 +243,7 @@ namespace Form_Biblioteca
 
         }
 
-        private void CompletarFormularioLibro(Libro seleccionado)
+        public override void CompletarFormulario(Libro seleccionado)
         {
             txtISBN.Text = seleccionado.ISBN.ToString();
             txtTitulo.Text = seleccionado.Titulo;
@@ -402,7 +387,7 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 CargarListaEjemplares(seleccionado);
-                CompletarFormularioLibro(seleccionado);
+                CompletarFormulario(seleccionado);
 
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
@@ -416,7 +401,7 @@ namespace Form_Biblioteca
             {
                 this.Size = new Size(1125, this.Size.Height);
                 List<Ejemplar> lista = this.m.SE.TraerPorLibro(seleccionado);
-                CompletarFormularioLibro(seleccionado);
+                CompletarFormulario(seleccionado);
                 CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
@@ -430,13 +415,14 @@ namespace Form_Biblioteca
             try
             {
                 ValidarCampos(libro);
-                int codigo = this.m.SL.AltaLibro(txtTitulo.Text, txtAutor.Text, Convert.ToInt32(txtEdicion.Text), txtEditorial.Text, Convert.ToInt32(txtPaginas.Text), cmbTema.Text);
+                Libro libroAlta = new Libro(txtTitulo.Text, txtAutor.Text, Convert.ToInt32(txtEdicion.Text), txtEditorial.Text, Convert.ToInt32(txtPaginas.Text), cmbTema.Text);
+                int codigo = this.m.SL.AltaLibro(libroAlta);
                 MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nPor favor, agregue la cantidad de ejemplares");
                 CargarDGVLibros(m.SL.TraerPorCodigo(codigo));
                 DataGridViewRow row = dgvLibros.Rows[0];
                 row.Selected = true;
                 Libro seleccionado = row.DataBoundItem as Libro;
-                CompletarFormularioLibro(seleccionado);
+                CompletarFormulario(seleccionado);
                 this.Size = new Size(1125, this.Size.Height);
                 gbEjemplares.Enabled = false;
             }
@@ -486,7 +472,7 @@ namespace Form_Biblioteca
             if (seleccionado != null)
             {
                 this.Size = new Size(1125, this.Size.Height);
-                CompletarFormularioLibro(seleccionado);
+                CompletarFormulario(seleccionado);
                 CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
@@ -560,10 +546,11 @@ namespace Form_Biblioteca
             try
             {
                 ValidarCampos(ejemplar);
-                string codigos = m.SE.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
+                Ejemplar ejemplarAlta = new Ejemplar(Convert.ToInt32(txtISBN.Text), Convert.ToDouble(txtPrecio.Text));
+                string codigos = m.SE.AltaMultiplesEjemplares(Convert.ToInt32(txtCantidadAAgregar.Text), ejemplarAlta);
                 MessageBox.Show("Se han creado los ejemplares con los códigos:\n" + codigos);
                 Libro seleccionado = IndicarLibro();
-                CompletarFormularioLibro(seleccionado);
+                CompletarFormulario(seleccionado);
                 CargarListaEjemplares(seleccionado);
                 FormatearCampos(seleccion);
                 LimpiarCampos(ejemplar);
@@ -588,10 +575,12 @@ namespace Form_Biblioteca
 
                     ValidarCampos(ejemplar);
                     Ejemplar ej = (Ejemplar)lstEjemplares.SelectedItem;
-                    int codigo = this.m.SE.ModificarEjemplar(ej.Codigo, Convert.ToDouble(txtPrecio.Text), txtObservaciones.Text);
+                    ej.Precio = Convert.ToDouble(txtPrecio.Text);
+                    ej.Descripcion = txtObservaciones.Text;
+                    int codigo = this.m.SE.ModificarEjemplar(ej);
                     MessageBox.Show("El ejemplar " + codigo + " se ha modificado exitosamente");
                     Libro seleccionado = IndicarLibro();
-                    CompletarFormularioLibro(seleccionado);
+                    CompletarFormulario(seleccionado);
                     CargarListaEjemplares(seleccionado);
                     FormatearCampos(seleccion);
                     LimpiarCampos(ejemplar);

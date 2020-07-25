@@ -94,9 +94,8 @@ namespace Negocio
         }
 
 
-        public int AltaPrestamo(int idCliente, int idEjemplar, int idPlazo, double precio)
-        {
-            Prestamo alta = new Prestamo(idCliente, idEjemplar, idPlazo, precio);
+        public int AltaPrestamo(Prestamo alta)
+        {            
             TransactionResult resultado = _prestamoMapper.Insert(alta);
             if (resultado.IsOk)
             {

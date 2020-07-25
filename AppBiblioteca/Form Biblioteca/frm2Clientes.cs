@@ -12,7 +12,7 @@ using Entidades;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2Clientes : Form
+    public partial class frm2Clientes : AbstractForm<Cliente>
     {
 
         private Master m;
@@ -28,22 +28,12 @@ namespace Form_Biblioteca
         }
         #region "Métodos" 
 
-        private bool MessageOkCancel(string msg, string tituloForm)
+
+        public override Form GetForm()
         {
-            
-            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                return true;
-            }
-            else return false;
+            return this;
         }
-        public void CloseWindow()
-        {
-            Owner.Show();
-            Dispose();
-        }
-        private void Tab()
+        public override void Tab()
         {
             gbBuscarClientes.TabIndex = 0;
             txtBuscarNombre.TabIndex = 0;
@@ -72,7 +62,7 @@ namespace Form_Biblioteca
 
 
         }
-        private void LimpiarCampos()
+        public override void LimpiarCampos()
         {
             dgvClientes.CurrentCell = null;
 
@@ -87,7 +77,7 @@ namespace Form_Biblioteca
             txtBuscarApellido.Text = string.Empty;
         }
 
-        public void FormatearCampos(string condicion)
+        public override void FormatearCampos(string condicion)
         {
             if (condicion == prestamo)
             {
@@ -156,7 +146,7 @@ namespace Form_Biblioteca
 
             }
         }
-        private void ValidarCampos()
+        public override void ValidarCampos()
         {
             txtNombre.Text = Validaciones.StringValidation(txtNombre.Text, lblNombre.Text);
             txtApellido.Text = Validaciones.StringValidation(txtApellido.Text, lblApellido.Text);
@@ -166,7 +156,7 @@ namespace Form_Biblioteca
 
 
         }
-        private void CompletarFormulario(Cliente seleccionado)
+        public override void CompletarFormulario(Cliente seleccionado)
         {
             txtCodigoCliente.Text = seleccionado.Codigo.ToString();
             txtNombre.Text = seleccionado.Nombre;
@@ -260,7 +250,8 @@ namespace Form_Biblioteca
                 Cliente seleccionado = row.DataBoundItem as Cliente;
                 if (seleccionado == null)
                 {
-                    int codigo = this.m.SC.AltaCliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                    Cliente clienteAlta = new Cliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                    int codigo = this.m.SC.AltaCliente(clienteAlta);
                     MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
                     CargarDGVClientes(this.m.Clientes);
                     LimpiarCampos();
@@ -268,7 +259,13 @@ namespace Form_Biblioteca
                 {
                     if (MessageOkCancel("Se modificará el cliente seleccionado.Para continuar presione Ok", this.Text))
                     {
-                        int codigo = this.m.SC.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                        seleccionado.Nombre = txtNombre.Text;
+                        seleccionado.Apellido = txtApellido.Text;
+                        seleccionado.Direccion =txtDireccion.Text;
+                        seleccionado.Telefono =txtTelefono.Text;
+                        seleccionado.Mail = txtMail.Text;
+                       
+                        int codigo = this.m.SC.ModificarCliente(seleccionado);
                         MessageBox.Show("El cliente " + codigo + " se ha modificado exitosamente");
                         CargarDGVClientes(this.m.Clientes);
                         LimpiarCampos();

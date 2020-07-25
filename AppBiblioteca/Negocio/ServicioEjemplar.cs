@@ -79,10 +79,8 @@ namespace Negocio
         }
 
         
-        public int AltaEjemplar(int codLibro, double precio)
-        {
-            Ejemplar alta = new Ejemplar(codLibro, precio);
-
+        public int AltaEjemplar(Ejemplar alta)
+        {          
             TransactionResult resultado = _ejemplarMapper.Insert(alta);
 
             if (resultado.IsOk)
@@ -95,13 +93,13 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
-        public String AltaMultiplesEjemplares(int cantidadAAgregar, int id, double precio)
+        public String AltaMultiplesEjemplares(int cantidadAAgregar, Ejemplar alta)
         {
             int iteraciones = cantidadAAgregar;
             String codigos = string.Empty;
             for (int i = 0; i < iteraciones; i++)
             {
-                codigos += (this.AltaEjemplar(id, precio)).ToString() + "\n";
+                codigos += (this.AltaEjemplar(alta)).ToString() + "\n";
             }
             return codigos;
         }
@@ -116,13 +114,13 @@ namespace Negocio
             }
             return null;
         }
-        public int ModificarEjemplar(int codigo, double precio, string descripcion)
+        public int ModificarEjemplar(Ejemplar modificar)
         {
-            Ejemplar ej = TraerPorCodigo(codigo);
+            Ejemplar ej = TraerPorCodigo(modificar.Codigo);
             if (ej != null)
             {
-                ej.Precio = precio;
-                ej.Descripcion = descripcion;
+                ej.Precio = modificar.Precio;
+                ej.Descripcion = modificar.Descripcion;
                 TransactionResult resultado = _ejemplarMapper.Update(ej);
                 if (resultado.IsOk)
                 {

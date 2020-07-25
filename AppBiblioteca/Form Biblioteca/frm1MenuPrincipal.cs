@@ -21,6 +21,9 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
 
+        
+
+
         private void Tab()
         {
             btnPrestamos.TabIndex = 0;

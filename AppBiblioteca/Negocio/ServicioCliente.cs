@@ -59,9 +59,9 @@ namespace Negocio
             }
             return resultado;
         }
-        public int AltaCliente(string nombre,string apellido,string direccion,string telefono,string mail)
+        public int AltaCliente(Cliente alta)
         {
-            Cliente alta = new Cliente(nombre, apellido, direccion, telefono, mail);
+            
             
             TransactionResult resultado = _mapper.Insert(alta);
             if (resultado.IsOk)
@@ -74,16 +74,16 @@ namespace Negocio
                 throw new Exception("Hubo un error en la petición al servidor. Detalle: " + resultado.Error);
             }
         }
-        public int ModificarCliente(int codigo,string nombre, string apellido, string direccion, string telefono, string mail)
+        public int ModificarCliente(Cliente modificar)
         {
-            Cliente c = TraerPorCodigo(codigo);
+            Cliente c = TraerPorCodigo(modificar.Codigo);
             if (c != null)
             {
-                c.Nombre = nombre;
-                c.Apellido = apellido;
-                c.Direccion = direccion;
-                c.Telefono = telefono;
-                c.Mail = mail;
+                c.Nombre = modificar.Nombre;
+                c.Apellido = modificar.Apellido;
+                c.Direccion = modificar.Direccion;
+                c.Telefono = modificar.Telefono;
+                c.Mail = modificar.Mail;
                 TransactionResult resultado = _mapper.Update(c);
                 if (resultado.IsOk)
                 {

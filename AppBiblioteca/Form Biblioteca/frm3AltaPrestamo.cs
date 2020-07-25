@@ -12,7 +12,7 @@ using Entidades;
 
 namespace Form_Biblioteca
 {
-    public partial class frm3AltaPrestamo : Form
+    public partial class frm3AltaPrestamo : AbstractForm<Ejemplar>
     {
         private Master m;
 
@@ -29,22 +29,14 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
         #region "Métodos"
-        private bool MessageOkCancel(string msg, string tituloForm)
-        {
 
-            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                return true;
-            }
-            else return false;
-        }
-        public void CloseWindow()
+        public override Form GetForm()
         {
-            Owner.Show();
-            Dispose();
+            return this;
         }
-        private void Tab()
+        
+
+        public override void Tab()
         {
             gbDatosEjemplar.TabIndex = 0;
             txtCodigoEjemplar.TabIndex = 1;
@@ -58,7 +50,7 @@ namespace Form_Biblioteca
             btnLimpiarCampos.TabIndex = 9;
             btnSalir.TabIndex = 10;
         }
-        public void ValidarCampos(string objeto)
+        public override void ValidarCampos(string objeto)
         {
             if(objeto == ejemplar)
             {
@@ -81,7 +73,7 @@ namespace Form_Biblioteca
     
         }
 
-        public void LimpiarCampos(string obj)
+        public override void LimpiarCampos(string obj)
         {   
             if(obj == ejemplar)
             {
@@ -159,7 +151,7 @@ namespace Form_Biblioteca
             }
         }
 
-        public void FormatearCampos(string condicion)
+        public override void FormatearCampos(string condicion)
         {
             if (txtCodigoCliente.Text == string.Empty)
             {
@@ -331,7 +323,8 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 ValidarCampos(cliente);
                 ValidarCampos(prestamo);
-                int codigo = this.m.SP.AltaPrestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(cmbPlazo.Text), Convert.ToDouble(txtPrecio.Text));
+                Prestamo prestamoAlta = new Prestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(cmbPlazo.Text), Convert.ToDouble(txtPrecio.Text));
+                int codigo = this.m.SP.AltaPrestamo(prestamoAlta);
                 MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " exitosamente");
                 ((frm2GestionarPrestamo)this.Owner).CargarDGVPrestamos();
                 CloseWindow();

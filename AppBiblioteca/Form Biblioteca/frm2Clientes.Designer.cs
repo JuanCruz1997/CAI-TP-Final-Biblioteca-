@@ -1,6 +1,6 @@
 ﻿namespace Form_Biblioteca
 {
-    partial class frm2Clientes
+    partial class frm2Clientes 
     {
         /// <summary>
         /// Required designer variable.

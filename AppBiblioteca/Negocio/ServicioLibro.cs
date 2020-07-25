@@ -61,9 +61,8 @@ namespace Negocio
             return resultado;
         }
 
-        public int AltaLibro(string titulo, string autor, int edicion, string editorial, int pags, string tema)
-        {
-            Libro alta = new Libro(titulo, autor, edicion, editorial, pags, tema);
+        public int AltaLibro(Libro alta)
+        {          
 
             TransactionResult resultado = _mapperLibros.Insert(alta);
 

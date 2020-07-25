@@ -12,13 +12,14 @@ using Negocio;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2GestionarPrestamo : Form
+    public partial class frm2GestionarPrestamo : AbstractForm<PrestamoAdapter>
     {
         private Master m;
         private GrillaService _grilla;
         private const string menu = "menu";
         private const string seleccion = "seleccion";
 
+        
         public frm2GestionarPrestamo(Master m)
         {
             this.m = m;
@@ -26,22 +27,12 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
         #region "Métodos"
-
-        private bool MessageOkCancel(string msg, string tituloForm)
+        public override Form GetForm()
         {
-            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
-            if (result == DialogResult.OK)
-            {
-                return true;
-            }
-            else return false;
+            return this;
         }
-        public void CloseWindow()
-        {
-            Owner.Show();
-            Dispose();
-        }
-        private void Tab()
+        
+        public override void Tab()
         {
             gbBuscarPrestamos.TabIndex = 0;
             txtBuscarCodEjemplar.TabIndex = 0;
@@ -61,13 +52,13 @@ namespace Form_Biblioteca
             btnSalir.TabIndex = 13;
             
         }
-        private void ValidarCampos()
+        public override void ValidarCampos()
         {
             txtBuscarCodCliente.Text = Validaciones.IntValidation(txtBuscarCodCliente.Text, 0, int.MaxValue, lblBuscarCodCliente.Text).ToString();
             txtBuscarCodEjemplar.Text = Validaciones.IntValidation(txtBuscarCodEjemplar.Text, 0, int.MaxValue, lblBuscarCodEjemplar.Text).ToString();
         }
 
-        private void LimpiarCampos()
+        public override void LimpiarCampos()
         {
             txtBuscarCodCliente.Text = string.Empty;
             txtBuscarCodEjemplar.Text = string.Empty;
@@ -79,7 +70,7 @@ namespace Form_Biblioteca
             dgvPrestamos.CurrentCell = null;
         }
 
-        private void CompletarFormulario(PrestamoAdapter seleccionado)
+        public override void CompletarFormulario(PrestamoAdapter seleccionado)
         {
             Prestamo elegido = this.m.SP.TraerPorCodigo(seleccionado.Codigo);
             dtpFechaTentativaDevolucion.Value = elegido.FechaDevolucionTentativa;
@@ -93,7 +84,7 @@ namespace Form_Biblioteca
             }
             txtDeuda.Text = elegido.Deuda.ToString();
         }
-        private void FormatearCampos(string condicion)
+        public override void FormatearCampos(string condicion)
         {            
             if (condicion == menu)
             {

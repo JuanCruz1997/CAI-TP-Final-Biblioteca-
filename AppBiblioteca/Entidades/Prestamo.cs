@@ -79,11 +79,11 @@ namespace Entidades
         {
             this.IdCliente = idCliente;
             this.IdEjemplar = idEjemplar;
-            this._plazoPrestamo = plazo;
+            this.PlazoPrestamo = plazo;
             this.FechaDevolucionReal = DateTime.MinValue;
             this.FechaHoraPrestamo = DateTime.Today;
-            this._precioPactado = precio;
-            this._abierto = true;
+            this.PrecioPactado = precio;
+            this.Abierto = true;
         }
     }
 
