@@ -251,14 +251,17 @@ namespace Form_Biblioteca
                 Cliente seleccionado = row.DataBoundItem as Cliente;
                 if (seleccionado == null)
                 {
-                    Cliente clienteAlta = new Cliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
-                    int codigo = this.m.SC.AltaCliente(clienteAlta);
-                    MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
-                    CargarDGVClientes(this.m.Clientes);
-                    LimpiarCampos();
+                    if (MessageOkCancel("Se dará de alta un nuevo cliente. Para continuar presione Ok", this.Text))
+                    {
+                        Cliente clienteAlta = new Cliente(txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
+                        int codigo = this.m.SC.AltaCliente(clienteAlta);
+                        MessageBox.Show("Alta de cliente exitosa. Nuevo cliente nro:" + codigo.ToString());
+                        CargarDGVClientes(this.m.Clientes);
+                        LimpiarCampos();
+                    }
                 }else
                 {
-                    if (MessageOkCancel("Se modificará el cliente seleccionado.Para continuar presione Ok", this.Text))
+                    if (MessageOkCancel("Se modificará el cliente seleccionado. Para continuar presione Ok", this.Text))
                     {
                         seleccionado.Nombre = txtNombre.Text;
                         seleccionado.Apellido = txtApellido.Text;
@@ -288,49 +291,19 @@ namespace Form_Biblioteca
             else if (this.Owner is frm2GestionarPrestamo)
             {
                 ((frm2GestionarPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
-                this.Owner.Show();
-                this.Dispose();
+                CloseWindow();
             }
             else if (this.Owner is frm3AltaPrestamo)
             {
                 ((frm3AltaPrestamo)this.Owner).CompletarCodigo(txtCodigoCliente.Text, this);
                 ((frm3AltaPrestamo)this.Owner).CompletarFormulario("cliente");
-                this.Owner.Show();
-                this.Dispose();
+                CloseWindow();
             }
 
 
         }
 
-        //private void btnModificar_Click(object sender, EventArgs e)
-        //{
-        //    if (txtCodigoCliente.Text == string.Empty)
-        //    {
-        //        MessageBox.Show("Para modificar un cliente, antes debe seleccionarlo.");
-        //    }
-        //    else
-        //    {
-        //        try
-        //        {
-
-        //            ValidarCampos();
-        //            if (MessageOkCancel("Se modificará el cliente seleccionado.Para continuar presione Ok", this.Text))
-        //            {
-        //                int codigo = this._clienteServicio.ModificarCliente(Convert.ToInt32(txtCodigoCliente.Text), txtNombre.Text, txtApellido.Text, txtDireccion.Text, txtTelefono.Text, txtMail.Text);
-        //                MessageBox.Show("El cliente " + codigo + " se ha modificado exitosamente");
-        //                CargarDGVClientes(this._clienteServicio.TraerTodos());
-        //                LimpiarCampos();
-        //            }
-                    
-
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message);
-        //        }
-        //    }
-        //}
-
+      
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             if (txtCodigoCliente.Text == string.Empty)

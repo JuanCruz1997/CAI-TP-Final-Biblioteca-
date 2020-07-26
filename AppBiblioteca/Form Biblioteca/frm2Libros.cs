@@ -415,16 +415,20 @@ namespace Form_Biblioteca
             try
             {
                 ValidarCampos(libro);
-                Libro libroAlta = new Libro(txtTitulo.Text, txtAutor.Text, Convert.ToInt32(txtEdicion.Text), txtEditorial.Text, Convert.ToInt32(txtPaginas.Text), cmbTema.Text);
-                int codigo = this.m.SL.AltaLibro(libroAlta);
-                MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nPor favor, agregue la cantidad de ejemplares");
-                CargarDGVLibros(m.SL.TraerPorCodigo(codigo));
-                DataGridViewRow row = dgvLibros.Rows[0];
-                row.Selected = true;
-                Libro seleccionado = row.DataBoundItem as Libro;
-                CompletarFormulario(seleccionado);
-                this.Size = new Size(1125, this.Size.Height);
-                gbEjemplares.Enabled = false;
+                if (MessageOkCancel("Para confirmar el alta del libro presione Ok", this.Text))
+                {
+                    Libro libroAlta = new Libro(txtTitulo.Text, txtAutor.Text, Convert.ToInt32(txtEdicion.Text), txtEditorial.Text, Convert.ToInt32(txtPaginas.Text), cmbTema.Text);
+                    int codigo = this.m.SL.AltaLibro(libroAlta);
+                    MessageBox.Show("Alta de libro exitosa. ID libro nuevo: " + codigo + "\nPor favor, agregue la cantidad de ejemplares");
+                    CargarDGVLibros(m.SL.TraerPorCodigo(codigo));
+                    DataGridViewRow row = dgvLibros.Rows[0];
+                    row.Selected = true;
+                    Libro seleccionado = row.DataBoundItem as Libro;
+                    CompletarFormulario(seleccionado);
+                    this.Size = new Size(1125, this.Size.Height);
+                    gbEjemplares.Enabled = false;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -455,8 +459,7 @@ namespace Form_Biblioteca
                 {
                     ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
-                    this.Owner.Show();
-                    this.Dispose();
+                    CloseWindow();
                 }
             }
             catch (Exception ex)

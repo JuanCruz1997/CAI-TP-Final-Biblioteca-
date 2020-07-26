@@ -17,7 +17,7 @@ namespace Form_Biblioteca
         //{
         //    InitializeComponent();
         //}
-    public virtual Form GetForm()
+        public virtual Form GetForm()
         {
             throw new NotImplementedException();
         }

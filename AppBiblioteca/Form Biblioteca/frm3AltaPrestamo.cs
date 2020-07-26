@@ -323,11 +323,14 @@ namespace Form_Biblioteca
                 ValidarCampos(ejemplar);
                 ValidarCampos(cliente);
                 ValidarCampos(prestamo);
+                
                 Prestamo prestamoAlta = new Prestamo(Convert.ToInt32(txtCodigoCliente.Text), Convert.ToInt32(txtCodigoEjemplar.Text), Convert.ToInt32(cmbPlazo.Text), Convert.ToDouble(txtPrecio.Text));
                 int codigo = this.m.SP.AltaPrestamo(prestamoAlta);
                 MessageBox.Show("Se ha dado de alta el préstamo " + codigo + " exitosamente");
                 ((frm2GestionarPrestamo)this.Owner).CargarDGVPrestamos();
                 CloseWindow();
+                
+                
             }
             catch(Exception ex)
             {
