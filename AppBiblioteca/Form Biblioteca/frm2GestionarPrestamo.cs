@@ -12,7 +12,7 @@ using Negocio;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2GestionarPrestamo : AbstractForm<PrestamoAdapter>
+    public partial class frm2GestionarPrestamo : Form
     {
         private Master m;
         private GrillaService _grilla;
@@ -27,12 +27,26 @@ namespace Form_Biblioteca
             InitializeComponent();
         }
         #region "Métodos"
-        public override Form GetForm()
+        /*public  Form GetForm()
         {
             return this;
+        }*/
+        public bool MessageOkCancel(string msg, string tituloForm)
+        {
+
+            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
         }
-        
-        public override void Tab()
+        public void CloseWindow()
+        {
+            this.Owner.Show();
+            this.Dispose();
+        }
+        public  void Tab()
         {
             gbBuscarPrestamos.TabIndex = 0;
             txtBuscarCodEjemplar.TabIndex = 0;
@@ -52,13 +66,13 @@ namespace Form_Biblioteca
             btnSalir.TabIndex = 13;
             
         }
-        public override void ValidarCampos()
+        public  void ValidarCampos()
         {
             txtBuscarCodCliente.Text = Validaciones.IntValidation(txtBuscarCodCliente.Text, 0, int.MaxValue, lblBuscarCodCliente.Text).ToString();
             txtBuscarCodEjemplar.Text = Validaciones.IntValidation(txtBuscarCodEjemplar.Text, 0, int.MaxValue, lblBuscarCodEjemplar.Text).ToString();
         }
 
-        public override void LimpiarCampos()
+        public  void LimpiarCampos()
         {
             txtBuscarCodCliente.Text = string.Empty;
             txtBuscarCodEjemplar.Text = string.Empty;
@@ -69,8 +83,12 @@ namespace Form_Biblioteca
 
             dgvPrestamos.CurrentCell = null;
         }
-
-        public override void CompletarFormulario(PrestamoAdapter seleccionado)
+        private Boolean EstaDevuelto()
+        {
+            PrestamoAdapter seleccionado = ObtenerAdapter();
+            return seleccionado.Devuelto;
+        }
+        public void CompletarFormulario(PrestamoAdapter seleccionado)
         {
             Prestamo elegido = this.m.SP.TraerPorCodigo(seleccionado.Codigo);
             dtpFechaTentativaDevolucion.Value = elegido.FechaDevolucionTentativa;
@@ -84,7 +102,7 @@ namespace Form_Biblioteca
             }
             txtDeuda.Text = elegido.Deuda.ToString();
         }
-        public override void FormatearCampos(string condicion)
+        private void FormatearCampos(string condicion)
         {            
             if (condicion == menu)
             {
@@ -121,7 +139,7 @@ namespace Form_Biblioteca
             }
             else if (condicion == seleccion && !chkAbiertos.Checked)
             {
-                if (dtpFechaDevolucion.Value != DateTime.MinValue)
+                if (EstaDevuelto())
                 {
                     btnNuevoPrestamo.Enabled = false;
                     btnConfirmarDevolución.Enabled = false;
@@ -273,8 +291,8 @@ namespace Form_Biblioteca
                     int codigo = this.m.SP.Devolucion(seleccionado.Codigo, DateTime.Now);
                     MessageBox.Show("El ejemplar " + codigo +" ha sido devuelto exitosamente");
                     CargarDGVPrestamos();
-                    FormatearCampos(menu);
                     LimpiarCampos();
+                    FormatearCampos(menu);
                 }
             }
             catch(Exception ex)

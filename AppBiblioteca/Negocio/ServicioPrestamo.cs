@@ -13,7 +13,7 @@ namespace Negocio
         private MapperPrestamos _prestamoMapper;
         private Master m;
 
-        public ServicioPrestamo(Master m, ServicioEjemplar sE, ServicioCliente sC)
+        public ServicioPrestamo(Master m)
         {
             this._prestamoMapper = new MapperPrestamos();
             this.m = m;
@@ -136,22 +136,29 @@ namespace Negocio
             Prestamo p = this.TraerPorCodigo(codigo);
             if (p != null)
             {
-                if ((DateTime.Today - p.FechaHoraPrestamo).Days < 30 )
+                if ((DateTime.Today - p.FechaHoraPrestamo).Days > 30 )
                 {
-                    TransactionResult resultado = _prestamoMapper.Delete(p);
-                    if (resultado.IsOk)
+                    if (p.Abierto)
                     {
-                        this.m.ActualizarCache(this.ToString());
-                        return resultado.Id;
+                        TransactionResult resultado = _prestamoMapper.Delete(p);
+                        if (resultado.IsOk)
+                        {
+                            this.m.ActualizarCache(this.ToString());
+                            return resultado.Id;
+                        }
+                        else
+                        {
+                            throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                        }
                     }
                     else
                     {
-                        throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
-                    }
+                        throw new Exception("No se pueden eliminar los préstamos cuyo ejemplar ya fue devuelto");
+                    }   
                 }
                 else
                 {
-                    throw new Exception("El prestamo no pudo eliminarse debido a que han pasado 30 días de creado");
+                    throw new Exception("El préstamo no pudo eliminarse debido a que han pasado 30 días de creado");
                 }
                 
             }

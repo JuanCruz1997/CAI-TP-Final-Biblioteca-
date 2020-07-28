@@ -31,6 +31,7 @@ namespace Datos
             nvc.Add("email", entidad.Mail);
             nvc.Add("telefono", entidad.Telefono.ToString());
             nvc.Add("id", entidad.Codigo.ToString());
+            nvc.Add("usuario", entidad.Usuario);
             return nvc;
         }
         public override NameValueCollection ReverseMapDelete(Cliente entidad)

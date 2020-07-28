@@ -12,7 +12,7 @@ using Entidades;
 
 namespace Form_Biblioteca
 {
-    public partial class frm2Libros : AbstractForm<Libro>
+    public partial class frm2Libros : Form
     {
         private Master m;
 
@@ -29,12 +29,26 @@ namespace Form_Biblioteca
         }
 
         #region "Métodos"
-        public override Form GetForm()
+        /*public override Form GetForm()
         {
             return this;
+        }*/
+        public bool MessageOkCancel(string msg, string tituloForm)
+        {
+
+            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
         }
-        
-        public override void Tab()
+        public void CloseWindow()
+        {
+            this.Owner.Show();
+            this.Dispose();
+        }
+        public void Tab()
         {
             gbBuscarLibros.TabIndex = 0;
             txtBuscarTitulo.TabIndex = 0;
@@ -64,7 +78,7 @@ namespace Form_Biblioteca
             btnLimpiarCampos.TabIndex = 21;
             btnSalir.TabIndex = 22;
         }
-        public override void ValidarCampos(string objeto)
+        public  void ValidarCampos(string objeto)
         {
             if (objeto == libro)
             {
@@ -84,7 +98,7 @@ namespace Form_Biblioteca
 
         }
 
-        public override void LimpiarCampos(string objeto)
+        public  void LimpiarCampos(string objeto)
         {
             if (objeto == libro)
             {
@@ -100,6 +114,7 @@ namespace Form_Biblioteca
                 txtDisponibles.Text = string.Empty;
                 txtBuscarTitulo.Text = string.Empty;
                 txtBuscarAutor.Text = string.Empty;
+                cmbTema.SelectedIndex = 0;
 
             }
             else if (objeto == ejemplar)
@@ -116,7 +131,7 @@ namespace Form_Biblioteca
         {
             cmbTema.DataSource = ListaTemas();
         }
-        public override void FormatearCampos(string condicion)
+        public  void FormatearCampos(string condicion)
         {
             if (condicion == prestamo)
             {
@@ -243,7 +258,7 @@ namespace Form_Biblioteca
 
         }
 
-        public override void CompletarFormulario(Libro seleccionado)
+        public  void CompletarFormulario(Libro seleccionado)
         {
             txtISBN.Text = seleccionado.ISBN.ToString();
             txtTitulo.Text = seleccionado.Titulo;
@@ -459,6 +474,7 @@ namespace Form_Biblioteca
                 {
                     ((frm3AltaPrestamo)this.Owner).CompletarCodigo(ejemplar.Codigo.ToString(), this);
                     ((frm3AltaPrestamo)this.Owner).CompletarFormulario("ejemplar");
+                    ((frm3AltaPrestamo)this.Owner).FormatearCampos("completo");
                     CloseWindow();
                 }
             }
@@ -488,7 +504,15 @@ namespace Form_Biblioteca
             LimpiarCampos(ejemplar);
             CargarDGVLibros(this.m.Libros);
             this.Size = new Size(800, this.Size.Height);
-            LimpiarCampos(libro);
+            if (this.Owner is frm1MenuPrincipal)
+            {
+                FormatearCampos(menu);
+            }
+            else if (this.Owner is frm2GestionarPrestamo || this.Owner is frm3AltaPrestamo)
+            {
+                FormatearCampos(prestamo);
+            }
+            //LimpiarCampos(libro);
         }
 
 

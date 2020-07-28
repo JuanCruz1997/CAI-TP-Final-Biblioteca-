@@ -25,8 +25,8 @@ namespace Negocio
         {
             this.SC = new ServicioCliente(this);
             this.SL = new ServicioLibro(this);
-            this.SE = new ServicioEjemplar(this, SL);
-            this.SP = new ServicioPrestamo(this, SE, SC);
+            this.SE = new ServicioEjemplar(this);
+            this.SP = new ServicioPrestamo(this);
 
             this.Clientes = SC.TraerTodos();
             this.Libros = SL.TraerTodos();
@@ -43,7 +43,7 @@ namespace Negocio
         public ServicioEjemplar SE { get => sE; set => sE = value; }
         public ServicioPrestamo SP { get => sP; set => sP = value; }
 
-        public void ActualizarCache( string servicio)
+        public void ActualizarCache(string servicio)
         {
             if(servicio == SC.ToString())
             {

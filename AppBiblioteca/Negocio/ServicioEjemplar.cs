@@ -14,7 +14,7 @@ namespace Negocio
         private Master m;     
         
 
-        public ServicioEjemplar(Master m, ServicioLibro sL)
+        public ServicioEjemplar(Master m)
         {
             this._ejemplarMapper = new MapperEjemplares();
             this.m = m;       
@@ -116,12 +116,12 @@ namespace Negocio
         }
         public int ModificarEjemplar(Ejemplar modificar)
         {
-            Ejemplar ej = TraerPorCodigo(modificar.Codigo);
-            if (ej != null)
+            //Ejemplar ej = TraerPorCodigo(modificar.Codigo);
+            if (modificar != null)
             {
                 //ej.Precio = modificar.Precio;
                 //ej.Descripcion = modificar.Descripcion;
-                TransactionResult resultado = _ejemplarMapper.Update(ej);
+                TransactionResult resultado = _ejemplarMapper.Update(modificar);
                 if (resultado.IsOk)
                 {
                     this.m.ActualizarCache(this.ToString());

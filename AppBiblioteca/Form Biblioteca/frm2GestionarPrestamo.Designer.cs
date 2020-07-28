@@ -70,9 +70,10 @@
             // 
             // btnNuevoPrestamo
             // 
-            this.btnNuevoPrestamo.Location = new System.Drawing.Point(10, 398);
+            this.btnNuevoPrestamo.Location = new System.Drawing.Point(13, 490);
+            this.btnNuevoPrestamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnNuevoPrestamo.Name = "btnNuevoPrestamo";
-            this.btnNuevoPrestamo.Size = new System.Drawing.Size(182, 46);
+            this.btnNuevoPrestamo.Size = new System.Drawing.Size(243, 57);
             this.btnNuevoPrestamo.TabIndex = 26;
             this.btnNuevoPrestamo.Text = "Nuevo Préstamo...";
             this.btnNuevoPrestamo.UseVisualStyleBackColor = true;
@@ -80,9 +81,10 @@
             // 
             // btnLimpiarCampos
             // 
-            this.btnLimpiarCampos.Location = new System.Drawing.Point(621, 398);
+            this.btnLimpiarCampos.Location = new System.Drawing.Point(828, 490);
+            this.btnLimpiarCampos.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarCampos.Name = "btnLimpiarCampos";
-            this.btnLimpiarCampos.Size = new System.Drawing.Size(169, 46);
+            this.btnLimpiarCampos.Size = new System.Drawing.Size(225, 57);
             this.btnLimpiarCampos.TabIndex = 29;
             this.btnLimpiarCampos.Text = "Limpiar Campos/\r\nActualizar Préstamos";
             this.btnLimpiarCampos.UseVisualStyleBackColor = true;
@@ -91,26 +93,29 @@
             // lblFechaTentativaDevolucion
             // 
             this.lblFechaTentativaDevolucion.AutoSize = true;
-            this.lblFechaTentativaDevolucion.Location = new System.Drawing.Point(5, 63);
+            this.lblFechaTentativaDevolucion.Location = new System.Drawing.Point(7, 78);
+            this.lblFechaTentativaDevolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaTentativaDevolucion.Name = "lblFechaTentativaDevolucion";
-            this.lblFechaTentativaDevolucion.Size = new System.Drawing.Size(85, 13);
+            this.lblFechaTentativaDevolucion.Size = new System.Drawing.Size(110, 17);
             this.lblFechaTentativaDevolucion.TabIndex = 64;
             this.lblFechaTentativaDevolucion.Text = "Fecha Tentativa";
             // 
             // lblFechaDevolucion
             // 
             this.lblFechaDevolucion.AutoSize = true;
-            this.lblFechaDevolucion.Location = new System.Drawing.Point(221, 63);
+            this.lblFechaDevolucion.Location = new System.Drawing.Point(295, 78);
+            this.lblFechaDevolucion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFechaDevolucion.Name = "lblFechaDevolucion";
-            this.lblFechaDevolucion.Size = new System.Drawing.Size(94, 13);
+            this.lblFechaDevolucion.Size = new System.Drawing.Size(121, 17);
             this.lblFechaDevolucion.TabIndex = 66;
             this.lblFechaDevolucion.Text = "Fecha Devolución";
             // 
             // btnConfirmarDevolución
             // 
-            this.btnConfirmarDevolución.Location = new System.Drawing.Point(215, 398);
+            this.btnConfirmarDevolución.Location = new System.Drawing.Point(287, 490);
+            this.btnConfirmarDevolución.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirmarDevolución.Name = "btnConfirmarDevolución";
-            this.btnConfirmarDevolución.Size = new System.Drawing.Size(182, 46);
+            this.btnConfirmarDevolución.Size = new System.Drawing.Size(243, 57);
             this.btnConfirmarDevolución.TabIndex = 27;
             this.btnConfirmarDevolución.Text = "Confirmar Devolución";
             this.btnConfirmarDevolución.UseVisualStyleBackColor = true;
@@ -118,9 +123,10 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(818, 398);
+            this.btnSalir.Location = new System.Drawing.Point(1091, 490);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(169, 46);
+            this.btnSalir.Size = new System.Drawing.Size(225, 57);
             this.btnSalir.TabIndex = 30;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -131,9 +137,10 @@
             this.lblRojo.AutoSize = true;
             this.lblRojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRojo.ForeColor = System.Drawing.Color.Red;
-            this.lblRojo.Location = new System.Drawing.Point(221, 24);
+            this.lblRojo.Location = new System.Drawing.Point(295, 30);
+            this.lblRojo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRojo.Name = "lblRojo";
-            this.lblRojo.Size = new System.Drawing.Size(355, 13);
+            this.lblRojo.Size = new System.Drawing.Size(452, 17);
             this.lblRojo.TabIndex = 70;
             this.lblRojo.Text = "El préstamo indicado no fue devuelto en la fecha establecida";
             // 
@@ -141,9 +148,10 @@
             // 
             this.dtpFechaDevolucion.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaDevolucion.Location = new System.Drawing.Point(319, 60);
+            this.dtpFechaDevolucion.Location = new System.Drawing.Point(425, 74);
+            this.dtpFechaDevolucion.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaDevolucion.Name = "dtpFechaDevolucion";
-            this.dtpFechaDevolucion.Size = new System.Drawing.Size(100, 20);
+            this.dtpFechaDevolucion.Size = new System.Drawing.Size(132, 22);
             this.dtpFechaDevolucion.TabIndex = 25;
             // 
             // dtpFechaTentativaDevolucion
@@ -151,9 +159,10 @@
             this.dtpFechaTentativaDevolucion.CustomFormat = "dd/MM/yyyy";
             this.dtpFechaTentativaDevolucion.Enabled = false;
             this.dtpFechaTentativaDevolucion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaTentativaDevolucion.Location = new System.Drawing.Point(96, 60);
+            this.dtpFechaTentativaDevolucion.Location = new System.Drawing.Point(128, 74);
+            this.dtpFechaTentativaDevolucion.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaTentativaDevolucion.Name = "dtpFechaTentativaDevolucion";
-            this.dtpFechaTentativaDevolucion.Size = new System.Drawing.Size(100, 20);
+            this.dtpFechaTentativaDevolucion.Size = new System.Drawing.Size(132, 22);
             this.dtpFechaTentativaDevolucion.TabIndex = 24;
             // 
             // chkAbiertos
@@ -161,10 +170,10 @@
             this.chkAbiertos.AutoSize = true;
             this.chkAbiertos.Checked = true;
             this.chkAbiertos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkAbiertos.Location = new System.Drawing.Point(8, 24);
-            this.chkAbiertos.Margin = new System.Windows.Forms.Padding(2);
+            this.chkAbiertos.Location = new System.Drawing.Point(11, 30);
+            this.chkAbiertos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkAbiertos.Name = "chkAbiertos";
-            this.chkAbiertos.Size = new System.Drawing.Size(174, 17);
+            this.chkAbiertos.Size = new System.Drawing.Size(233, 21);
             this.chkAbiertos.TabIndex = 23;
             this.chkAbiertos.Text = "Mostrar sólo préstamos abiertos";
             this.chkAbiertos.UseVisualStyleBackColor = true;
@@ -172,9 +181,10 @@
             // 
             // btnBuscarPrestamo
             // 
-            this.btnBuscarPrestamo.Location = new System.Drawing.Point(284, 24);
+            this.btnBuscarPrestamo.Location = new System.Drawing.Point(379, 30);
+            this.btnBuscarPrestamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarPrestamo.Name = "btnBuscarPrestamo";
-            this.btnBuscarPrestamo.Size = new System.Drawing.Size(88, 62);
+            this.btnBuscarPrestamo.Size = new System.Drawing.Size(117, 76);
             this.btnBuscarPrestamo.TabIndex = 22;
             this.btnBuscarPrestamo.Text = "Buscar";
             this.btnBuscarPrestamo.UseVisualStyleBackColor = true;
@@ -182,9 +192,10 @@
             // 
             // btnEliminarPréstamo
             // 
-            this.btnEliminarPréstamo.Location = new System.Drawing.Point(423, 398);
+            this.btnEliminarPréstamo.Location = new System.Drawing.Point(564, 490);
+            this.btnEliminarPréstamo.Margin = new System.Windows.Forms.Padding(4);
             this.btnEliminarPréstamo.Name = "btnEliminarPréstamo";
-            this.btnEliminarPréstamo.Size = new System.Drawing.Size(169, 46);
+            this.btnEliminarPréstamo.Size = new System.Drawing.Size(225, 57);
             this.btnEliminarPréstamo.TabIndex = 28;
             this.btnEliminarPréstamo.Text = "Eliminar préstamo";
             this.btnEliminarPréstamo.UseVisualStyleBackColor = true;
@@ -199,21 +210,21 @@
             this.gbBuscarPrestamos.Controls.Add(this.lblBuscarCodCliente);
             this.gbBuscarPrestamos.Controls.Add(this.lblBuscarCodEjemplar);
             this.gbBuscarPrestamos.Controls.Add(this.btnBuscarPrestamo);
-            this.gbBuscarPrestamos.Location = new System.Drawing.Point(9, 10);
-            this.gbBuscarPrestamos.Margin = new System.Windows.Forms.Padding(2);
+            this.gbBuscarPrestamos.Location = new System.Drawing.Point(12, 12);
+            this.gbBuscarPrestamos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbBuscarPrestamos.Name = "gbBuscarPrestamos";
-            this.gbBuscarPrestamos.Padding = new System.Windows.Forms.Padding(2);
-            this.gbBuscarPrestamos.Size = new System.Drawing.Size(385, 97);
+            this.gbBuscarPrestamos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbBuscarPrestamos.Size = new System.Drawing.Size(513, 119);
             this.gbBuscarPrestamos.TabIndex = 0;
             this.gbBuscarPrestamos.TabStop = false;
             this.gbBuscarPrestamos.Text = "Buscar";
             // 
             // btnClientes
             // 
-            this.btnClientes.Location = new System.Drawing.Point(200, 57);
-            this.btnClientes.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClientes.Location = new System.Drawing.Point(267, 70);
+            this.btnClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClientes.Name = "btnClientes";
-            this.btnClientes.Size = new System.Drawing.Size(79, 29);
+            this.btnClientes.Size = new System.Drawing.Size(105, 36);
             this.btnClientes.TabIndex = 21;
             this.btnClientes.Text = "Clientes...";
             this.btnClientes.UseVisualStyleBackColor = true;
@@ -221,26 +232,26 @@
             // 
             // txtBuscarCodCliente
             // 
-            this.txtBuscarCodCliente.Location = new System.Drawing.Point(107, 63);
-            this.txtBuscarCodCliente.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscarCodCliente.Location = new System.Drawing.Point(143, 78);
+            this.txtBuscarCodCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscarCodCliente.Name = "txtBuscarCodCliente";
-            this.txtBuscarCodCliente.Size = new System.Drawing.Size(90, 20);
+            this.txtBuscarCodCliente.Size = new System.Drawing.Size(119, 22);
             this.txtBuscarCodCliente.TabIndex = 20;
             // 
             // txtBuscarCodEjemplar
             // 
-            this.txtBuscarCodEjemplar.Location = new System.Drawing.Point(107, 29);
-            this.txtBuscarCodEjemplar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBuscarCodEjemplar.Location = new System.Drawing.Point(143, 36);
+            this.txtBuscarCodEjemplar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBuscarCodEjemplar.Name = "txtBuscarCodEjemplar";
-            this.txtBuscarCodEjemplar.Size = new System.Drawing.Size(90, 20);
+            this.txtBuscarCodEjemplar.Size = new System.Drawing.Size(119, 22);
             this.txtBuscarCodEjemplar.TabIndex = 18;
             // 
             // btnEjemplares
             // 
-            this.btnEjemplares.Location = new System.Drawing.Point(200, 24);
-            this.btnEjemplares.Margin = new System.Windows.Forms.Padding(2);
+            this.btnEjemplares.Location = new System.Drawing.Point(267, 30);
+            this.btnEjemplares.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEjemplares.Name = "btnEjemplares";
-            this.btnEjemplares.Size = new System.Drawing.Size(79, 28);
+            this.btnEjemplares.Size = new System.Drawing.Size(105, 34);
             this.btnEjemplares.TabIndex = 19;
             this.btnEjemplares.Text = "Ejemplares...";
             this.btnEjemplares.UseVisualStyleBackColor = true;
@@ -249,20 +260,18 @@
             // lblBuscarCodCliente
             // 
             this.lblBuscarCodCliente.AutoSize = true;
-            this.lblBuscarCodCliente.Location = new System.Drawing.Point(5, 63);
-            this.lblBuscarCodCliente.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBuscarCodCliente.Location = new System.Drawing.Point(7, 78);
             this.lblBuscarCodCliente.Name = "lblBuscarCodCliente";
-            this.lblBuscarCodCliente.Size = new System.Drawing.Size(89, 13);
+            this.lblBuscarCodCliente.Size = new System.Drawing.Size(117, 17);
             this.lblBuscarCodCliente.TabIndex = 86;
             this.lblBuscarCodCliente.Text = "Código de cliente";
             // 
             // lblBuscarCodEjemplar
             // 
             this.lblBuscarCodEjemplar.AutoSize = true;
-            this.lblBuscarCodEjemplar.Location = new System.Drawing.Point(5, 32);
-            this.lblBuscarCodEjemplar.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBuscarCodEjemplar.Location = new System.Drawing.Point(7, 39);
             this.lblBuscarCodEjemplar.Name = "lblBuscarCodEjemplar";
-            this.lblBuscarCodEjemplar.Size = new System.Drawing.Size(97, 13);
+            this.lblBuscarCodEjemplar.Size = new System.Drawing.Size(130, 17);
             this.lblBuscarCodEjemplar.TabIndex = 85;
             this.lblBuscarCodEjemplar.Text = "Código de ejemplar";
             // 
@@ -276,11 +285,11 @@
             this.gbDatosPrestamo.Controls.Add(this.dtpFechaTentativaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.lblFechaDevolucion);
             this.gbDatosPrestamo.Controls.Add(this.dtpFechaDevolucion);
-            this.gbDatosPrestamo.Location = new System.Drawing.Point(405, 10);
-            this.gbDatosPrestamo.Margin = new System.Windows.Forms.Padding(2);
+            this.gbDatosPrestamo.Location = new System.Drawing.Point(540, 12);
+            this.gbDatosPrestamo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbDatosPrestamo.Name = "gbDatosPrestamo";
-            this.gbDatosPrestamo.Padding = new System.Windows.Forms.Padding(2);
-            this.gbDatosPrestamo.Size = new System.Drawing.Size(582, 97);
+            this.gbDatosPrestamo.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbDatosPrestamo.Size = new System.Drawing.Size(776, 119);
             this.gbDatosPrestamo.TabIndex = 22;
             this.gbDatosPrestamo.TabStop = false;
             this.gbDatosPrestamo.Text = "Datos Préstamo";
@@ -288,20 +297,19 @@
             // txtDeuda
             // 
             this.txtDeuda.Enabled = false;
-            this.txtDeuda.Location = new System.Drawing.Point(483, 60);
-            this.txtDeuda.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDeuda.Location = new System.Drawing.Point(644, 74);
+            this.txtDeuda.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtDeuda.Name = "txtDeuda";
             this.txtDeuda.ReadOnly = true;
-            this.txtDeuda.Size = new System.Drawing.Size(90, 20);
+            this.txtDeuda.Size = new System.Drawing.Size(119, 22);
             this.txtDeuda.TabIndex = 87;
             // 
             // lblDeuda
             // 
             this.lblDeuda.AutoSize = true;
-            this.lblDeuda.Location = new System.Drawing.Point(437, 63);
-            this.lblDeuda.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDeuda.Location = new System.Drawing.Point(583, 78);
             this.lblDeuda.Name = "lblDeuda";
-            this.lblDeuda.Size = new System.Drawing.Size(39, 13);
+            this.lblDeuda.Size = new System.Drawing.Size(50, 17);
             this.lblDeuda.TabIndex = 88;
             this.lblDeuda.Text = "Deuda";
             // 
@@ -332,9 +340,8 @@
             this.Devuelto});
             this.dgvPrestamos.DataSource = this.prestamoAdapterBindingSource;
             this.dgvPrestamos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvPrestamos.Enabled = false;
-            this.dgvPrestamos.Location = new System.Drawing.Point(10, 112);
-            this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvPrestamos.Location = new System.Drawing.Point(13, 138);
+            this.dgvPrestamos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPrestamos.MultiSelect = false;
             this.dgvPrestamos.Name = "dgvPrestamos";
             this.dgvPrestamos.ReadOnly = true;
@@ -342,7 +349,7 @@
             this.dgvPrestamos.RowHeadersWidth = 51;
             this.dgvPrestamos.RowTemplate.Height = 24;
             this.dgvPrestamos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPrestamos.Size = new System.Drawing.Size(977, 280);
+            this.dgvPrestamos.Size = new System.Drawing.Size(1303, 345);
             this.dgvPrestamos.TabIndex = 31;
             this.dgvPrestamos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamos_CellClick);
             // 
@@ -354,6 +361,7 @@
             // 
             this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
             this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
             this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -361,13 +369,15 @@
             // 
             this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
             this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // codigoEjemplarDataGridViewTextBoxColumn
             // 
             this.codigoEjemplarDataGridViewTextBoxColumn.DataPropertyName = "CodigoEjemplar";
-            this.codigoEjemplarDataGridViewTextBoxColumn.HeaderText = "Codigo Ejemplar";
+            this.codigoEjemplarDataGridViewTextBoxColumn.HeaderText = "Código Ejemplar";
+            this.codigoEjemplarDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.codigoEjemplarDataGridViewTextBoxColumn.Name = "codigoEjemplarDataGridViewTextBoxColumn";
             this.codigoEjemplarDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -375,6 +385,7 @@
             // 
             this.tituloDataGridViewTextBoxColumn.DataPropertyName = "Titulo";
             this.tituloDataGridViewTextBoxColumn.HeaderText = "Titulo";
+            this.tituloDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tituloDataGridViewTextBoxColumn.Name = "tituloDataGridViewTextBoxColumn";
             this.tituloDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -382,6 +393,7 @@
             // 
             this.autorDataGridViewTextBoxColumn.DataPropertyName = "Autor";
             this.autorDataGridViewTextBoxColumn.HeaderText = "Autor";
+            this.autorDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.autorDataGridViewTextBoxColumn.Name = "autorDataGridViewTextBoxColumn";
             this.autorDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -389,6 +401,7 @@
             // 
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.DataPropertyName = "FechaAltaPrestamo";
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.HeaderText = "Fecha Alta";
+            this.fechaAltaPrestamoDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.Name = "fechaAltaPrestamoDataGridViewTextBoxColumn";
             this.fechaAltaPrestamoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -396,25 +409,27 @@
             // 
             this.plazoRestanteDataGridViewTextBoxColumn.DataPropertyName = "PlazoRestante";
             this.plazoRestanteDataGridViewTextBoxColumn.HeaderText = "Plazo Restante";
+            this.plazoRestanteDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.plazoRestanteDataGridViewTextBoxColumn.Name = "plazoRestanteDataGridViewTextBoxColumn";
             this.plazoRestanteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Devuelto
             // 
-            this.Devuelto.DataPropertyName = "Abierto";
-            this.Devuelto.FalseValue = "true";
+            this.Devuelto.DataPropertyName = "Devuelto";
+            this.Devuelto.FalseValue = "";
             this.Devuelto.HeaderText = "Devuelto";
+            this.Devuelto.MinimumWidth = 6;
             this.Devuelto.Name = "Devuelto";
             this.Devuelto.ReadOnly = true;
             this.Devuelto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Devuelto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Devuelto.TrueValue = "false";
+            this.Devuelto.TrueValue = "";
             // 
             // frm2GestionarPrestamo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 460);
+            this.ClientSize = new System.Drawing.Size(1332, 566);
             this.Controls.Add(this.dgvPrestamos);
             this.Controls.Add(this.btnEliminarPréstamo);
             this.Controls.Add(this.btnSalir);
@@ -425,6 +440,7 @@
             this.Controls.Add(this.gbDatosPrestamo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frm2GestionarPrestamo";
             this.ShowIcon = false;
@@ -468,6 +484,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn estadoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.TextBox txtDeuda;
         private System.Windows.Forms.Label lblDeuda;
+        private System.Windows.Forms.BindingSource prestamoAdapterBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigoEjemplarDataGridViewTextBoxColumn;
@@ -476,6 +493,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaAltaPrestamoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn plazoRestanteDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Devuelto;
-        private System.Windows.Forms.BindingSource prestamoAdapterBindingSource;
     }
 }

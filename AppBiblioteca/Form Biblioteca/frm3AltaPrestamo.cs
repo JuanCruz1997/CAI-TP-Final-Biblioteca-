@@ -12,7 +12,7 @@ using Entidades;
 
 namespace Form_Biblioteca
 {
-    public partial class frm3AltaPrestamo : AbstractForm<Ejemplar>
+    public partial class frm3AltaPrestamo : Form
     {
         private Master m;
 
@@ -30,13 +30,27 @@ namespace Form_Biblioteca
         }
         #region "Métodos"
 
-        public override Form GetForm()
+        /*public override Form GetForm()
         {
             return this;
-        }
-        
+        }*/
+        public bool MessageOkCancel(string msg, string tituloForm)
+        {
 
-        public override void Tab()
+            DialogResult result = MessageBox.Show(msg, tituloForm, MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                return true;
+            }
+            else return false;
+        }
+        public void CloseWindow()
+        {
+            this.Owner.Show();
+            this.Dispose();
+        }
+
+        public void Tab()
         {
             gbDatosEjemplar.TabIndex = 0;
             txtCodigoEjemplar.TabIndex = 1;
@@ -50,7 +64,7 @@ namespace Form_Biblioteca
             btnLimpiarCampos.TabIndex = 9;
             btnSalir.TabIndex = 10;
         }
-        public override void ValidarCampos(string objeto)
+        public void ValidarCampos(string objeto)
         {
             if(objeto == ejemplar)
             {
@@ -73,7 +87,7 @@ namespace Form_Biblioteca
     
         }
 
-        public override void LimpiarCampos(string obj)
+        public void LimpiarCampos(string obj)
         {   
             if(obj == ejemplar)
             {
@@ -151,7 +165,7 @@ namespace Form_Biblioteca
             }
         }
 
-        public override void FormatearCampos(string condicion)
+        public void FormatearCampos(string condicion)
         {
             if (txtCodigoCliente.Text == string.Empty)
             {
