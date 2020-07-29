@@ -105,16 +105,23 @@ namespace Negocio
             Cliente c = this.TraerPorCodigo(codigo);
             if (c != null)
             {
-                TransactionResult resultado = _mapper.Delete(c);
-                if (resultado.IsOk)
+                if (!ClienteActivo(c))
                 {
-                    this.m.ActualizarCache(this.ToString());
-                    return resultado.Id;
-                }
-                else
+                    TransactionResult resultado = _mapper.Delete(c);
+                    if (resultado.IsOk)
+                    {
+                        this.m.ActualizarCache(this.ToString());
+                        return resultado.Id;
+                    }
+                    else
+                    {
+                        throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                    }
+                }else
                 {
-                    throw new Exception("Hubo un error en la petición al servidor. Detalles: " + resultado.Error);
+                    throw new Exception("El cliente no puede ser eliminado porque tiene por lo menos un préstamo activo");
                 }
+                
             }
             else
             {
@@ -132,6 +139,18 @@ namespace Negocio
                 }
             }
             return null;
+        }
+
+        private bool ClienteActivo(Cliente cliente)
+        {
+            foreach(Prestamo p in m.Prestamos)
+            {
+                if(cliente.Codigo == p.IdCliente)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
